@@ -1,0 +1,236 @@
+version: '5.6.1'
+goal: Maximize job-specific expertise and correctness while minimizing active context and solution surface. Library size is
+  unconstrained; active job skill set is the smallest complete evidence-backed set.
+selection_pipeline:
+- PROJECT_PROFILE
+- STACK_READY
+- CAPABILITY_MAP_READY
+- RISK_AND_CHANGE_TRIGGERS
+- PROJECT_SKILLSET_READY
+- JOB_SKILLSET_READY
+- DELEGATE_WITH_EXACT_PATHS
+- WORKER_SKILLS_APPLIED
+rules:
+  no_fixed_skill_count_limit: true
+  never_preload_full_library: true
+  selected_project_skill_is_not_automatically_loaded_by_every_job: true
+  exact_paths_required: true
+  references_progressive_only: true
+  reroute_on_new_evidence: true
+automatic_core:
+  substantive_implementation:
+  - solution-minimization-engineering
+  - implementation-engineering
+  bugfix:
+  - systematic-debugging
+  substantive_review:
+  - code-review
+  - verification-gate
+  brownfield_broad_change:
+  - repository-onboarding
+  research_gap:
+  - technical-research
+change_triggers:
+  schema_or_migration:
+  - database-migrations
+  - matching datastore specialist
+  auth_or_authorization:
+  - auth-architecture
+  - security-review
+  tenant_isolation:
+  - multi-tenancy-engineering
+  - security-review
+  external_api_provider:
+  - integration-engineering
+  webhook:
+  - integration-engineering
+  - api-contracts
+  queue_worker_scheduler:
+  - background-job-engineering
+  broker_stream_event:
+  - messaging-broker-engineering
+  - distributed-systems-engineering
+  graphql:
+  - graphql-engineering
+  - api-contracts
+  grpc_proto:
+  - grpc-protobuf-engineering
+  - api-contracts
+  cache_rate_limit_lock:
+  - redis-caching-engineering
+  search_vector_rag:
+  - search-retrieval-rag-engineering
+  sqlite:
+  - sqlite-engineering
+  sqlite_vector:
+  - sqlite-vector-search-engineering
+  - sqlite-engineering
+  postgres:
+  - postgres-engineering
+  mysql_mariadb:
+  - mysql-mariadb-engineering
+  analytics_olap:
+  - analytics-database-engineering
+  data_pipeline:
+  - data-engineering
+  llm_feature:
+  - llm-application-engineering
+  - ai-evaluation
+  agent_product:
+  - agent-application-engineering
+  - ai-evaluation
+  mcp_server:
+  - mcp-server-engineering
+  ml_model:
+  - machine-learning-engineering
+  - ai-evaluation
+  pytorch:
+  - pytorch-deep-learning-engineering
+  - machine-learning-engineering
+  file_upload_object_storage:
+  - file-object-storage-engineering
+  media_processing:
+  - media-processing-engineering
+  document_processing:
+  - document-processing-engineering
+  email:
+  - email-delivery-engineering
+  payments_billing:
+  - payments-billing-engineering
+  notifications:
+  - notification-engineering
+  analytics_events:
+  - product-analytics-engineering
+  i18n_l10n:
+  - internationalization-localization-engineering
+  privacy_personal_data:
+  - privacy-data-governance-engineering
+  - security-review
+  ci_pipeline:
+  - ci-cd-engineering
+  iac:
+  - infrastructure-as-code-engineering
+  dependency_upgrade:
+  - dependency-upgrade-engineering
+  - dependency-supply-chain-engineering
+  release_packaging:
+  - release-package-engineering
+  public_library_sdk:
+  - library-sdk-engineering
+  - release-package-engineering
+  cli:
+  - cli-engineering
+  build_system:
+  - build-system-engineering
+  monorepo:
+  - monorepo-engineering
+  serverless_edge:
+  - serverless-edge-engineering
+  reverse_proxy_edge:
+  - reverse-proxy-edge-engineering
+  realtime:
+  - realtime-communications-engineering
+  network_change:
+  - network-infrastructure-engineering
+  network_automation:
+  - network-automation-engineering
+  unifi:
+  - unifi-network-engineering
+  - network-infrastructure-engineering
+  openwrt:
+  - openwrt-engineering
+  - network-infrastructure-engineering
+  opnsense:
+  - opnsense-engineering
+  - network-infrastructure-engineering
+  dns_dhcp:
+  - dns-dhcp-engineering
+  - network-infrastructure-engineering
+  vpn_overlay:
+  - vpn-overlay-network-engineering
+  - network-infrastructure-engineering
+  backup_restore_dr:
+  - backup-disaster-recovery-engineering
+  incident_runbook:
+  - incident-response-engineering
+  browser_extension:
+  - browser-extension-engineering
+  desktop_app:
+  - desktop-application-engineering
+  plugin_platform:
+  - plugin-extension-platform-engineering
+  documentation:
+  - documentation-engineering
+  high_risk_state_space:
+  - formal-modeling-verification
+  - test-engineering
+  - verification-gate
+  mongodb:
+  - mongodb-engineering
+  terraform:
+  - terraform-engineering
+  - infrastructure-as-code-engineering
+  cloudflare:
+  - cloudflare-platform-engineering
+  - serverless-edge-engineering
+  wordpress:
+  - wordpress-engineering
+  threat_model:
+  - threat-modeling-engineering
+  - security-review
+  property_based_testing:
+  - property-based-testing
+  - test-engineering
+language_framework_rule: Add each language/runtime/framework specialist only when the job materially edits/reviews that stack.
+  Framework specialist complements, not replaces, language specialist.
+review_rule: Use diff-sensitive reviewers. Security/data/network/release specialists review only when their risk trigger is
+  present. Avoid fixed reviewer counts.
+research_rule:
+  reuse_exported_evidence_first: true
+  modes:
+  - NONE
+  - VERIFY_DRIFT
+  - TARGETED
+  - SPIKE
+  add_technical_research_skill_when: a material technical decision depends on current external facts or an unresolved compatibility/behavior
+    claim
+  autonomous_decision_after_research: true
+  user_decision_only_for:
+  - product/scope behavior change
+  - possible data loss
+  - weaker security/privacy
+  - material recurring cost/vendor business commitment
+  - compliance exception
+  - external credential/approval unavailable
+documentation_impact:
+  any_non_none:
+  - documentation-engineering
+  final_user_facing:
+  - documentation-engineering
+  - verification-gate
+context_parallelism:
+  long_running_or_multi_job:
+  - context-efficiency
+  parallel_wave:
+  - context-efficiency
+solution_minimization:
+  before_substantive_implementation: true
+  fresh_complexity_review_when_material: true
+  finding_classes:
+  - DELETE
+  - REUSE
+  - STDLIB
+  - NATIVE
+  - DEPENDENCY
+  - YAGNI
+  - SHRINK
+convergence:
+  required_before_completion: true
+  artifacts:
+  - planning/execution/CONVERGENCE-MATRIX.json
+  - planning/execution/EVIDENCE-INDEX.json
+  evidence_sha_bound: true
+microtask_batching:
+  enabled: true
+  batch_when: small same-shape jobs share skills/verification and do not benefit from isolated reasoning
+  do_not_batch_when: different risk/seams/owners or a failure needs independent isolation

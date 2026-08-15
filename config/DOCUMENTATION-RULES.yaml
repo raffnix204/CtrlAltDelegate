@@ -1,0 +1,13 @@
+version: '5.6.1'
+impact_classes: [NONE, USER, INSTALLATION, CONFIGURATION, API, MIGRATION, OPERATOR, SECURITY, RELEASE]
+state_file: planning/execution/DOCUMENTATION-STATE.yaml
+coverage_file: planning/execution/DOCUMENTATION-COVERAGE.md
+readme: README.md
+policy:
+  every_commit_documentation_consistent: true
+  affected_docs_same_commit: true
+  every_push_documentation_consistent: true
+  beginner_first_readme: true
+  every_major_feature_discoverable: true
+  final_fresh_user_review: true
+  changelog_only_for_user_operator_release_relevant_changes: true

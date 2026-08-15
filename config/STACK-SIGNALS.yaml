@@ -1,0 +1,646 @@
+version: '5.6.1'
+purpose: Repository evidence hints for stack/capability routing. Signals propose candidate specialists; actual code/config/runtime
+  evidence remains authoritative.
+policy:
+  signal_is_evidence_not_truth: true
+  multiple_signals_allowed: true
+  content_hints_require_confirmation: true
+  manifest_changes_trigger_rerouting: true
+  existing_stack_preserved_by_default: true
+  framework_specialist_requires_material_touch: true
+  datastore_specialist_requires_material_touch: true
+signals:
+- id: python
+  indicators:
+  - pyproject.toml
+  - requirements.txt
+  - setup.py
+  - setup.cfg
+  - Pipfile
+  - poetry.lock
+  - uv.lock
+  skills:
+  - python-engineering
+- id: go
+  indicators:
+  - go.mod
+  - go.sum
+  skills:
+  - go-engineering
+- id: rust
+  indicators:
+  - Cargo.toml
+  - Cargo.lock
+  skills:
+  - rust-engineering
+- id: typescript-node
+  indicators:
+  - package.json
+  - tsconfig.json
+  content_hints:
+  - typescript
+  - '@types/node'
+  - node
+  skills:
+  - typescript-node-engineering
+- id: java-jvm
+  indicators:
+  - pom.xml
+  - build.gradle
+  - build.gradle.kts
+  content_hints:
+  - java
+  skills:
+  - jvm-java-engineering
+- id: kotlin
+  indicators:
+  - build.gradle.kts
+  - settings.gradle.kts
+  content_hints:
+  - kotlin
+  skills:
+  - kotlin-engineering
+- id: dotnet
+  indicators:
+  - '*.csproj'
+  - '*.sln'
+  - global.json
+  skills:
+  - dotnet-engineering
+- id: fsharp
+  indicators:
+  - '*.fsproj'
+  skills:
+  - fsharp-engineering
+  - dotnet-engineering
+- id: cpp
+  indicators:
+  - CMakeLists.txt
+  - meson.build
+  - '*.vcxproj'
+  content_hints:
+  - .cpp
+  - .cc
+  - .cxx
+  - .hpp
+  skills:
+  - cpp-systems-engineering
+  - build-system-engineering
+- id: c
+  indicators:
+  - CMakeLists.txt
+  - Makefile
+  - meson.build
+  content_hints:
+  - .c
+  - .h
+  skills:
+  - c-systems-engineering
+  - build-system-engineering
+- id: php
+  indicators:
+  - composer.json
+  - composer.lock
+  skills:
+  - php-engineering
+- id: ruby
+  indicators:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  skills:
+  - ruby-engineering
+- id: perl
+  indicators:
+  - cpanfile
+  - Makefile.PL
+  - Build.PL
+  skills:
+  - perl-engineering
+- id: swift
+  indicators:
+  - Package.swift
+  - '*.xcodeproj'
+  - '*.xcworkspace'
+  - Podfile
+  skills:
+  - swift-engineering
+- id: android
+  indicators:
+  - AndroidManifest.xml
+  - settings.gradle.kts
+  - build.gradle.kts
+  content_hints:
+  - com.android.application
+  - com.android.library
+  skills:
+  - kotlin-engineering
+  - android-architecture
+  - android-testing
+- id: kmp
+  indicators:
+  - build.gradle.kts
+  content_hints:
+  - kotlinMultiplatform
+  - org.jetbrains.kotlin.multiplatform
+  skills:
+  - kotlin-engineering
+  - kotlin-multiplatform-engineering
+- id: react-native
+  indicators:
+  - package.json
+  content_hints:
+  - react-native
+  - expo
+  skills:
+  - typescript-node-engineering
+  - react-native-engineering
+- id: flutter
+  indicators:
+  - pubspec.yaml
+  - pubspec.lock
+  content_hints:
+  - 'flutter:'
+  skills:
+  - flutter-engineering
+- id: harmonyos
+  indicators:
+  - build-profile.json5
+  - oh-package.json5
+  content_hints:
+  - arkts
+  - arkui
+  skills:
+  - harmonyos-arkts-engineering
+- id: react
+  indicators:
+  - package.json
+  content_hints:
+  - react
+  - react-dom
+  skills:
+  - react-web-engineering
+  - typescript-node-engineering
+- id: nextjs
+  indicators:
+  - next.config.js
+  - next.config.mjs
+  - next.config.ts
+  content_hints:
+  - next
+  skills:
+  - nextjs-engineering
+  - react-web-engineering
+  - typescript-node-engineering
+- id: vue
+  indicators:
+  - package.json
+  content_hints:
+  - vue
+  skills:
+  - vue-nuxt-engineering
+  - typescript-node-engineering
+- id: nuxt
+  indicators:
+  - nuxt.config.ts
+  - nuxt.config.js
+  content_hints:
+  - nuxt
+  skills:
+  - vue-nuxt-engineering
+  - typescript-node-engineering
+- id: angular
+  indicators:
+  - angular.json
+  content_hints:
+  - '@angular/core'
+  skills:
+  - angular-engineering
+  - typescript-node-engineering
+- id: astro
+  indicators:
+  - astro.config.mjs
+  - astro.config.ts
+  - astro.config.js
+  content_hints:
+  - astro
+  skills:
+  - astro-engineering
+  - typescript-node-engineering
+- id: sveltekit
+  indicators:
+  - svelte.config.js
+  - svelte.config.ts
+  content_hints:
+  - '@sveltejs/kit'
+  skills:
+  - sveltekit-engineering
+  - typescript-node-engineering
+- id: django
+  indicators:
+  - manage.py
+  content_hints:
+  - django
+  skills:
+  - django-engineering
+  - python-engineering
+- id: fastapi
+  indicators:
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - fastapi
+  skills:
+  - fastapi-engineering
+  - python-engineering
+  - api-contracts
+- id: nestjs
+  indicators:
+  - nest-cli.json
+  - package.json
+  content_hints:
+  - '@nestjs/core'
+  skills:
+  - nestjs-engineering
+  - typescript-node-engineering
+- id: spring-boot
+  indicators:
+  - pom.xml
+  - build.gradle
+  - build.gradle.kts
+  content_hints:
+  - spring-boot
+  skills:
+  - spring-boot-engineering
+  - jvm-java-engineering
+- id: quarkus
+  indicators:
+  - pom.xml
+  - build.gradle
+  - build.gradle.kts
+  content_hints:
+  - quarkus
+  skills:
+  - quarkus-engineering
+  - jvm-java-engineering
+- id: laravel
+  indicators:
+  - artisan
+  - composer.json
+  content_hints:
+  - laravel/framework
+  skills:
+  - laravel-engineering
+  - php-engineering
+- id: rails
+  indicators:
+  - bin/rails
+  - config/application.rb
+  content_hints:
+  - rails
+  skills:
+  - rails-engineering
+  - ruby-engineering
+- id: ktor
+  indicators:
+  - build.gradle.kts
+  content_hints:
+  - io.ktor
+  skills:
+  - ktor-engineering
+  - kotlin-engineering
+- id: postgres
+  indicators:
+  - '*.sql'
+  - docker-compose.yml
+  - compose.yml
+  content_hints:
+  - postgresql
+  - postgres
+  - psql
+  skills:
+  - postgres-engineering
+- id: mysql-mariadb
+  indicators:
+  - '*.sql'
+  - docker-compose.yml
+  - compose.yml
+  content_hints:
+  - mysql
+  - mariadb
+  skills:
+  - mysql-mariadb-engineering
+- id: sqlite
+  indicators:
+  - '*.sqlite'
+  - '*.sqlite3'
+  - '*.db'
+  content_hints:
+  - sqlite3
+  - better-sqlite3
+  - rusqlite
+  - sqlx::sqlite
+  skills:
+  - sqlite-engineering
+- id: sqlite-vector
+  indicators:
+  - '*.sqlite'
+  - '*.sqlite3'
+  - '*.db'
+  content_hints:
+  - vec1
+  - sqlite-vec
+  - vec0
+  - embedding
+  skills:
+  - sqlite-engineering
+  - sqlite-vector-search-engineering
+- id: redis
+  indicators:
+  - docker-compose.yml
+  - compose.yml
+  - package.json
+  - pyproject.toml
+  content_hints:
+  - redis
+  - ioredis
+  - redis-py
+  skills:
+  - redis-caching-engineering
+- id: clickhouse-analytics
+  indicators:
+  - docker-compose.yml
+  - compose.yml
+  - '*.sql'
+  content_hints:
+  - clickhouse
+  skills:
+  - analytics-database-engineering
+- id: graphql
+  indicators:
+  - schema.graphql
+  - schema.graphqls
+  content_hints:
+  - graphql
+  - apollo
+  skills:
+  - graphql-engineering
+  - api-contracts
+- id: grpc-protobuf
+  indicators:
+  - '*.proto'
+  - buf.yaml
+  - buf.gen.yaml
+  content_hints:
+  - grpc
+  - protobuf
+  skills:
+  - grpc-protobuf-engineering
+  - api-contracts
+- id: mcp
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - '@modelcontextprotocol/sdk'
+  - fastmcp
+  - modelcontextprotocol
+  skills:
+  - mcp-server-engineering
+- id: llm
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - openai
+  - anthropic
+  - gemini
+  - llm
+  - langchain
+  - llamaindex
+  skills:
+  - llm-application-engineering
+  - ai-evaluation
+- id: agent-system
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - agent
+  - tool calling
+  - mcp
+  skills:
+  - agent-application-engineering
+  - ai-evaluation
+- id: pytorch
+  indicators:
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - torch
+  - pytorch
+  skills:
+  - pytorch-deep-learning-engineering
+  - machine-learning-engineering
+- id: machine-learning
+  indicators:
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - scikit-learn
+  - xgboost
+  - lightgbm
+  - tensorflow
+  skills:
+  - machine-learning-engineering
+- id: docker
+  indicators:
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose.yaml
+  - compose.yml
+  - compose.yaml
+  skills:
+  - docker-runtime
+  - deployment-readiness
+- id: kubernetes
+  indicators:
+  - Chart.yaml
+  - kustomization.yaml
+  - '*.yaml'
+  content_hints:
+  - 'kind: Deployment'
+  - 'kind: StatefulSet'
+  - 'apiVersion: apps/'
+  skills:
+  - kubernetes-operations
+  - deployment-readiness
+- id: terraform-iac
+  indicators:
+  - '*.tf'
+  - '*.tfvars'
+  - .terraform.lock.hcl
+  skills:
+  - infrastructure-as-code-engineering
+- id: ci-github
+  indicators:
+  - .github/workflows/*.yml
+  - .github/workflows/*.yaml
+  skills:
+  - ci-cd-engineering
+- id: ci-gitlab
+  indicators:
+  - .gitlab-ci.yml
+  skills:
+  - ci-cd-engineering
+- id: monorepo
+  indicators:
+  - pnpm-workspace.yaml
+  - nx.json
+  - turbo.json
+  - workspace.json
+  skills:
+  - monorepo-engineering
+- id: browser-extension
+  indicators:
+  - manifest.json
+  content_hints:
+  - manifest_version
+  - chrome.runtime
+  - browser.runtime
+  skills:
+  - browser-extension-engineering
+- id: desktop-electron-tauri
+  indicators:
+  - package.json
+  - src-tauri/tauri.conf.json
+  - tauri.conf.json
+  content_hints:
+  - electron
+  - '@tauri-apps'
+  skills:
+  - desktop-application-engineering
+- id: network-automation
+  indicators:
+  - inventory.yml
+  - hosts.yml
+  - ansible.cfg
+  content_hints:
+  - netmiko
+  - napalm
+  - netconf
+  - restconf
+  - snmp
+  - network_cli
+  skills:
+  - network-automation-engineering
+  - network-infrastructure-engineering
+- id: unifi
+  indicators:
+  - '*.yaml'
+  - '*.yml'
+  - '*.json'
+  content_hints:
+  - unifi
+  - ubiquiti
+  - unifi.ui.com
+  skills:
+  - unifi-network-engineering
+  - network-infrastructure-engineering
+- id: openwrt
+  indicators:
+  - '*.uci'
+  - openwrt
+  - files/etc/config/*
+  content_hints:
+  - ubus
+  - uci
+  - rpcd
+  - netifd
+  skills:
+  - openwrt-engineering
+  - network-infrastructure-engineering
+- id: opnsense
+  indicators:
+  - '*.yaml'
+  - '*.yml'
+  - '*.json'
+  content_hints:
+  - opnsense
+  - /api/firewall/
+  - /api/core/
+  skills:
+  - opnsense-engineering
+  - network-infrastructure-engineering
+- id: dns-dhcp
+  indicators:
+  - named.conf
+  - Corefile
+  - unbound.conf
+  - dhcpd.conf
+  - kea*.conf
+  content_hints:
+  - dnsmasq
+  - unbound
+  - dhcp
+  - dns
+  skills:
+  - dns-dhcp-engineering
+  - network-infrastructure-engineering
+- id: vpn-overlay
+  indicators:
+  - wg0.conf
+  - '*.ovpn'
+  - ipsec.conf
+  content_hints:
+  - wireguard
+  - tailscale
+  - zerotier
+  - ipsec
+  skills:
+  - vpn-overlay-network-engineering
+  - network-infrastructure-engineering
+- id: web-acquisition
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - firecrawl
+  - playwright
+  - beautifulsoup
+  - scrapy
+  - crawler
+  skills:
+  - web-data-acquisition-engineering
+- id: payments
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - stripe
+  - adyen
+  - braintree
+  - payment
+  skills:
+  - payments-billing-engineering
+  - integration-engineering
+- id: email
+  indicators:
+  - package.json
+  - pyproject.toml
+  - requirements.txt
+  content_hints:
+  - smtp
+  - sendgrid
+  - ses
+  - postmark
+  - mailgun
+  - mailtrap
+  skills:
+  - email-delivery-engineering
+  - integration-engineering
