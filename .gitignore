@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+
+# CtrlAltDelegate planning/ is durable, versioned project memory and must
+# NOT be globally ignored — only its documented transient/private scratch
+# subpaths. See docs/system/REPOSITORY-LAYOUT-AND-STATE.md.
+planning/private/
+planning/**/raw/
+planning/**/tmp/
+planning/**/logs/
+planning/**/cache/
+planning/import-conflicts/
+
+# Never commit real secrets, regardless of filename.
+.env
+.env.*

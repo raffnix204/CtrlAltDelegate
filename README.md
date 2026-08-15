@@ -2069,84 +2069,47 @@ The GitHub Native distribution contains a structure similar to:
 
 # Getting started
 
-## Option A — Recommended: use the Custom GPT first
+There is no install step and no CLI. Using CtrlAltDelegate means opening a repository that contains it with a coding agent — Pi, Codex CLI, Claude Code, OpenCode, or a compatible harness — and talking to it. Discovery, planning, implementation, verification, documentation, and Git all happen through that conversation. Full walkthrough: [`START-HERE.md`](START-HERE.md).
 
-Use this workflow if you are starting from an idea, rough specification, or incomplete project definition.
+## Option A — Recommended: clone this repo and start talking to your coding agent
 
-### 1. Open the Custom GPT
+This is the GitHub Native Edition's default path — no separate planning tool required.
 
-**[CtrlAltDelegate Custom GPT →](https://chatgpt.com/g/g-6a79d4471dfc8191a8c29ba36cb25787-ctrlaltdelegate-v5-6-1)**
+1. Clone this repository (or fork/copy it as the baseline for a new project).
+2. Open the repository root with your coding agent.
+3. Paste a first message along these lines, filled in for your situation:
 
-### 2. Describe the project
+   > Read `AGENTS.md`, then `START-HERE.md`, then `planning/execution/STATE.md`.
+   > This is [a new project idea / an existing codebase I want you to work on] — [one or two sentences on what you want built, fixed, audited, or changed].
+   > If discovery/planning isn't resolved yet, run it collaboratively with me first; otherwise continue execution toward `COMPLETED`. Ask me only where the contract actually requires it.
 
-You do not need to prepare a giant requirements document first.
+The agent reads `AGENTS.md`, notices `planning/execution/STATE.md` is `NOT_STARTED`, and opens with collaborative discovery before writing any code. From there it plans, implements, verifies, documents, and pushes checkpoints on its own until `COMPLETED`.
 
-The planner will collaboratively develop:
+You can check what a given checkout is actually ready to do with:
 
-- product behavior;
-- workflows;
-- scope;
-- constraints;
-- architecture;
-- research;
-- program design;
-- execution plan.
-
-### 3. Complete planning
-
-The planner continues until the project is sufficiently implementation-ready.
-
-### 4. Export the coding-agent delivery
-
-The resulting package is designed to be repository-root-ready.
-
-### 5. Create or select the GitHub repository
-
-For greenfield work, the delivered contents can become the initial repository baseline.
-
-For existing repositories, use the safe-merge/import workflow.
-
-### 6. Open the repository with a supported coding agent
-
-For example:
-
-- Pi
-- Codex CLI
-- Claude Code
-- OpenCode
-
-### 7. Start from the canonical handoff
-
-Read:
-
-```text
-AGENTS.md
-planning/handoff/CODING-AGENT-HANDOFF.md
-planning/execution/STATE.md
+```bash
+python3 scripts/harness_preflight.py
 ```
 
-Then execute:
+> A fresh clone currently reports `canonical_skills: 0` and `filesystem_ready: False` — the `.agents/skills/` specialist library and `.githooks` guards described throughout this README aren't included in every snapshot yet. The agent can still run discovery, plan, and implement without them; it just won't have routed specialist references or an automated docs-freshness guard until those are added.
 
-```text
-planning/execution/AUTOPILOT-GOAL.md
-```
+## Option B — Plan in a chat UI first, then hand off to a coding agent
 
-until:
+Use this if you would rather work through an idea, rough specification, or incomplete project definition in a conversational planner before touching a repository or coding agent.
 
-```text
-COMPLETED
-```
+1. Open the **[CtrlAltDelegate Custom GPT →](https://chatgpt.com/g/g-6a79d4471dfc8191a8c29ba36cb25787-ctrlaltdelegate-v5-6-1)** and describe the project. You do not need a requirements document first — the planner collaboratively develops product behavior, workflows, scope, constraints, architecture, research, program design, and an execution plan with you.
+2. The planner continues until the project is sufficiently implementation-ready, then exports a repository-root-ready coding-agent delivery package.
+3. For a new project, the delivered contents can become the initial repository baseline directly. For an existing repository, use the safe-merge/import workflow (Option C).
+4. Open the repository with a supported coding agent (Pi, Codex CLI, Claude Code, OpenCode) and start from `planning/handoff/FINAL-START-PROMPT.md`.
 
----
-
-# Option B — Existing repository
+## Option C — Add this to a repository you already have
 
 For brownfield work:
 
 1. clone or open the existing repository;
 2. preserve all existing user work;
-3. add or safely merge the CtrlAltDelegate delivery;
-4. inspect collisions before overwriting anything;
+3. add or safely merge the CtrlAltDelegate delivery — check it first with `python3 scripts/import_delivery.py /path/to/the-delivery` (dry-run by default), then re-run with `--apply` once the plan looks right;
+4. inspect collisions staged under `planning/import-conflicts/` before resolving anything by hand;
 5. run repository onboarding;
 6. record baseline SHA;
 7. detect stack and project health;
@@ -2154,8 +2117,6 @@ For brownfield work:
 9. continue execution.
 
 Do not blindly copy a delivery over an existing repository.
-
-A dry-run import workflow is provided for safe merging.
 
 ---
 
@@ -2436,21 +2397,22 @@ External engineering repositories and documentation are used as research inputs 
 
 # Start here
 
-If you are **planning a new project**:
+If you already have this repository cloned or added to a project: open **[`START-HERE.md`](START-HERE.md)** for the literal first message to paste into your coding agent.
+
+If you would rather plan the idea out in a chat UI first:
 
 ### [Open the CtrlAltDelegate Custom GPT →](https://chatgpt.com/g/g-6a79d4471dfc8191a8c29ba36cb25787-ctrlaltdelegate-v5-6-1)
 
-If you already have a **CtrlAltDelegate-enabled repository**:
+Either way, the agent's own sequence from repository root is:
 
 ```text
-1. Open the repository root
-2. Read AGENTS.md
-3. Read planning/handoff/CODING-AGENT-HANDOFF.md
-4. Read planning/execution/STATE.md
-5. Read resolved planning/discovery constraints
-6. Reach HARNESS_READY
-7. Execute planning/execution/AUTOPILOT-GOAL.md
-8. Continue until COMPLETED
+1. Read AGENTS.md
+2. Read planning/handoff/CODING-AGENT-HANDOFF.md
+3. Read planning/execution/STATE.md
+4. Read resolved planning/discovery constraints
+5. Reach HARNESS_READY
+6. Execute planning/execution/AUTOPILOT-GOAL.md
+7. Continue until COMPLETED
 ```
 
 ---
