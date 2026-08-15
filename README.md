@@ -6,7 +6,7 @@ Recommended repository location:
 assets/branding/ctrlaltdelegate-logo.svg
 -->
 
-<img src="assets/branding/ctrlaltdelegate-logo.png" alt="CtrlAltDelegate logo" width="520">
+<img src="assets/branding/ctrlaltdelegate-logo.png" alt="CtrlAltDelegate logo" width="100%">
 
 # CtrlAltDelegate
 
