@@ -1,0 +1,78 @@
+version: '5.6.1'
+policy:
+  pi_reference_harness: true
+  resolution_order:
+  - native
+  - already_installed
+  - research_current_provider
+  - safe_supported_install
+  - verify
+  - fallback_or_block
+  hardcoded_third_party_versions: false
+  prefer_existing_capabilities: true
+  prefer_project_local_when_project_specific: true
+  never_bypass_project_trust_or_managed_policy: true
+  capability_not_package_names: true
+  restart_protocol: reload_if_supported_else_RESTART_REQUIRED
+capabilities:
+  persistent_goal_loop:
+    required: AUTO
+    provider: EXISTING_FIRST
+  general_subagent_delegation:
+    required: AUTO
+    provider: EXISTING_FIRST
+  parallel_delegation:
+    required: YES_WHEN_READY_INDEPENDENT_JOBS
+    provider: EXISTING_FIRST
+  independent_review:
+    required: YES_FOR_SUBSTANTIVE_WORK
+    provider: EXISTING_FIRST
+  remote_operator_channel:
+    required: 'NO'
+    provider: EXISTING_FIRST
+  web_acquisition:
+    required: AUTO
+    verbs:
+    - search
+    - scrape
+    - map
+    - crawl
+    - extract
+    provider: EXISTING_COMPATIBLE_FIRST
+  browser:
+    required: AUTO
+    provider: EXISTING_FIRST
+  semantic_code_navigation:
+    required: AUTO_LARGE_REPOS
+    provider: EXISTING_FIRST
+  network_device_api_automation:
+    required: AUTO_NETWORK_PROJECTS
+    provider: PLATFORM_NATIVE_FIRST
+  sqlite_vector_extension:
+    required: AUTO_SQLITE_VECTOR_PROJECTS
+    provider: CURRENT_SUPPORTED_FIT
+  fresh_isolated_context:
+    required: YES_FOR_INDEPENDENT_JOBS_REVIEWS
+    provider: EXISTING_FIRST
+  background_delegation:
+    required: AUTO
+    provider: EXISTING_FIRST
+  writer_isolation:
+    required: AUTO_PARALLEL_WRITERS
+    provider: WORKTREE_OR_CWD_ISOLATION
+  runtime_reload:
+    required: AUTO_AFTER_CAPABILITY_INSTALL
+    provider: HARNESS_NATIVE_IF_AVAILABLE
+  progress_observable_delegation:
+    required: AUTO_LONG_RUNNING_OR_EXPENSIVE_JOBS
+    provider: HARNESS_NATIVE_FIRST
+  cancellable_delegation:
+    required: AUTO_DELEGATED_WORK
+    provider: HARNESS_NATIVE_FIRST
+  resumable_worker_checkpoint:
+    required: AUTO_LONG_RUNNING_OR_PROVIDER_DEADLINE_RISK
+    provider: NATIVE_SESSION_OR_PRIVATE_CHECKPOINT
+  job_capability_matching:
+    required: YES_BEFORE_DELEGATION
+    provider: ORCHESTRATOR_PREFLIGHT
+project_tools: []
