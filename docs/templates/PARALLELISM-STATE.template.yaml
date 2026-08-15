@@ -1,0 +1,21 @@
+version: '5.6.1'
+status: NOT_MEASURED
+provider: null
+parallel_delegation_verified: false
+effective_concurrency: null
+current_bottleneck: UNKNOWN
+bottleneck_capacity_or_reason: null
+background_execution: UNKNOWN
+worktree_or_cwd_isolation: UNKNOWN
+last_smoke_test: null
+policy:
+  maximize_safe_parallelism: true
+  optimize_end_to_end_throughput: true
+  avoid_writer_wip_ahead_of_bottleneck: true
+  fixed_agent_count: false
+  serial_or_throttled_independent_jobs_require_reason: true
+  execution_profile_aware: true
+  dispatch_overhead_must_be_worth_it: true
+  static_wall_clock_timeout_is_stall_evidence: false
+  health_check_before_quiet_worker_cancel: true
+  resume_checkpoint_before_blind_restart: true

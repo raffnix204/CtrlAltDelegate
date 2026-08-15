@@ -1,0 +1,41 @@
+version: '5.6.1'
+status: NOT_CLASSIFIED
+profile: AUTO
+basis:
+  scope_and_coupling: UNKNOWN
+  security_privacy_data_risk: UNKNOWN
+  deployment_runtime_complexity: UNKNOWN
+  migration_reversibility: UNKNOWN
+  operational_blast_radius: UNKNOWN
+  verification_cost: UNKNOWN
+allowed_profiles:
+- MICRO
+- SMALL
+- STANDARD
+- HIGH_RISK
+policy:
+  quality_floor_is_requirement_and_risk_driven: true
+  process_ceremony_scales_with_profile: true
+  small_projects_avoid_micro_job_fragmentation: true
+  smallest_complete_job_skill_set: true
+  no_fixed_skill_count_limit: true
+  milestone_evidence_allowed_for_micro_small: true
+  per_requirement_evidence_commit_required: false
+  per_job_branch_required: false
+  fresh_final_review_for_small: true
+  risk_trigger_can_escalate_single_job: true
+worker_liveness:
+  static_wall_clock_timeout_is_stall_evidence: false
+  meaningful_progress_renews_lease: true
+  quiet_worker_requires_health_check_before_cancel: true
+  checkpoint_before_known_provider_deadline_when_feasible: true
+  resume_from_checkpoint_instead_of_blind_restart: true
+  native_progress_signals_preferred: true
+  checkpoint_root: planning/private/runs/<RUN_ID>/<JOB_ID>/worker-state.json
+selected_strategy:
+  milestones_or_jobs: AUTO
+  branching: AUTO
+  review_depth: AUTO
+  evidence_granularity: AUTO
+  commit_push_cadence: AUTO
+  parallelism: AUTO

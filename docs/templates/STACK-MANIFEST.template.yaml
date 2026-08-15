@@ -1,0 +1,53 @@
+version: '5.6.1'
+status: NOT_RESOLVED
+project_mode: AUTO
+project_profile: AUTO
+workload:
+  product_shape: AUTO
+  latency: AUTO
+  throughput: AUTO
+  realtime: AUTO
+  offline: AUTO
+  data_sensitivity: AUTO
+  expected_scale: AUTO
+  availability: AUTO
+  network_topology_impact: AUTO
+constraints:
+  platforms: []
+  deployment: []
+  compliance_security: []
+  team_maintenance: []
+  cost: []
+  existing_stack_preservation: AUTO
+  offline_local_first: AUTO
+  hardware_network_constraints: []
+selected:
+  languages: []
+  runtimes: []
+  frameworks: []
+  rendering_model: AUTO
+  databases: []
+  vector_search: []
+  caches: []
+  queues_streams: []
+  search_retrieval: []
+  deployment_targets: []
+  mobile_platforms: []
+  desktop_platforms: []
+  ai_ml: []
+  network_platforms: []
+  integration_protocols: []
+  external_providers: []
+decisions: []
+evidence: []
+research_freshness:
+  last_planner_research: AUTO
+  drift_prone_decisions: []
+  execution_revalidation_required: []
+skill_signals:
+  language_specialists: []
+  framework_specialists: []
+  datastore_specialists: []
+  domain_specialists: []
+  risk_specialists: []
+reconsideration_triggers: []

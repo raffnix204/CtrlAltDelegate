@@ -1,0 +1,44 @@
+delivery_version: '5.6'
+layout: REPO_ROOT_READY
+persistent_planning_root: planning
+handoff_root: planning/handoff
+root_policy:
+  greenfield: CONTENTS_MAY_BECOME_INITIAL_REPOSITORY_BASELINE
+  brownfield: SAFE_MERGE_NEVER_BLIND_OVERWRITE
+planning_git_policy:
+  version_planning: true
+  ignore_whole_planning_tree: false
+  transient_only:
+  - planning/private/
+  - planning/**/raw/
+  - planning/**/tmp/
+  - planning/**/logs/
+  - planning/**/cache/
+  - planning/import-conflicts/
+required_files:
+- AGENTS.md
+- planning/discovery/DISCOVERY-STATE.md
+- planning/discovery/TECHNICAL-PREFERENCES.yaml
+- planning/handoff/START-HERE.md
+- planning/handoff/CODING-AGENT-HANDOFF.md
+- planning/handoff/FINAL-START-PROMPT.md
+- planning/execution/STATE.md
+- planning/execution/EXECUTION-PROFILE.yaml
+- planning/execution/AUTOPILOT-GOAL.md
+- planning/architecture/STACK-MANIFEST.yaml
+- planning/architecture/PROGRAM-DESIGN.md
+- planning/execution/SKILLS-MANIFEST.yaml
+- planning/execution/CONVERGENCE-MATRIX.json
+- planning/execution/EVIDENCE-INDEX.json
+- planning/research/RESEARCH-POLICY.yaml
+canonical_skills_root: .agents/skills
+skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
+execution_profile_contract:
+  state: planning/execution/EXECUTION-PROFILE.yaml
+  profiles:
+  - MICRO
+  - SMALL
+  - STANDARD
+  - HIGH_RISK
+  quality_floor: REQUIREMENT_AND_RISK_DRIVEN
+  worker_liveness: PROGRESS_AWARE_NO_UNIVERSAL_STATIC_TIMEOUT

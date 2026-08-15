@@ -1,0 +1,44 @@
+version: '5.6.1'
+library: software-planning-lead-v5.6.1
+canonical_root: .agents/skills
+library_count: 145
+selection_state: NOT_SELECTED
+selection_inputs:
+- project_mode
+- project_profile
+- planning/architecture/STACK-MANIFEST.yaml
+- config/STACK-SIGNALS.yaml
+- config/SKILL-ROUTING-RULES.yaml
+- product/domain capabilities
+- risk/change triggers
+- job DAG/seams
+project_selected: []
+job_contract:
+  each_job_lists:
+  - required_skill_ids
+  - canonical_skill_paths
+  - why_each_skill_is_needed
+  - research_need
+  - relevant_reference_files_if_known
+  research_need_values:
+  - NONE
+  - VERIFY_DRIFT
+  - TARGETED
+  - SPIKE
+  delegation: orchestrator instructs worker to read exact required SKILL.md paths before work; reference files load progressively
+    only when relevant
+  worker_return:
+  - STATUS
+  - SKILLS_APPLIED
+  - RESEARCH_PERFORMED
+  - critical_findings
+  - evidence
+  - report_path
+  completion_rule: job cannot be accepted if a mandatory triggered specialist was silently skipped or required skill path
+    was not read
+routing_policy:
+  no_fixed_skill_limit: true
+  smallest_complete_set: true
+  full_library_preload: false
+  project_selected_not_equal_job_loaded: true
+  reroute_on_material_new_evidence: true

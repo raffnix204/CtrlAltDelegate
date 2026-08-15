@@ -1,0 +1,33 @@
+version: '5.6.1'
+status: NOT_READY
+decision_style: AUTO
+items:
+  technology:
+    strength: AUTO
+    use: []
+    avoid: []
+    notes: ''
+  runtime_hosting:
+    strength: AUTO
+    targets: []
+    exposure: AUTO
+    notes: ''
+  data_security_region:
+    strength: AUTO
+    data_sensitivity: AUTO
+    security_criticality: AUTO
+    residency_regions: []
+    public_exposure: AUTO
+    privacy_compliance: []
+    notes: ''
+  existing_environment:
+    strength: AUTO
+    systems: []
+    integrations: []
+    network_hardware: []
+    budget_operating_constraints: []
+    notes: ''
+accepted_planner_suggestions: []
+rejected_or_out_of_scope: []
+unresolved_high_impact: []
+last_confirmed_at: null

@@ -1,0 +1,14 @@
+version: '5.6.1'
+status: NOT_CHECKED
+last_check:
+  staged_fingerprint: null
+  impact: []
+  docs_updated: []
+  reason: null
+  checked_at: null
+  staged_files: []
+final_gate:
+  readme_beginner_review: NOT_CHECKED
+  feature_coverage: NOT_CHECKED
+  commands_links_examples: NOT_CHECKED
+  remote_main_docs_current: NOT_CHECKED
