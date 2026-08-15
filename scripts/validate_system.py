@@ -26,8 +26,8 @@ except Exception as e:
     errors.append(f'catalog parse: {e}'); catalog={}
 entries=[x for x in catalog.get('skills',[]) if isinstance(x,dict)]
 ids={x.get('id') for x in entries}
-if catalog.get('version')!='5.6.1': errors.append('catalog version mismatch')
-if catalog.get('library')!='software-planning-lead-v5.6.1': errors.append('catalog library mismatch')
+if catalog.get('version')!='5.6.3': errors.append('catalog version mismatch')
+if catalog.get('library')!='software-planning-lead-v5.6.3': errors.append('catalog library mismatch')
 if (catalog.get('policy') or {}).get('skill_schema')!='5.6.1-domain-expertise': errors.append('catalog skill_schema mismatch')
 if catalog.get('library_count') != len(skills): errors.append(f"catalog library_count={catalog.get('library_count')} actual={len(skills)}")
 if ids != set(skills): errors.append(f'catalog/file mismatch missing_files={sorted(ids-set(skills))} missing_catalog={sorted(set(skills)-ids)}')
@@ -84,19 +84,19 @@ for sid,p in wrappers.items():
     if f'../../../.agents/skills/{sid}/SKILL.md' not in wt: errors.append(f'{sid}: bad Claude adapter')
 
 required=[
-'planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml']
+'planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','docs/system/LANGUAGE-AND-INTERACTION.md','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml']
 for x in required:
     if not (R/x).exists(): errors.append(f'missing {x}')
 
 for path,key in [('planning/execution/SKILLS-MANIFEST.yaml','library_count')]:
     try:
         d=yaml.safe_load((R/path).read_text(encoding='utf-8'))
-        if d.get('version')!='5.6.1': errors.append(f'{path} version mismatch')
+        if d.get('version')!='5.6.3': errors.append(f'{path} version mismatch')
         if key and d.get(key)!=len(skills): errors.append(f'{path} {key} mismatch')
     except Exception as e: errors.append(f'{path} parse: {e}')
 try:
     pref=yaml.safe_load((R/'planning/discovery/TECHNICAL-PREFERENCES.yaml').read_text(encoding='utf-8'))
-    if pref.get('version')!='5.6.1': errors.append('TECHNICAL-PREFERENCES version mismatch')
+    if pref.get('version')!='5.6.3': errors.append('TECHNICAL-PREFERENCES version mismatch')
     if pref.get('decision_style') not in {'AUTO','AUTOPILOT','COLLABORATIVE','DIRECTED'}: errors.append('TECHNICAL-PREFERENCES invalid decision_style')
     required_items={'technology','runtime_hosting','data_security_region','existing_environment'}
     if not required_items.issubset(set((pref.get('items') or {}).keys())): errors.append('TECHNICAL-PREFERENCES missing required item groups')
@@ -105,7 +105,7 @@ try:
 except Exception as e: errors.append(f'TECHNICAL-PREFERENCES parse: {e}')
 try:
     ep=yaml.safe_load((R/'planning/execution/EXECUTION-PROFILE.yaml').read_text(encoding='utf-8'))
-    if ep.get('version')!='5.6.1': errors.append('EXECUTION-PROFILE version mismatch')
+    if ep.get('version')!='5.6.3': errors.append('EXECUTION-PROFILE version mismatch')
     if ep.get('profile') not in {'AUTO','MICRO','SMALL','STANDARD','HIGH_RISK'}: errors.append('EXECUTION-PROFILE invalid profile')
     wl=ep.get('worker_liveness') or {}
     if wl.get('static_wall_clock_timeout_is_stall_evidence') is not False: errors.append('EXECUTION-PROFILE must reject static wall-clock timeout as stall evidence')
@@ -133,6 +133,56 @@ for p in R.rglob('*'):
     except: continue
     if legacy_re.search(t): errors.append(f'{p.relative_to(R)}: legacy version remnant')
     if re.search(r'(?i)capability-class model routing|model_routing:\s*true',t): errors.append(f'{p.relative_to(R)}: prohibited model-routing policy')
+
+
+# V5.6.3 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
+forbidden_prereq = re.compile(r'(?i)custom\s*-?gpt\s+(?:should|must|needs?\s+to)\s+(?:already\s+)?(?:have\s+)?completed')
+for rel in ['AGENTS.md','GOAL.md','planning/execution/AUTOPILOT-GOAL.md','START-HERE.md']:
+    t=(R/rel).read_text(encoding='utf-8')
+    if forbidden_prereq.search(t): errors.append(f'{rel}: Custom GPT is still phrased as a prerequisite')
+mode_doc=(R/'docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md').read_text(encoding='utf-8')
+for mode in ['FULL_LIFECYCLE','RESUME_PLANNING','EXECUTION_HANDOFF','RESUME_EXECUTION']:
+    if mode not in mode_doc: errors.append(f'full-lifecycle contract missing mode {mode}')
+start=(R/'START-HERE.md').read_text(encoding='utf-8')
+if 'Custom GPT is optional' not in start and 'Custom GPT remains an optional' not in start: errors.append('START-HERE must state Custom GPT is optional')
+if 'FULL_LIFECYCLE' not in start: errors.append('START-HERE missing standalone full-lifecycle entry')
+state_text=(R/'planning/execution/STATE.md').read_text(encoding='utf-8')
+for required_state in ['Lifecycle Mode: AUTO_DETECT','Discovery Readiness: NOT_READY','run lifecycle mode detection','collaborative discovery']:
+    if required_state not in state_text: errors.append(f'initial STATE missing standalone entry signal: {required_state}')
+auto=(R/'planning/execution/AUTOPILOT-GOAL.md').read_text(encoding='utf-8')
+for token in ['MODE_DETECTION','FULL_LIFECYCLE','RESUME_PLANNING','EXECUTION_HANDOFF','RESUME_EXECUTION','COLLABORATIVE_DISCOVERY']:
+    if token not in auto: errors.append(f'AUTOPILOT-GOAL missing full-lifecycle token {token}')
+# Template/initial-state parity: project initialization must preserve full-lifecycle semantics.
+for rel, tokens in {
+    'docs/templates/AUTOPILOT-GOAL.template.md':['MODE_DETECTION','FULL_LIFECYCLE','RESUME_PLANNING','EXECUTION_HANDOFF','RESUME_EXECUTION'],
+    'docs/templates/STATE.template.md':['Lifecycle Mode: AUTO_DETECT','Discovery Readiness: NOT_READY','run lifecycle mode detection'],
+    'delivery-template/planning/execution/AUTOPILOT-GOAL.md':['MODE_DETECTION','FULL_LIFECYCLE','RESUME_PLANNING','EXECUTION_HANDOFF','RESUME_EXECUTION'],
+    'delivery-template/planning/execution/STATE.md':['Lifecycle Mode: AUTO_DETECT','Discovery Readiness: NOT_READY','run lifecycle mode detection'],
+}.items():
+    tt=(R/rel).read_text(encoding='utf-8')
+    for tok in tokens:
+        if tok not in tt: errors.append(f'{rel}: missing full-lifecycle template token {tok}')
+# Complete release distribution, not a documentation-only snapshot.
+for rel in ['.agents/skills/CATALOG.yaml','.claude/skills','.pi','.githooks','evals/skills/scenarios.yaml']:
+    if not (R/rel).exists(): errors.append(f'incomplete GitHub-native distribution: missing {rel}')
+
+# INTERNATIONALIZATION_GATE: canonical shipped system text must remain English while conversation can adapt to the user.
+german_chars=re.compile('[\\u00e4\\u00f6\\u00fc\\u00c4\\u00d6\\u00dc\\u00df]')
+framework_roots=[R/'docs/system',R/'.agents/skills',R/'.claude/skills',R/'.pi',R/'config',R/'scripts']
+framework_files=[R/'AGENTS.md',R/'CLAUDE.md',R/'START-HERE.md',R/'GOAL.md',R/'CODING-AGENT-HANDOFF.md']
+scan_files=list(framework_files)
+for base in framework_roots:
+    if base.exists(): scan_files.extend(x for x in base.rglob('*') if x.is_file())
+for p in scan_files:
+    if p.suffix.lower() not in {'.md','.yaml','.yml','.json','.py','.toml','.txt','.sh'} and p.name not in {'pre-commit','pre-push'}: continue
+    try: txt=p.read_text(encoding='utf-8')
+    except: continue
+    if german_chars.search(txt): errors.append(f'{p.relative_to(R)}: non-English character remnant in canonical framework text')
+try:
+    lang=(R/'docs/system/LANGUAGE-AND-INTERACTION.md').read_text(encoding='utf-8')
+    if "Reply in the user's language by default" not in lang: errors.append('language contract missing adaptive conversation rule')
+    if 'artifacts are English by default' not in lang: errors.append('language contract missing English artifact rule')
+except Exception as e: errors.append(f'language contract read: {e}')
 
 if errors:
     print('SYSTEM_QA_FAIL')

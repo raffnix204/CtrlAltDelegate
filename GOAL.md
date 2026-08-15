@@ -1,4 +1,4 @@
-# GOAL — V5.6.1
+# GOAL — V5.6.3
 
 ## Project mode
 `AUTO`
@@ -25,8 +25,12 @@ Architecture: `PRESERVE_UNLESS_JUSTIFIED`
 Known baseline failures: `UNKNOWN`
 
 ## Planning baseline
-Custom-GPT planning/research: `AUTHORITATIVE_BASELINE_UNLESS_REPO_RUNTIME_CONTRADICTS`
-Execution research: `JIT_ONLY`
+Lifecycle mode: `AUTO_DETECT_FROM_GIT_AND_PLANNING_STATE`
+Existing authoritative planning: `USE_IF_PRESENT_UNLESS_REPO_RUNTIME_CONTRADICTS`
+No planning baseline: `RUN_FULL_COLLABORATIVE_LIFECYCLE_FROM_INTAKE`
+Partial planning: `RESUME_EARLIEST_UNRESOLVED_MATERIAL_GATE`
+Custom-GPT planning/research: `OPTIONAL_AUTHORITATIVE_INPUT_WHEN_PRESENT`
+Execution research: `JIT_ONLY_AFTER_REUSING_CURRENT_PLANNING_EVIDENCE`
 Research modes: `NONE | VERIFY_DRIFT | TARGETED | SPIKE`
 Routine technical decisions after evidence: `AUTONOMOUS`
 
@@ -59,7 +63,7 @@ Model policy: `USE_OPERATOR_OR_HARNESS_SELECTION_UNCHANGED`
 Capability activation: `INSTALL_IF_REQUIRED_THEN_RELOAD_OR_RESTART_REQUIRED`
 
 
-## V5.6.1 planning / state / execution flow
+## V5.6.3 planning / state / execution flow
 Planning root: `planning/` — persistent, versioned, never globally gitignored.
 Current state: `planning/execution/STATE.md` — update after meaningful execution boundaries.
 Program design: `LIGHTEST_SUFFICIENT_BEFORE_BROAD_SUBSTANTIVE_IMPLEMENTATION`
@@ -69,4 +73,10 @@ Failure closure: `DURABLE_MINIMUM_CONTROL_AFTER_ESCAPED_OR_REPEATED_FAILURE`
 Measurable outcomes: `USE_WHEN_HONEST_AND_DECISION_RELEVANT`
 
 
-V5.6.1 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
+V5.6.3 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
+
+
+## Language / interaction
+Conversation: `FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN`
+System/planning artifacts: `ENGLISH`
+Localized product content: `ONLY_WHEN_PROJECT_REQUIRES`

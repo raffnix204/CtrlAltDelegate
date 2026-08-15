@@ -1,4 +1,4 @@
-version: '5.6.1'
+version: '5.6.3'
 purpose: Repository evidence hints for stack/capability routing. Signals propose candidate specialists; actual code/config/runtime
   evidence remains authoritative.
 policy:

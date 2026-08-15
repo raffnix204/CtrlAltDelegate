@@ -1,4 +1,4 @@
-# Delivery / Repository Handoff — V5.6.1
+# Delivery / Repository Handoff — V5.6.3
 
 Custom GPT exports a unique `<project-slug>-coding-agent-delivery/` directory whose **contents are repo-root-ready**.
 
@@ -32,7 +32,7 @@ Custom GPT exports a unique `<project-slug>-coding-agent-delivery/` directory wh
         └── DELIVERY-MANIFEST.yaml
 ```
 
-There is no nested `project-overlay/` in V5.6.1.
+There is no nested `project-overlay/` in V5.6.3.
 
 ## Greenfield path
 

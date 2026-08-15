@@ -1,4 +1,4 @@
-# Harness Compatibility & Capability Bootstrap — V5.6.1
+# Harness Compatibility & Capability Bootstrap — V5.6.3
 
 Pi is the reference/golden-path harness. **Codex CLI is a first-class equal behavioral target**; Claude Code and OpenCode are supported compatible harnesses under the same contract. One methodology applies to all harnesses.
 

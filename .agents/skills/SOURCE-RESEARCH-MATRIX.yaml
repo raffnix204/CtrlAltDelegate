@@ -1,0 +1,262 @@
+version: 5.6.1
+reviewed_at: '2026-08-14'
+policy:
+  external_sources_are_research_inputs_only: true
+  copy_upstream_skill_verbatim: false
+  adapt_concepts_to_local_contract: true
+  primary_docs_override_community_patterns: true
+  officialskills_role: discovery_index_only
+  record_material_upstream_concepts: true
+sources:
+  ecc:
+    repository: https://github.com/affaan-m/ECC
+    reviewed_commit: c9de8f5b2b3a225bca9befa2b7700aa5e3a4d1b8
+    class: community_engineering_reference
+    used_for:
+    - react component/state/effect and server-client pattern depth
+    - security review/checklist and framework-rule organization ideas
+    - skill/rule separation and current agent-skill ergonomics
+    adaptation: concepts independently rewritten; ECC harness/model assumptions are not inherited
+  shokunin:
+    repository: https://github.com/EliasOulkadi/shokunin
+    reviewed_commit: 4c68e5bcb49453053cebf3390939a0a2e8e9a5e8
+    class: community_skill_system_reference
+    used_for:
+    - progressive disclosure and bundled references/scripts
+    - React Native and Flutter failure-mode inventory
+    - skill creator baseline/eval loop ideas
+    adaptation: prescriptive library/tool choices are treated as hypotheses, not defaults
+  officialskills:
+    url: https://officialskills.sh/
+    class: discovery_index
+    used_for:
+    - locating current vendor/project-maintained skill repositories
+    - identifying high-value domain gaps and version-sensitive specialist topics
+    caution: verify the underlying repository and first-party documentation; index labels are not authority
+vendor_project_repositories:
+  nextjs:
+    repository: https://github.com/vercel-labs/next-skills
+    discovered_via: officialskills.sh
+    class: framework_vendor_reference
+    local_targets:
+    - nextjs-engineering
+    topics:
+    - RSC boundaries
+    - current Next.js conventions
+    - Cache Components
+    - upgrades/codemods
+  angular:
+    repository: https://github.com/angular/skills
+    discovered_via: officialskills.sh
+    class: framework_project_reference
+    local_targets:
+    - angular-engineering
+    topics:
+    - current CLI/application conventions
+    - SSR
+    - routing
+  react_native_callstack:
+    repository: https://github.com/callstackincubator/agent-skills
+    discovered_via: officialskills.sh
+    class: specialist_vendor_reference
+    local_targets:
+    - react-native-engineering
+    topics:
+    - performance by JS/native layer
+    - upgrade/native-template reconciliation
+  expo:
+    repository: https://github.com/expo/skills
+    discovered_via: officialskills.sh
+    class: framework_vendor_reference
+    local_targets:
+    - react-native-engineering
+    topics:
+    - Expo Router/native UI
+    - data fetching/offline
+    - EAS workflows
+    - Expo upgrades
+  flutter:
+    repository: https://github.com/flutter/skills
+    discovered_via: officialskills.sh
+    class: framework_project_reference
+    local_targets:
+    - flutter-engineering
+    topics:
+    - concurrency/isolate decisions
+    - platform integration
+    - testing and release topics
+  hashicorp:
+    repository: https://github.com/hashicorp/agent-skills
+    discovered_via: officialskills.sh
+    class: vendor_reference
+    local_targets:
+    - terraform-engineering
+    - infrastructure-as-code-engineering
+    topics:
+    - module refactoring
+    - moved/import state
+    - Terraform tests
+    - Stacks
+    - provider lifecycle
+  trail_of_bits:
+    repository: https://github.com/trailofbits/skills
+    discovered_via: officialskills.sh
+    class: security_specialist_reference
+    local_targets:
+    - security-review
+    - threat-modeling-engineering
+    - property-based-testing
+    topics:
+    - differential review
+    - blast radius
+    - insecure defaults
+    - sharp edges
+    - variant analysis
+    - property testing
+  cloudflare:
+    repository: https://github.com/cloudflare/skills
+    discovered_via: officialskills.sh
+    class: platform_vendor_reference
+    local_targets:
+    - cloudflare-platform-engineering
+    topics:
+    - Workers lifecycle
+    - floating promises
+    - streaming
+    - globals
+    - bindings
+    - Durable Objects/storage
+  wordpress:
+    repository: https://github.com/WordPress/agent-skills
+    discovered_via: officialskills.sh
+    class: project_reference
+    local_targets:
+    - wordpress-engineering
+    topics:
+    - plugin lifecycle/security
+    - REST
+    - blocks
+    - WP-CLI
+    - performance
+  mongodb:
+    repository: https://github.com/mongodb/agent-skills
+    discovered_via: officialskills.sh
+    class: database_vendor_reference
+    local_targets:
+    - mongodb-engineering
+    topics:
+    - schema patterns
+    - query optimization
+    - connection pools
+    - search/vector
+  postgres_supabase:
+    repository: https://github.com/supabase/agent-skills
+    discovered_via: officialskills.sh
+    class: postgres_specialist_reference
+    local_targets:
+    - postgres-engineering
+    topics:
+    - query/index performance
+    - connection management
+    - RLS
+    - concurrency
+  postgres_neon:
+    repository: https://github.com/neondatabase/agent-skills
+    discovered_via: officialskills.sh
+    class: postgres_platform_reference
+    local_targets:
+    - postgres-engineering
+    topics:
+    - serverless Postgres connection/topology and egress-heavy query diagnosis
+  apollo_graphql:
+    repository: https://github.com/apollographql/skills
+    discovered_via: officialskills.sh
+    class: graphql_project_reference
+    local_targets:
+    - graphql-engineering
+    topics:
+    - schema/nullability/evolution
+    - operations
+    - resolver batching
+    - Apollo runtime
+  auth0:
+    repository: https://github.com/auth0/agent-skills
+    discovered_via: officialskills.sh
+    class: identity_vendor_reference
+    local_targets:
+    - auth-architecture
+    topics:
+    - framework integration patterns
+    - OAuth/OIDC sessions
+    - MFA/step-up
+  web_quality:
+    repository: https://github.com/addyosmani/web-quality-skills
+    discovered_via: officialskills.sh
+    class: web_quality_reference
+    local_targets:
+    - frontend-performance
+    - accessibility-audit
+    - seo-content
+    topics:
+    - Core Web Vitals diagnosis
+    - Lighthouse audit interpretation
+    - accessibility/SEO checks
+primary_authority_families:
+- React and framework official documentation for current APIs/version behavior
+- PostgreSQL/MongoDB/database official documentation for engine semantics
+- W3C/WCAG and platform accessibility documentation
+- OAuth/OIDC specifications and selected identity-provider official documentation
+- Cloud/IaC/network vendor documentation for current resource/provider/runtime behavior
+- OWASP and applicable standards for security baselines
+maintenance_review_v5_6_1:
+  scope: all 145 skills structurally audited; 59 incomplete V5.6 migrations received substantive domain completion and a progressive decision
+    playbook
+  ecc:
+    reviewed_commit: c9de8f5b2b3a225bca9befa2b7700aa5e3a4d1b8
+    reviewed_patterns:
+    - agents/network-architect.md
+    - agents/network-troubleshooter.md
+    - agents/network-config-reviewer.md
+    - skills/network-config-validation/SKILL.md
+    - skills/network-interface-health/SKILL.md
+    - skills/network-bgp-diagnostics/SKILL.md
+    - skills/homelab-network-readiness/SKILL.md
+    - agents/database-reviewer.md
+    - skills/database-migrations/SKILL.md
+    used_for:
+    - pre-change reachability and topology evidence
+    - config/diff validation and post-change convergence
+    - interface/route/protocol evidence
+    - database ownership/migration/recovery review prompts
+  shokunin:
+    reviewed_commit: 4c68e5bcb49453053cebf3390939a0a2e8e9a5e8
+    reviewed_patterns:
+    - .pack/skills/ci-cd/SKILL.md
+    - .pack/skills/ci-cd/references/self-hosted-runners.md
+    - .pack/skills/windows-powershell/SKILL.md
+    - .pack/skills/windows-powershell/references/powershell-mastery.md
+    - .pack/skills/terraform/SKILL.md
+    - .pack/skills/kubernetes/SKILL.md
+    - .pack/skills/performance-profiler/SKILL.md
+    - .pack/skills/cross-review/SKILL.md
+    used_for:
+    - CI/CD clean-build, credential, cache and deployment-review prompts
+    - Windows/PowerShell platform sharp-edge inventory
+    - progressive-reference and review ergonomics
+  officialskills_and_first_party:
+    policy: officialskills.sh is discovery only; underlying repositories and current first-party documentation are authority for version-sensitive
+      claims
+    reviewed_families:
+    - Cloudflare Workers/platform
+    - HashiCorp Terraform
+    - analytics/database tooling
+    - OpenTelemetry/monitoring
+    - UniFi Site Manager and local Network APIs
+    - OPNsense API/effective privileges
+    - OpenWrt configuration/sysupgrade
+    used_for:
+    - version/capability drift triggers
+    - provider/platform-specific failure modes
+    - safe remote network change and rollback evidence
+  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification language; no upstream harness policy
+    or dependency choice is inherited by default

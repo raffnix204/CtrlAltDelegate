@@ -1,4 +1,4 @@
-version: '5.6.1'
+version: '5.6.3'
 policy:
   pi_reference_harness: true
   resolution_order:

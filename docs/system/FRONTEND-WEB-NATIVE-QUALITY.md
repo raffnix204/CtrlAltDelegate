@@ -1,4 +1,4 @@
-# Frontend, Web and Native Quality — V5.6.1
+# Frontend, Web and Native Quality — V5.6.3
 
 ## Premium frontend objective
 
@@ -100,6 +100,6 @@ If the full crawl was not completed by the planner, the coding agent must comple
 Preserve valid product/backend behavior unless approved change says otherwise. Route SEO for public/indexable routes so redesign does not regress search metadata, canonical/redirect behavior or performance.
 
 
-## V5.6.1 web stack selection
+## V5.6.3 web stack selection
 
 Frontend quality does not imply one framework. Use the stack-selection gate to choose the rendering/application model and framework from content dynamics, interactivity, SEO, personalization, deployment, cache/revalidation and team/maintenance constraints. Static/islands frameworks such as Astro may be strong candidates for content-heavy sites; server/full-stack or client-heavy frameworks may fit transactional applications. Verify current framework capabilities before deciding.

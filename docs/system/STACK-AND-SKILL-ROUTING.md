@@ -1,7 +1,7 @@
-# Stack Selection & Skill Routing — V5.6.1
+# Stack Selection & Skill Routing — V5.6.3
 
 ## Objective
-V5.6.1 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
+V5.6.3 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
 
 ```text
 PROJECT_UNDERSTOOD
@@ -68,7 +68,7 @@ The worker reads required `SKILL.md` files first and returns `SKILLS_APPLIED`. R
 - OpenWrt or OPNsense changes route their vendor specialist; never load all network vendor skills together.
 
 ## Research-aware routing
-The Custom GPT planning research is the starting point. Execution adds `technical-research` only when a real evidence gap remains. New evidence may change stack or routing; update the manifests and future jobs automatically.
+The current authoritative planning/repository/runtime evidence is the starting point, whether produced in GitHub Native or by an optional Custom GPT handoff. Execution adds `technical-research` only when a real evidence gap remains. New evidence may change stack or routing; update the manifests and future jobs automatically.
 
 ## Context rule
 Library breadth is cheap if metadata is small. Skill bodies and references are read on demand. Never preload all skill bodies, all project-selected skills, or all reference files into one worker context.

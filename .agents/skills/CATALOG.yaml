@@ -1,0 +1,4725 @@
+library: software-planning-lead-v5.6.3
+version: 5.6.3
+library_count: 145
+policy:
+  project_export: copy_selected_skill_directories_only
+  runtime_download_required: false
+  project_local_skills_are_canonical: true
+  load_per_job: true
+  no_fixed_skill_count_limit: true
+  selection_rule: select the smallest complete set justified by project/stack/capability/risk; never add unrelated specialists
+  progressive_loading:
+    entrypoint: SKILL.md
+    references: load only job-relevant files under references/
+    full_library_preload: false
+    planning_view: SKILL.md decision surface only; implementation references stay progressive
+  autonomous_research:
+    modes:
+    - NONE
+    - VERIFY_DRIFT
+    - TARGETED
+    - SPIKE
+    reuse_exported_planning_research_first: true
+    current_authoritative_sources_for_drift: true
+    routine_technical_decisions_autonomous: true
+    reroute_after_material_research_decision: true
+  job_contract:
+    required_fields:
+    - required_skill_ids
+    - canonical_skill_paths
+    - why_each_skill_is_needed
+    - research_need
+    delegation: worker reads exact required SKILL.md paths before work; reads only relevant reference files
+    worker_return:
+    - STATUS
+    - SKILLS_APPLIED
+    - RESEARCH_PERFORMED
+    - critical_findings
+    - evidence
+    - report_path
+  documentation_lifecycle:
+    every_commit_consistent: true
+    every_push_consistent: true
+    beginner_readme: true
+    final_fresh_user_review: true
+  context_freshness:
+    fresh_workers_default: true
+    fresh_reviewers: true
+    context_epochs: true
+  parallelism:
+    maximize_safe: true
+    fixed_agent_count: false
+    serial_independent_requires_reason: true
+  solution_minimization:
+    substantive_implementation: true
+    smallest_complete_solution: true
+    protected_floors:
+    - correctness
+    - security
+    - reliability
+    - accessibility
+    - operability
+    - tests
+    - documentation
+  convergence:
+    required_for_completion: true
+    sha_bound_evidence: true
+    iterative_plan_correction: true
+  skill_evaluation:
+    routing_evals: true
+    behavior_evals: true
+    system_evolution_evals: true
+    model_hardcoding: false
+  harness_support:
+    pi: reference
+    codex: first_class_equal_behavioral_contract
+    claude_code: compatible_same_contract
+    opencode: compatible_same_contract
+  skill_schema: 5.6.1-domain-expertise
+  global_execution_contract: docs/system/SKILL-EXECUTION-CONTRACT.md
+  source_research_matrix: .agents/skills/SOURCE-RESEARCH-MATRIX.yaml
+core_routing:
+  substantive_implementation:
+  - solution-minimization-engineering
+  - implementation-engineering
+  - matching language/runtime specialist(s)
+  - matching framework/datastore/capability specialists
+  bugfix:
+  - systematic-debugging
+  - matching stack/domain specialists
+  - tdd-workflow when practical
+  - code-review
+  - verification-gate
+  brownfield:
+  - repository-onboarding
+  - matching existing stack specialists
+  research_gap:
+  - technical-research
+  - affected decision specialist
+  substantive_review:
+  - code-review
+  - verification-gate
+  - triggered security/domain/stack specialists
+  high_risk:
+  - adversarial-verification when a refutable high-impact completion claim remains
+  - formal-modeling-verification when high-impact state-space/concurrency/protocol invariants justify it
+  documentation_impact:
+  - documentation-engineering
+  long_running_or_parallel_work:
+  - context-efficiency
+categories:
+  frontend-product:
+  - accessibility-audit
+  - browser-acceptance
+  - component-engineering
+  - content-copywriting
+  - frontend-architecture
+  - frontend-performance
+  - interaction-state-audit
+  - landing-conversion
+  - motion-design-engineering
+  - responsive-design
+  - seo-content
+  - ui-design-system
+  - ux-product-design
+  - visual-polish
+  - website-modernization
+  core-quality:
+  - adversarial-verification
+  - code-review
+  - context-efficiency
+  - dependency-supply-chain-engineering
+  - documentation-engineering
+  - formal-modeling-verification
+  - implementation-engineering
+  - privacy-data-governance-engineering
+  - refactoring-engineering
+  - repository-onboarding
+  - security-review
+  - solution-minimization-engineering
+  - systematic-debugging
+  - tdd-workflow
+  - technical-research
+  - technology-stack-selection
+  - test-engineering
+  - verification-gate
+  - threat-modeling-engineering
+  - property-based-testing
+  ai-agent-data:
+  - agent-application-engineering
+  - ai-evaluation
+  - data-engineering
+  - llm-application-engineering
+  - machine-learning-engineering
+  - mcp-server-engineering
+  - pytorch-deep-learning-engineering
+  - recommendation-ranking-engineering
+  - search-retrieval-rag-engineering
+  - web-data-acquisition-engineering
+  data-storage:
+  - analytics-database-engineering
+  - database-design
+  - database-migrations
+  - database-operations
+  - file-object-storage-engineering
+  - mysql-mariadb-engineering
+  - postgres-engineering
+  - redis-caching-engineering
+  - sqlite-engineering
+  - sqlite-vector-search-engineering
+  - mongodb-engineering
+  mobile-native:
+  - android-architecture
+  - android-testing
+  - desktop-application-engineering
+  - flutter-engineering
+  - harmonyos-arkts-engineering
+  - kotlin-multiplatform-engineering
+  - react-native-engineering
+  - swift-engineering
+  - swift-testing
+  - swiftui-architecture
+  framework-stacks:
+  - angular-engineering
+  - astro-engineering
+  - browser-extension-engineering
+  - django-engineering
+  - fastapi-engineering
+  - ktor-engineering
+  - laravel-engineering
+  - nestjs-engineering
+  - nextjs-engineering
+  - quarkus-engineering
+  - rails-engineering
+  - react-web-engineering
+  - spring-boot-engineering
+  - sveltekit-engineering
+  - vue-nuxt-engineering
+  backend-api-integration:
+  - api-contracts
+  - auth-architecture
+  - backend-architecture
+  - background-job-engineering
+  - cli-engineering
+  - distributed-systems-engineering
+  - graphql-engineering
+  - grpc-protobuf-engineering
+  - integration-engineering
+  - library-sdk-engineering
+  - messaging-broker-engineering
+  - multi-tenancy-engineering
+  - plugin-extension-platform-engineering
+  - realtime-communications-engineering
+  infra-network:
+  - backup-disaster-recovery-engineering
+  - deployment-readiness
+  - dns-dhcp-engineering
+  - docker-runtime
+  - infrastructure-as-code-engineering
+  - kubernetes-operations
+  - network-automation-engineering
+  - network-infrastructure-engineering
+  - openwrt-engineering
+  - opnsense-engineering
+  - performance-profiling
+  - reliability-observability
+  - reverse-proxy-edge-engineering
+  - unifi-network-engineering
+  - virtualization-homelab-engineering
+  - vpn-overlay-network-engineering
+  - terraform-engineering
+  - cloudflare-platform-engineering
+  architecture-delivery:
+  - build-system-engineering
+  - ci-cd-engineering
+  - configuration-feature-flag-engineering
+  - dependency-upgrade-engineering
+  - development-environment-engineering
+  - incident-response-engineering
+  - monorepo-engineering
+  - open-source-release-engineering
+  - release-package-engineering
+  - serverless-edge-engineering
+  language-stacks:
+  - c-systems-engineering
+  - cpp-systems-engineering
+  - dotnet-engineering
+  - fsharp-engineering
+  - go-engineering
+  - jvm-java-engineering
+  - kotlin-engineering
+  - perl-engineering
+  - php-engineering
+  - powershell-windows-engineering
+  - python-engineering
+  - ruby-engineering
+  - rust-engineering
+  - typescript-node-engineering
+  product-platform:
+  - document-processing-engineering
+  - email-delivery-engineering
+  - internationalization-localization-engineering
+  - media-processing-engineering
+  - notification-engineering
+  - payments-billing-engineering
+  - product-analytics-engineering
+  - wordpress-engineering
+skills:
+- id: accessibility-audit
+  title: Accessibility Engineering & Audit
+  description: Design and independently verify inclusive interfaces using current platform guidance and WCAG 2.2 AA as the default web target
+    unless project requirements specify otherwise.
+  category: frontend-product
+  source: skills/accessibility-audit/SKILL.md
+  project_path: .agents/skills/accessibility-audit/SKILL.md
+  skill_directory: .agents/skills/accessibility-audit/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: adversarial-verification
+  title: Adversarial Factual Verification
+  description: Independently attempt to refute material factual completion claims using fresh evidence while avoiding fake confidence from majority-voting
+    subjective judgments.
+  category: core-quality
+  source: skills/adversarial-verification/SKILL.md
+  project_path: .agents/skills/adversarial-verification/SKILL.md
+  skill_directory: .agents/skills/adversarial-verification/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: agent-application-engineering
+  title: Agent & LLM Application Engineering
+  description: Design and debug production LLM/agent applications across prompts, tool routing, structured outputs, memory, retrieval, loops,
+    evaluation, cost and wrapper layers. Use when the product itself contains an LLM or autonomous agent.
+  category: ai-agent-data
+  source: skills/agent-application-engineering/SKILL.md
+  project_path: .agents/skills/agent-application-engineering/SKILL.md
+  skill_directory: .agents/skills/agent-application-engineering/
+  references: []
+  routing:
+    signals:
+    - agent
+    - llm
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ai-evaluation
+  title: AI Evaluation Engineering
+  description: Evaluate AI/LLM/RAG/agent features with versioned datasets, capability and regression evals, deterministic/rule/model/human graders,
+    repeated-run stability, cost/latency tracking, and failure analysis. Use only when product behavior materially depends on stochastic AI outputs.
+  category: ai-agent-data
+  source: skills/ai-evaluation/SKILL.md
+  project_path: .agents/skills/ai-evaluation/SKILL.md
+  skill_directory: .agents/skills/ai-evaluation/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: analytics-database-engineering
+  title: Analytics Database Engineering
+  description: Design analytical/OLAP data stores and queries for large scans, aggregations, columnar storage, partitioning, materialized views
+    and high-throughput ingestion.
+  category: data-storage
+  source: skills/analytics-database-engineering/SKILL.md
+  project_path: .agents/skills/analytics-database-engineering/SKILL.md
+  skill_directory: .agents/skills/analytics-database-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - analytics database
+    - clickhouse
+    - columnar
+    - olap
+    companions:
+    - data-engineering
+    - performance-profiling
+    - product-analytics-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: android-architecture
+  title: Android & Kotlin Mobile Architecture
+  description: Design production Android application architecture with lifecycle-aware state, modular boundaries, persistence, background work,
+    navigation and platform integration. Use for Android or Android-heavy Kotlin Multiplatform applications.
+  category: mobile-native
+  source: skills/android-architecture/SKILL.md
+  project_path: .agents/skills/android-architecture/SKILL.md
+  skill_directory: .agents/skills/android-architecture/
+  references: []
+  routing:
+    signals:
+    - android
+    - kotlin
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: android-testing
+  title: Android Test Engineering
+  description: Design reliable Android test strategy across JVM/unit, coroutine/Flow, persistence, Compose/UI and device/instrumentation layers.
+    Use for Android feature testing, regression work or flaky mobile test diagnosis.
+  category: mobile-native
+  source: skills/android-testing/SKILL.md
+  project_path: .agents/skills/android-testing/SKILL.md
+  skill_directory: .agents/skills/android-testing/
+  references: []
+  routing:
+    signals:
+    - android
+    - kotlin
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: angular-engineering
+  title: Angular Engineering
+  description: Engineer Angular applications with standalone components, signals/reactivity, dependency injection, forms, router, RxJS interoperability,
+    SSR/hydration and scalable module boundaries.
+  category: framework-stacks
+  source: skills/angular-engineering/SKILL.md
+  project_path: .agents/skills/angular-engineering/SKILL.md
+  skill_directory: .agents/skills/angular-engineering/
+  references:
+  - references/reactivity-di-and-forms.md
+  - references/routing-ssr-and-upgrades.md
+  routing:
+    signals:
+    - angular
+    companions:
+    - typescript-node-engineering
+    - frontend-architecture
+    - test-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: api-contracts
+  title: API & Integration Contract Engineering
+  description: Design stable, evolvable APIs/events/webhooks with explicit schemas, errors, authorization, idempotency, pagination, compatibility
+    and consumer impact.
+  category: backend-api-integration
+  source: skills/api-contracts/SKILL.md
+  project_path: .agents/skills/api-contracts/SKILL.md
+  skill_directory: .agents/skills/api-contracts/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: astro-engineering
+  title: Astro Engineering
+  description: Engineer Astro content and hybrid web applications with static/SSR rendering, islands, content collections, framework components,
+    routing, image/content pipelines and deployment adapters.
+  category: framework-stacks
+  source: skills/astro-engineering/SKILL.md
+  project_path: .agents/skills/astro-engineering/SKILL.md
+  skill_directory: .agents/skills/astro-engineering/
+  references:
+  - references/adapters-seo-and-verification.md
+  - references/islands-content-and-rendering.md
+  routing:
+    signals:
+    - astro
+    - astro.config
+    companions:
+    - frontend-architecture
+    - seo-content
+    - frontend-performance
+    - component-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: auth-architecture
+  title: Authentication & Authorization Architecture
+  description: Design identity, session, recovery and authorization boundaries using established protocols/provider capabilities without building
+    unnecessary custom authentication.
+  category: backend-api-integration
+  source: skills/auth-architecture/SKILL.md
+  project_path: .agents/skills/auth-architecture/SKILL.md
+  skill_directory: .agents/skills/auth-architecture/
+  references:
+  - references/authorization-tenancy.md
+  - references/session-oauth-and-step-up.md
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - protocol_provider_guidance
+      - security_advisories
+      - platform_controls
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: backend-architecture
+  title: Backend Architecture Engineering
+  description: Design maintainable backend service and module boundaries, application flows, transaction ownership, jobs, caches and integration
+    seams. Use when planning or implementing non-trivial server-side application architecture.
+  category: backend-api-integration
+  source: skills/backend-architecture/SKILL.md
+  project_path: .agents/skills/backend-architecture/SKILL.md
+  skill_directory: .agents/skills/backend-architecture/
+  references: []
+  routing:
+    signals:
+    - backend
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: background-job-engineering
+  title: Background Job & Worker Engineering
+  description: Design reliable asynchronous jobs, schedulers and workers with idempotency, retries, leases, concurrency, dead-letter handling,
+    progress and operational visibility.
+  category: backend-api-integration
+  source: skills/background-job-engineering/SKILL.md
+  project_path: .agents/skills/background-job-engineering/SKILL.md
+  skill_directory: .agents/skills/background-job-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - background job
+    - bullmq
+    - celery
+    - cron
+    - scheduler
+    - sidekiq
+    - worker
+    companions:
+    - messaging-broker-engineering
+    - reliability-observability
+    - integration-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: backup-disaster-recovery-engineering
+  title: Backup & Disaster Recovery Engineering
+  description: Design verified backups, restore paths, replication-independent recovery, retention, encryption and disaster exercises across databases,
+    files, configuration and critical runtime state.
+  category: infra-network
+  source: skills/backup-disaster-recovery-engineering/SKILL.md
+  project_path: .agents/skills/backup-disaster-recovery-engineering/SKILL.md
+  skill_directory: .agents/skills/backup-disaster-recovery-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - backup
+    - disaster recovery
+    - restore
+    - rpo
+    - rto
+    companions:
+    - database-operations
+    - incident-response-engineering
+    - documentation-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: browser-acceptance
+  title: Browser Acceptance & Visual Evidence
+  description: Verify real user journeys against the integrated running application using resilient browser automation, visual evidence and runtime
+    inspection.
+  category: frontend-product
+  source: skills/browser-acceptance/SKILL.md
+  project_path: .agents/skills/browser-acceptance/SKILL.md
+  skill_directory: .agents/skills/browser-acceptance/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: browser-extension-engineering
+  title: Browser Extension Engineering
+  description: Build secure browser extensions across manifests, content scripts, background/service workers, messaging, storage, permissions,
+    CSP and store packaging.
+  category: framework-stacks
+  source: skills/browser-extension-engineering/SKILL.md
+  project_path: .agents/skills/browser-extension-engineering/SKILL.md
+  skill_directory: .agents/skills/browser-extension-engineering/
+  references:
+  - references/cross-browser-packaging.md
+  - references/security-lifecycle-messaging.md
+  routing:
+    signals:
+    - browser extension
+    - chrome extension
+    - firefox addon
+    - manifest v3
+    companions:
+    - typescript-node-engineering
+    - security-review
+    - browser-acceptance
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: build-system-engineering
+  title: Build System Engineering
+  description: Design and debug deterministic build graphs, compilers, generators, native toolchains, caching and cross-platform build configuration
+    for small projects through large monorepos.
+  category: architecture-delivery
+  source: skills/build-system-engineering/SKILL.md
+  project_path: .agents/skills/build-system-engineering/SKILL.md
+  skill_directory: .agents/skills/build-system-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - bazel
+    - build system
+    - cmake
+    - compiler
+    - make
+    - ninja
+    companions:
+    - ci-cd-engineering
+    - monorepo-engineering
+    - development-environment-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: c-systems-engineering
+  title: C Systems Engineering
+  description: Engineer safe C systems code with explicit ownership, lifetimes, allocation, bounds, error paths, portability, concurrency and
+    build/toolchain diagnostics.
+  category: language-stacks
+  source: skills/c-systems-engineering/SKILL.md
+  project_path: .agents/skills/c-systems-engineering/SKILL.md
+  skill_directory: .agents/skills/c-systems-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - .c
+    - .h
+    - c language
+    - cmake
+    companions:
+    - cpp-systems-engineering
+    - build-system-engineering
+    - security-review
+    - test-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ci-cd-engineering
+  title: CI/CD Engineering
+  description: Design fast, deterministic and secure build/test/release pipelines with correct caching, artifact flow, environment gates, credentials,
+    deployment strategy and failure recovery.
+  category: architecture-delivery
+  source: skills/ci-cd-engineering/SKILL.md
+  project_path: .agents/skills/ci-cd-engineering/SKILL.md
+  skill_directory: .agents/skills/ci-cd-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - ci/cd
+    - circleci
+    - github actions
+    - gitlab ci
+    - pipeline
+    - workflow
+    companions:
+    - verification-gate
+    - deployment-readiness
+    - test-engineering
+    - security-review
+    - monorepo-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: cli-engineering
+  title: CLI Engineering
+  description: Design robust command-line tools with predictable parsing, composable output, configuration precedence, exit codes, interactive/non-interactive
+    modes and safe automation behavior.
+  category: backend-api-integration
+  source: skills/cli-engineering/SKILL.md
+  project_path: .agents/skills/cli-engineering/SKILL.md
+  skill_directory: .agents/skills/cli-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - cli
+    - command line
+    - terminal tool
+    companions:
+    - library-sdk-engineering
+    - powershell-windows-engineering
+    - implementation-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: code-review
+  title: Precision Code Review
+  description: Perform high-signal, evidence-based code review that finds real correctness, security, data, contract, concurrency and maintainability
+    defects without drowning the project in stylistic noise.
+  category: core-quality
+  source: skills/code-review/SKILL.md
+  project_path: .agents/skills/code-review/SKILL.md
+  skill_directory: .agents/skills/code-review/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: component-engineering
+  title: Production Component Engineering
+  description: Implement reusable, accessible and resilient UI components with explicit APIs, states and edge-case behavior without premature
+    abstraction.
+  category: frontend-product
+  source: skills/component-engineering/SKILL.md
+  project_path: .agents/skills/component-engineering/SKILL.md
+  skill_directory: .agents/skills/component-engineering/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: configuration-feature-flag-engineering
+  title: Configuration & Feature Flag Engineering
+  description: Design safe configuration, environment overrides, dynamic flags and rollout controls with schema validation, ownership, auditability,
+    cleanup and fail-safe behavior.
+  category: architecture-delivery
+  source: skills/configuration-feature-flag-engineering/SKILL.md
+  project_path: .agents/skills/configuration-feature-flag-engineering/SKILL.md
+  skill_directory: .agents/skills/configuration-feature-flag-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - config
+    - environment variable
+    - feature flag
+    - remote config
+    companions:
+    - deployment-readiness
+    - product-analytics-engineering
+    - security-review
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: content-copywriting
+  title: Product & Marketing Copywriting
+  description: Create differentiated, truthful, audience-specific website/product copy that communicates value clearly and supports user action
+    without fabricated proof or manipulative tactics.
+  category: frontend-product
+  source: skills/content-copywriting/SKILL.md
+  project_path: .agents/skills/content-copywriting/SKILL.md
+  skill_directory: .agents/skills/content-copywriting/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: context-efficiency
+  title: Agent Context Efficiency
+  description: Maximize useful reasoning per token by routing only relevant context, using progressive reads and persistent hot/cold state without
+    compressing away evidence.
+  category: core-quality
+  source: skills/context-efficiency/SKILL.md
+  project_path: .agents/skills/context-efficiency/SKILL.md
+  skill_directory: .agents/skills/context-efficiency/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: cpp-systems-engineering
+  title: C++ Systems Engineering
+  description: Write and review modern C++ with explicit ownership, RAII, lifetime/ABI safety, concurrency, undefined-behavior defenses, build
+    systems, sanitizers and measured performance. Use when C++ is a primary project language.
+  category: language-stacks
+  source: skills/cpp-systems-engineering/SKILL.md
+  project_path: .agents/skills/cpp-systems-engineering/SKILL.md
+  skill_directory: .agents/skills/cpp-systems-engineering/
+  references: []
+  routing:
+    signals:
+    - cpp
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: data-engineering
+  title: Data Engineering
+  description: Design reliable batch/stream data pipelines with contracts, lineage, quality checks, idempotency, partitioning, backfills, orchestration
+    and reproducible transformations.
+  category: ai-agent-data
+  source: skills/data-engineering/SKILL.md
+  project_path: .agents/skills/data-engineering/SKILL.md
+  skill_directory: .agents/skills/data-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - batch pipeline
+    - data pipeline
+    - elt
+    - etl
+    - stream processing
+    companions:
+    - analytics-database-engineering
+    - machine-learning-engineering
+    - messaging-broker-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: database-design
+  title: Database & Data Model Engineering
+  description: Create durable relational/document data models around domain invariants, ownership, lifecycle and access patterns with safe migrations
+    and measured indexing.
+  category: data-storage
+  source: skills/database-design/SKILL.md
+  project_path: .agents/skills/database-design/SKILL.md
+  skill_directory: .agents/skills/database-design/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: database-migrations
+  title: Database Migration & Schema Evolution
+  description: Plan and execute safe schema evolution, expand-contract rollouts, online backfills and compatibility across application versions.
+    Use for production database migrations, large backfills or risky schema changes.
+  category: data-storage
+  source: skills/database-migrations/SKILL.md
+  project_path: .agents/skills/database-migrations/SKILL.md
+  skill_directory: .agents/skills/database-migrations/
+  references: []
+  routing:
+    signals:
+    - database
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: database-operations
+  title: Database Operations Engineering
+  description: Operate production databases safely across backup, restore, replication, pooling, maintenance, capacity, observability, failover
+    and disaster recovery without conflating operations with schema design.
+  category: data-storage
+  source: skills/database-operations/SKILL.md
+  project_path: .agents/skills/database-operations/SKILL.md
+  skill_directory: .agents/skills/database-operations/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - backup
+    - database admin
+    - dba
+    - pooling
+    - replication
+    - restore
+    companions:
+    - database-design
+    - database-migrations
+    - backup-disaster-recovery-engineering
+    - reliability-observability
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: dependency-supply-chain-engineering
+  title: Dependency & Software Supply Chain Engineering
+  description: Control third-party dependency provenance, licensing, integrity, lockfiles, build inputs, package publication and compromise blast
+    radius across the software supply chain.
+  category: core-quality
+  source: skills/dependency-supply-chain-engineering/SKILL.md
+  project_path: .agents/skills/dependency-supply-chain-engineering/SKILL.md
+  skill_directory: .agents/skills/dependency-supply-chain-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - dependency
+    - lockfile
+    - package provenance
+    - sbom
+    - supply chain
+    companions:
+    - security-review
+    - dependency-upgrade-engineering
+    - ci-cd-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: dependency-upgrade-engineering
+  title: Dependency Upgrade Engineering
+  description: Plan and execute dependency, runtime and framework upgrades with compatibility research, incremental change, codemods/migrations,
+    regression evidence and rollback awareness.
+  category: architecture-delivery
+  source: skills/dependency-upgrade-engineering/SKILL.md
+  project_path: .agents/skills/dependency-upgrade-engineering/SKILL.md
+  skill_directory: .agents/skills/dependency-upgrade-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - dependency update
+    - framework migration
+    - runtime upgrade
+    - upgrade
+    companions:
+    - technical-research
+    - test-engineering
+    - verification-gate
+    - dependency-supply-chain-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: deployment-readiness
+  title: Deployment & Operations Readiness
+  description: Ensure build, environments, migrations, observability, rollback and operational ownership are sufficient for safe release without
+    forcing enterprise infrastructure onto small projects.
+  category: infra-network
+  source: skills/deployment-readiness/SKILL.md
+  project_path: .agents/skills/deployment-readiness/SKILL.md
+  skill_directory: .agents/skills/deployment-readiness/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: desktop-application-engineering
+  title: Desktop Application Engineering
+  description: Engineer cross-platform or native desktop applications with window/process lifecycle, filesystem integration, updates, IPC, packaging,
+    OS permissions and platform-specific UX.
+  category: mobile-native
+  source: skills/desktop-application-engineering/SKILL.md
+  project_path: .agents/skills/desktop-application-engineering/SKILL.md
+  skill_directory: .agents/skills/desktop-application-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - desktop app
+    - electron
+    - linux desktop
+    - macos app
+    - tauri
+    - windows app
+    companions:
+    - release-package-engineering
+    - security-review
+    - powershell-windows-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: development-environment-engineering
+  title: Development Environment Engineering
+  description: Create reproducible, low-friction development environments across language toolchains, native dependencies, services, containers
+    or declarative environment managers without polluting user systems.
+  category: architecture-delivery
+  source: skills/development-environment-engineering/SKILL.md
+  project_path: .agents/skills/development-environment-engineering/SKILL.md
+  skill_directory: .agents/skills/development-environment-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - asdf
+    - devcontainer
+    - environment
+    - flox
+    - mise
+    - nix
+    - toolchain
+    companions:
+    - docker-runtime
+    - build-system-engineering
+    - documentation-engineering
+    - context-efficiency
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: distributed-systems-engineering
+  title: Distributed Systems Engineering
+  description: Design reliable queues, events, distributed workflows, caches and service interactions with explicit consistency, delivery, ordering,
+    idempotency and backpressure semantics. Use when state or work crosses process/service boundaries.
+  category: backend-api-integration
+  source: skills/distributed-systems-engineering/SKILL.md
+  project_path: .agents/skills/distributed-systems-engineering/SKILL.md
+  skill_directory: .agents/skills/distributed-systems-engineering/
+  references: []
+  routing:
+    signals:
+    - distributed
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: django-engineering
+  title: Django Engineering
+  description: Engineer Django applications with robust settings, models/ORM, transactions, auth, middleware, forms/DRF, caching, async boundaries,
+    background jobs and deployment behavior.
+  category: framework-stacks
+  source: skills/django-engineering/SKILL.md
+  project_path: .agents/skills/django-engineering/SKILL.md
+  skill_directory: .agents/skills/django-engineering/
+  references:
+  - references/auth-middleware-async-deployment.md
+  - references/orm-transactions-and-jobs.md
+  routing:
+    signals:
+    - django
+    - manage.py
+    companions:
+    - python-engineering
+    - database-migrations
+    - auth-architecture
+    - background-job-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: dns-dhcp-engineering
+  title: DNS & DHCP Engineering
+  description: Design and operate DNS and DHCP services with authoritative/recursive boundaries, split-horizon, records, leases, reservations,
+    dynamic updates, redundancy and safe migration.
+  category: infra-network
+  source: skills/dns-dhcp-engineering/SKILL.md
+  project_path: .agents/skills/dns-dhcp-engineering/SKILL.md
+  skill_directory: .agents/skills/dns-dhcp-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - dhcp
+    - dns
+    - dnsmasq
+    - kea
+    - unbound
+    companions:
+    - network-infrastructure-engineering
+    - openwrt-engineering
+    - opnsense-engineering
+    - unifi-network-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: docker-runtime
+  title: Docker Runtime Engineering
+  description: Create deterministic, secure and maintainable container builds/local runtime with correct secrets, health, persistence, networking
+    and rebuild behavior.
+  category: infra-network
+  source: skills/docker-runtime/SKILL.md
+  project_path: .agents/skills/docker-runtime/SKILL.md
+  skill_directory: .agents/skills/docker-runtime/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: document-processing-engineering
+  title: Document Processing Engineering
+  description: Engineer PDF/Office/text ingestion, extraction, conversion and generation with fidelity checks, parser isolation, structure preservation,
+    OCR fallback and provenance.
+  category: product-platform
+  source: skills/document-processing-engineering/SKILL.md
+  project_path: .agents/skills/document-processing-engineering/SKILL.md
+  skill_directory: .agents/skills/document-processing-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - document conversion
+    - document processing
+    - docx
+    - ocr
+    - pdf
+    companions:
+    - web-data-acquisition-engineering
+    - search-retrieval-rag-engineering
+    - file-object-storage-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: documentation-engineering
+  title: Documentation Engineering
+  description: Create and govern accurate developer/operator documentation including README, setup, API reference, architecture, ADR indexes,
+    changelogs, migration guides and runbooks with executable verification.
+  category: core-quality
+  source: skills/documentation-engineering/SKILL.md
+  project_path: .agents/skills/documentation-engineering/SKILL.md
+  skill_directory: .agents/skills/documentation-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - api docs
+    - changelog
+    - documentation
+    - readme
+    - runbook
+    companions:
+    - repository-onboarding
+    - release-package-engineering
+    - incident-response-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: dotnet-engineering
+  title: .NET & C# Production Engineering
+  description: Write and review production C#/.NET with async/cancellation, DI/lifetimes, resource disposal, nullable types, LINQ/data access,
+    background services, testing and runtime performance.
+  category: language-stacks
+  source: skills/dotnet-engineering/SKILL.md
+  project_path: .agents/skills/dotnet-engineering/SKILL.md
+  skill_directory: .agents/skills/dotnet-engineering/
+  references: []
+  routing:
+    signals:
+    - csharp
+    - dotnet
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: email-delivery-engineering
+  title: Email Delivery Engineering
+  description: Engineer transactional and product email with provider abstraction, templates, queues, deliverability, domain authentication, bounce/complaint
+    handling, idempotency and environment-safe testing.
+  category: product-platform
+  source: skills/email-delivery-engineering/SKILL.md
+  project_path: .agents/skills/email-delivery-engineering/SKILL.md
+  skill_directory: .agents/skills/email-delivery-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - email
+    - mailgun
+    - mailtrap
+    - postmark
+    - sendgrid
+    - ses
+    - smtp
+    companions:
+    - notification-engineering
+    - background-job-engineering
+    - security-review
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: fastapi-engineering
+  title: FastAPI Engineering
+  description: Engineer FastAPI services with typed contracts, Pydantic models, dependency lifecycles, async correctness, auth, middleware, OpenAPI
+    and production server behavior.
+  category: framework-stacks
+  source: skills/fastapi-engineering/SKILL.md
+  project_path: .agents/skills/fastapi-engineering/SKILL.md
+  skill_directory: .agents/skills/fastapi-engineering/
+  references:
+  - references/contracts-openapi-production.md
+  - references/dependencies-async-transactions.md
+  routing:
+    signals:
+    - fastapi
+    companions:
+    - python-engineering
+    - api-contracts
+    - auth-architecture
+    - performance-profiling
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: file-object-storage-engineering
+  title: File & Object Storage Engineering
+  description: Design safe file uploads, object storage, CDN delivery, metadata, retention, lifecycle, resumability and authorization for user
+    and system-generated blobs.
+  category: data-storage
+  source: skills/file-object-storage-engineering/SKILL.md
+  project_path: .agents/skills/file-object-storage-engineering/SKILL.md
+  skill_directory: .agents/skills/file-object-storage-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - blob
+    - cdn
+    - file upload
+    - object storage
+    - s3
+    companions:
+    - security-review
+    - media-processing-engineering
+    - document-processing-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: flutter-engineering
+  title: Flutter & Dart Application Engineering
+  description: Build production Flutter/Dart applications with explicit widget/state lifecycle, async/isolate behavior, navigation, platform channels,
+    persistence, performance and cross-platform release quality.
+  category: mobile-native
+  source: skills/flutter-engineering/SKILL.md
+  project_path: .agents/skills/flutter-engineering/SKILL.md
+  skill_directory: .agents/skills/flutter-engineering/
+  references:
+  - references/async-isolates-platform.md
+  - references/performance-and-rendering.md
+  - references/state-lifecycle-navigation.md
+  - references/upgrades-and-release.md
+  routing:
+    signals:
+    - dart
+    - flutter
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: formal-modeling-verification
+  title: Formal Modeling & Verification
+  description: Conditionally model/check high-risk state machines, concurrency, transactions and distributed protocols where ordinary example
+    tests cannot efficiently explore dangerous state combinations.
+  category: core-quality
+  source: skills/formal-modeling-verification/SKILL.md
+  project_path: .agents/skills/formal-modeling-verification/SKILL.md
+  skill_directory: .agents/skills/formal-modeling-verification/
+  references: []
+  routing:
+    signals:
+    - distributed
+    - concurrency
+    - protocol
+    - state-machine
+    - high-risk
+    companions:
+    - test-engineering
+    - verification-gate
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: frontend-architecture
+  title: Frontend Application Architecture
+  description: Structure frontend modules, rendering boundaries, state, data access and error/loading behavior around product concepts while avoiding
+    unnecessary global state and framework cargo cults.
+  category: frontend-product
+  source: skills/frontend-architecture/SKILL.md
+  project_path: .agents/skills/frontend-architecture/SKILL.md
+  skill_directory: .agents/skills/frontend-architecture/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: frontend-performance
+  title: Frontend Performance Engineering
+  description: Measure and improve real user-perceived web performance using project-specific budgets, Core Web Vitals and causal profiling rather
+    than score chasing.
+  category: frontend-product
+  source: skills/frontend-performance/SKILL.md
+  project_path: .agents/skills/frontend-performance/SKILL.md
+  skill_directory: .agents/skills/frontend-performance/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: fsharp-engineering
+  title: F# Engineering
+  description: Engineer idiomatic F# applications with domain modeling, discriminated unions, immutability, async/task interop, error modeling,
+    .NET libraries and testable effect boundaries.
+  category: language-stacks
+  source: skills/fsharp-engineering/SKILL.md
+  project_path: .agents/skills/fsharp-engineering/SKILL.md
+  skill_directory: .agents/skills/fsharp-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - .fsproj
+    - fsharp
+    companions:
+    - dotnet-engineering
+    - test-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: go-engineering
+  title: Go Production Engineering
+  description: Write and review idiomatic Go with explicit context propagation, concurrency ownership, errors, interfaces, resource lifecycles,
+    testing, race safety and profiling. Use when Go is a primary project language.
+  category: language-stacks
+  source: skills/go-engineering/SKILL.md
+  project_path: .agents/skills/go-engineering/SKILL.md
+  skill_directory: .agents/skills/go-engineering/
+  references: []
+  routing:
+    signals:
+    - go
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: graphql-engineering
+  title: GraphQL Engineering
+  description: Design GraphQL schemas, resolvers, authorization, pagination, batching, subscriptions, performance and evolution without turning
+    the graph into an unbounded backend coupling.
+  category: backend-api-integration
+  source: skills/graphql-engineering/SKILL.md
+  project_path: .agents/skills/graphql-engineering/SKILL.md
+  skill_directory: .agents/skills/graphql-engineering/
+  references:
+  - references/operations-subscriptions.md
+  - references/resolvers-batching-security.md
+  - references/schema-evolution-and-nullability.md
+  routing:
+    signals:
+    - apollo
+    - graphql
+    - schema.graphql
+    companions:
+    - api-contracts
+    - realtime-communications-engineering
+    - security-review
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: grpc-protobuf-engineering
+  title: gRPC & Protobuf Engineering
+  description: Design Protobuf/gRPC contracts, services, streaming, deadlines, retries, compatibility and generated-code boundaries for polyglot
+    service communication.
+  category: backend-api-integration
+  source: skills/grpc-protobuf-engineering/SKILL.md
+  project_path: .agents/skills/grpc-protobuf-engineering/SKILL.md
+  skill_directory: .agents/skills/grpc-protobuf-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - .proto
+    - grpc
+    - protobuf
+    companions:
+    - api-contracts
+    - distributed-systems-engineering
+    - library-sdk-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: harmonyos-arkts-engineering
+  title: HarmonyOS & ArkTS Engineering
+  description: Engineer HarmonyOS/ArkTS applications with stage/component lifecycle, ArkUI state, permissions, data persistence, networking and
+    platform packaging using current platform documentation.
+  category: mobile-native
+  source: skills/harmonyos-arkts-engineering/SKILL.md
+  project_path: .agents/skills/harmonyos-arkts-engineering/SKILL.md
+  skill_directory: .agents/skills/harmonyos-arkts-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - arkts
+    - arkui
+    - harmonyos
+    companions:
+    - implementation-engineering
+    - test-engineering
+    - technical-research
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: implementation-engineering
+  title: Production Implementation Engineering
+  description: 'Write and modify production code with senior engineering discipline: fit existing architecture, explicit boundaries, failure-aware
+    behavior, maintainable structure, safe side effects, and self-review. Use for substantive implementation or refactoring work.'
+  category: core-quality
+  source: skills/implementation-engineering/SKILL.md
+  project_path: .agents/skills/implementation-engineering/SKILL.md
+  skill_directory: .agents/skills/implementation-engineering/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: incident-response-engineering
+  title: Incident Response & Runbook Engineering
+  description: Prepare and execute evidence-driven incident response with detection, severity, containment, diagnosis, recovery, communication,
+    post-incident learning and tested runbooks.
+  category: architecture-delivery
+  source: skills/incident-response-engineering/SKILL.md
+  project_path: .agents/skills/incident-response-engineering/SKILL.md
+  skill_directory: .agents/skills/incident-response-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - incident
+    - on-call
+    - outage
+    - postmortem
+    - runbook
+    - sev
+    companions:
+    - reliability-observability
+    - systematic-debugging
+    - backup-disaster-recovery-engineering
+    - documentation-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: infrastructure-as-code-engineering
+  title: Infrastructure as Code Engineering
+  description: Design, change and verify reproducible infrastructure definitions with safe state handling, modularity, drift control, reviewable
+    plans and rollback-aware delivery.
+  category: infra-network
+  source: skills/infrastructure-as-code-engineering/SKILL.md
+  project_path: .agents/skills/infrastructure-as-code-engineering/SKILL.md
+  skill_directory: .agents/skills/infrastructure-as-code-engineering/
+  references:
+  - references/field-guide.md
+  - references/state-plans-drift.md
+  routing:
+    signals:
+    - bicep
+    - cloudformation
+    - iac
+    - infrastructure
+    - pulumi
+    - terraform
+    companions:
+    - ci-cd-engineering
+    - deployment-readiness
+    - security-review
+    - backup-disaster-recovery-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: integration-engineering
+  title: External Integration & Connector Engineering
+  description: Build reliable third-party API, SDK, webhook and provider integrations that match repository patterns and handle auth, pagination,
+    limits, retries and contract drift. Use when adding or hardening external service integrations.
+  category: backend-api-integration
+  source: skills/integration-engineering/SKILL.md
+  project_path: .agents/skills/integration-engineering/SKILL.md
+  skill_directory: .agents/skills/integration-engineering/
+  references: []
+  routing:
+    signals:
+    - integration
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: interaction-state-audit
+  title: Interaction State & Concurrency Audit
+  description: Trace complex interactive flows end-to-end to detect race conditions, stale state, double actions, contradictory effects and broken
+    refresh/navigation outcomes.
+  category: frontend-product
+  source: skills/interaction-state-audit/SKILL.md
+  project_path: .agents/skills/interaction-state-audit/SKILL.md
+  skill_directory: .agents/skills/interaction-state-audit/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: internationalization-localization-engineering
+  title: Internationalization & Localization Engineering
+  description: Engineer locale-aware UI, content, dates/numbers/currency, pluralization, bidirectional layout, translation workflows and localized
+    routing without hardcoded language assumptions.
+  category: product-platform
+  source: skills/internationalization-localization-engineering/SKILL.md
+  project_path: .agents/skills/internationalization-localization-engineering/SKILL.md
+  skill_directory: .agents/skills/internationalization-localization-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - i18n
+    - l10n
+    - locale
+    - localization
+    - translation
+    companions:
+    - content-copywriting
+    - responsive-design
+    - seo-content
+    - accessibility-audit
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: jvm-java-engineering
+  title: Java & JVM Production Engineering
+  description: Write and review production Java/JVM systems with explicit concurrency, resource management, type/API design, build tooling, GC/performance
+    and framework boundaries. Use when Java is a primary language or JVM behavior is material.
+  category: language-stacks
+  source: skills/jvm-java-engineering/SKILL.md
+  project_path: .agents/skills/jvm-java-engineering/SKILL.md
+  skill_directory: .agents/skills/jvm-java-engineering/
+  references: []
+  routing:
+    signals:
+    - java
+    - jvm
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: kotlin-engineering
+  title: Kotlin Production Engineering
+  description: Write and review production Kotlin with explicit nullability, sealed/domain modeling, coroutines/Flow, structured concurrency,
+    JVM/KMP boundaries, Gradle tooling and testing. Use when Kotlin is a primary project language.
+  category: language-stacks
+  source: skills/kotlin-engineering/SKILL.md
+  project_path: .agents/skills/kotlin-engineering/SKILL.md
+  skill_directory: .agents/skills/kotlin-engineering/
+  references: []
+  routing:
+    signals:
+    - jvm
+    - kmp
+    - kotlin
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: kotlin-multiplatform-engineering
+  title: Kotlin Multiplatform Engineering
+  description: Engineer Kotlin Multiplatform projects with stable common/platform boundaries, coroutines, serialization, networking, persistence
+    and expect/actual APIs across Android, iOS and other targets.
+  category: mobile-native
+  source: skills/kotlin-multiplatform-engineering/SKILL.md
+  project_path: .agents/skills/kotlin-multiplatform-engineering/SKILL.md
+  skill_directory: .agents/skills/kotlin-multiplatform-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - compose multiplatform
+    - kmp
+    - kotlin
+    - kotlin multiplatform
+    companions:
+    - kotlin-engineering
+    - android-architecture
+    - swift-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ktor-engineering
+  title: Ktor Engineering
+  description: Engineer Ktor services with typed routing, plugins, coroutines, serialization, auth, persistence, structured concurrency and production
+    server lifecycle.
+  category: framework-stacks
+  source: skills/ktor-engineering/SKILL.md
+  project_path: .agents/skills/ktor-engineering/SKILL.md
+  skill_directory: .agents/skills/ktor-engineering/
+  references:
+  - references/contracts-production.md
+  - references/plugins-coroutines-persistence.md
+  routing:
+    signals:
+    - ktor
+    companions:
+    - kotlin-engineering
+    - api-contracts
+    - backend-architecture
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: kubernetes-operations
+  title: Kubernetes Workload & Operations Engineering
+  description: Design, review and debug production Kubernetes workloads, probes, resources, RBAC, configuration, autoscaling, rollout and runtime
+    failures. Use when Kubernetes is an actual deployment target.
+  category: infra-network
+  source: skills/kubernetes-operations/SKILL.md
+  project_path: .agents/skills/kubernetes-operations/SKILL.md
+  skill_directory: .agents/skills/kubernetes-operations/
+  references: []
+  routing:
+    signals:
+    - kubernetes
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: landing-conversion
+  title: Landing Page Conversion Design
+  description: Design high-quality conversion surfaces around audience intent, persuasive evidence and low-friction action without fake urgency,
+    formulaic layouts or ungrounded A/B-test claims.
+  category: frontend-product
+  source: skills/landing-conversion/SKILL.md
+  project_path: .agents/skills/landing-conversion/SKILL.md
+  skill_directory: .agents/skills/landing-conversion/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: laravel-engineering
+  title: Laravel Engineering
+  description: Engineer Laravel applications with service/container boundaries, Eloquent, validation, authorization, queues, events, caching,
+    migrations and production runtime behavior.
+  category: framework-stacks
+  source: skills/laravel-engineering/SKILL.md
+  project_path: .agents/skills/laravel-engineering/SKILL.md
+  skill_directory: .agents/skills/laravel-engineering/
+  references:
+  - references/auth-migrations-runtime.md
+  - references/eloquent-transactions-queues.md
+  routing:
+    signals:
+    - laravel
+    companions:
+    - php-engineering
+    - database-migrations
+    - background-job-engineering
+    - auth-architecture
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: library-sdk-engineering
+  title: Library & SDK Engineering
+  description: Design stable reusable libraries and SDKs with ergonomic APIs, compatibility discipline, versioning, generated/manual code boundaries,
+    examples and multi-version verification.
+  category: backend-api-integration
+  source: skills/library-sdk-engineering/SKILL.md
+  project_path: .agents/skills/library-sdk-engineering/SKILL.md
+  skill_directory: .agents/skills/library-sdk-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - client package
+    - library
+    - public api
+    - sdk
+    companions:
+    - api-contracts
+    - release-package-engineering
+    - documentation-engineering
+    - test-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: llm-application-engineering
+  title: LLM Application Engineering
+  description: Build non-agentic and agentic LLM features with structured outputs, provider/model abstraction, context construction, caching,
+    batching, cost/latency controls, deterministic fallbacks and safe failure handling.
+  category: ai-agent-data
+  source: skills/llm-application-engineering/SKILL.md
+  project_path: .agents/skills/llm-application-engineering/SKILL.md
+  skill_directory: .agents/skills/llm-application-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - anthropic
+    - gemini
+    - llm
+    - openai
+    - prompt
+    - structured output
+    companions:
+    - ai-evaluation
+    - agent-application-engineering
+    - search-retrieval-rag-engineering
+    - context-efficiency
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: machine-learning-engineering
+  title: Production Machine Learning Engineering
+  description: Build production ML systems with explicit data contracts, reproducible training, evaluation, model artifacts, serving, monitoring,
+    drift handling and rollback. Use for classifiers, ranking, forecasting, recommenders, embeddings or other learned models.
+  category: ai-agent-data
+  source: skills/machine-learning-engineering/SKILL.md
+  project_path: .agents/skills/machine-learning-engineering/SKILL.md
+  skill_directory: .agents/skills/machine-learning-engineering/
+  references: []
+  routing:
+    signals:
+    - ml
+    - python
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: mcp-server-engineering
+  title: MCP Server Engineering
+  description: Design, implement and verify Model Context Protocol servers with safe tools/resources/prompts, schemas, transports, permissions
+    and operability. Use when building or maintaining an MCP server or exposing application capabilities to agents.
+  category: ai-agent-data
+  source: skills/mcp-server-engineering/SKILL.md
+  project_path: .agents/skills/mcp-server-engineering/SKILL.md
+  skill_directory: .agents/skills/mcp-server-engineering/
+  references: []
+  routing:
+    signals:
+    - mcp
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: media-processing-engineering
+  title: Media Processing Engineering
+  description: Engineer image, audio and video ingestion/transformation pipelines with codec/container awareness, streaming, thumbnails, metadata,
+    resource bounds and untrusted-file safety.
+  category: product-platform
+  source: skills/media-processing-engineering/SKILL.md
+  project_path: .agents/skills/media-processing-engineering/SKILL.md
+  skill_directory: .agents/skills/media-processing-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - audio
+    - ffmpeg
+    - image processing
+    - transcode
+    - video
+    companions:
+    - file-object-storage-engineering
+    - background-job-engineering
+    - security-review
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: messaging-broker-engineering
+  title: Messaging & Broker Engineering
+  description: Design queue, stream and pub/sub infrastructure with delivery semantics, ordering, partitioning, consumer groups, backpressure,
+    schemas, retries and operational recovery.
+  category: backend-api-integration
+  source: skills/messaging-broker-engineering/SKILL.md
+  project_path: .agents/skills/messaging-broker-engineering/SKILL.md
+  skill_directory: .agents/skills/messaging-broker-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - event stream
+    - kafka
+    - message broker
+    - nats
+    - pubsub
+    - rabbitmq
+    - sqs
+    companions:
+    - distributed-systems-engineering
+    - background-job-engineering
+    - api-contracts
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: monorepo-engineering
+  title: Monorepo Engineering
+  description: Design and operate multi-package repositories with clear ownership, dependency boundaries, task graphs, affected execution, shared
+    tooling, release strategy and cache correctness.
+  category: architecture-delivery
+  source: skills/monorepo-engineering/SKILL.md
+  project_path: .agents/skills/monorepo-engineering/SKILL.md
+  skill_directory: .agents/skills/monorepo-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - monorepo
+    - nx
+    - pnpm workspace
+    - turborepo
+    - workspace
+    companions:
+    - build-system-engineering
+    - ci-cd-engineering
+    - dependency-upgrade-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: motion-design-engineering
+  title: Motion Design Engineering
+  description: Design and implement motion that makes interfaces feel immediate, spatially coherent and high-quality without turning animation
+    into decoration or latency.
+  category: frontend-product
+  source: skills/motion-design-engineering/SKILL.md
+  project_path: .agents/skills/motion-design-engineering/SKILL.md
+  skill_directory: .agents/skills/motion-design-engineering/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: multi-tenancy-engineering
+  title: Multi-Tenancy Engineering
+  description: Design tenant isolation, identity, data partitioning, authorization, quotas, migrations, observability and operational workflows
+    for shared SaaS systems.
+  category: backend-api-integration
+  source: skills/multi-tenancy-engineering/SKILL.md
+  project_path: .agents/skills/multi-tenancy-engineering/SKILL.md
+  skill_directory: .agents/skills/multi-tenancy-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - multi tenant
+    - saas isolation
+    - tenant
+    companions:
+    - auth-architecture
+    - database-design
+    - security-review
+    - payments-billing-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: mysql-mariadb-engineering
+  title: MySQL & MariaDB Engineering
+  description: Engineer MySQL/MariaDB schemas, indexes, transactions, query plans and replication-aware application patterns while verifying engine/version-specific
+    semantics.
+  category: data-storage
+  source: skills/mysql-mariadb-engineering/SKILL.md
+  project_path: .agents/skills/mysql-mariadb-engineering/SKILL.md
+  skill_directory: .agents/skills/mysql-mariadb-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - innodb
+    - mariadb
+    - mysql
+    companions:
+    - database-design
+    - database-migrations
+    - database-operations
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: nestjs-engineering
+  title: NestJS Engineering
+  description: Engineer NestJS backends with modules, providers, controllers, guards, pipes, interceptors, transactions, configuration and testing
+    without hidden dependency or lifecycle coupling.
+  category: framework-stacks
+  source: skills/nestjs-engineering/SKILL.md
+  project_path: .agents/skills/nestjs-engineering/SKILL.md
+  skill_directory: .agents/skills/nestjs-engineering/
+  references:
+  - references/modules-di-pipeline.md
+  - references/transactions-testing-runtime.md
+  routing:
+    signals:
+    - nest.js
+    - nestjs
+    companions:
+    - typescript-node-engineering
+    - backend-architecture
+    - api-contracts
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: network-automation-engineering
+  title: Network Automation Engineering
+  description: Automate network-device discovery, configuration, validation and rollback using APIs, NETCONF/RESTCONF, SNMP, SSH or controller
+    interfaces while protecting reachability and configuration integrity.
+  category: infra-network
+  source: skills/network-automation-engineering/SKILL.md
+  project_path: .agents/skills/network-automation-engineering/SKILL.md
+  skill_directory: .agents/skills/network-automation-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - netconf
+    - netmiko
+    - network api
+    - restconf
+    - snmp
+    - ssh automation
+    companions:
+    - network-infrastructure-engineering
+    - technical-research
+    - security-review
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: network-infrastructure-engineering
+  title: Network Infrastructure Engineering
+  description: Design and safely change routing, switching, VLAN, firewall, wireless, DNS, DHCP, NAT, VPN and segmentation architectures with
+    explicit reachability, failure-domain and rollback reasoning.
+  category: infra-network
+  source: skills/network-infrastructure-engineering/SKILL.md
+  project_path: .agents/skills/network-infrastructure-engineering/SKILL.md
+  skill_directory: .agents/skills/network-infrastructure-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - firewall
+    - network
+    - router
+    - routing
+    - switch
+    - vlan
+    - wifi
+    companions:
+    - network-automation-engineering
+    - dns-dhcp-engineering
+    - vpn-overlay-network-engineering
+    - security-review
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: nextjs-engineering
+  title: Next.js Engineering
+  description: Engineer Next.js applications across App Router, server/client boundaries, rendering, caching/revalidation, route handlers, middleware,
+    data access and deployment semantics.
+  category: framework-stacks
+  source: skills/nextjs-engineering/SKILL.md
+  project_path: .agents/skills/nextjs-engineering/SKILL.md
+  skill_directory: .agents/skills/nextjs-engineering/
+  references:
+  - references/caching-and-revalidation.md
+  - references/mutations-routing-runtime.md
+  - references/rendering-rsc-boundaries.md
+  - references/upgrades-and-production-verification.md
+  routing:
+    signals:
+    - app router
+    - next.js
+    - nextjs
+    companions:
+    - react-web-engineering
+    - typescript-node-engineering
+    - seo-content
+    - serverless-edge-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: notification-engineering
+  title: Notification Engineering
+  description: Design multi-channel in-app, push, email and webhook notifications with preferences, fan-out, deduplication, rate limits, delivery
+    state and product relevance.
+  category: product-platform
+  source: skills/notification-engineering/SKILL.md
+  project_path: .agents/skills/notification-engineering/SKILL.md
+  skill_directory: .agents/skills/notification-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - in-app
+    - notification
+    - push notification
+    - web push
+    companions:
+    - email-delivery-engineering
+    - background-job-engineering
+    - product-analytics-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: open-source-release-engineering
+  title: Open Source Release Engineering
+  description: Prepare private or internal software for safe public release with secret/PII sanitization, licensing, dependency attribution, documentation,
+    packaging and public-repository governance.
+  category: architecture-delivery
+  source: skills/open-source-release-engineering/SKILL.md
+  project_path: .agents/skills/open-source-release-engineering/SKILL.md
+  skill_directory: .agents/skills/open-source-release-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - open source
+    - public release
+    - sanitize repository
+    companions:
+    - security-review
+    - dependency-supply-chain-engineering
+    - documentation-engineering
+    - release-package-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: openwrt-engineering
+  title: OpenWrt Engineering
+  description: Safely configure and automate OpenWrt devices using UCI, ubus/rpcd, netifd, firewall, wireless and service primitives with transactional
+    rollback and device-version verification.
+  category: infra-network
+  source: skills/openwrt-engineering/SKILL.md
+  project_path: .agents/skills/openwrt-engineering/SKILL.md
+  skill_directory: .agents/skills/openwrt-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - luci
+    - openwrt
+    - ubus
+    - uci
+    companions:
+    - network-infrastructure-engineering
+    - network-automation-engineering
+    - dns-dhcp-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: opnsense-engineering
+  title: OPNsense Engineering
+  description: Safely automate and operate OPNsense firewalls through current official API/model surfaces with explicit privileges, configuration
+    ownership, rollback, firewall/NAT/VPN/DNS validation and lockout protection.
+  category: infra-network
+  source: skills/opnsense-engineering/SKILL.md
+  project_path: .agents/skills/opnsense-engineering/SKILL.md
+  skill_directory: .agents/skills/opnsense-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - firewall api
+    - opnsense
+    companions:
+    - network-infrastructure-engineering
+    - network-automation-engineering
+    - security-review
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: payments-billing-engineering
+  title: Payments & Billing Engineering
+  description: Engineer checkout, subscriptions, invoices, entitlements, refunds and payment-provider integrations with idempotency, webhook verification,
+    ledger clarity and reconciliation.
+  category: product-platform
+  source: skills/payments-billing-engineering/SKILL.md
+  project_path: .agents/skills/payments-billing-engineering/SKILL.md
+  skill_directory: .agents/skills/payments-billing-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - billing
+    - checkout
+    - invoice
+    - payment
+    - stripe
+    - subscription
+    companions:
+    - integration-engineering
+    - security-review
+    - background-job-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: performance-profiling
+  title: Performance Profiling & Optimization
+  description: Profile and optimize real performance bottlenecks across frontend, backend, database, runtime, memory, CPU, I/O, queues, network,
+    and latency. Use when a system is slow, resource-heavy, scaling poorly, or needs evidence-based performance budgets.
+  category: infra-network
+  source: skills/performance-profiling/SKILL.md
+  project_path: .agents/skills/performance-profiling/SKILL.md
+  skill_directory: .agents/skills/performance-profiling/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: perl-engineering
+  title: Perl Engineering
+  description: Maintain and modernize Perl systems with strict/warnings, modules, CPAN dependency discipline, references/context, regex safety,
+    DBI, testing and secure process execution.
+  category: language-stacks
+  source: skills/perl-engineering/SKILL.md
+  project_path: .agents/skills/perl-engineering/SKILL.md
+  skill_directory: .agents/skills/perl-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - cpan
+    - perl
+    - pl
+    companions:
+    - implementation-engineering
+    - test-engineering
+    - security-review
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: php-engineering
+  title: PHP Production Engineering
+  description: Write and review production PHP applications and services with strong typing where useful, Composer/package hygiene, request/job
+    lifecycles, framework boundaries, data access, testing and security.
+  category: language-stacks
+  source: skills/php-engineering/SKILL.md
+  project_path: .agents/skills/php-engineering/SKILL.md
+  skill_directory: .agents/skills/php-engineering/
+  references: []
+  routing:
+    signals:
+    - php
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: plugin-extension-platform-engineering
+  title: Plugin & Extension Platform Engineering
+  description: Design host/plugin architectures with stable extension points, capability boundaries, version negotiation, lifecycle, sandboxing,
+    discovery and compatibility testing.
+  category: backend-api-integration
+  source: skills/plugin-extension-platform-engineering/SKILL.md
+  project_path: .agents/skills/plugin-extension-platform-engineering/SKILL.md
+  skill_directory: .agents/skills/plugin-extension-platform-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - extension api
+    - host platform
+    - plugin
+    companions:
+    - library-sdk-engineering
+    - dependency-supply-chain-engineering
+    - security-review
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: postgres-engineering
+  title: PostgreSQL Engineering
+  description: Engineer PostgreSQL schemas, queries, indexes, transactions, concurrency, RLS and performance using workload evidence while separating
+    design, migration and operations concerns.
+  category: data-storage
+  source: skills/postgres-engineering/SKILL.md
+  project_path: .agents/skills/postgres-engineering/SKILL.md
+  skill_directory: .agents/skills/postgres-engineering/
+  references:
+  - references/connections-and-operations.md
+  - references/query-plans-and-indexes.md
+  - references/transactions-locks-rls.md
+  routing:
+    signals:
+    - postgres
+    - postgresql
+    - psql
+    - rls
+    companions:
+    - database-design
+    - database-migrations
+    - database-operations
+    - performance-profiling
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: powershell-windows-engineering
+  title: Windows & PowerShell Engineering
+  description: Build and automate reliable Windows tooling, services, packaging and administration with PowerShell while respecting execution
+    policy, quoting, encoding, paths, privileges and cross-platform boundaries.
+  category: language-stacks
+  source: skills/powershell-windows-engineering/SKILL.md
+  project_path: .agents/skills/powershell-windows-engineering/SKILL.md
+  skill_directory: .agents/skills/powershell-windows-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - msix
+    - powershell
+    - registry
+    - windows
+    - winget
+    companions:
+    - desktop-application-engineering
+    - ci-cd-engineering
+    - development-environment-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: privacy-data-governance-engineering
+  title: Privacy & Data Governance Engineering
+  description: Engineer data minimization, classification, retention, consent, access/deletion/export and privacy-safe telemetry boundaries while
+    routing jurisdiction-specific legal conclusions to current authoritative research.
+  category: core-quality
+  source: skills/privacy-data-governance-engineering/SKILL.md
+  project_path: .agents/skills/privacy-data-governance-engineering/SKILL.md
+  skill_directory: .agents/skills/privacy-data-governance-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - data deletion
+    - gdpr
+    - pii
+    - privacy
+    - retention
+    companions:
+    - security-review
+    - product-analytics-engineering
+    - technical-research
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: product-analytics-engineering
+  title: Product Analytics Engineering
+  description: Design trustworthy product telemetry, event schemas, funnels, experiments and metric definitions with privacy, identity, deduplication
+    and data-quality controls.
+  category: product-platform
+  source: skills/product-analytics-engineering/SKILL.md
+  project_path: .agents/skills/product-analytics-engineering/SKILL.md
+  skill_directory: .agents/skills/product-analytics-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - a/b
+    - analytics
+    - event tracking
+    - experiment
+    - funnel
+    companions:
+    - ux-product-design
+    - privacy-data-governance-engineering
+    - data-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: python-engineering
+  title: Python Production Engineering
+  description: Write and review idiomatic production Python with robust typing, packaging, async/concurrency, resource ownership, error handling,
+    testing and runtime performance. Use for Python services, tools, data or automation code.
+  category: language-stacks
+  source: skills/python-engineering/SKILL.md
+  project_path: .agents/skills/python-engineering/SKILL.md
+  skill_directory: .agents/skills/python-engineering/
+  references: []
+  routing:
+    signals:
+    - python
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: pytorch-deep-learning-engineering
+  title: PyTorch Deep Learning Engineering
+  description: Engineer PyTorch training and inference pipelines with reproducibility, data loading, devices/dtypes, optimization, checkpoints,
+    distributed training, evaluation and deployment correctness.
+  category: ai-agent-data
+  source: skills/pytorch-deep-learning-engineering/SKILL.md
+  project_path: .agents/skills/pytorch-deep-learning-engineering/SKILL.md
+  skill_directory: .agents/skills/pytorch-deep-learning-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - deep learning
+    - pytorch
+    - torch
+    companions:
+    - machine-learning-engineering
+    - ai-evaluation
+    - performance-profiling
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: quarkus-engineering
+  title: Quarkus Engineering
+  description: Engineer Quarkus services with CDI, REST, persistence, reactive/blocking execution, configuration, native-image constraints, testing
+    and deployment behavior.
+  category: framework-stacks
+  source: skills/quarkus-engineering/SKILL.md
+  project_path: .agents/skills/quarkus-engineering/SKILL.md
+  skill_directory: .agents/skills/quarkus-engineering/
+  references:
+  - references/cdi-reactive-persistence.md
+  - references/native-extensions-deployment.md
+  routing:
+    signals:
+    - quarkus
+    companions:
+    - jvm-java-engineering
+    - database-design
+    - deployment-readiness
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: rails-engineering
+  title: Ruby on Rails Engineering
+  description: Engineer Rails applications with Active Record, transactions, validations, authorization, jobs, caching, Hotwire/API boundaries
+    and production process behavior.
+  category: framework-stacks
+  source: skills/rails-engineering/SKILL.md
+  project_path: .agents/skills/rails-engineering/SKILL.md
+  skill_directory: .agents/skills/rails-engineering/
+  references:
+  - references/active-record-transactions-jobs.md
+  - references/hotwire-auth-rollouts.md
+  routing:
+    signals:
+    - rails
+    - ruby on rails
+    companions:
+    - ruby-engineering
+    - database-migrations
+    - background-job-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: react-native-engineering
+  title: React Native Application Engineering
+  description: Build and review production React Native applications across JavaScript/native boundaries, lifecycle, navigation, offline state,
+    lists, native modules, performance and release behavior.
+  category: mobile-native
+  source: skills/react-native-engineering/SKILL.md
+  project_path: .agents/skills/react-native-engineering/SKILL.md
+  skill_directory: .agents/skills/react-native-engineering/
+  references:
+  - references/expo-and-upgrades.md
+  - references/lifecycle-navigation-offline.md
+  - references/native-architecture-and-modules.md
+  - references/performance-lists-memory.md
+  routing:
+    signals:
+    - javascript
+    - react
+    - react-native
+    - typescript
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: react-web-engineering
+  title: React Web Engineering
+  description: Build production React applications with sound component boundaries, state ownership, effects, forms, concurrency, server/client
+    integration, accessibility and performance.
+  category: framework-stacks
+  source: skills/react-web-engineering/SKILL.md
+  project_path: .agents/skills/react-web-engineering/SKILL.md
+  skill_directory: .agents/skills/react-web-engineering/
+  references:
+  - references/performance-and-testing.md
+  - references/server-client-and-hydration.md
+  - references/state-effects-and-concurrency.md
+  routing:
+    signals:
+    - jsx
+    - react
+    - tsx
+    companions:
+    - component-engineering
+    - frontend-architecture
+    - typescript-node-engineering
+    - frontend-performance
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: realtime-communications-engineering
+  title: Realtime Communications Engineering
+  description: Design WebSocket, Server-Sent Events, presence and bidirectional realtime features with connection lifecycle, backpressure, ordering,
+    reconnection, fan-out and horizontal scaling correctness.
+  category: backend-api-integration
+  source: skills/realtime-communications-engineering/SKILL.md
+  project_path: .agents/skills/realtime-communications-engineering/SKILL.md
+  skill_directory: .agents/skills/realtime-communications-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - presence
+    - realtime
+    - sse
+    - websocket
+    companions:
+    - distributed-systems-engineering
+    - messaging-broker-engineering
+    - reverse-proxy-edge-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: recommendation-ranking-engineering
+  title: Recommendation & Ranking Engineering
+  description: Design candidate generation, eligibility filtering, scoring, reranking, selection, feedback and experimentation pipelines for feeds,
+    recommendations and prioritization systems.
+  category: ai-agent-data
+  source: skills/recommendation-ranking-engineering/SKILL.md
+  project_path: .agents/skills/recommendation-ranking-engineering/SKILL.md
+  skill_directory: .agents/skills/recommendation-ranking-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - feed
+    - ranking
+    - recommendation
+    - recommender
+    - reranker
+    companions:
+    - machine-learning-engineering
+    - product-analytics-engineering
+    - ai-evaluation
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: redis-caching-engineering
+  title: Redis & Caching Engineering
+  description: Engineer Redis-backed caching, coordination, rate limiting, sessions, streams and ephemeral state with explicit key design, invalidation,
+    atomicity, eviction and failure behavior.
+  category: data-storage
+  source: skills/redis-caching-engineering/SKILL.md
+  project_path: .agents/skills/redis-caching-engineering/SKILL.md
+  skill_directory: .agents/skills/redis-caching-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - cache
+    - distributed lock
+    - rate limit
+    - redis
+    - redis stream
+    companions:
+    - reliability-observability
+    - distributed-systems-engineering
+    - database-design
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: refactoring-engineering
+  title: Refactoring Engineering
+  description: Restructure existing code while preserving intended behavior through characterization, contract mapping, incremental reversible
+    steps, dependency untangling, migration seams, and regression evidence. Use for refactors, legacy modernization, modularization, or architecture
+    cleanup without primary product-behavior change.
+  category: core-quality
+  source: skills/refactoring-engineering/SKILL.md
+  project_path: .agents/skills/refactoring-engineering/SKILL.md
+  skill_directory: .agents/skills/refactoring-engineering/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: release-package-engineering
+  title: Release & Package Engineering
+  description: Design reproducible versioning, artifacts, changelogs, signing, provenance, publishing and rollback for applications, libraries,
+    containers and multi-platform distributions.
+  category: architecture-delivery
+  source: skills/release-package-engineering/SKILL.md
+  project_path: .agents/skills/release-package-engineering/SKILL.md
+  skill_directory: .agents/skills/release-package-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - package
+    - publish
+    - release
+    - signing
+    - versioning
+    companions:
+    - ci-cd-engineering
+    - dependency-supply-chain-engineering
+    - documentation-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: reliability-observability
+  title: Reliability & Observability Engineering
+  description: 'Design failure handling and production diagnosability: timeouts, retries/idempotency, backpressure, degradation, health/readiness,
+    structured logs, metrics, traces, SLOs, and incident evidence. Use for networked, asynchronous, critical, or production-operated systems.'
+  category: infra-network
+  source: skills/reliability-observability/SKILL.md
+  project_path: .agents/skills/reliability-observability/SKILL.md
+  skill_directory: .agents/skills/reliability-observability/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: repository-onboarding
+  title: Repository Onboarding & Brownfield Mapping
+  description: Build a reliable, token-efficient understanding of an existing repository before planning, auditing, debugging or changing it.
+  category: core-quality
+  source: skills/repository-onboarding/SKILL.md
+  project_path: .agents/skills/repository-onboarding/SKILL.md
+  skill_directory: .agents/skills/repository-onboarding/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: responsive-design
+  title: Adaptive Responsive Design
+  description: Make layouts and interactions adapt intentionally across container sizes, viewports, input modes, zoom/text scaling and content
+    extremes.
+  category: frontend-product
+  source: skills/responsive-design/SKILL.md
+  project_path: .agents/skills/responsive-design/SKILL.md
+  skill_directory: .agents/skills/responsive-design/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: reverse-proxy-edge-engineering
+  title: Reverse Proxy & Edge Engineering
+  description: Configure reverse proxies, gateways and edge servers for routing, TLS, headers, compression, caching, upstream health, rate limits
+    and safe zero-downtime changes.
+  category: infra-network
+  source: skills/reverse-proxy-edge-engineering/SKILL.md
+  project_path: .agents/skills/reverse-proxy-edge-engineering/SKILL.md
+  skill_directory: .agents/skills/reverse-proxy-edge-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - caddy
+    - edge
+    - load balancer
+    - nginx
+    - reverse proxy
+    - traefik
+    companions:
+    - network-infrastructure-engineering
+    - deployment-readiness
+    - realtime-communications-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ruby-engineering
+  title: Ruby Production Engineering
+  description: Write and review production Ruby/Rails systems with clear object boundaries, Active Record/query behavior, background jobs, transactions,
+    concurrency, testing, gems and runtime performance.
+  category: language-stacks
+  source: skills/ruby-engineering/SKILL.md
+  project_path: .agents/skills/ruby-engineering/SKILL.md
+  skill_directory: .agents/skills/ruby-engineering/
+  references: []
+  routing:
+    signals:
+    - ruby
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: rust-engineering
+  title: Rust Production & Systems Engineering
+  description: Write and review production Rust with deliberate ownership, error types, traits, async concurrency, unsafe boundaries, Cargo features,
+    testing and performance. Use when Rust is a primary project language.
+  category: language-stacks
+  source: skills/rust-engineering/SKILL.md
+  project_path: .agents/skills/rust-engineering/SKILL.md
+  skill_directory: .agents/skills/rust-engineering/
+  references: []
+  routing:
+    signals:
+    - rust
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: search-retrieval-rag-engineering
+  title: Search, Retrieval & RAG Engineering
+  description: Design lexical, semantic, hybrid and retrieval-augmented systems with chunking, indexing, filters, ranking, citations, freshness,
+    evaluation and secure context assembly.
+  category: ai-agent-data
+  source: skills/search-retrieval-rag-engineering/SKILL.md
+  project_path: .agents/skills/search-retrieval-rag-engineering/SKILL.md
+  skill_directory: .agents/skills/search-retrieval-rag-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - full text search
+    - rag
+    - retrieval
+    - semantic search
+    - vector search
+    companions:
+    - ai-evaluation
+    - llm-application-engineering
+    - sqlite-vector-search-engineering
+    - data-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: security-review
+  title: Application Security Review
+  description: Perform risk-based secure-design and implementation review using current OWASP guidance, with testable findings around trust boundaries
+    rather than generic checklists.
+  category: core-quality
+  source: skills/security-review/SKILL.md
+  project_path: .agents/skills/security-review/SKILL.md
+  skill_directory: .agents/skills/security-review/
+  references:
+  - references/differential-and-blast-radius.md
+  - references/sharp-edges-and-insecure-defaults.md
+  - references/variant-analysis.md
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - protocol_provider_guidance
+      - security_advisories
+      - platform_controls
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: seo-content
+  title: Technical SEO & Search Discoverability
+  description: Make public content crawlable, indexable, understandable and useful using current primary-source search guidance, while treating
+    AI-search/GEO claims as evidence-sensitive rather than folklore.
+  category: frontend-product
+  source: skills/seo-content/SKILL.md
+  project_path: .agents/skills/seo-content/SKILL.md
+  skill_directory: .agents/skills/seo-content/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: serverless-edge-engineering
+  title: Serverless & Edge Runtime Engineering
+  description: Design applications for function and edge runtimes with stateless execution, cold starts, concurrency, runtime limits, distributed
+    state, observability and vendor portability trade-offs.
+  category: architecture-delivery
+  source: skills/serverless-edge-engineering/SKILL.md
+  project_path: .agents/skills/serverless-edge-engineering/SKILL.md
+  skill_directory: .agents/skills/serverless-edge-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - edge runtime
+    - functions
+    - lambda
+    - serverless
+    - workers
+    companions:
+    - technology-stack-selection
+    - deployment-readiness
+    - database-operations
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: solution-minimization-engineering
+  title: Solution Minimization Engineering
+  description: Choose and review the smallest complete solution using repo reuse, stdlib/native capabilities, existing dependencies and only then
+    new code/abstractions, while preserving all quality guards.
+  category: core-quality
+  source: skills/solution-minimization-engineering/SKILL.md
+  project_path: .agents/skills/solution-minimization-engineering/SKILL.md
+  skill_directory: .agents/skills/solution-minimization-engineering/
+  references: []
+  routing:
+    signals:
+    - implementation
+    - refactor
+    - complexity
+    - dependency
+    companions:
+    - implementation-engineering
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: spring-boot-engineering
+  title: Spring Boot Engineering
+  description: Engineer Spring Boot services with clear bean/configuration boundaries, MVC/WebFlux choice, validation, security, transactions,
+    JPA, events, testing and production observability.
+  category: framework-stacks
+  source: skills/spring-boot-engineering/SKILL.md
+  project_path: .agents/skills/spring-boot-engineering/SKILL.md
+  skill_directory: .agents/skills/spring-boot-engineering/
+  references:
+  - references/mvc-webflux-config-testing.md
+  - references/transactions-jpa-security.md
+  routing:
+    signals:
+    - spring
+    - spring boot
+    - springboot
+    companions:
+    - jvm-java-engineering
+    - auth-architecture
+    - database-design
+    - test-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: sqlite-engineering
+  title: SQLite Engineering
+  description: Engineer embedded SQLite databases with correct schema, transactions, WAL/locking, concurrency, FTS, backups, migrations and deployment
+    semantics for local-first, desktop, mobile and lightweight server workloads.
+  category: data-storage
+  source: skills/sqlite-engineering/SKILL.md
+  project_path: .agents/skills/sqlite-engineering/SKILL.md
+  skill_directory: .agents/skills/sqlite-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - .db
+    - .sqlite
+    - fts5
+    - sqlite
+    - sqlite3
+    companions:
+    - database-design
+    - database-migrations
+    - sqlite-vector-search-engineering
+    - backup-disaster-recovery-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: sqlite-vector-search-engineering
+  title: SQLite Vector Search Engineering
+  description: Build local-first semantic and hybrid retrieval on SQLite using current supported vector extensions, embedding lifecycle, metadata
+    filtering, FTS/vector fusion and measurable retrieval quality.
+  category: data-storage
+  source: skills/sqlite-vector-search-engineering/SKILL.md
+  project_path: .agents/skills/sqlite-vector-search-engineering/SKILL.md
+  skill_directory: .agents/skills/sqlite-vector-search-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - embedding sqlite
+    - sqlite
+    - sqlite vector
+    - sqlite-vec
+    - vec1
+    - vector database
+    companions:
+    - sqlite-engineering
+    - search-retrieval-rag-engineering
+    - ai-evaluation
+    - technical-research
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: sveltekit-engineering
+  title: SvelteKit Engineering
+  description: Engineer Svelte/SvelteKit applications with reactive state, load functions, server/client boundaries, forms/actions, routing, SSR/prerendering
+    and deployment adapters.
+  category: framework-stacks
+  source: skills/sveltekit-engineering/SKILL.md
+  project_path: .agents/skills/sveltekit-engineering/SKILL.md
+  skill_directory: .agents/skills/sveltekit-engineering/
+  references:
+  - references/reactivity-load-actions.md
+  - references/ssr-invalidation-adapters.md
+  routing:
+    signals:
+    - svelte
+    - sveltekit
+    companions:
+    - typescript-node-engineering
+    - frontend-architecture
+    - component-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: swift-engineering
+  title: Swift Production Engineering
+  description: Write and review production Swift with value/reference ownership, structured concurrency, actors/Sendable, errors, protocols/generics,
+    resource lifetime, packages and platform interoperability. Use for Swift beyond SwiftUI-only concerns.
+  category: mobile-native
+  source: skills/swift-engineering/SKILL.md
+  project_path: .agents/skills/swift-engineering/SKILL.md
+  skill_directory: .agents/skills/swift-engineering/
+  references: []
+  routing:
+    signals:
+    - swift
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: swift-testing
+  title: Swift Testing & Dependency Isolation
+  description: Make Apple-native domain logic, concurrency and platform integrations testable through narrow dependency seams and layered tests
+    without over-mocking SwiftUI internals.
+  category: mobile-native
+  source: skills/swift-testing/SKILL.md
+  project_path: .agents/skills/swift-testing/SKILL.md
+  skill_directory: .agents/skills/swift-testing/
+  references: []
+  routing:
+    signals:
+    - apple
+    - swift
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: swiftui-architecture
+  title: Native Apple UX & SwiftUI Architecture
+  description: Design Apple-platform apps that feel native, adapt to platform/window/accessibility contexts, and keep SwiftUI state/navigation/domain
+    boundaries testable.
+  category: mobile-native
+  source: skills/swiftui-architecture/SKILL.md
+  project_path: .agents/skills/swiftui-architecture/SKILL.md
+  skill_directory: .agents/skills/swiftui-architecture/
+  references: []
+  routing:
+    signals:
+    - apple
+    - swift
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_sdk_version
+      - platform_toolchain
+      - native_dependency_compatibility
+      - store_platform_requirements
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: systematic-debugging
+  title: Systematic Debugging & Root-Cause Repair
+  description: Find the real cause of a defect efficiently, prove it, implement the smallest correct repair and leave durable regression evidence.
+  category: core-quality
+  source: skills/systematic-debugging/SKILL.md
+  project_path: .agents/skills/systematic-debugging/SKILL.md
+  skill_directory: .agents/skills/systematic-debugging/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: tdd-workflow
+  title: Pragmatic Test-Driven Workflow
+  description: Use RED → GREEN → REFACTOR when test-first gives strong behavioral signal, especially for business logic, bugs, APIs, security,
+    parsers and state transitions.
+  category: core-quality
+  source: skills/tdd-workflow/SKILL.md
+  project_path: .agents/skills/tdd-workflow/SKILL.md
+  skill_directory: .agents/skills/tdd-workflow/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: technical-research
+  title: Technical Research & Evidence Engineering
+  description: Perform autonomous, current, evidence-first technical research for architecture and implementation decisions, using the lightest
+    sufficient path and converting findings into decisions, ADRs and routing updates without unnecessary user questions.
+  category: core-quality
+  source: skills/technical-research/SKILL.md
+  project_path: .agents/skills/technical-research/SKILL.md
+  skill_directory: .agents/skills/technical-research/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - current docs
+    - documentation lookup
+    - research
+    - verify version
+    companions:
+    - technology-stack-selection
+    - context-efficiency
+    - integration-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: technology-stack-selection
+  title: Technology & Stack Selection Engineering
+  description: Select languages, runtimes, frameworks, rendering models, databases and deployment targets from explicit project constraints and
+    current evidence. Use for non-trivial greenfield stack decisions or justified brownfield replatforming decisions.
+  category: core-quality
+  source: skills/technology-stack-selection/SKILL.md
+  project_path: .agents/skills/technology-stack-selection/SKILL.md
+  skill_directory: .agents/skills/technology-stack-selection/
+  references: []
+  routing:
+    signals:
+    - generic
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: test-engineering
+  title: Test Engineering
+  description: Design and implement risk-proportional test architecture across unit, integration, contract, E2E, property/fuzz, concurrency, visual,
+    and regression layers. Use when deciding what tests a project/change needs or improving a test suite.
+  category: core-quality
+  source: skills/test-engineering/SKILL.md
+  project_path: .agents/skills/test-engineering/SKILL.md
+  skill_directory: .agents/skills/test-engineering/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: typescript-node-engineering
+  title: TypeScript & Node.js Engineering
+  description: Write and review production TypeScript/JavaScript server and tooling code with strong runtime validation, async/resource ownership,
+    module/package boundaries, streams, workers and build compatibility.
+  category: language-stacks
+  source: skills/typescript-node-engineering/SKILL.md
+  project_path: .agents/skills/typescript-node-engineering/SKILL.md
+  skill_directory: .agents/skills/typescript-node-engineering/
+  references: []
+  routing:
+    signals:
+    - javascript
+    - node
+    - typescript
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ui-design-system
+  title: Premium UI Design System
+  description: Create a distinctive, coherent, implementation-ready visual language that can support premium multi-page interfaces without drifting
+    into generic AI aesthetics.
+  category: frontend-product
+  source: skills/ui-design-system/SKILL.md
+  project_path: .agents/skills/ui-design-system/SKILL.md
+  skill_directory: .agents/skills/ui-design-system/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: unifi-network-engineering
+  title: UniFi / Ubiquiti Network Engineering
+  description: Safely automate and operate UniFi networks using current official Site Manager and local application APIs, with topology-aware
+    change control, controller/version discovery and rollback-safe network validation.
+  category: infra-network
+  source: skills/unifi-network-engineering/SKILL.md
+  project_path: .agents/skills/unifi-network-engineering/SKILL.md
+  skill_directory: .agents/skills/unifi-network-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - ubiquiti
+    - ui.com
+    - unifi
+    companions:
+    - network-infrastructure-engineering
+    - network-automation-engineering
+    - technical-research
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: ux-product-design
+  title: Product UX & Interaction Design
+  description: Turn product requirements into clear information architecture, task flows, interaction models and resilient states before visual
+    polish or implementation.
+  category: frontend-product
+  source: skills/ux-product-design/SKILL.md
+  project_path: .agents/skills/ux-product-design/SKILL.md
+  skill_directory: .agents/skills/ux-product-design/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: verification-gate
+  title: Evidence-Based Verification Gate
+  description: Determine readiness from fresh reproducible evidence with project-specific gates, preserving exact failures and refusing completion-by-assertion.
+  category: core-quality
+  source: skills/verification-gate/SKILL.md
+  project_path: .agents/skills/verification-gate/SKILL.md
+  skill_directory: .agents/skills/verification-gate/
+  references: []
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: virtualization-homelab-engineering
+  title: Virtualization & Homelab Engineering
+  description: Design and operate small-scale virtualization and self-hosted infrastructure with VM/container boundaries, storage, networking,
+    backups, service placement and recoverable automation.
+  category: infra-network
+  source: skills/virtualization-homelab-engineering/SKILL.md
+  project_path: .agents/skills/virtualization-homelab-engineering/SKILL.md
+  skill_directory: .agents/skills/virtualization-homelab-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - homelab
+    - lxc
+    - proxmox
+    - virtualization
+    - vm
+    companions:
+    - network-infrastructure-engineering
+    - backup-disaster-recovery-engineering
+    - docker-runtime
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: visual-polish
+  title: Premium Visual Polish
+  description: Perform a disciplined final visual-design review that raises perceived quality without inventing a new design language or masking
+    UX problems with decoration.
+  category: frontend-product
+  source: skills/visual-polish/SKILL.md
+  project_path: .agents/skills/visual-polish/SKILL.md
+  skill_directory: .agents/skills/visual-polish/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: vpn-overlay-network-engineering
+  title: VPN & Overlay Network Engineering
+  description: Design site-to-site, remote-access and overlay networking with routing, identity, key lifecycle, MTU, DNS, segmentation, HA and
+    safe rollout across WireGuard/IPsec/managed overlays.
+  category: infra-network
+  source: skills/vpn-overlay-network-engineering/SKILL.md
+  project_path: .agents/skills/vpn-overlay-network-engineering/SKILL.md
+  skill_directory: .agents/skills/vpn-overlay-network-engineering/
+  references:
+  - references/decision-playbook.md
+  routing:
+    signals:
+    - ipsec
+    - sd-wan
+    - tailscale
+    - vpn
+    - wireguard
+    - zerotier
+    companions:
+    - network-infrastructure-engineering
+    - security-review
+    - dns-dhcp-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: vue-nuxt-engineering
+  title: Vue & Nuxt Engineering
+  description: Build Vue/Nuxt applications with sound Composition API state, reactivity, SSR/hydration, routing, server endpoints, data fetching
+    and deployment boundaries.
+  category: framework-stacks
+  source: skills/vue-nuxt-engineering/SKILL.md
+  project_path: .agents/skills/vue-nuxt-engineering/SKILL.md
+  skill_directory: .agents/skills/vue-nuxt-engineering/
+  references:
+  - references/nuxt-ssr-server-deployment.md
+  - references/reactivity-composables-data.md
+  routing:
+    signals:
+    - nuxt
+    - vue
+    companions:
+    - frontend-architecture
+    - typescript-node-engineering
+    - component-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - framework_version
+      - runtime_defaults
+      - rendering_lifecycle
+      - deployment_adapter
+      - migration_rules
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: web-data-acquisition-engineering
+  title: Web Data Acquisition Engineering
+  description: Design respectful, reliable web search/scrape/map/crawl/extract pipelines with provider abstraction, URL frontiers, canonicalization,
+    rendering escalation, rate limits, provenance and incremental refresh.
+  category: ai-agent-data
+  source: skills/web-data-acquisition-engineering/SKILL.md
+  project_path: .agents/skills/web-data-acquisition-engineering/SKILL.md
+  skill_directory: .agents/skills/web-data-acquisition-engineering/
+  references:
+  - references/decision-playbook.md
+  - references/field-guide.md
+  routing:
+    signals:
+    - crawl
+    - crawler
+    - firecrawl
+    - scrape
+    - web acquisition
+    companions:
+    - technical-research
+    - website-modernization
+    - browser-acceptance
+    - data-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - model_sdk_api_version
+      - provider_capabilities
+      - evaluation_behavior
+      - rate_cost_limits
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: website-modernization
+  title: Website Modernization & Content Migration
+  description: Turn an existing public website into a modern, high-quality replacement while preserving legitimate content value, search equity,
+    brand intent and important URLs.
+  category: frontend-product
+  source: skills/website-modernization/SKILL.md
+  project_path: .agents/skills/website-modernization/SKILL.md
+  skill_directory: .agents/skills/website-modernization/
+  references: []
+  routing:
+    signals:
+    - web
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: mongodb-engineering
+  title: MongoDB Engineering
+  description: Engineer MongoDB document models, indexes, aggregation/query plans, transactions/consistency, connection pools and Atlas/search
+    capabilities from workload shape rather than relational habits.
+  category: data-storage
+  source: skills/mongodb-engineering/SKILL.md
+  project_path: .agents/skills/mongodb-engineering/SKILL.md
+  skill_directory: .agents/skills/mongodb-engineering/
+  references:
+  - references/consistency-and-search.md
+  - references/queries-indexes-connections.md
+  - references/schema-modeling.md
+  routing:
+    signals:
+    - mongodb
+    - atlas
+    - document database
+    companions:
+    - database-design
+    - database-operations
+    - search-retrieval-rag-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: terraform-engineering
+  title: Terraform Engineering
+  description: Engineer Terraform configurations, modules, state-preserving refactors/imports, plans, tests and multi-environment composition
+    using current Terraform/provider capabilities.
+  category: infra-network
+  source: skills/terraform-engineering/SKILL.md
+  project_path: .agents/skills/terraform-engineering/SKILL.md
+  skill_directory: .agents/skills/terraform-engineering/
+  references:
+  - references/modules-plans-tests.md
+  - references/state-refactor-import.md
+  routing:
+    signals:
+    - terraform
+    - .tf
+    - hcl
+    companions:
+    - infrastructure-as-code-engineering
+    - ci-cd-engineering
+    - deployment-readiness
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: cloudflare-platform-engineering
+  title: Cloudflare Platform Engineering
+  description: Engineer Cloudflare Workers/Pages and platform services with runtime-correct async execution, request-safe state, bindings/secrets,
+    Durable Objects/storage semantics, Wrangler configuration and edge observability.
+  category: infra-network
+  source: skills/cloudflare-platform-engineering/SKILL.md
+  project_path: .agents/skills/cloudflare-platform-engineering/SKILL.md
+  skill_directory: .agents/skills/cloudflare-platform-engineering/
+  references:
+  - references/storage-and-durable-state.md
+  - references/workers-runtime-and-bindings.md
+  routing:
+    signals:
+    - cloudflare
+    - workers
+    - durable objects
+    - d1
+    - r2
+    - wrangler
+    companions:
+    - serverless-edge-engineering
+    - reliability-observability
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: wordpress-engineering
+  title: WordPress Engineering
+  description: Engineer WordPress plugins/themes/blocks, REST endpoints, hooks, cron and operations with capability/nonce boundaries, safe database
+    APIs, lifecycle hooks, performance and WP-CLI-aware deployment.
+  category: product-platform
+  source: skills/wordpress-engineering/SKILL.md
+  project_path: .agents/skills/wordpress-engineering/SKILL.md
+  skill_directory: .agents/skills/wordpress-engineering/
+  references:
+  - references/plugin-security-lifecycle.md
+  - references/rest-blocks-operations-performance.md
+  routing:
+    signals:
+    - wordpress
+    - wp-cli
+    - wp-content
+    - gutenberg
+    companions:
+    - php-engineering
+    - security-review
+    - performance-profiling
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: threat-modeling-engineering
+  title: Threat Modeling Engineering
+  description: Build an evidence-based threat model from assets, actors, trust boundaries, entry points, abuse cases and security invariants,
+    then convert material threats into design requirements and verification.
+  category: core-quality
+  source: skills/threat-modeling-engineering/SKILL.md
+  project_path: .agents/skills/threat-modeling-engineering/SKILL.md
+  skill_directory: .agents/skills/threat-modeling-engineering/
+  references:
+  - references/abuse-cases-and-controls.md
+  - references/modeling-method.md
+  routing:
+    signals:
+    - threat model
+    - trust boundary
+    - abuse case
+    companions:
+    - security-review
+    - adversarial-verification
+    - auth-architecture
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - protocol_provider_guidance
+      - security_advisories
+      - platform_controls
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: property-based-testing
+  title: Property-Based Testing Engineering
+  description: Design property-based and fuzz-style tests by identifying invariants, round trips, normalization laws, state-machine rules and
+    adversarial input spaces, with reproducible shrinking and failure interpretation.
+  category: core-quality
+  source: skills/property-based-testing/SKILL.md
+  project_path: .agents/skills/property-based-testing/SKILL.md
+  skill_directory: .agents/skills/property-based-testing/
+  references:
+  - references/properties-generators-state-machines.md
+  routing:
+    signals:
+    - property testing
+    - fuzz
+    - hypothesis
+    - quickcheck
+    - fast-check
+    companions:
+    - test-engineering
+    - systematic-debugging
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence

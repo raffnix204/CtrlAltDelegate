@@ -1,6 +1,6 @@
-# Research Register — V5.6.1
+# Research Register — V5.6.3
 
-Use this as the compact execution-time evidence index. The Custom GPT planning research is baseline evidence; add only new or revalidated findings needed during implementation.
+Use this as the compact execution-time evidence index. Reuse the current authoritative planning/repository/runtime evidence regardless of whether it came from GitHub-native planning or an optional Custom GPT handoff; add only new or revalidated findings needed for the current decision.
 
 | ID | Date | Job/Decision | Mode | Question | Source / Runtime Evidence | Finding | Decision Impact | ADR / Stack / Skill Routing Updated |
 |---|---|---|---|---|---|---|---|---|

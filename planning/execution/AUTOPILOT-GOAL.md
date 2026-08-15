@@ -1,4 +1,4 @@
-# AUTOPILOT GOAL — V5.6.1
+# AUTOPILOT GOAL — V5.6.3
 
 Status: READY_TO_START
 Terminal target: `COMPLETED`
@@ -10,13 +10,36 @@ Use `GOAL.md`, requirements, architecture/ADRs, `planning/architecture/STACK-MAN
 
 ```text
 PERSISTED_STATE_READ
+→ MODE_DETECTION
 → HARNESS_READY
+→ GIT_GUARDS_READY
 → GITHUB_READY
 → PROJECT/REPO/SOURCE_READY
-→ PLANNING_BASELINE_READY
-→ STACK_READY
-→ SKILLSET_READY
-→ PROGRAM_DESIGN_READY_WHEN_MATERIAL
+→ MODE BRANCH:
+    FULL_LIFECYCLE:
+      INTAKE
+      → COLLABORATIVE_DISCOVERY
+      → PREFERENCES_CONSTRAINTS_READY
+      → DISCOVERY_READY
+      → RESEARCH_READY
+      → STACK_READY
+      → ARCHITECTURE_READY
+      → PROGRAM_DESIGN_READY_WHEN_MATERIAL
+      → SKILLSET_READY
+    RESUME_PLANNING:
+      EARLIEST_UNRESOLVED_PLANNING_GATE
+      → RECONVERGE_AFFECTED_ARTIFACTS
+      → STACK_READY
+      → PROGRAM_DESIGN_READY_WHEN_MATERIAL
+      → SKILLSET_READY
+    EXECUTION_HANDOFF:
+      VALIDATE_PLANNING_BASELINE
+      → RECONVERGE_ONLY_CONTRADICTED_ARTIFACTS
+      → STACK_READY
+      → SKILLSET_READY
+    RESUME_EXECUTION:
+      RECONCILE_GIT_STATE_RUNTIME_EVIDENCE
+      → RESUME_EXACT_PERSISTED_ACTION
 → EXECUTION_RIGHTSIZING_GATE
 → EXECUTION_DAG_READY
 → JOB/WAVE:
@@ -45,9 +68,9 @@ PERSISTED_STATE_READ
 ```
 
 ## Planning baseline
-Do not restart broad discovery/research already completed by the Custom GPT unless current repo/runtime evidence contradicts it. Classify execution-time research per job as `NONE`, `VERIFY_DRIFT`, `TARGETED`, or `SPIKE`.
+A Custom GPT is optional. Detect whether planning is absent, partial, execution-ready or already executing. Fresh/`NOT_STARTED` repositories run the full collaborative lifecycle locally; partial planning resumes the earliest unresolved material gate; complete handoffs are validated rather than re-planned; interrupted execution resumes from disk. Reuse any current planning/repository/runtime evidence before classifying execution-time research per job as `NONE`, `VERIFY_DRIFT`, `TARGETED`, or `SPIKE`.
 
-Research must end in a decision. Routine technical choices are autonomous after sufficient evidence. Material findings update research register, ADR/STACK/SKILLS and future job routing.
+Research must end in a decision. Routine technical choices are autonomous after sufficient evidence. Material findings update research register, ADR/STACK/SKILLS and future job routing. See `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
 
 ## Stack and skill contract
 - `STACK-MANIFEST.yaml` records actual selected/detected languages, frameworks, datastores, vector/search, infra/network and deployment.
@@ -77,11 +100,15 @@ Before every commit: classify documentation impact, update affected README/docs 
 Read and maintain `planning/execution/STATE.md` as the compact live snapshot. Update it after every meaningful job/wave/commit-push/runtime/blocker/restart/context/convergence boundary. Use fresh isolated agents for independent jobs/reviews/debugger escalation; persist truth to disk and rotate context epochs at semantic boundaries. Every wave maximizes **end-to-end throughput**, not agent count: identify the current bottleneck and avoid writer WIP that only queues before saturated integration/test/CI/review/runtime capacity. No fixed agent count; keep the operator/harness-selected model unchanged.
 
 
-## V5.6.1 convergence invariant
+## V5.6.3 convergence invariant
 Maintain `planning/execution/CONVERGENCE-MATRIX.json` and `EVIDENCE-INDEX.json`. Technical discoveries update planning/ADRs/jobs autonomously within authority and then reconverge. Affected evidence from an older SHA is stale. Final completion requires the current mandatory requirement set to be `CONVERGED`/authorized `WAIVED`, fresh required evidence, `DOCUMENTATION_READY`, runtime acceptance and intended remote-main state.
 
-## V5.6.1 program/flow invariant
+## V5.6.3 program/flow invariant
 Every substantive implementation routes `solution-minimization-engineering`. Resolve consequential Program Design before broad code generation, prefer executable vertical slices and re-steer after the first high-impact slice if needed. Batch tiny same-shape tasks; parallelize real independent work only while it improves throughput. Use measurable outcomes as backpressure where honest/useful. After escaped/repeated failures close the failure mode with the smallest effective durable control. Use token-budgeted repo maps/semantic navigation only when repository scale warrants it; keep scratch private and parent handoffs compact.
 
-## V5.6.1 adaptive execution / worker liveness invariant
+## V5.6.3 adaptive execution / worker liveness invariant
 Read `EXECUTION-PROFILE.yaml` before final DAG dispatch. `MICRO/SMALL` means fewer coherent milestones, fewer process-only branches/commits/reviews and milestone evidence; it never means weaker product quality. `STANDARD/HIGH_RISK` keeps or increases the required rigor. Route each worker only after its exact job capabilities are verified. For long-running workers, observable meaningful progress renews the lease; a quiet worker receives a health check; elapsed time alone does not justify cancellation. If a provider has a hard deadline, checkpoint beforehand when feasible and resume from the actual Git/files/checkpoint state afterward. Repeated stalls trigger resizing/capability rerouting/root-cause debugging, not blind restarts.
+
+
+## Language invariant
+Follow the user's language in conversation unless explicitly overridden. Keep CtrlAltDelegate-controlled planning, handoff, system and execution artifacts in English. Preserve intentionally localized product content when required by the project.

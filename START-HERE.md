@@ -1,43 +1,80 @@
-# Start Here
+# Start Here — V5.6.3 GitHub Native
 
-CtrlAltDelegate has no install step, no server, and no CLI of its own. "Using the tool" means: open this repository with a coding agent that has file, shell, and Git access — Pi, Codex CLI, Claude Code, OpenCode, or a compatible harness — and talk to it. Planning, discovery, implementation, verification, documentation, and Git all happen through that conversation.
+CtrlAltDelegate GitHub Native is a **complete planning + execution system**. You do not need the Custom GPT first. Open this repository with a capable coding agent and start from your actual project state.
 
-This page is for the human doing that. If you're an agent that was pointed here, read `AGENTS.md` first — it's the actual contract.
+The Custom GPT remains an optional planning-focused UI that can hand an implementation-ready baseline to the same system.
 
-## Fastest path: talk to your coding agent right here
+## Fastest path: start directly in the coding agent
 
-1. Clone this repository (or fork/copy it as the starting point for a new project).
-2. Open the repository root with your coding agent.
-3. Paste something like this as your first message, filled in for your situation:
+1. Clone/fork this complete repository for a new project, or merge it safely into an existing repository.
+2. Open the repository root with Pi, Codex CLI, Claude Code, OpenCode, or another compatible coding-agent harness with file/shell/Git access.
+3. Paste this, filling in the project sentence:
 
-> Read `AGENTS.md`, then `START-HERE.md`, then `planning/execution/STATE.md`.
-> This is [a new project idea / an existing codebase I want you to work on] — [one or two sentences on what you want built, fixed, audited, or changed].
-> If discovery/planning isn't resolved yet, run it collaboratively with me first; otherwise continue execution toward `COMPLETED`. Ask me only where the contract actually requires it.
+> Read `AGENTS.md` first, then inspect Git and `planning/execution/STATE.md`.
+>
+> This is [a new project / an existing project]: [briefly describe what you want built, changed, fixed, audited, or improved].
+>
+> Determine the lifecycle mode from persisted repository state:
+> - if discovery/planning has not started, run the full lifecycle from `INTAKE`;
+> - if planning is partial, resume the earliest unresolved gate;
+> - if planning is execution-ready, validate the baseline and begin execution;
+> - if execution was already in progress, resume the exact persisted next action.
+>
+> For a new or incompletely planned project, perform collaborative discovery with me before consequential architecture or implementation. Do not repeat facts or decisions already persisted. The Custom GPT is optional and is not a prerequisite.
+>
+> Use the canonical CtrlAltDelegate contracts, routed specialist skills and progressive references. Keep project state on disk, make routine technical decisions autonomously within recorded authority, and continue through planning, implementation, verification, documentation and Git/GitHub until `COMPLETED`. Ask me only for a true product/business/safety/external hard stop defined by the contract.
 
-That's the whole entry point. The agent reads `AGENTS.md`, sees `planning/execution/STATE.md` is `NOT_STARTED`, and opens with **collaborative discovery**: a short back-and-forth about what you're building, your constraints, and your technical preferences (see `docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md`) — before it writes any code. From there it plans, implements, verifies, documents, and pushes checkpoints on its own, coming back to you only for a real product/security/cost decision or a missing credential.
+That is the standalone entry point.
 
-## Prefer to plan in a chat UI before opening a repo?
+A fresh checkout begins in `FULL_LIFECYCLE`: collaborative discovery → constraints → research → stack/architecture → program design → skill routing → right-sized execution plan → implementation → verification → documentation/Git → `COMPLETED`.
 
-Use the [CtrlAltDelegate Custom GPT](https://chatgpt.com/g/g-6a79d4471dfc8191a8c29ba36cb25787-ctrlaltdelegate-v5-6-1) instead. It runs the same collaborative-discovery process inside ChatGPT and exports a repo-root-ready delivery package once planning is done. Put that package into a repository, open it with your coding agent, and start from `planning/handoff/FINAL-START-PROMPT.md`.
+## Automatic lifecycle modes
 
-## Adding this to a codebase you already have
+The agent must select from persisted evidence, not from assumptions:
 
-Merge this repository's files into your existing repo rather than overwriting it — don't touch existing application code or an existing agent-instruction file blindly. If you're merging a Custom-GPT delivery package into an existing repo, check it first:
+- `FULL_LIFECYCLE` — no meaningful planning yet; start discovery.
+- `RESUME_PLANNING` — planning is partial; resume the earliest unresolved material gate.
+- `EXECUTION_HANDOFF` — implementation-ready planning exists; validate it and execute.
+- `RESUME_EXECUTION` — execution already progressed; reconcile Git/runtime/evidence and resume the exact next action.
+
+Canonical rules: `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
+
+## Optional Custom GPT handoff
+
+If you prefer to plan in ChatGPT first, use the CtrlAltDelegate Custom GPT. Its delivery is an `EXECUTION_HANDOFF` input to the same GitHub-native runtime. In that case, use `planning/handoff/FINAL-START-PROMPT.md`; that prompt intentionally tells the coding agent not to re-plan a completed baseline.
+
+Do **not** use the execution-handoff prompt as the primary start for a fresh `NOT_STARTED` standalone checkout.
+
+## Existing codebase / brownfield
+
+Never blindly overwrite existing application or agent-instruction files. If importing a CtrlAltDelegate delivery into an existing repo, inspect collisions first:
 
 ```bash
-python3 scripts/import_delivery.py /path/to/your-project-coding-agent-delivery
+python3 scripts/import_delivery.py /path/to/project-coding-agent-delivery
 ```
 
-That runs in dry-run mode by default and reports new files vs. collisions without changing anything. Once the plan looks right, re-run with `--apply` to copy it in; anything that collided with a file you already had is staged under `planning/import-conflicts/` for you to resolve by hand instead of being silently overwritten.
+The command is dry-run by default. Re-run with `--apply` only after reviewing the plan. Collisions are staged under `planning/import-conflicts/` for explicit resolution.
 
-## Check what's actually ready in this checkout
+Then the agent performs repository onboarding, protects dirty/untracked work, records the baseline SHA, detects the actual stack and resumes the appropriate lifecycle gate.
+
+## Verify this checkout before publishing/using it
+
+A complete V5.6.3 GitHub Native distribution includes the canonical skill library, Claude adapters, Pi prompt, Git guards, evals, scripts, system docs and persistent planning templates.
+
+Run:
 
 ```bash
+python3 scripts/validate_system.py
+python3 scripts/validate_skill_evals.py
 python3 scripts/harness_preflight.py
 ```
 
-This reports whether your active harness, `.githooks`, and the `.agents/skills/` specialist library are present in the current checkout. Right now, a fresh clone of this repository will report `canonical_skills: 0` and `filesystem_ready: False` — the specialist skill library and `.githooks` guards described throughout `AGENTS.md` and the README aren't in this snapshot yet. The agent can still run discovery, plan, and implement without them; it just won't have routed specialist references or an automated docs-freshness guard until those are added.
+`validate_system.py` and `validate_skill_evals.py` must pass for the release distribution. `harness_preflight.py` additionally checks capabilities of the local checkout/environment and can report missing local tools even when the package itself is valid.
 
-## Resuming later, or switching agents
+## Resume later / switch coding agents
 
-Don't re-explain the project from chat history. Read `planning/execution/STATE.md` — it's the compact, current snapshot of what's done, what's active, and what the next action is. `planning/` as a whole is durable, versioned project memory, not disposable scratch.
+Do not re-explain the project from conversation history. Start from Git and `planning/execution/STATE.md`. The versioned `planning/` tree is durable project memory; chat history is disposable.
+
+## Language
+
+Talk to the coding agent in the language you prefer. It should answer in that language by default while keeping CtrlAltDelegate system/planning artifacts in English. Localized product content remains allowed when the project requires it. See `docs/system/LANGUAGE-AND-INTERACTION.md`.

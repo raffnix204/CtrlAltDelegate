@@ -1,5 +1,27 @@
 # System Changelog
 
+## V5.6.3 — Internationalization & Canonical English Artifacts
+
+- Made both distributions publication-ready for international use: all CtrlAltDelegate-controlled shipped files are English.
+- Replaced the Custom GPT's German-only conversational default with language adaptation: reply in the user's language unless explicitly overridden.
+- Added `docs/system/LANGUAGE-AND-INTERACTION.md` as the canonical conversation-vs-artifact language contract and propagated it into project delivery templates.
+- Kept repository/planning/skill/template/handoff artifacts English while explicitly allowing localized product content when the project requires it.
+- Added language-policy system-regression evals and release scans for German remnants.
+- Preserved the V5.6.2 full-lifecycle standalone GitHub-native architecture and the unchanged 145-skill / 136-reference specialist library.
+
+
+## V5.6.2 — GitHub-Native Full Lifecycle & Publish-Ready Distribution
+
+- Promoted GitHub Native to an explicit first-class **planning + execution** path. A Custom GPT is optional and never a prerequisite.
+- Added `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md` with four deterministic modes: `FULL_LIFECYCLE`, `RESUME_PLANNING`, `EXECUTION_HANDOFF`, and `RESUME_EXECUTION`.
+- Updated `AGENTS.md`, `GOAL.md`, `AUTOPILOT-GOAL.md`, initial `STATE.md`, root `START-HERE.md`, and handoff docs so a fresh checkout starts collaborative discovery while an execution-ready handoff/resume does not re-plan completed work.
+- Separated the human-facing standalone start prompt from `planning/handoff/FINAL-START-PROMPT.md`, which remains intentionally execution-handoff-specific.
+- Added four system-regression evals covering fresh standalone start, partial-plan resume, Custom-GPT execution handoff, and interrupted execution resume.
+- Added validation gates preventing normative Custom-GPT prerequisite language and requiring the full lifecycle-mode contract/signals in release artifacts.
+- GitHub Native release remains the complete distribution with all 145 canonical skills, 136 progressive references, 145 Claude adapters, Pi prompt, Git guards, evals, scripts, configs, system docs and planning templates.
+- Skill schema/content remains V5.6.1-domain-expertise compatible; V5.6.2 changes lifecycle entry/orchestration semantics, not specialist domain behavior.
+- Custom GPT planning behavior is unchanged. Its V5.6.2 pack receives version/changelog/export-parity updates so generated repositories use the same full-lifecycle-capable GitHub-native contracts.
+
 ## V5.6.1 — Skill Migration Completion & Contract Parity
 
 - Completed the V5.6 specialist migration across **all 145 canonical skills**: release QA now inspects every skill, and the 59 entrypoints that retained heading-only decision placeholders were substantively rewritten instead of collapsed into cosmetic bullets.

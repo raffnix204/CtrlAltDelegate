@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V5.6.1 filesystem/harness readiness helper. No third-party package is installed here.
+"""V5.6.3 filesystem/harness readiness helper. No third-party package is installed here.
 The active agent may research and install a required missing capability according to policy.
 """
 from pathlib import Path

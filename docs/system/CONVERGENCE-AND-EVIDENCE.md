@@ -1,4 +1,4 @@
-# Convergence & Evidence Contract — V5.6.1
+# Convergence & Evidence Contract — V5.6.3
 
 ## Goal
 Completion means the implementation, tests/evidence and documentation match the current accepted requirements/design on the exact candidate state.

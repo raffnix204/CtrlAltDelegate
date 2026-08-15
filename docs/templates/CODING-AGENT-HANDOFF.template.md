@@ -1,4 +1,7 @@
-# CODING AGENT HANDOFF — V5.6.1
+# CODING AGENT HANDOFF — V5.6.3
+
+
+> **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.
 
 ## Mission
 
@@ -9,13 +12,19 @@ Own this repository from its current persisted state through `COMPLETED` with mi
 From repository root read, in this order:
 1. `AGENTS.md`;
 2. `planning/execution/STATE.md`;
-3. `planning/execution/AUTOPILOT-GOAL.md`;
-4. current requirements / active job(s);
-5. relevant ADRs and `planning/architecture/PROGRAM-DESIGN.md`;
-6. `STACK-MANIFEST.yaml` and `SKILLS-MANIFEST.yaml`;
-7. only the exact routed `.agents/skills/<id>/SKILL.md` files needed for the current job.
+3. `planning/discovery/DISCOVERY-STATE.md` and `planning/discovery/TECHNICAL-PREFERENCES.yaml`;
+4. `planning/execution/AUTOPILOT-GOAL.md`;
+5. current requirements / active job(s);
+6. relevant ADRs and `planning/architecture/PROGRAM-DESIGN.md`;
+7. `STACK-MANIFEST.yaml` and `SKILLS-MANIFEST.yaml`;
+8. only the exact routed `.agents/skills/<id>/SKILL.md` files needed for the current job.
 
 Treat Git + `planning/` + executable evidence as the durable source of truth. Conversation history is disposable.
+
+
+## Discovery/constraint preservation
+
+Treat resolved `REQUIRED` preferences as user-owned constraints and `PREFERRED` as strong defaults. `AUTO` decisions are yours to resolve from evidence without asking the user. If repository/runtime evidence conflicts with planning assumptions, perform impact analysis, update only affected planning artifacts and reconverge. Do not casually re-open product brainstorming during implementation.
 
 ## Persistent state obligation
 
@@ -50,3 +59,7 @@ Where requirements expose meaningful measurable outcomes, use them as backpressu
 ## Completion
 
 `COMPLETED` requires convergence of mandatory requirements through code/tests/docs, fresh SHA-bound evidence, documentation readiness, runtime/user acceptance where applicable, and intended remote-main state. Ask the user only on defined hard stops.
+
+
+## Language continuity
+Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.

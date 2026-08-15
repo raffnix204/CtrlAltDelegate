@@ -1,4 +1,4 @@
-delivery_version: '5.6'
+delivery_version: 5.6.3
 layout: REPO_ROOT_READY
 persistent_planning_root: planning
 handoff_root: planning/handoff
@@ -31,6 +31,8 @@ required_files:
 - planning/execution/CONVERGENCE-MATRIX.json
 - planning/execution/EVIDENCE-INDEX.json
 - planning/research/RESEARCH-POLICY.yaml
+- docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md
+- docs/system/LANGUAGE-AND-INTERACTION.md
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -46,3 +48,7 @@ execution_profile_contract:
   - HIGH_RISK
   quality_floor: REQUIREMENT_AND_RISK_DRIVEN
   worker_liveness: PROGRESS_AWARE_NO_UNIVERSAL_STATIC_TIMEOUT
+language_contract:
+  conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
+  ctrlaltdelegate_artifacts: ENGLISH
+  localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES

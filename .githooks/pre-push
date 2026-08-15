@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+cat > "$tmp"
+python3 scripts/docs_freshness_gate.py --pre-push --stdin-file "$tmp"

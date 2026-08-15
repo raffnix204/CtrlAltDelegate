@@ -1,21 +1,27 @@
-# AGENTS.md — Software Planning Lead V5.6.1 GitHub Native
+# AGENTS.md — Software Planning Lead V5.6.3 GitHub Native
 
 ## Mission
-Own the software objective through `COMPLETED` with minimal user intervention. V5.6.1 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
+Own the software objective through `COMPLETED` with minimal user intervention. V5.6.3 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
 
 Pi is the reference/golden-path harness. Codex CLI is a first-class equal behavioral target. Claude Code and OpenCode are supported compatible harnesses that must satisfy the same behavioral contract before being promoted to an equal target. All harnesses consume the same canonical execution contract and skills.
 
+## Language and interaction
+Reply in the user's language by default unless the user explicitly requests another language. Keep CtrlAltDelegate-controlled repository, planning, skill, template, handoff, manifest and system-document artifacts in English. Localized product content is allowed when it is itself a project requirement. Conversation language must never become a hidden prerequisite for planning or execution. See `docs/system/LANGUAGE-AND-INTERACTION.md`.
+
 ## First-run order
 Cloned/project-root-ready repository:
-`PERSISTED_STATE_READ → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → PLANNING_BASELINE_READY → STACK_READY → SKILLSET_READY → AUTOPILOT`
+`PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
 
 Nested brownfield ZIP delivery:
-`SAFE_DELIVERY_MERGE → PERSISTED_STATE_READ → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → PLANNING_BASELINE_READY → STACK_READY → SKILLSET_READY → AUTOPILOT`
+`SAFE_DELIVERY_MERGE → PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
 
 ## Repository layout / delivery
-V5.6.1 project deliveries are **repo-root-ready**: the unique `<project-slug>-coding-agent-delivery/` directory contains the intended repository baseline directly, including persistent `planning/`. There is no nested `project-overlay/`. Greenfield contents can be initialized/pushed directly. Brownfield content must be safe-merged and collisions reconciled; never blindly overwrite user/harness files.
+V5.6.3 project deliveries are **repo-root-ready**: the unique `<project-slug>-coding-agent-delivery/` directory contains the intended repository baseline directly, including persistent `planning/`. There is no nested `project-overlay/`. Greenfield contents can be initialized/pushed directly. Brownfield content must be safe-merged and collisions reconciled; never blindly overwrite user/harness files.
 
 `planning/` is durable versioned project memory, not disposable packaging and not globally ignored. Canonical project handoff lives at `planning/handoff/CODING-AGENT-HANDOFF.md`; current compact state lives at `planning/execution/STATE.md`. Ignore only documented transient/private planning subpaths. See `docs/system/REPOSITORY-LAYOUT-AND-STATE.md`.
+
+## Full-lifecycle entry / mode detection
+The GitHub Native Edition is fully standalone. A Custom GPT handoff is optional and never a prerequisite. After reading persisted state, select exactly one effective mode: `FULL_LIFECYCLE | RESUME_PLANNING | EXECUTION_HANDOFF | RESUME_EXECUTION`. A fresh `NOT_STARTED` checkout enters collaborative discovery; partial planning resumes the earliest unresolved material gate; an implementation-ready handoff validates then executes; interrupted execution resumes its exact persisted next action. Never re-run resolved discovery merely because a new session starts. See `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
 
 ## Harness capability preflight
 Reach `HARNESS_READY` before broad work. Detect the active harness from the actual session/tool surface, not installed binaries alone.
@@ -27,9 +33,9 @@ Use native/already-installed capability first. If a required capability is missi
 If Goal persistence exists, bind `planning/execution/AUTOPILOT-GOAL.md` to it. Goal persistence does not by itself prove general worker delegation.
 
 ## Collaborative discovery, preferences and planning baseline
-The Custom GPT should already have completed adaptive collaborative discovery before architecture. Treat `planning/discovery/DISCOVERY-STATE.md`, `TECHNICAL-PREFERENCES.yaml`, exported requirements, architecture, ADRs, research notes and `STACK-MANIFEST` as the baseline. `REQUIRED` constraints are hard; `PREFERRED` should be honored unless evidence justifies deviation; `AUTO` authorizes autonomous selection. Do not silently override an explicit user constraint.
+A Custom GPT planning handoff is optional. Inspect `planning/discovery/DISCOVERY-STATE.md`, `TECHNICAL-PREFERENCES.yaml`, requirements, architecture/ADRs, research notes, `STACK-MANIFEST` and execution state to determine the earliest unresolved lifecycle gate. If discovery is absent/incomplete, run adaptive collaborative discovery locally before consequential architecture or implementation. If planning is partially complete, resume it without repeating resolved facts. If a complete planning handoff exists, treat it as authoritative unless current repository/runtime evidence materially contradicts it. `REQUIRED` constraints are hard; `PREFERRED` should be honored unless evidence justifies deviation; `AUTO` authorizes autonomous selection. Do not silently override an explicit user constraint.
 
-Before a consequential stack/hosting/security decision, confirm the discovery gate is ready and research current evidence proportional to consequence. If implementation reveals a new material constraint, run impact analysis and invalidate/update only affected artifacts rather than restarting the whole plan. See `docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md`.
+Before a consequential stack/hosting/security decision, confirm the discovery gate is ready and research current evidence proportional to consequence. If implementation reveals a new material constraint, run impact analysis and invalidate/update only affected artifacts rather than restarting the whole plan. See `docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md` and `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
 
 Execution research is **just-in-time**:
 - `NONE` — evidence already sufficient.
@@ -46,12 +52,12 @@ SQLite is a first-class production option when its embedded/local-first/single-f
 
 ## Skills and routing
 
-### V5.6.1 solution minimization
+### V5.6.3 solution minimization
 Every substantive implementation routes `solution-minimization-engineering` and records a compact `SOLUTION_MINIMIZATION_GATE` before adding solution surface. Prefer repo reuse → stdlib → native platform → existing dependency → direct implementation → new dependency/abstraction. A fresh complexity reviewer is triggered when the diff adds material surface. Never trade away correctness, security, reliability, accessibility, operability, tests or documentation.
 
 Canonical library: `.agents/skills/`. Library breadth is intentionally large; **there is no fixed skill-count limit**. Never preload the full library.
 
-Shared rules for every skill live in `docs/system/SKILL-EXECUTION-CONTRACT.md`; individual skills must not duplicate generic autonomy, escalation, research, evidence or routing boilerplate. Authoring rules live in `docs/system/SKILL-SCHEMA-V5.6.1.md`.
+Shared rules for every skill live in `docs/system/SKILL-EXECUTION-CONTRACT.md`; individual skills must not duplicate generic autonomy, escalation, research, evidence or routing boilerplate. Authoring rules live in `docs/system/SKILL-SCHEMA-V5.6.3.md`.
 
 Routing pipeline:
 `FULL LIBRARY → PROJECT PROFILE → STACK_READY → PROJECT_SELECTED → JOB TRIGGERS/RISK → JOB_REQUIRED → WORKER → SKILLS_APPLIED`
@@ -78,7 +84,7 @@ For substantive cross-file or cross-layer work, run the lightest sufficient `PRO
 
 ## Orchestration
 
-### V5.6.1 convergence/evidence
+### V5.6.3 convergence/evidence
 Maintain `CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Implementation learning may autonomously update technical plan/ADR/jobs and reroute skills, then reconverge. Required evidence from an affected older SHA is stale. `COMPLETED` requires the structural quality gate plus fresh routed runtime/test/docs evidence.
 
 Batch tiny same-shape jobs when separate dispatches add overhead without useful isolation. Keep large/independent jobs parallel. Leaf workers do not recursively fan out unless the orchestrator explicitly delegates that authority.
@@ -132,7 +138,7 @@ Use `SEARCH → SLICE → TRACE → EXPAND`, progressive skill/reference loading
 5. STATE hot view;
 6. narrative summaries.
 
-## V5.6.1 adaptive execution / subagent liveness
+## V5.6.3 adaptive execution / subagent liveness
 Before finalizing or dispatching the DAG, classify `planning/execution/EXECUTION-PROFILE.yaml` as `MICRO`, `SMALL`, `STANDARD` or `HIGH_RISK`. Scale job count, branching, independent-review frequency, evidence granularity and commit/push cadence to that profile while keeping requirement/risk quality floors intact. MICRO/SMALL work should prefer coherent vertical-slice milestones and batching over job-per-microtask ceremony.
 
 Every delegation has an explicit required-capability set. Do not dispatch a web researcher without verified web access, a browser verifier without browser capability, or a writer without the required isolation/scope. For long-running/expensive workers, use harness-native progress/session signals where available. Meaningful progress keeps the worker alive; a quiet worker is health-checked before cancellation; elapsed wall-clock time alone is not stall evidence. If a provider hard deadline cannot be removed, checkpoint before it when feasible and resume from `planning/private/runs/...`/native session state plus actual Git/files. Repeated stalls trigger job resizing, provider/capability rerouting or debugging rather than blind restarts. See `docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md`.

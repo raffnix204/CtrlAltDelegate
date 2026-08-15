@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Safely merge a V5.6.1 repo-root-ready Custom-GPT delivery into a repository.
+"""Safely merge a V5.6.3 repo-root-ready Custom-GPT delivery into a repository.
 
 Greenfield delivery contents are already a repository baseline and normally need no import.
 For brownfield/local nested delivery use this script. Default is dry-run. --apply copies

@@ -1,4 +1,4 @@
-# Repository Layout & Persistent State Contract — V5.6.1
+# Repository Layout & Persistent State Contract — V5.6.3
 
 ## Core invariant
 
@@ -91,4 +91,4 @@ This is not an excuse to mirror volatile external systems wholesale. Store durab
 
 A project-specific Custom-GPT delivery ZIP is **repo-root-ready**. Its unique top directory is `<project-slug>-coding-agent-delivery/`, and the contents are the intended repository baseline, including a stable `planning/` directory. Greenfield projects can initialize/push those contents directly. Brownfield projects must safe-merge only relevant planning/support files without overwriting user work.
 
-There is no nested `project-overlay/` in V5.6.1 deliveries.
+There is no nested `project-overlay/` in V5.6.3 deliveries.

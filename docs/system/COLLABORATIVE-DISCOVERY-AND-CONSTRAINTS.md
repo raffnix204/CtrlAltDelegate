@@ -1,7 +1,7 @@
-# Collaborative Discovery & Preference/Constraint Contract — V5.6.1
+# Collaborative Discovery & Preference/Constraint Contract — V5.6.3
 
 ## Purpose
-V5.6.1 keeps autonomous planning while preventing expensive late architectural reversals. Discovery is **co-design**, not a questionnaire. The planner must actively clarify, suggest, challenge and research before freezing consequential technical decisions.
+V5.6.3 keeps autonomous planning while preventing expensive late architectural reversals. Discovery is **co-design**, not a questionnaire. The planner must actively clarify, suggest, challenge and research before freezing consequential technical decisions.
 
 ## Adaptive discovery
 Do not classify a person permanently as beginner or expert. Infer only how much detail is useful **for the current decision**. Functional/product understanding remains rigorous for everyone.
@@ -76,7 +76,9 @@ Do not finalize stack/architecture while a high-impact unknown could reasonably 
 Ask one compact confirmation only for consequential user-owned constraints. `AUTO` items do not need approval; the planner selects them with evidence and proceeds.
 
 Lifecycle:
-`INTAKE → COLLABORATIVE_DISCOVERY → PREFERENCES_CONSTRAINTS_READY → DISCOVERY_READY → RESEARCH_READY → STACK_READY → ARCHITECTURE_READY → PROGRAM_DESIGN_READY → SKILLSET_READY → EXECUTION_DAG_READY → DELIVERY_READY`
+`INTAKE → COLLABORATIVE_DISCOVERY → PREFERENCES_CONSTRAINTS_READY → DISCOVERY_READY → RESEARCH_READY → STACK_READY → ARCHITECTURE_READY → PROGRAM_DESIGN_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → DELIVERY_READY`
+
+For GitHub-native standalone operation, `DELIVERY_READY` means the repository-local planning baseline is ready to enter execution; an external Custom-GPT/ZIP transfer is not required. See `FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
 
 ## Late constraint changes
 A late user constraint does not automatically trigger full replanning:

@@ -1,25 +1,43 @@
-# V5.6.1 Setup
+# V5.6.3 Setup
 
-## GitHub-native direct use
-Place/merge these system files into the intended repository root without overwriting existing application or harness configuration blindly.
+## GitHub-native direct use — full lifecycle
+The GitHub Native Edition is standalone. Clone/fork the complete distribution, open repository root in a compatible coding agent, and use the prompt in `START-HERE.md`. No Custom GPT is required.
 
-Start with the direct prompt from `README.md`.
+A fresh checkout selects `FULL_LIFECYCLE` and starts collaborative discovery. Partial planning selects `RESUME_PLANNING`; an implementation-ready delivery selects `EXECUTION_HANDOFF`; interrupted work selects `RESUME_EXECUTION`.
 
 ## Existing repository
-Preserve dirty user work and existing instruction/harness files. Merge V5.6.1 instructions/settings rather than replacing project-owned policy. Run repository onboarding before broad changes.
+Preserve dirty/untracked user work and existing instruction/harness files. Safe-merge CtrlAltDelegate rather than blindly replacing project-owned policy. Run repository onboarding before broad changes.
 
-## Custom-GPT delivery
-A V5.6.1 `<project-slug>-coding-agent-delivery/` is repo-root-ready. For greenfield, its extracted contents are the initial repository working tree and can be committed/pushed directly. For brownfield, safe-merge the planned files into an isolated branch/worktree; there is no nested `project-overlay/`. Start from `planning/handoff/FINAL-START-PROMPT.md`.
+For a generated delivery, inspect collisions with:
 
-## Pi
-Pi is the reference harness. Trust project resources when appropriate. V5.6.1 ships `.agents/skills/` and `.pi/prompts/autopilot.md` but no hardcoded third-party package install. Existing host Goal/subagent/MCP/browser/operator tools are reused. Missing required capabilities are researched/resolved at first run.
+```bash
+python3 scripts/import_delivery.py /path/to/delivery
+```
 
-## GitHub
-A valid existing origin is reused. Without one, the agent creates the planned private-by-default repository under the authenticated account when permitted. GitHub synchronization is part of completion unless explicitly disabled by the plan.
+then use `--apply` after review.
+
+## Optional Custom-GPT delivery
+A V5.6.3 `<project-slug>-coding-agent-delivery/` is repo-root-ready. For greenfield, its extracted contents may become the initial working tree. For brownfield, safe-merge it. Because planning is already implementation-ready, start from `planning/handoff/FINAL-START-PROMPT.md`; this is an `EXECUTION_HANDOFF`, not a prerequisite for GitHub-native use.
+
+## Complete distribution check
+The published GitHub Native repository should contain `.agents/skills/`, `.claude/skills/`, `.pi/`, `.githooks/`, `evals/`, `scripts/`, `docs/`, `config/` and `planning/`.
+
+Run:
+
+```bash
+python3 scripts/validate_system.py
+python3 scripts/validate_skill_evals.py
+python3 scripts/harness_preflight.py
+```
+
+The first two must pass for an intact release checkout. `harness_preflight.py` additionally reports local harness/tool availability.
+
+## Pi / Codex / Claude Code / OpenCode
+Pi is the reference harness; Codex CLI is an equal first-class behavioral target. Claude Code and OpenCode use the same canonical contracts when required capabilities are available. No model routing is required.
+
+## Git guards
+After repository initialization/import run `python3 scripts/install_git_guards.py`. Preserve/integrate existing custom hooks and reach `GIT_GUARDS_READY` before implementation commits.
 
 
-## Stack and skills
-Before execution design, resolve `planning/architecture/STACK-MANIFEST.yaml` to `STACK_READY`, then select the project skill subset in `planning/execution/SKILLS-MANIFEST.yaml` to `SKILLSET_READY`. Every job must list exact skill paths; workers return `SKILLS_APPLIED`.
-
-
-Run `python3 scripts/install_git_guards.py` after repository initialization/import. Existing custom hooks must be preserved and integrated. Verify `GIT_GUARDS_READY` before implementation commits.
+## Language behavior
+Use any supported human language when talking to the coding agent. The agent follows the user's language by default, while CtrlAltDelegate-controlled system and planning artifacts remain English. See `docs/system/LANGUAGE-AND-INTERACTION.md`.

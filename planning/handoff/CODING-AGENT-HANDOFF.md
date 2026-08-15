@@ -1,4 +1,7 @@
-# CODING AGENT HANDOFF — V5.6.1
+# CODING AGENT HANDOFF — V5.6.3
+
+
+> **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.
 
 ## Mission
 
@@ -56,3 +59,7 @@ Where requirements expose meaningful measurable outcomes, use them as backpressu
 ## Completion
 
 `COMPLETED` requires convergence of mandatory requirements through code/tests/docs, fresh SHA-bound evidence, documentation readiness, runtime/user acceptance where applicable, and intended remote-main state. Ask the user only on defined hard stops.
+
+
+## Language continuity
+Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.

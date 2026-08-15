@@ -1,6 +1,6 @@
-# Final Coding-Agent Start Prompt — V5.6.1
+# Final Coding-Agent Start Prompt — V5.6.3
 
-Work from the root of this cloned repository. Do not re-plan the project from scratch.
+Work from the root of this cloned repository. This prompt assumes an execution-ready planning handoff. Do not re-plan the project from scratch. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md` instead.
 
 Read `AGENTS.md`, then `planning/handoff/CODING-AGENT-HANDOFF.md`, then `planning/execution/STATE.md`. Treat Git plus the versioned `planning/` tree as persistent project memory. Read only the additional requirements/architecture/jobs/skills required for the immediate next action.
 
@@ -19,3 +19,7 @@ At every wave perform bottleneck-aware parallel planning. Maximize safe concurre
 Maintain `planning/execution/CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Use measurable product/NFR outcomes as execution backpressure wherever meaningful, without substituting proxy metrics for correctness/security/accessibility. Keep README and all affected canonical docs accurate for every commit/push; final user-facing deliverables require clean-room/fresh-user acceptance when practical.
 
 Continue automatically between jobs/subagents/waves while dependency-ready work exists. Ask me only for a true product/business/safety/external hard stop defined by the project contract.
+
+
+## Language continuity
+Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.

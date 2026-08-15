@@ -1,6 +1,6 @@
-# Provenance & Maintenance — V5.6.1
+# Provenance & Maintenance — V5.6.3
 
-Software Planning Lead V5.6.1 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
+Software Planning Lead V5.6.3 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
 
 ## Research families
 
@@ -16,9 +16,9 @@ Software Planning Lead V5.6.1 is an independently written first-party planning/a
 
 External skill bodies are not copied into this library. Review useful concepts, verify drift-sensitive claims against authoritative sources, extract the durable engineering decision/failure model, and rewrite it in CtrlAltDelegate's own portable terminology. Do not inherit source-specific harness assumptions, mandatory libraries, branding, arbitrary thresholds or vendor preferences unless the target project itself requires them.
 
-## V5.6.1 research refresh
+## V5.6.3 research refresh
 
-The V5.6.1 completion pass rechecked current ECC network/database review patterns, Shokunin CI/CD/PowerShell/Terraform patterns, and vendor/project sources discovered through officialskills.sh. Network specialists additionally revalidated their drift model against current UniFi, OPNsense and OpenWrt first-party documentation. These sources supplied challenge cases and verification ideas only; local skill text remains independently authored.
+The V5.6.3 completion pass rechecked current ECC network/database review patterns, Shokunin CI/CD/PowerShell/Terraform patterns, and vendor/project sources discovered through officialskills.sh. Network specialists additionally revalidated their drift model against current UniFi, OPNsense and OpenWrt first-party documentation. These sources supplied challenge cases and verification ideas only; local skill text remains independently authored.
 
 ## Maintenance rules
 

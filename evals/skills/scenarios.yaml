@@ -1,5 +1,6 @@
-version: 5.6.1
-purpose: Routing, behavior and system-regression scenarios for the V5.6.1 skill architecture and migration-completion gates.
+version: 5.6.3
+purpose: Routing, behavior and system-regression scenarios for the V5.6.3 skill architecture, full-lifecycle entry modes and international language
+  contract.
 baseline_policy:
   existing_skill_change: compare against frozen V5.5 skill entrypoint
   new_skill: compare against global execution contract plus adjacent generic skills without the new specialist
@@ -432,3 +433,69 @@ scenarios:
   - uses supported UCI/ubus/rpcd interfaces rather than brittle generated-file edits where the package supports them
   - preserves SSH/LuCI recovery or automatic rollback for management-path changes
   - verifies live interface/route/firewall/DHCP/DNS behavior and representative LAN/WAN client traffic after commit/reload
+- id: system-standalone-new-project-entry
+  prompt: A user opens a fresh complete GitHub-native CtrlAltDelegate checkout. STATE is NOT_STARTED and discovery is NOT_READY. They describe
+    a new product idea and have not used the Custom GPT.
+  required:
+  - technical-research
+  forbidden: []
+  assertions:
+  - selects FULL_LIFECYCLE rather than EXECUTION_HANDOFF
+  - starts collaborative discovery before consequential stack/architecture or implementation
+  - does not require planning/handoff/FINAL-START-PROMPT.md or a Custom GPT baseline
+  - persists discovery decisions and resumes forward through the normal lifecycle
+  class: system_regression
+- id: system-resume-partial-planning-entry
+  prompt: A repository has DISCOVERY_READY and resolved REQUIRED/PREFERRED/AUTO constraints, but research/stack/program design and execution DAG
+    are not ready. A new coding-agent session starts.
+  required:
+  - technical-research
+  forbidden: []
+  assertions:
+  - selects RESUME_PLANNING
+  - preserves resolved discovery and does not ask the same questions again
+  - resumes the earliest unresolved material planning gate
+  - does not begin broad implementation before the required planning baseline is ready
+  class: system_regression
+- id: system-execution-handoff-entry
+  prompt: A complete Custom-GPT planning delivery has requirements, research, stack, program design, selected skills and an execution-ready DAG,
+    but no implementation has started.
+  required:
+  - implementation-engineering
+  forbidden: []
+  assertions:
+  - selects EXECUTION_HANDOFF
+  - treats the handoff as authoritative unless current repository/runtime evidence contradicts it
+  - does not restart broad discovery
+  - validates/reconverges only contradicted artifacts then enters right-sized execution
+  class: system_regression
+- id: system-resume-interrupted-execution-entry
+  prompt: STATE records an active job, candidate SHA, completed wave and exact next action after an agent restart. The planning baseline was already
+    execution-ready.
+  required:
+  - implementation-engineering
+  forbidden: []
+  assertions:
+  - selects RESUME_EXECUTION
+  - reconciles actual Git/runtime/evidence with persisted state
+  - resumes the exact dependency-ready action instead of restarting discovery or planning
+  - preserves completed validated work and refreshes only stale evidence
+  class: system_regression
+- id: system-language-german-user-english-artifacts
+  class: system_regression
+  prompt: The user writes a new-project request in German and continues the planning conversation in German.
+  required: []
+  forbidden: []
+  assertions:
+  - conversational replies remain German unless the user requests another language
+  - persisted CtrlAltDelegate planning and system artifacts are English
+  - localized product content is preserved only when it is an explicit project requirement
+- id: system-language-spanish-user-english-artifacts
+  class: system_regression
+  prompt: The user writes a new-project request in Spanish and continues the planning conversation in Spanish.
+  required: []
+  forbidden: []
+  assertions:
+  - conversational replies remain Spanish unless explicitly overridden
+  - repository planning handoff and system documents remain English
+  - technical identifiers commands and paths are not translated when precision would be reduced
