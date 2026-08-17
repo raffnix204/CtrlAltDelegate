@@ -1,4 +1,4 @@
-# Web Acquisition & Browser Routing — V5.6.3
+# Web Acquisition & Browser Routing — V5.6.4
 
 ## Capabilities
 `WEB_SEARCH`, `WEB_SCRAPE`, `WEB_MAP`, `WEB_CRAWL`, `WEB_EXTRACT`.
@@ -9,7 +9,7 @@ Provider-neutral resolution:
 3. harness-native search/fetch when sufficient;
 4. research/install current compatible provider only if materially required.
 
-Examples include self-hosted Firecrawl and Firecrawl-compatible CRW/fastCRW. They are not V5.6.3 dependencies.
+Examples include self-hosted Firecrawl and Firecrawl-compatible CRW/fastCRW. They are not V5.6.4 dependencies.
 
 ## Use WEB_ACQUISITION for
 - current technical research and official docs;

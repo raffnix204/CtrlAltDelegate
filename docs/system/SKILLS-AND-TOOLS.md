@@ -1,7 +1,7 @@
-# Curated Skills and Execution Tools — V5.6.3
+# Curated Skills and Execution Tools — V5.6.4
 
 ## Library philosophy
-V5.6.3 ships **145 first-party canonical skills** in this release. That count is not a design ceiling. New skills are added when a recurring responsibility has enough distinct reasoning, failure modes and verification to justify its own expert context.
+V5.6.4 ships **145 first-party canonical skills** in this release. That count is not a design ceiling. New skills are added when a recurring responsibility has enough distinct reasoning, failure modes and verification to justify its own expert context.
 
 The opposite constraint applies at execution time: **never preload the library**.
 
@@ -21,7 +21,7 @@ LIBRARY
 - evidence signals: `config/STACK-SIGNALS.yaml`
 - routing rules: `config/SKILL-ROUTING-RULES.yaml`
 - shared execution contract: `docs/system/SKILL-EXECUTION-CONTRACT.md`
-- authoring schema: `docs/system/SKILL-SCHEMA-V5.6.3.md`
+- authoring schema: `docs/system/SKILL-SCHEMA-V5.6.1.md`
 - source research/provenance: `.agents/skills/SOURCE-RESEARCH-MATRIX.yaml`
 
 Any project delivery/export (including the optional Custom GPT) copies the **whole selected skill directory**, not only `SKILL.md`, so progressive references remain available to the coding agent.

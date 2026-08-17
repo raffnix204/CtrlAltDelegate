@@ -1,4 +1,4 @@
-# GOAL — V5.6.3
+# GOAL — V5.6.4
 
 ## Project mode
 `AUTO`
@@ -63,7 +63,7 @@ Model policy: `USE_OPERATOR_OR_HARNESS_SELECTION_UNCHANGED`
 Capability activation: `INSTALL_IF_REQUIRED_THEN_RELOAD_OR_RESTART_REQUIRED`
 
 
-## V5.6.3 planning / state / execution flow
+## V5.6.4 planning / state / execution flow
 Planning root: `planning/` — persistent, versioned, never globally gitignored.
 Current state: `planning/execution/STATE.md` — update after meaningful execution boundaries.
 Program design: `LIGHTEST_SUFFICIENT_BEFORE_BROAD_SUBSTANTIVE_IMPLEMENTATION`
@@ -73,7 +73,7 @@ Failure closure: `DURABLE_MINIMUM_CONTROL_AFTER_ESCAPED_OR_REPEATED_FAILURE`
 Measurable outcomes: `USE_WHEN_HONEST_AND_DECISION_RELEVANT`
 
 
-V5.6.3 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
+V5.6.4 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
 
 
 ## Language / interaction

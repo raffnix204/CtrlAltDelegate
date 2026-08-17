@@ -1,6 +1,6 @@
-# Codex First-Class Harness — V5.6.3
+# Codex First-Class Harness — V5.6.4
 
-Pi remains the reference/golden-path harness, while Codex CLI is a **first-class equal behavioral target**. V5.6.3 defines one canonical execution contract; harness adapters translate capabilities without creating separate methodologies.
+Pi remains the reference/golden-path harness, while Codex CLI is a **first-class equal behavioral target**. V5.6.4 defines one canonical execution contract; harness adapters translate capabilities without creating separate methodologies.
 
 ## Shared canonical surfaces
 - root `AGENTS.md` and project handoff/goal/state;
@@ -29,4 +29,4 @@ Respect the active Codex sandbox and approval policy. Do not disable protections
 Do not choose or route models. Use the operator/harness-selected model unchanged. Record it only as runtime evidence when useful for reproducibility/evals.
 
 ## Compatibility QA
-V5.6.3 release QA verifies that every canonical skill is exposed through the shared `.agents/skills` surface and that no Pi-only operational instruction is required for Codex execution. Project-specific adapters may be added only when the current Codex capability contract requires them.
+V5.6.4 release QA verifies that every canonical skill is exposed through the shared `.agents/skills` surface and that no Pi-only operational instruction is required for Codex execution. Project-specific adapters may be added only when the current Codex capability contract requires them.

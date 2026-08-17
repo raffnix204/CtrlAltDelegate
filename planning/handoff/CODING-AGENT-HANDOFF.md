@@ -1,4 +1,4 @@
-# CODING AGENT HANDOFF — V5.6.3
+# CODING AGENT HANDOFF — V5.6.4
 
 
 > **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.

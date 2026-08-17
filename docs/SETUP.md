@@ -1,4 +1,4 @@
-# V5.6.3 Setup
+# V5.6.4 Setup
 
 ## GitHub-native direct use — full lifecycle
 The GitHub Native Edition is standalone. Clone/fork the complete distribution, open repository root in a compatible coding agent, and use the prompt in `START-HERE.md`. No Custom GPT is required.
@@ -17,7 +17,7 @@ python3 scripts/import_delivery.py /path/to/delivery
 then use `--apply` after review.
 
 ## Optional Custom-GPT delivery
-A V5.6.3 `<project-slug>-coding-agent-delivery/` is repo-root-ready. For greenfield, its extracted contents may become the initial working tree. For brownfield, safe-merge it. Because planning is already implementation-ready, start from `planning/handoff/FINAL-START-PROMPT.md`; this is an `EXECUTION_HANDOFF`, not a prerequisite for GitHub-native use.
+A V5.6.4 Custom-GPT handoff is `ctrlaltdelegate-delivery.zip` containing `ctrlaltdelegate/`. Put that directory inside the target project root, start the coding agent from the target project root, and paste `ctrlaltdelegate/CODING-AGENT-START-PROMPT.md`. The package is an `EXECUTION_HANDOFF`; GitHub-native standalone use remains independent of it.
 
 ## Complete distribution check
 The published GitHub Native repository should contain `.agents/skills/`, `.claude/skills/`, `.pi/`, `.githooks/`, `evals/`, `scripts/`, `docs/`, `config/` and `planning/`.

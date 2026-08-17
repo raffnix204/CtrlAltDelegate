@@ -1,4 +1,4 @@
-# GitHub Direct Handoff Contract — V5.6.3
+# GitHub Direct Handoff Contract — V5.6.4
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Make the planning→coding transition clone-first and beginner-friendly when the
 - Existing target repository → validate target/branch/permissions, then publish the planned baseline/delta safely.
 - Greenfield repository-creation capability available → create PRIVATE by default unless PUBLIC was explicitly selected, then publish.
 - Repository creation unavailable → ask only for the target empty/new repository URL when direct publish is desired.
-- Write capability unavailable → produce the normal repo-root-ready ZIP without degrading the plan.
+- Write capability unavailable → produce the deterministic `ctrlaltdelegate-delivery.zip` nested control package without degrading the plan.
 
 ## Publish surface
 
@@ -27,7 +27,7 @@ Never publish Custom-GPT Knowledge bundles, the full skill library, ZIP archives
 
 ## Greenfield
 
-Create one coherent initial planning baseline commit when the write surface supports it. The repository after clone must already expose `planning/handoff/FINAL-START-PROMPT.md` and `planning/execution/STATE.md`.
+Create one coherent planning baseline commit when direct write is authorized. For ZIP handoff, materialize the fixed `ctrlaltdelegate/` control package and its project-root-aware start prompt instead.
 
 ## Brownfield
 
@@ -37,5 +37,5 @@ Do not overwrite product code or existing harness/project policy just because wr
 
 After publish, verify repository identity, branch, commit SHA and presence of mandatory handoff/state files. The final user-facing start prompt is executed from the cloned repository root and must not depend on the original planning chat.
 
-## V5.6.3 execution-profile publication
+## V5.6.4 execution-profile publication
 Direct GitHub handoff and ZIP handoff must publish the same `planning/execution/EXECUTION-PROFILE.yaml`. The coding agent therefore receives the right-sized execution/review/evidence/liveness policy immediately after clone; do not reconstruct a large-project DAG by default when the planner classified the project MICRO/SMALL.

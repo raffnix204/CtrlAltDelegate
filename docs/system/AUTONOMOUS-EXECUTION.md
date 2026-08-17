@@ -509,11 +509,11 @@ Bootstrap ladder: `NATIVE → EXISTING → PINNED PROJECT INSTALL → VERIFY →
 
 Auto-install only when required, researched, compatible/licensed, exact-pinned when practical and preferably project-local. Never use blind remote installer scripts, weaken policy or overwrite global user settings.
 
-Pi delegation is resolved by capability at runtime; no third-party provider/version is hardcoded in V5.6.3.
+Pi delegation is resolved by capability at runtime; no third-party provider/version is hardcoded in V5.6.4.
 
 ## Repository-root delivery stage
 
-V5.6.3 Custom-GPT project deliveries are repo-root-ready. Greenfield contents can become the initial repository baseline directly. Brownfield contents are safe-merged into an isolated branch/worktree with collision preservation.
+V5.6.4 Custom-GPT project deliveries use the deterministic nested `ctrlaltdelegate/` control directory inside the target project root. The coding agent works from the target project root and treats the nested package as planning/control state, not as the application root.
 
 Required brownfield order:
 `DELIVERY_VALIDATE → GIT/USER-WORK_SAFETY → DRY_RUN_MERGE → CONFLICT_RECONCILE → ROOT_FILES_VERIFY → PERSISTED_STATE_READ → HARNESS_PREFLIGHT`.
@@ -532,12 +532,12 @@ Pi is the reference harness. Detect capabilities individually:
 - browser interaction;
 - semantic code navigation (optional for large repos).
 
-Do not infer general subagents merely because a Goal extension has a verifier. Use existing installed host capabilities first. Missing required capabilities may be researched/installed through Pi's supported package mechanism after project trust; record the resolved provider/version in state, but do not bake that version or any model choice into V5.6.3 methodology. Re-verify after documented reload; if activation requires restarting Pi, persist and enter `RESTART_REQUIRED` with exact resume instructions.
+Do not infer general subagents merely because a Goal extension has a verifier. Use existing installed host capabilities first. Missing required capabilities may be researched/installed through Pi's supported package mechanism after project trust; record the resolved provider/version in state, but do not bake that version or any model choice into V5.6.4 methodology. Re-verify after documented reload; if activation requires restarting Pi, persist and enter `RESTART_REQUIRED` with exact resume instructions.
 
-If persistent Goal mode exists, bind the whole `AUTOPILOT-GOAL.md` to that outer persistence loop. V5.6.3 continuation states still decide what work happens next; do not stack competing autonomous loops.
+If persistent Goal mode exists, bind the whole `AUTOPILOT-GOAL.md` to that outer persistence loop. V5.6.4 continuation states still decide what work happens next; do not stack competing autonomous loops.
 
 
-## V5.6.3 Stack/Skill execution invariants
+## V5.6.4 Stack/Skill execution invariants
 
 `STACK_READY` and `SKILLSET_READY` are mandatory gates before `EXECUTION_DAG_READY`. Every job includes `Required Skills` with canonical paths. The orchestrator passes those paths to the worker; the worker reads them before work and returns `SKILLS_APPLIED`. If a diff introduces a new stack/domain trigger, rerun routing for affected jobs.
 
@@ -548,13 +548,13 @@ Library breadth never implies context breadth. Workers load only assigned skill 
 Each job returns `DOCS_IMPACT`. Before a commit the orchestrator/worker updates affected canonical docs in the same staged diff or records a concrete `NONE`, then records/validates `DOCUMENTATION-STATE.yaml`. No push proceeds until the pushed history passes the pre-push documentation gate. Final validation includes a fresh-user README/install/use review and feature-coverage check.
 
 
-## V5.6.3 Program design / vertical slices / state
+## V5.6.4 Program design / vertical slices / state
 Before broad substantive cross-file/cross-layer implementation, satisfy the lightest sufficient `PROGRAM_DESIGN_GATE`. Prefer an executable vertical slice and early re-steering before expanding the diff when dependencies allow. `planning/execution/STATE.md` is mandatory compact current state and is refreshed at every meaningful execution boundary; detailed history remains in the ledger.
 
 For confirmed bugs prefer `PRE_FIX_FAIL → POST_FIX_PASS` evidence when practical. Escaped/repeated failures trigger `FAILURE_MODE_CLOSURE` and the smallest effective durable prevention/detection control.
 
-## V5.6.3 Execution Rightsizing
+## V5.6.4 Execution Rightsizing
 Run `EXECUTION_RIGHTSIZING_GATE` before dispatch. MICRO/SMALL projects should collapse tightly coupled micro-jobs into coherent executable milestones, avoid branch/worktree-per-job when no parallel writer isolation is needed, use milestone evidence, and reserve fresh independent reviews for final release plus real risk triggers. STANDARD/HIGH_RISK retains the fuller DAG/review/evidence model. A single high-risk job may escalate locally without inflating unrelated work.
 
-## V5.6.3 Worker lease and recovery
+## V5.6.4 Worker lease and recovery
 Before delegation verify exact job capabilities against the chosen worker. For long-running workers prefer native progress/update/session signals. Meaningful progress renews the lease. A quiet period leads to a health check, not automatic cancellation; elapsed wall-clock time alone is not a failure signal. On unavoidable provider deadline/crash, persist/reconcile checkpoint + Git/files and resume the next safe step. Repeated identical stalls require job resizing/capability rerouting/root-cause debugging rather than repeated clean restarts.

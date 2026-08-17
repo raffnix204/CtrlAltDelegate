@@ -1,9 +1,10 @@
-version: 5.6.3
-purpose: Routing, behavior and system-regression scenarios for the V5.6.3 skill architecture, full-lifecycle entry modes and international language
-  contract.
+version: 5.6.4
+purpose: Routing, behavior and system-regression scenarios for the V5.6.4 skill architecture,
+  lifecycle modes, language contract and deterministic Custom-GPT handoff delivery.
 baseline_policy:
   existing_skill_change: compare against frozen V5.5 skill entrypoint
-  new_skill: compare against global execution contract plus adjacent generic skills without the new specialist
+  new_skill: compare against global execution contract plus adjacent generic skills
+    without the new specialist
   repeated_runs: use when stochastic variance can affect the verdict
   record:
   - pass_rate
@@ -38,7 +39,8 @@ scenarios:
   - angular-engineering
 - id: route-cloudflare-worker
   class: routing
-  prompt: Add a Cloudflare Worker endpoint that stores uploaded objects in R2 and records metadata in D1.
+  prompt: Add a Cloudflare Worker endpoint that stores uploaded objects in R2 and
+    records metadata in D1.
   required:
   - cloudflare-platform-engineering
   - serverless-edge-engineering
@@ -47,7 +49,8 @@ scenarios:
   - mongodb-engineering
 - id: route-terraform-not-generic-only
   class: routing
-  prompt: Refactor existing Terraform resources into a reusable module without recreating production infrastructure.
+  prompt: Refactor existing Terraform resources into a reusable module without recreating
+    production infrastructure.
   required:
   - terraform-engineering
   - infrastructure-as-code-engineering
@@ -71,37 +74,43 @@ scenarios:
   - property-based-testing
 - id: behavior-nextjs-cache-auth
   class: behavior
-  prompt: In a Next.js App Router dashboard, cache product catalog reads but keep per-user notification counts private. A Server Action edits
-    a product and must refresh affected catalog views.
+  prompt: In a Next.js App Router dashboard, cache product catalog reads but keep
+    per-user notification counts private. A Server Action edits a product and must
+    refresh affected catalog views.
   required:
   - nextjs-engineering
   - react-web-engineering
   forbidden:
   - mongodb-engineering
   assertions:
-  - distinguishes cacheable catalog identity from request-specific user notification state
-  - keeps cookies/session/request data outside shared cached values unless intentionally keyed
+  - distinguishes cacheable catalog identity from request-specific user notification
+    state
+  - keeps cookies/session/request data outside shared cached values unless intentionally
+    keyed
   - authenticates/authorizes/validates the Server Action on the server
   - maps mutation invalidation to the same cache domain as catalog reads
   - requires current project-version caching semantics and production-build verification
 - id: behavior-react-stale-effect
   class: behavior
-  prompt: A React search page fetches on every query change. Fast typing sometimes shows results for an older query after a newer request completed.
-    Fix it without adding a global store.
+  prompt: A React search page fetches on every query change. Fast typing sometimes
+    shows results for an older query after a newer request completed. Fix it without
+    adding a global store.
   required:
   - react-web-engineering
   - systematic-debugging
   forbidden:
   - nextjs-engineering
   assertions:
-  - identifies async response ordering/cancellation ownership rather than state-library absence
+  - identifies async response ordering/cancellation ownership rather than state-library
+    absence
   - uses abort or stale-result suppression tied to current intent
   - keeps state local or URL-owned unless another owner is proven
   - adds a regression test that forces reordered completion
 - id: behavior-angular-ssr-state
   class: behavior
-  prompt: An Angular SSR app stores the current tenant in a root-provided mutable service. Under load, rare requests render another tenant's navigation.
-    Diagnose and redesign.
+  prompt: An Angular SSR app stores the current tenant in a root-provided mutable
+    service. Under load, rare requests render another tenant's navigation. Diagnose
+    and redesign.
   required:
   - angular-engineering
   - security-review
@@ -114,8 +123,9 @@ scenarios:
   - does not treat route guards as server authorization
 - id: behavior-react-native-upgrade
   class: behavior
-  prompt: Upgrade a brownfield React Native app with custom native modules and push notifications across two RN versions. It uses CocoaPods and
-    Gradle and currently runs Hermes.
+  prompt: Upgrade a brownfield React Native app with custom native modules and push
+    notifications across two RN versions. It uses CocoaPods and Gradle and currently
+    runs Hermes.
   required:
   - react-native-engineering
   - dependency-upgrade-engineering
@@ -128,8 +138,9 @@ scenarios:
   - verifies release-like builds on both platforms and notification/deep-link behavior
 - id: behavior-flutter-cpu-jank
   class: behavior
-  prompt: A Flutter app freezes for 600ms when parsing a large locally cached JSON document even though the parsing function is async. Fix the
-    jank with minimal architecture change.
+  prompt: A Flutter app freezes for 600ms when parsing a large locally cached JSON
+    document even though the parsing function is async. Fix the jank with minimal
+    architecture change.
   required:
   - flutter-engineering
   - performance-profiling
@@ -142,8 +153,9 @@ scenarios:
   - verifies profile/release-like frame behavior and cancellation/lifecycle ownership
 - id: behavior-postgres-rls-plan
   class: behavior
-  prompt: A Postgres multi-tenant table uses RLS and a policy on tenant_id. Queries became slow at 50M rows, and an admin connection can see all
-    tenants. Review correctness and performance.
+  prompt: A Postgres multi-tenant table uses RLS and a policy on tenant_id. Queries
+    became slow at 50M rows, and an admin connection can see all tenants. Review correctness
+    and performance.
   required:
   - postgres-engineering
   - security-review
@@ -157,8 +169,8 @@ scenarios:
   - avoids disabling RLS as a performance fix
 - id: behavior-graphql-loader-auth
   class: behavior
-  prompt: A GraphQL API has an N+1 problem on nested orders.customer, and its DataLoader was moved to a global singleton for speed. The service
-    is multi-tenant.
+  prompt: A GraphQL API has an N+1 problem on nested orders.customer, and its DataLoader
+    was moved to a global singleton for speed. The service is multi-tenant.
   required:
   - graphql-engineering
   - security-review
@@ -171,8 +183,8 @@ scenarios:
   - does not solve N+1 by global cross-request cache
 - id: behavior-terraform-refactor
   class: behavior
-  prompt: Move 40 existing Terraform resources under module.network while keeping every cloud resource in place. Production state is remote and
-    locked.
+  prompt: Move 40 existing Terraform resources under module.network while keeping
+    every cloud resource in place. Production state is remote and locked.
   required:
   - terraform-engineering
   - infrastructure-as-code-engineering
@@ -185,8 +197,8 @@ scenarios:
   - preserves remote state locking and candidate/apply coherence
 - id: behavior-mongodb-model
   class: behavior
-  prompt: Design MongoDB storage for IoT devices that emit one sample per second for years. The current prototype embeds every sample in the device
-    document.
+  prompt: Design MongoDB storage for IoT devices that emit one sample per second for
+    years. The current prototype embeds every sample in the device document.
   required:
   - mongodb-engineering
   - database-design
@@ -194,13 +206,15 @@ scenarios:
   - postgres-engineering
   assertions:
   - rejects unbounded embedded growth
-  - evaluates bucket/time-series or bounded child-document design from query/update patterns
+  - evaluates bucket/time-series or bounded child-document design from query/update
+    patterns
   - plans indexes from representative device/time-range queries
   - considers retention/archival and document-size/update-contention behavior
 - id: behavior-cloudflare-global-state
   class: behavior
-  prompt: A Cloudflare Worker keeps active checkout sessions in a module-level Map and occasionally loses them after quiet periods. Replace it
-    with the smallest correct platform design.
+  prompt: A Cloudflare Worker keeps active checkout sessions in a module-level Map
+    and occasionally loses them after quiet periods. Replace it with the smallest
+    correct platform design.
   required:
   - cloudflare-platform-engineering
   - reliability-observability
@@ -213,8 +227,8 @@ scenarios:
   - tests restart/concurrency semantics of the selected state owner
 - id: behavior-wordpress-rest-security
   class: behavior
-  prompt: A WordPress plugin exposes a REST endpoint that deletes a custom record. It verifies a nonce but has no capability check. Fix and add
-    tests.
+  prompt: A WordPress plugin exposes a REST endpoint that deletes a custom record.
+    It verifies a nonce but has no capability check. Fix and add tests.
   required:
   - wordpress-engineering
   - security-review
@@ -227,8 +241,8 @@ scenarios:
   - tests unauthorized/expired or invalid-intent paths directly through REST
 - id: behavior-threat-model-recovery
   class: behavior
-  prompt: Threat-model an account recovery flow that lets organization owners regain access after losing MFA. The product is multi-tenant and
-    owners can invite admins.
+  prompt: Threat-model an account recovery flow that lets organization owners regain
+    access after losing MFA. The product is multi-tenant and owners can invite admins.
   required:
   - threat-modeling-engineering
   - auth-architecture
@@ -236,14 +250,16 @@ scenarios:
   forbidden:
   - property-based-testing
   assertions:
-  - maps assets actors trust boundaries and recovery/admin entry points before listing threats
+  - maps assets actors trust boundaries and recovery/admin entry points before listing
+    threats
   - includes takeover enumeration replay social/tenant-admin abuse paths where plausible
   - maps threats to prevent detect recover controls and security invariants
   - turns accepted controls into concrete requirements/tests/audit evidence
 - id: behavior-property-roundtrip
   class: behavior
-  prompt: We have a URL config parser and serializer. Example tests keep missing Unicode, escaping and ordering bugs. Add a stronger test strategy
-    without duplicating parser implementation.
+  prompt: We have a URL config parser and serializer. Example tests keep missing Unicode,
+    escaping and ordering bugs. Add a stronger test strategy without duplicating parser
+    implementation.
   required:
   - property-based-testing
   - test-engineering
@@ -256,7 +272,8 @@ scenarios:
   - retains targeted examples for important business cases
 - id: behavior-django-job-after-commit
   class: behavior
-  prompt: A Django view creates an invoice in a transaction and immediately enqueues a Celery job. Rarely the worker cannot find the invoice.
+  prompt: A Django view creates an invoice in a transaction and immediately enqueues
+    a Celery job. Rarely the worker cannot find the invoice.
   required:
   - django-engineering
   - background-job-engineering
@@ -269,7 +286,8 @@ scenarios:
   - adds a regression test for transaction/worker timing
 - id: behavior-fastapi-blocking
   class: behavior
-  prompt: A FastAPI async endpoint calls a synchronous SDK that can block for five seconds and throughput collapses under 100 concurrent requests.
+  prompt: A FastAPI async endpoint calls a synchronous SDK that can block for five
+    seconds and throughput collapses under 100 concurrent requests.
   required:
   - fastapi-engineering
   - performance-profiling
@@ -281,7 +299,8 @@ scenarios:
   - verifies with representative concurrent requests
 - id: behavior-spring-transaction-proxy
   class: behavior
-  prompt: A Spring Boot service calls its own @Transactional method internally and partial database writes remain after an exception.
+  prompt: A Spring Boot service calls its own @Transactional method internally and
+    partial database writes remain after an exception.
   required:
   - spring-boot-engineering
   - database-design
@@ -289,12 +308,13 @@ scenarios:
   - quarkus-engineering
   assertions:
   - identifies proxy/self-invocation transaction boundary problem
-  - moves transaction ownership to a clear externally intercepted use-case boundary or equivalent supported design
+  - moves transaction ownership to a clear externally intercepted use-case boundary
+    or equivalent supported design
   - tests rollback across all writes
 - id: behavior-svelte-ssr-global
   class: behavior
-  prompt: A SvelteKit app stores the authenticated user in a module-level variable used by server load functions. Users occasionally see another
-    user's name.
+  prompt: A SvelteKit app stores the authenticated user in a module-level variable
+    used by server load functions. Users occasionally see another user's name.
   required:
   - sveltekit-engineering
   - security-review
@@ -306,7 +326,8 @@ scenarios:
   - tests concurrent SSR requests and hydration
 - id: behavior-vue-reactivity
   class: behavior
-  prompt: A Vue composable returns a reactive object, but a component destructures fields and they stop updating. Fix with minimal changes.
+  prompt: A Vue composable returns a reactive object, but a component destructures
+    fields and they stop updating. Fix with minimal changes.
   required:
   - vue-nuxt-engineering
   forbidden:
@@ -317,43 +338,50 @@ scenarios:
   - avoids adding a global state library
 - id: system-global-contract-survives
   class: system_regression
-  prompt: Implement a small low-risk Next.js validation fix. The Next.js skill no longer contains generic escalation/evidence/routing boilerplate.
+  prompt: Implement a small low-risk Next.js validation fix. The Next.js skill no
+    longer contains generic escalation/evidence/routing boilerplate.
   required:
   - nextjs-engineering
   - solution-minimization-engineering
   - implementation-engineering
   forbidden: []
   assertions:
-  - still follows the global user-escalation boundary without asking about routine technical choices
+  - still follows the global user-escalation boundary without asking about routine
+    technical choices
   - still requires falsifiable regression evidence and does not weaken tests
   - still uses smallest complete solution and MICRO/SMALL rightsizing
   - still returns SKILLS_APPLIED and routes only job-relevant references
 - id: system-progressive-reference-loading
   class: system_regression
-  prompt: Review a React component that has a local effect race but no server rendering and no performance complaint.
+  prompt: Review a React component that has a local effect race but no server rendering
+    and no performance complaint.
   required:
   - react-web-engineering
   forbidden:
   - nextjs-engineering
   assertions:
   - loads state-effects-and-concurrency reference when useful
-  - does not preload server-client-and-hydration or performance reference without need
+  - does not preload server-client-and-hydration or performance reference without
+    need
   - preserves active-context minimization
 - id: system-new-evidence-reroute
   class: system_regression
-  prompt: During implementation of a generic serverless API, repository inspection reveals it actually deploys to Cloudflare Workers and uses
-    Durable Objects.
+  prompt: During implementation of a generic serverless API, repository inspection
+    reveals it actually deploys to Cloudflare Workers and uses Durable Objects.
   required:
   - cloudflare-platform-engineering
   - serverless-edge-engineering
   forbidden: []
   assertions:
-  - updates stack/skill routing for future affected jobs instead of continuing with generic assumptions
-  - invalidates only affected decisions/evidence rather than restarting unrelated planning
+  - updates stack/skill routing for future affected jobs instead of continuing with
+    generic assumptions
+  - invalidates only affected decisions/evidence rather than restarting unrelated
+    planning
   - verifies worker capability/runtime requirements before dispatch
 - id: system-high-risk-not-rightsized-away
   class: system_regression
-  prompt: Change a single Terraform firewall rule that could lock operators out of the only management path.
+  prompt: Change a single Terraform firewall rule that could lock operators out of
+    the only management path.
   required:
   - terraform-engineering
   - infrastructure-as-code-engineering
@@ -365,19 +393,22 @@ scenarios:
   - does not relax security/recovery gates under MICRO/SMALL ceremony rules
 - id: system-contract-export-parity
   class: system_regression
-  prompt: Generate a coding-agent delivery containing specialist skills from the Custom-GPT planning pack. The exported global skill contract
-    must not be improvised or reconstructed from memory.
+  prompt: Generate a coding-agent delivery containing specialist skills from the Custom-GPT
+    planning pack. The exported global skill contract must not be improvised or reconstructed
+    from memory.
   required:
   - implementation-engineering
   forbidden: []
   assertions:
-  - materializes docs/system/SKILL-EXECUTION-CONTRACT.md from the embedded canonical template
+  - materializes docs/system/SKILL-EXECUTION-CONTRACT.md from the embedded canonical
+    template
   - exported contract bytes/hash match the embedded canonical contract
   - does not duplicate the global contract into every specialist SKILL.md
   - selected progressive references remain job-relevant rather than globally preloaded
 - id: system-no-empty-expert-decisions
   class: system_regression
-  prompt: Package a project that selects UniFi, CI/CD and analytics-database specialists. Validate the selected skill artifacts before delivery.
+  prompt: Package a project that selects UniFi, CI/CD and analytics-database specialists.
+    Validate the selected skill artifacts before delivery.
   required:
   - unifi-network-engineering
   - ci-cd-engineering
@@ -390,8 +421,9 @@ scenarios:
   - global contract remains a separate shared surface
 - id: behavior-unifi-safe-network-change
   class: behavior
-  prompt: Automate a UniFi management-VLAN and switch-port change across several sites without risking loss of controller/device access. The exact
-    Network application versions differ by site.
+  prompt: Automate a UniFi management-VLAN and switch-port change across several sites
+    without risking loss of controller/device access. The exact Network application
+    versions differ by site.
   required:
   - unifi-network-engineering
   - network-infrastructure-engineering
@@ -399,14 +431,18 @@ scenarios:
   forbidden:
   - openwrt-engineering
   assertions:
-  - discovers console/Network versions and current API/capabilities before mutable calls
-  - maps operator/controller/device management paths and preserves out-of-band or timed rollback
+  - discovers console/Network versions and current API/capabilities before mutable
+    calls
+  - maps operator/controller/device management paths and preserves out-of-band or
+    timed rollback
   - canaries risky change and treats controller/API acceptance as not yet device convergence
-  - verifies bidirectional client traffic plus VLAN/route/DHCP/DNS/firewall/device health evidence before widening
+  - verifies bidirectional client traffic plus VLAN/route/DHCP/DNS/firewall/device
+    health evidence before widening
 - id: behavior-opnsense-safe-api-change
   class: behavior
-  prompt: Use the OPNsense API to add and roll out a firewall/NAT change on a remote site. API docs are incomplete for one field and losing the
-    management path would require an onsite visit.
+  prompt: Use the OPNsense API to add and roll out a firewall/NAT change on a remote
+    site. API docs are incomplete for one field and losing the management path would
+    require an onsite visit.
   required:
   - opnsense-engineering
   - network-infrastructure-engineering
@@ -415,13 +451,15 @@ scenarios:
   - unifi-network-engineering
   assertions:
   - discovers exact OPNsense module/controller/model and effective API privileges
-  - uses current first-party model/GUI request behavior to resolve undocumented parameters instead of guessing
+  - uses current first-party model/GUI request behavior to resolve undocumented parameters
+    instead of guessing
   - preserves management/recovery path and stages rollback before apply/reconfigure
-  - verifies generated/live rule/NAT state, counters/logs and representative forward/return traffic after apply
+  - verifies generated/live rule/NAT state, counters/logs and representative forward/return
+    traffic after apply
 - id: behavior-openwrt-safe-remote-change
   class: behavior
-  prompt: Remotely change OpenWrt VLAN/firewall/DHCP configuration on a router with no onsite operator. Several installed packages and the release
-    version are unknown.
+  prompt: Remotely change OpenWrt VLAN/firewall/DHCP configuration on a router with
+    no onsite operator. Several installed packages and the release version are unknown.
   required:
   - openwrt-engineering
   - network-infrastructure-engineering
@@ -429,13 +467,17 @@ scenarios:
   forbidden:
   - opnsense-engineering
   assertions:
-  - inventories release/target/packages/free space and current UCI/runtime state before changing config
-  - uses supported UCI/ubus/rpcd interfaces rather than brittle generated-file edits where the package supports them
+  - inventories release/target/packages/free space and current UCI/runtime state before
+    changing config
+  - uses supported UCI/ubus/rpcd interfaces rather than brittle generated-file edits
+    where the package supports them
   - preserves SSH/LuCI recovery or automatic rollback for management-path changes
-  - verifies live interface/route/firewall/DHCP/DNS behavior and representative LAN/WAN client traffic after commit/reload
+  - verifies live interface/route/firewall/DHCP/DNS behavior and representative LAN/WAN
+    client traffic after commit/reload
 - id: system-standalone-new-project-entry
-  prompt: A user opens a fresh complete GitHub-native CtrlAltDelegate checkout. STATE is NOT_STARTED and discovery is NOT_READY. They describe
-    a new product idea and have not used the Custom GPT.
+  prompt: A user opens a fresh complete GitHub-native CtrlAltDelegate checkout. STATE
+    is NOT_STARTED and discovery is NOT_READY. They describe a new product idea and
+    have not used the Custom GPT.
   required:
   - technical-research
   forbidden: []
@@ -446,8 +488,9 @@ scenarios:
   - persists discovery decisions and resumes forward through the normal lifecycle
   class: system_regression
 - id: system-resume-partial-planning-entry
-  prompt: A repository has DISCOVERY_READY and resolved REQUIRED/PREFERRED/AUTO constraints, but research/stack/program design and execution DAG
-    are not ready. A new coding-agent session starts.
+  prompt: A repository has DISCOVERY_READY and resolved REQUIRED/PREFERRED/AUTO constraints,
+    but research/stack/program design and execution DAG are not ready. A new coding-agent
+    session starts.
   required:
   - technical-research
   forbidden: []
@@ -458,20 +501,22 @@ scenarios:
   - does not begin broad implementation before the required planning baseline is ready
   class: system_regression
 - id: system-execution-handoff-entry
-  prompt: A complete Custom-GPT planning delivery has requirements, research, stack, program design, selected skills and an execution-ready DAG,
-    but no implementation has started.
+  prompt: A complete Custom-GPT planning delivery has requirements, research, stack,
+    program design, selected skills and an execution-ready DAG, but no implementation
+    has started.
   required:
   - implementation-engineering
   forbidden: []
   assertions:
   - selects EXECUTION_HANDOFF
-  - treats the handoff as authoritative unless current repository/runtime evidence contradicts it
+  - treats the handoff as authoritative unless current repository/runtime evidence
+    contradicts it
   - does not restart broad discovery
   - validates/reconverges only contradicted artifacts then enters right-sized execution
   class: system_regression
 - id: system-resume-interrupted-execution-entry
-  prompt: STATE records an active job, candidate SHA, completed wave and exact next action after an agent restart. The planning baseline was already
-    execution-ready.
+  prompt: STATE records an active job, candidate SHA, completed wave and exact next
+    action after an agent restart. The planning baseline was already execution-ready.
   required:
   - implementation-engineering
   forbidden: []
@@ -483,7 +528,8 @@ scenarios:
   class: system_regression
 - id: system-language-german-user-english-artifacts
   class: system_regression
-  prompt: The user writes a new-project request in German and continues the planning conversation in German.
+  prompt: The user writes a new-project request in German and continues the planning
+    conversation in German.
   required: []
   forbidden: []
   assertions:
@@ -492,10 +538,47 @@ scenarios:
   - localized product content is preserved only when it is an explicit project requirement
 - id: system-language-spanish-user-english-artifacts
   class: system_regression
-  prompt: The user writes a new-project request in Spanish and continues the planning conversation in Spanish.
+  prompt: The user writes a new-project request in Spanish and continues the planning
+    conversation in Spanish.
   required: []
   forbidden: []
   assertions:
   - conversational replies remain Spanish unless explicitly overridden
   - repository planning handoff and system documents remain English
-  - technical identifiers commands and paths are not translated when precision would be reduced
+  - technical identifiers commands and paths are not translated when precision would
+    be reduced
+- id: system-custom-delivery-fixed-control-root
+  class: system_regression
+  prompt: A completed Custom-GPT planning run is exported for a project named Northwind
+    Portal. Verify delivery topology.
+  assertions:
+  - archive name is ctrlaltdelegate-delivery.zip regardless of project name
+  - single top-level directory is ctrlaltdelegate
+  - project identity remains metadata rather than filesystem topology
+  - coding agent is instructed to start from the target project root
+- id: system-custom-delivery-handoff-required
+  class: system_regression
+  prompt: The planner produced all planning documents but omitted the coding-agent
+    start prompt. Decide whether delivery is complete.
+  assertions:
+  - does not claim DELIVERY_READY
+  - requires CODING-AGENT-START-PROMPT.md
+  - requires HANDOFF-STATUS.yaml to be written only after closure checks
+  - treats planning files and handoff generation as one atomic logical operation
+- id: system-nested-handoff-path-resolution
+  class: system_regression
+  prompt: The user placed ctrlaltdelegate/ inside an existing repository and started
+    the coding agent from repository root. Resolve paths before execution.
+  assertions:
+  - sets PROJECT_ROOT to the target repository root
+  - sets CONTROL_ROOT to ./ctrlaltdelegate
+  - reads handoff and state through ./ctrlaltdelegate paths
+  - implements product code in PROJECT_ROOT rather than CONTROL_ROOT
+- id: system-handoff-fail-closed
+  class: system_regression
+  prompt: The start prompt points to ctrlaltdelegate but HANDOFF-STATUS.yaml is missing.
+  assertions:
+  - reports BLOCKED_DELIVERY_INCOMPLETE
+  - names the missing path
+  - does not guess a differently named planning directory
+  - does not restart broad planning as a substitute for a broken package

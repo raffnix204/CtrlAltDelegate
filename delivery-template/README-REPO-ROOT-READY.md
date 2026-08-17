@@ -1,5 +1,5 @@
-# V5.6.3 Project Delivery Template
+# V5.6.4 Project Delivery Template
 
-A generated project delivery (including an optional Custom-GPT delivery) is a unique `<project-slug>-coding-agent-delivery/` directory whose **contents are repo-root-ready**. It includes root harness/support files plus a persistent `planning/` directory. Greenfield contents can become the initial repository baseline directly; brownfield contents are safe-merged.
+This `delivery-template/` models the root-native GitHub distribution/project baseline. Custom-GPT V5.6.4 planning handoffs use the separate fixed nested `ctrlaltdelegate/` topology documented in `docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md`.
 
-There is no nested `project-overlay/` in V5.6.3.
+Do not confuse this root-native template with the nested Custom-GPT control package.

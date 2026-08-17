@@ -259,7 +259,7 @@ The GitHub Native Edition contains the complete execution-oriented system:
 - validation scripts;
 - skill evaluations;
 - harness compatibility guidance;
-- and repository-root-ready project delivery infrastructure.
+- root-native project delivery templates and deterministic Custom-GPT handoff validation.
 
 This is the version intended to live with the codebase and guide coding agents throughout implementation.
 
@@ -311,7 +311,7 @@ USER OR AUTO DECISION
 REFINE
 ```
 
-The Custom GPT ultimately produces a **repo-root-ready coding-agent delivery package** that can be placed into a Git repository and executed using the GitHub Native system.
+The Custom GPT ultimately produces a deterministic delivery archive, **`ctrlaltdelegate-delivery.zip`**, containing one fixed `ctrlaltdelegate/` control directory. That directory is placed inside the target project root, the coding agent starts from the project root, and planning/handoff state resolves through `CONTROL_ROOT=./ctrlaltdelegate`. Incomplete packages fail closed instead of guessing alternative paths. See `docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md`.
 
 ### Recommended end-to-end workflow
 
@@ -330,9 +330,9 @@ PROGRAM DESIGN
    ↓
 EXECUTION PLAN
    ↓
-REPO-ROOT-READY DELIVERY
+DETERMINISTIC DELIVERY ZIP (ctrlaltdelegate/)
    ↓
-GITHUB REPOSITORY
+TARGET PROJECT ROOT
    ↓
 CODING AGENT
    ↓
@@ -2098,9 +2098,9 @@ python3 scripts/harness_preflight.py
 Use this if you would rather work through an idea, rough specification, or incomplete project definition in a conversational planner before touching a repository or coding agent.
 
 1. Open the **[CtrlAltDelegate Custom GPT →](https://chatgpt.com/g/g-6a79d4471dfc8191a8c29ba36cb25787-ctrlaltdelegate-v5-6-1)** and describe the project. You do not need a requirements document first — the planner collaboratively develops product behavior, workflows, scope, constraints, architecture, research, program design, and an execution plan with you.
-2. The planner continues until the project is sufficiently implementation-ready, then exports a repository-root-ready coding-agent delivery package.
-3. For a new project, the delivered contents can become the initial repository baseline directly. For an existing repository, use the safe-merge/import workflow (Option C).
-4. Open the repository with a supported coding agent (Pi, Codex CLI, Claude Code, OpenCode) and start from `planning/handoff/FINAL-START-PROMPT.md`.
+2. The planner continues until the project is sufficiently implementation-ready, then exports `ctrlaltdelegate-delivery.zip` — one fixed `ctrlaltdelegate/` control directory.
+3. Place the extracted `ctrlaltdelegate/` directory inside your target project root (for a brand-new project, initialize the repository first; for an existing repository, use the safe-merge/import workflow in Option C).
+4. Open the project root with a supported coding agent (Pi, Codex CLI, Claude Code, OpenCode) and paste `ctrlaltdelegate/CODING-AGENT-START-PROMPT.md`. The prompt distinguishes `PROJECT_ROOT` from `CONTROL_ROOT=./ctrlaltdelegate` and enters `EXECUTION_HANDOFF` directly.
 
 ## Option C — Add this to a repository you already have
 
