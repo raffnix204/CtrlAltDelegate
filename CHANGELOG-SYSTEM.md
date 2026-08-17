@@ -1,5 +1,15 @@
 # System Changelog
 
+## V5.6.4 — Deterministic Planning Delivery & Handoff Closure
+
+- Custom-GPT planning exports now use the fixed `ctrlaltdelegate-delivery.zip` archive with one fixed `ctrlaltdelegate/` control directory inside the target project root; project names no longer alter delivery topology.
+- Added `docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md`, nested start-prompt/manifest/status templates and `scripts/validate_handoff_delivery.py`.
+- Every Custom-GPT planning handoff now requires `CODING-AGENT-START-PROMPT.md` plus a final `HANDOFF-STATUS.yaml` readiness marker. Delivery fails closed as `BLOCKED_DELIVERY_INCOMPLETE` when required paths are missing or inconsistent.
+- Explicitly separated `PROJECT_ROOT` (application/Git root) from `CONTROL_ROOT=./ctrlaltdelegate` (planning/skills/state) so the coding agent can be started from the real project root while consuming a nested handoff package.
+- Added four system-regression scenarios covering fixed delivery naming, mandatory handoff generation, nested path resolution and fail-closed incomplete packages.
+- Reviewed the user-supplied gstack 1.67.0.0 snapshot as a community workflow reference and independently adapted only deterministic artifact/transition-gate ideas. Claude-specific commands, browser/telemetry/gbrain/Bun infrastructure and opinionated role pipelines are not inherited.
+- Preserved the root-native GitHub standalone lifecycle, international language behavior, 145 canonical skills and 136 progressive references.
+
 ## V5.6.3 — Internationalization & Canonical English Artifacts
 
 - Made both distributions publication-ready for international use: all CtrlAltDelegate-controlled shipped files are English.

@@ -1,5 +1,5 @@
-version: '5.6.3'
-library: software-planning-lead-v5.6.3
+version: '5.6.4'
+library: software-planning-lead-v5.6.4
 canonical_root: .agents/skills
 library_count: 145
 selection_state: NOT_SELECTED

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Safely merge a V5.6.3 repo-root-ready Custom-GPT delivery into a repository.
+"""Safely merge an explicit root-overlay delivery into a repository.
+
+V5.6.4 Custom-GPT planning handoffs normally use the nested ctrlaltdelegate/ topology and do not require this importer.
 
 Greenfield delivery contents are already a repository baseline and normally need no import.
 For brownfield/local nested delivery use this script. Default is dry-run. --apply copies

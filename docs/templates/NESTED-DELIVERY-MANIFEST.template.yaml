@@ -1,0 +1,43 @@
+version: '5.6.4'
+layout: NESTED_CONTROL_ROOT
+archive_name: ctrlaltdelegate-delivery.zip
+control_root_name: ctrlaltdelegate
+coding_agent_working_directory: PROJECT_ROOT
+project_root_relation_from_control_root: ..
+start_prompt: CODING-AGENT-START-PROMPT.md
+handoff_status: planning/handoff/HANDOFF-STATUS.yaml
+canonical_handoff: planning/handoff/CODING-AGENT-HANDOFF.md
+final_start_prompt: planning/handoff/FINAL-START-PROMPT.md
+start_prompt_parity: BYTE_IDENTICAL
+state: planning/execution/STATE.md
+planning_root: planning
+canonical_skills_root: .agents/skills
+skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
+required_files:
+  - AGENTS.md
+  - CLAUDE.md
+  - CODING-AGENT-START-PROMPT.md
+  - DELIVERY-MANIFEST.yaml
+  - .agents/skills/CATALOG.yaml
+  - config/SKILL-ROUTING-RULES.yaml
+  - scripts/validate_handoff_delivery.py
+  - docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md
+  - docs/system/SKILL-EXECUTION-CONTRACT.md
+  - docs/system/LANGUAGE-AND-INTERACTION.md
+  - docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md
+  - planning/PROJECT.md
+  - planning/REQUIREMENTS.md
+  - planning/discovery/DISCOVERY-STATE.md
+  - planning/discovery/TECHNICAL-PREFERENCES.yaml
+  - planning/handoff/HANDOFF-STATUS.yaml
+  - planning/handoff/CODING-AGENT-HANDOFF.md
+  - planning/handoff/FINAL-START-PROMPT.md
+  - planning/execution/STATE.md
+  - planning/execution/EXECUTION-PROFILE.yaml
+  - planning/execution/AUTOPILOT-GOAL.md
+  - planning/architecture/STACK-MANIFEST.yaml
+  - planning/architecture/PROGRAM-DESIGN.md
+  - planning/execution/SKILLS-MANIFEST.yaml
+  - planning/execution/CONVERGENCE-MATRIX.json
+  - planning/execution/EVIDENCE-INDEX.json
+  - planning/research/RESEARCH-POLICY.yaml

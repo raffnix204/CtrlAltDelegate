@@ -1,4 +1,4 @@
-# Repository Layout & Persistent State Contract — V5.6.3
+# Repository Layout & Persistent State Contract — V5.6.4
 
 ## Core invariant
 
@@ -89,6 +89,6 @@ This is not an excuse to mirror volatile external systems wholesale. Store durab
 
 ## Delivery ZIP contract
 
-A project-specific Custom-GPT delivery ZIP is **repo-root-ready**. Its unique top directory is `<project-slug>-coding-agent-delivery/`, and the contents are the intended repository baseline, including a stable `planning/` directory. Greenfield projects can initialize/push those contents directly. Brownfield projects must safe-merge only relevant planning/support files without overwriting user work.
+A Custom-GPT planning ZIP uses the fixed nested control directory `ctrlaltdelegate/` inside the target project root. The coding agent starts at the target project root; `PROJECT_ROOT=.` and `CONTROL_ROOT=./ctrlaltdelegate`. Product code stays at the project root while planning, selected skills and execution state live under the control root.
 
-There is no nested `project-overlay/` in V5.6.3 deliveries.
+Do not use `project-overlay/` or project-derived handoff directory names; `ctrlaltdelegate/` is the canonical nested control root.

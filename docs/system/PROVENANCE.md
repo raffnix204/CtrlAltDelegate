@@ -16,3 +16,7 @@ All useful concepts are normalized into the system's own portable terminology an
 - Never hardcode third-party Pi package versions or model choices into methodology.
 - Release QA must scan all operative files/skills/bundles for stale version/path references, validate manifests, and prove canonical skill directory parity between editions.
 - Large library breadth is allowed; route only the smallest complete job-specific set.
+
+## V5.6.4 workflow-reference review
+
+The user-supplied `garrytan/gstack` 1.67.0.0 archive was reviewed as a community workflow reference. The V5.6.4 deterministic handoff closure contract independently adapts the general ideas of stable artifact paths, persistent on-disk decision/review state and blocking pre-transition completeness checks. No gstack prompt body, scripts or runtime components are copied into CtrlAltDelegate.

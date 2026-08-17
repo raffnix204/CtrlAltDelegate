@@ -1,4 +1,4 @@
-# Start Here — V5.6.3 GitHub Native
+# Start Here — V5.6.4 GitHub Native
 
 CtrlAltDelegate GitHub Native is a **complete planning + execution system**. You do not need the Custom GPT first. Open this repository with a capable coding agent and start from your actual project state.
 
@@ -41,16 +41,18 @@ Canonical rules: `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
 
 ## Optional Custom GPT handoff
 
-If you prefer to plan in ChatGPT first, use the CtrlAltDelegate Custom GPT. Its delivery is an `EXECUTION_HANDOFF` input to the same GitHub-native runtime. In that case, use `planning/handoff/FINAL-START-PROMPT.md`; that prompt intentionally tells the coding agent not to re-plan a completed baseline.
+If you prefer to plan in ChatGPT first, the Custom GPT produces the fixed archive `ctrlaltdelegate-delivery.zip`. Extract it and place the resulting `ctrlaltdelegate/` directory inside the target project's root. Start the coding agent from the target project root and paste the exact prompt in `ctrlaltdelegate/CODING-AGENT-START-PROMPT.md` (the planner also reproduces that prompt in chat).
 
-Do **not** use the execution-handoff prompt as the primary start for a fresh `NOT_STARTED` standalone checkout.
+The prompt establishes `PROJECT_ROOT=.` and `CONTROL_ROOT=./ctrlaltdelegate`, validates `ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml`, and then enters `EXECUTION_HANDOFF` without broad replanning. Do not start the coding agent from inside `ctrlaltdelegate/`.
+
+Do **not** use this execution-handoff package as the primary start for a fresh root-native `NOT_STARTED` checkout of the GitHub distribution.
 
 ## Existing codebase / brownfield
 
 Never blindly overwrite existing application or agent-instruction files. If importing a CtrlAltDelegate delivery into an existing repo, inspect collisions first:
 
 ```bash
-python3 scripts/import_delivery.py /path/to/project-coding-agent-delivery
+python3 scripts/validate_handoff_delivery.py /path/to/project-root
 ```
 
 The command is dry-run by default. Re-run with `--apply` only after reviewing the plan. Collisions are staged under `planning/import-conflicts/` for explicit resolution.
@@ -59,7 +61,7 @@ Then the agent performs repository onboarding, protects dirty/untracked work, re
 
 ## Verify this checkout before publishing/using it
 
-A complete V5.6.3 GitHub Native distribution includes the canonical skill library, Claude adapters, Pi prompt, Git guards, evals, scripts, system docs and persistent planning templates.
+A complete V5.6.4 GitHub Native distribution includes the canonical skill library, Claude adapters, Pi prompt, Git guards, evals, scripts, system docs and persistent planning templates.
 
 Run:
 

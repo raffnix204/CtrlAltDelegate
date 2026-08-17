@@ -1,5 +1,5 @@
-version: 5.6.1
-reviewed_at: '2026-08-14'
+version: 5.6.4
+reviewed_at: '2026-08-17'
 policy:
   external_sources_are_research_inputs_only: true
   copy_upstream_skill_verbatim: false
@@ -16,7 +16,8 @@ sources:
     - react component/state/effect and server-client pattern depth
     - security review/checklist and framework-rule organization ideas
     - skill/rule separation and current agent-skill ergonomics
-    adaptation: concepts independently rewritten; ECC harness/model assumptions are not inherited
+    adaptation: concepts independently rewritten; ECC harness/model assumptions are
+      not inherited
   shokunin:
     repository: https://github.com/EliasOulkadi/shokunin
     reviewed_commit: 4c68e5bcb49453053cebf3390939a0a2e8e9a5e8
@@ -32,7 +33,20 @@ sources:
     used_for:
     - locating current vendor/project-maintained skill repositories
     - identifying high-value domain gaps and version-sensitive specialist topics
-    caution: verify the underlying repository and first-party documentation; index labels are not authority
+    caution: verify the underlying repository and first-party documentation; index
+      labels are not authority
+  gstack:
+    repository: https://github.com/garrytan/gstack
+    reviewed_snapshot: 1.67.0.0 (user-supplied archive)
+    class: community_agent_workflow_reference
+    used_for:
+    - deterministic artifact-path thinking
+    - plan/review completion gates
+    - persistent decision/review state on disk
+    - handoff/transition closure checks
+    adaptation: concepts independently rewritten; Claude-specific slash commands,
+      browser stack, telemetry, gbrain, Bun tooling and opinionated role pipeline
+      are not inherited
 vendor_project_repositories:
   nextjs:
     repository: https://github.com/vercel-labs/next-skills
@@ -209,8 +223,8 @@ primary_authority_families:
 - Cloud/IaC/network vendor documentation for current resource/provider/runtime behavior
 - OWASP and applicable standards for security baselines
 maintenance_review_v5_6_1:
-  scope: all 145 skills structurally audited; 59 incomplete V5.6 migrations received substantive domain completion and a progressive decision
-    playbook
+  scope: all 145 skills structurally audited; 59 incomplete V5.6 migrations received
+    substantive domain completion and a progressive decision playbook
   ecc:
     reviewed_commit: c9de8f5b2b3a225bca9befa2b7700aa5e3a4d1b8
     reviewed_patterns:
@@ -244,8 +258,8 @@ maintenance_review_v5_6_1:
     - Windows/PowerShell platform sharp-edge inventory
     - progressive-reference and review ergonomics
   officialskills_and_first_party:
-    policy: officialskills.sh is discovery only; underlying repositories and current first-party documentation are authority for version-sensitive
-      claims
+    policy: officialskills.sh is discovery only; underlying repositories and current
+      first-party documentation are authority for version-sensitive claims
     reviewed_families:
     - Cloudflare Workers/platform
     - HashiCorp Terraform
@@ -258,5 +272,5 @@ maintenance_review_v5_6_1:
     - version/capability drift triggers
     - provider/platform-specific failure modes
     - safe remote network change and rollback evidence
-  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification language; no upstream harness policy
-    or dependency choice is inherited by default
+  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification
+    language; no upstream harness policy or dependency choice is inherited by default

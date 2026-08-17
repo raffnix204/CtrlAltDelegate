@@ -1,7 +1,7 @@
-# Stack Selection & Skill Routing — V5.6.3
+# Stack Selection & Skill Routing — V5.6.4
 
 ## Objective
-V5.6.3 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
+V5.6.4 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
 
 ```text
 PROJECT_UNDERSTOOD

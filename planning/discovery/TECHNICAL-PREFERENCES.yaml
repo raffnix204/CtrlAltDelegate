@@ -1,4 +1,4 @@
-version: '5.6.3'
+version: '5.6.4'
 status: NOT_READY
 decision_style: AUTO
 items:

@@ -1,47 +1,41 @@
-# Delivery / Repository Handoff — V5.6.3
+# Delivery Import — V5.6.4
 
-Custom GPT exports a unique `<project-slug>-coding-agent-delivery/` directory whose **contents are repo-root-ready**.
+## Custom-GPT planning handoff
 
-## Bundle contract
+Custom-GPT planning exports are no longer project-named root overlays. The canonical archive is:
 
 ```text
-<project-slug>-coding-agent-delivery/
-├── AGENTS.md
-├── CLAUDE.md
-├── .agents/skills/<selected>/...
-├── .claude/skills/<selected>/SKILL.md
-├── .pi/prompts/autopilot.md               # if relevant/supported
-├── .githooks/...
-├── config/...
-├── scripts/...
-├── docs/system/<project-relevant>/...
-└── planning/
-    ├── PROJECT.md
-    ├── REQUIREMENTS.md
-    ├── architecture/
-    │   ├── STACK-MANIFEST.yaml
-    │   └── PROGRAM-DESIGN.md
-    ├── context/PROJECT-CONTEXT.md
-    ├── research/...
-    ├── repository/...                     # brownfield when relevant
-    ├── execution/...
-    └── handoff/
-        ├── START-HERE.md
-        ├── CODING-AGENT-HANDOFF.md
-        ├── FINAL-START-PROMPT.md
-        └── DELIVERY-MANIFEST.yaml
+ctrlaltdelegate-delivery.zip
+└── ctrlaltdelegate/
 ```
 
-There is no nested `project-overlay/` in V5.6.3.
+Place the extracted `ctrlaltdelegate/` directory directly inside the target project root. Start the coding agent from the target project root and paste `ctrlaltdelegate/CODING-AGENT-START-PROMPT.md`.
 
-## Greenfield path
+The nested package intentionally avoids overwriting existing root `AGENTS.md`, `CLAUDE.md`, hooks, source files or project configuration. It carries the implementation-ready planning baseline, selected skills, execution contracts, state and handoff instructions under one deterministic control root.
 
-The extracted directory itself is the intended initial repository working tree. Initialize/push its **contents** or publish those files directly through an authorized GitHub handoff. Do not commit a second nested delivery folder around them.
+Validate a package with:
 
-## Brownfield path
+```bash
+python3 ctrlaltdelegate/scripts/validate_handoff_delivery.py .
+```
 
-A delivery targeting an existing repository contains only the planned delta/support files. Merge into a clean/safely isolated branch/worktree, preserve user changes, and never blindly overwrite existing `AGENTS.md`, harness config, `.gitignore`, planning state or product files. `scripts/import_delivery.py` supports a dry-run/collision-staging path if the delivery is nested locally.
+The validator requires the fixed folder name, the canonical manifest, the start prompt, the handoff-ready marker and the expected planning paths.
 
-## Planning policy
+## Path semantics
 
-`planning/` is persistent versioned execution truth. Do not gitignore it. Ignore only `planning/private/`, raw/tmp/log/cache outputs and import conflicts as defined by the project `.gitignore`.
+```text
+PROJECT_ROOT  = target project / Git root
+CONTROL_ROOT  = ./ctrlaltdelegate
+PLANNING_ROOT = ./ctrlaltdelegate/planning
+SKILLS_ROOT   = ./ctrlaltdelegate/.agents/skills
+```
+
+Product implementation belongs in `PROJECT_ROOT`. CtrlAltDelegate-owned planning/state/evidence remains under `CONTROL_ROOT` unless a deliberate safe integration step is required.
+
+## Optional root integration
+
+If the project benefits from root-level hooks, harness adapters or instruction-file integration, perform that as an explicit reviewed merge after the nested handoff has been validated. Never overwrite an existing project-owned agent instruction/configuration file blindly.
+
+## GitHub-native standalone distribution
+
+The GitHub-native release itself remains root-native. A cloned GitHub-native distribution can be used directly as the project baseline and runs the full planning + execution lifecycle without a Custom GPT.

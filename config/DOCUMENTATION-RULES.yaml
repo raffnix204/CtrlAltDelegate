@@ -1,4 +1,4 @@
-version: '5.6.3'
+version: '5.6.4'
 impact_classes: [NONE, USER, INSTALLATION, CONFIGURATION, API, MIGRATION, OPERATOR, SECURITY, RELEASE]
 state_file: planning/execution/DOCUMENTATION-STATE.yaml
 coverage_file: planning/execution/DOCUMENTATION-COVERAGE.md

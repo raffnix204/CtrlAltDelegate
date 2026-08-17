@@ -1,4 +1,4 @@
-# Research Register — V5.6.3
+# Research Register — V5.6.4
 
 Use this as the compact execution-time evidence index. Reuse the current authoritative planning/repository/runtime evidence regardless of whether it came from GitHub-native planning or an optional Custom GPT handoff; add only new or revalidated findings needed for the current decision.
 

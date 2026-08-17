@@ -26,8 +26,8 @@ except Exception as e:
     errors.append(f'catalog parse: {e}'); catalog={}
 entries=[x for x in catalog.get('skills',[]) if isinstance(x,dict)]
 ids={x.get('id') for x in entries}
-if catalog.get('version')!='5.6.3': errors.append('catalog version mismatch')
-if catalog.get('library')!='software-planning-lead-v5.6.3': errors.append('catalog library mismatch')
+if catalog.get('version')!='5.6.4': errors.append('catalog version mismatch')
+if catalog.get('library')!='software-planning-lead-v5.6.4': errors.append('catalog library mismatch')
 if (catalog.get('policy') or {}).get('skill_schema')!='5.6.1-domain-expertise': errors.append('catalog skill_schema mismatch')
 if catalog.get('library_count') != len(skills): errors.append(f"catalog library_count={catalog.get('library_count')} actual={len(skills)}")
 if ids != set(skills): errors.append(f'catalog/file mismatch missing_files={sorted(ids-set(skills))} missing_catalog={sorted(set(skills)-ids)}')
@@ -84,19 +84,19 @@ for sid,p in wrappers.items():
     if f'../../../.agents/skills/{sid}/SKILL.md' not in wt: errors.append(f'{sid}: bad Claude adapter')
 
 required=[
-'planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','docs/system/LANGUAGE-AND-INTERACTION.md','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml']
+'planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','docs/system/LANGUAGE-AND-INTERACTION.md','docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md','docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md','docs/templates/NESTED-DELIVERY-MANIFEST.template.yaml','docs/templates/HANDOFF-STATUS.template.yaml','scripts/validate_handoff_delivery.py','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml']
 for x in required:
     if not (R/x).exists(): errors.append(f'missing {x}')
 
 for path,key in [('planning/execution/SKILLS-MANIFEST.yaml','library_count')]:
     try:
         d=yaml.safe_load((R/path).read_text(encoding='utf-8'))
-        if d.get('version')!='5.6.3': errors.append(f'{path} version mismatch')
+        if d.get('version')!='5.6.4': errors.append(f'{path} version mismatch')
         if key and d.get(key)!=len(skills): errors.append(f'{path} {key} mismatch')
     except Exception as e: errors.append(f'{path} parse: {e}')
 try:
     pref=yaml.safe_load((R/'planning/discovery/TECHNICAL-PREFERENCES.yaml').read_text(encoding='utf-8'))
-    if pref.get('version')!='5.6.3': errors.append('TECHNICAL-PREFERENCES version mismatch')
+    if pref.get('version')!='5.6.4': errors.append('TECHNICAL-PREFERENCES version mismatch')
     if pref.get('decision_style') not in {'AUTO','AUTOPILOT','COLLABORATIVE','DIRECTED'}: errors.append('TECHNICAL-PREFERENCES invalid decision_style')
     required_items={'technology','runtime_hosting','data_security_region','existing_environment'}
     if not required_items.issubset(set((pref.get('items') or {}).keys())): errors.append('TECHNICAL-PREFERENCES missing required item groups')
@@ -105,7 +105,7 @@ try:
 except Exception as e: errors.append(f'TECHNICAL-PREFERENCES parse: {e}')
 try:
     ep=yaml.safe_load((R/'planning/execution/EXECUTION-PROFILE.yaml').read_text(encoding='utf-8'))
-    if ep.get('version')!='5.6.3': errors.append('EXECUTION-PROFILE version mismatch')
+    if ep.get('version')!='5.6.4': errors.append('EXECUTION-PROFILE version mismatch')
     if ep.get('profile') not in {'AUTO','MICRO','SMALL','STANDARD','HIGH_RISK'}: errors.append('EXECUTION-PROFILE invalid profile')
     wl=ep.get('worker_liveness') or {}
     if wl.get('static_wall_clock_timeout_is_stall_evidence') is not False: errors.append('EXECUTION-PROFILE must reject static wall-clock timeout as stall evidence')
@@ -135,7 +135,7 @@ for p in R.rglob('*'):
     if re.search(r'(?i)capability-class model routing|model_routing:\s*true',t): errors.append(f'{p.relative_to(R)}: prohibited model-routing policy')
 
 
-# V5.6.3 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
+# V5.6.4 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
 forbidden_prereq = re.compile(r'(?i)custom\s*-?gpt\s+(?:should|must|needs?\s+to)\s+(?:already\s+)?(?:have\s+)?completed')
 for rel in ['AGENTS.md','GOAL.md','planning/execution/AUTOPILOT-GOAL.md','START-HERE.md']:
     t=(R/rel).read_text(encoding='utf-8')
@@ -183,6 +183,26 @@ try:
     if "Reply in the user's language by default" not in lang: errors.append('language contract missing adaptive conversation rule')
     if 'artifacts are English by default' not in lang: errors.append('language contract missing English artifact rule')
 except Exception as e: errors.append(f'language contract read: {e}')
+
+
+# V5.6.4 DETERMINISTIC_HANDOFF_DELIVERY_GATE
+delivery_doc=(R/'docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md').read_text(encoding='utf-8')
+for token in ['ctrlaltdelegate-delivery.zip','ctrlaltdelegate/','CODING-AGENT-START-PROMPT.md','HANDOFF-STATUS.yaml','BLOCKED_DELIVERY_INCOMPLETE','PROJECT_ROOT','CONTROL_ROOT']:
+    if token not in delivery_doc: errors.append(f'deterministic delivery contract missing {token}')
+start_tpl=(R/'docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md').read_text(encoding='utf-8')
+for token in ['./ctrlaltdelegate/AGENTS.md','./ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml','./ctrlaltdelegate/planning/handoff/CODING-AGENT-HANDOFF.md','./ctrlaltdelegate/planning/execution/STATE.md','BLOCKED_DELIVERY_INCOMPLETE']:
+    if token not in start_tpl: errors.append(f'nested start prompt template missing {token}')
+if '<project-slug>-coding-agent-delivery' in start_tpl: errors.append('nested start prompt template uses project-derived legacy directory')
+manifest_tpl=(R/'docs/templates/NESTED-DELIVERY-MANIFEST.template.yaml').read_text(encoding='utf-8')
+for token in ['planning/PROJECT.md','planning/REQUIREMENTS.md','docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/LANGUAGE-AND-INTERACTION.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','scripts/validate_handoff_delivery.py']:
+    if token not in manifest_tpl: errors.append(f'nested delivery manifest template missing required file {token}')
+status_tpl=(R/'docs/templates/HANDOFF-STATUS.template.yaml').read_text(encoding='utf-8')
+for token in ['required_paths_present','prompt_paths_verified','planning_ready','zero_blocking_decisions','control_tree_verified_before_archive']:
+    if token not in status_tpl: errors.append(f'handoff status template missing closure check {token}')
+if 'package_reopened_and_verified' in status_tpl: errors.append('handoff status template contains self-referential final-archive verification claim')
+validator=(R/'scripts/validate_handoff_delivery.py').read_text(encoding='utf-8')
+for token in ['READY handoff has incomplete closure checks','CODING-AGENT-START-PROMPT.md and planning/handoff/FINAL-START-PROMPT.md must be byte-identical','manifest required_files missing']:
+    if token not in validator: errors.append(f'handoff delivery validator missing enforcement: {token}')
 
 if errors:
     print('SYSTEM_QA_FAIL')

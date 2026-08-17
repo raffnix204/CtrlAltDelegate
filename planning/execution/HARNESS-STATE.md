@@ -1,4 +1,4 @@
-# Harness State — V5.6.3
+# Harness State — V5.6.4
 
 Lifecycle: NOT_CHECKED
 Active Harness: AUTO_DETECT
@@ -26,11 +26,11 @@ Readiness: NOT_READY
 | SQLite vector extension | SQLite-vector project dependent | UNKNOWN | | | |
 | Remote operator channel | NO | UNKNOWN | | | |
 
-Missing capabilities are resolved current-at-runtime and recorded here. V5.6.3 prescribes capabilities and safety contracts, not third-party package versions.
+Missing capabilities are resolved current-at-runtime and recorded here. V5.6.4 prescribes capabilities and safety contracts, not third-party package versions.
 
 Restart Required: NO
 Restart Reason: NONE
 Resume Action: NONE
 
-## V5.6.3 worker-liveness capability check
+## V5.6.4 worker-liveness capability check
 Before long-running/expensive delegation, record whether the active provider exposes progress/update signals, cancellation and resumable session/checkpoint behavior. Before every delegation, verify the job-required capability set (for example web/browser/runtime/device) is actually available to that worker. A static provider timeout must not be interpreted as proof that the worker was idle.
