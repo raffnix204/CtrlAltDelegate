@@ -1,10 +1,10 @@
-version: '5.6.3'
-principle: Planning research is the baseline; execution performs only the additional research needed to safely make current
-  technical decisions.
+version: '5.7.1'
+principle: Planning research is the baseline; execution performs only the additional research needed to safely make
+  current technical decisions.
 modes:
   NONE: Current planning/repository/runtime evidence already closes the decision.
-  VERIFY_DRIFT: Re-check one or more unstable facts such as versions, API support, pricing/licensing, platform limits or current
-    docs.
+  VERIFY_DRIFT: Re-check one or more unstable facts such as versions, API support, pricing/licensing, platform limits
+    or current docs.
   TARGETED: Research a small candidate set for one concrete implementation/architecture decision.
   SPIKE: Run a minimal code/config/profiling/contract experiment because documentation alone cannot establish fit.
 source_priority:

@@ -1,93 +1,142 @@
 #!/usr/bin/env python3
-"""Safely merge a V5.6.3 repo-root-ready Custom-GPT delivery into a repository.
+"""Safely import a CtrlAltDelegate V5.7.1 planning delivery ZIP into a target project.
 
-Greenfield delivery contents are already a repository baseline and normally need no import.
-For brownfield/local nested delivery use this script. Default is dry-run. --apply copies
-new files, preserves byte-identical files, stages true collisions under
-planning/import-conflicts/, and never blindly overwrites user-owned content.
+This helper belongs to the root-native distribution. A Custom-GPT handoff can be
+bootstrapped by a coding agent with equivalent standard archive operations when
+this helper is not already present in the target repository.
 """
-from pathlib import Path
-import argparse, hashlib, re, shutil
+from __future__ import annotations
+from pathlib import Path, PurePosixPath
+import argparse, json, os, shutil, stat, sys, uuid, zipfile, re
 
-VERSION = "5.6"
-MANIFEST = Path("planning/handoff/DELIVERY-MANIFEST.yaml")
+ARCHIVE_NAME = "ctrlaltdelegate-delivery.zip"
+CONTROL_NAME = ".ctrlaltdelegate"
+IGNORE_LINES = [
+    "/ctrlaltdelegate-delivery.zip",
+    "/.ctrlaltdelegate/",
+    "/.ctrlaltdelegate.importing-*/",
+    "/.ctrlaltdelegate.incoming-*/",
+]
+REQUIRED = [
+    "AGENTS.md", "CODING-AGENT-START-PROMPT.md", "CONTROL-PACKAGE.json",
+    "DELIVERY-MANIFEST.yaml", "TARGET-GITIGNORE.fragment",
+    "planning/handoff/HANDOFF-STATUS.yaml",
+    "planning/handoff/CODING-AGENT-HANDOFF.md",
+    "planning/handoff/FINAL-START-PROMPT.md",
+    "planning/execution/STATE.md", "planning/execution/PLANNING-BASELINE.json", "planning/execution/JOB-GRAPH.json",
+    "planning/execution/LOOP-STATE.json", "config/LOOP-CONTRACTS.yaml",
+    "config/SURFACE-POLICY.yaml", "config/HARNESS-CONFORMANCE.yaml",
+]
 
+def is_link(info: zipfile.ZipInfo) -> bool:
+    mode = (info.external_attr >> 16) & 0xFFFF
+    return stat.S_ISLNK(mode)
 
-def parse_scalar(text: str, key: str):
-    m = re.search(rf"(?m)^{re.escape(key)}:\s*['\"]?([^'\"\n#]+)", text)
+def validate_members(zf: zipfile.ZipFile) -> list[str]:
+    errors=[]
+    for info in zf.infolist():
+        raw=info.filename.replace('\\','/')
+        p=PurePosixPath(raw)
+        if not raw or raw.startswith('/') or p.is_absolute():
+            errors.append(f"absolute/empty archive member: {raw!r}"); continue
+        if any(part in {'..',''} for part in p.parts):
+            errors.append(f"unsafe traversal member: {raw}"); continue
+        if p.parts[0] != CONTROL_NAME:
+            errors.append(f"unexpected top-level path: {raw}")
+        if is_link(info): errors.append(f"link entry forbidden: {raw}")
+    return errors
+
+def yaml_scalar(text: str, key: str):
+    m=re.search(rf"(?m)^\s*{re.escape(key)}:\s*['\"]?([^\n'\"]+)",text)
     return m.group(1).strip() if m else None
 
-
-def parse_list(text: str, key: str):
-    lines=text.splitlines(); out=[]; active=False; indent=None
-    for line in lines:
-        if re.match(rf"^{re.escape(key)}:\s*$", line):
-            active=True; indent=None; continue
-        if not active: continue
-        m=re.match(r"(\s*)-\s*['\"]?(.+?)['\"]?\s*$", line)
-        if m:
-            if indent is None: indent=len(m.group(1))
-            out.append(m.group(2).strip().strip('"').strip("'")); continue
-        if line.strip() and not line.startswith(' '): break
-    return out
-
-
-def same_file(a: Path, b: Path):
-    if a.stat().st_size != b.stat().st_size: return False
-    return hashlib.sha256(a.read_bytes()).digest() == hashlib.sha256(b.read_bytes()).digest()
-
-
-def main():
-    ap=argparse.ArgumentParser()
-    ap.add_argument('delivery', type=Path)
-    ap.add_argument('--root', type=Path, default=Path.cwd())
-    ap.add_argument('--apply', action='store_true')
-    args=ap.parse_args()
-    delivery=args.delivery.resolve(); root=args.root.resolve()
-    manifest=delivery/MANIFEST
-    if not manifest.is_file():
-        print(f'INVALID_DELIVERY: missing {MANIFEST}'); return 2
-    text=manifest.read_text(encoding='utf-8',errors='replace')
-    if parse_scalar(text,'delivery_version') != VERSION:
-        print(f'INVALID_DELIVERY: expected delivery_version {VERSION}'); return 2
-    if parse_scalar(text,'layout') != 'REPO_ROOT_READY':
-        print('INVALID_DELIVERY: expected layout REPO_ROOT_READY'); return 2
-    required=parse_list(text,'required_files')
-    missing=[x for x in required if not (delivery/x).is_file()]
-    if missing:
-        print('INVALID_DELIVERY: required files missing:', ', '.join(missing)); return 2
-    if delivery == root or root.is_relative_to(delivery):
-        print('INVALID_TARGET: --root must be the destination repository, not inside delivery'); return 2
-    for p in delivery.rglob('*'):
-        if p.is_symlink():
-            print('INVALID_DELIVERY: symlink not allowed:', p.relative_to(delivery)); return 2
-    copies=[]; unchanged=[]; collisions=[]
-    for src in sorted(delivery.rglob('*')):
-        if not src.is_file() or '.git' in src.relative_to(delivery).parts: continue
-        rel=src.relative_to(delivery); dst=root/rel
-        if not dst.exists(): copies.append((src,dst,rel))
-        elif dst.is_file() and same_file(src,dst): unchanged.append(rel)
-        else: collisions.append((src,dst,rel))
-    print(f'copy_new={len(copies)} unchanged={len(unchanged)} collisions={len(collisions)} apply={args.apply}')
-    for _,_,rel in collisions[:100]: print('COLLISION', rel)
-    if not args.apply: return 3 if collisions else 0
-    for src,dst,_ in copies:
-        dst.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(src,dst)
-    conflict_root=root/'planning/import-conflicts'/delivery.name
-    for src,_,rel in collisions:
-        target=conflict_root/rel; target.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(src,target)
-    # If the delivery folder itself lives inside the repo root, ignore exactly that transient nested package.
+def validate_tree(control: Path) -> list[str]:
+    errors=[]
+    for rel in REQUIRED:
+        if not (control/rel).is_file(): errors.append(f"missing required file: {rel}")
     try:
-        rel_delivery=delivery.relative_to(root)
-        if rel_delivery.parts:
-            gi=root/'.gitignore'; current=gi.read_text(encoding='utf-8') if gi.exists() else ''
-            entry='/' + rel_delivery.as_posix().rstrip('/') + '/'
-            if entry not in current.splitlines():
-                if current and not current.endswith('\n'): current+='\n'
-                gi.write_text(current + entry + '\n', encoding='utf-8')
-    except ValueError:
-        pass
-    print('DELIVERY_IMPORTED', f'new={len(copies)} collisions_staged={len(collisions)}')
-    return 4 if collisions else 0
+        cp=json.loads((control/'CONTROL-PACKAGE.json').read_text(encoding='utf-8'))
+        expected={
+            'ctrlaltdelegate_version':'5.7.1', 'archive_name':ARCHIVE_NAME,
+            'top_level_directory':CONTROL_NAME, 'control_root':'./.ctrlaltdelegate',
+            'control_visibility':'LOCAL_PRIVATE',
+        }
+        for k,v in expected.items():
+            if cp.get(k)!=v: errors.append(f"CONTROL-PACKAGE {k} mismatch")
+    except Exception as exc: errors.append(f"CONTROL-PACKAGE.json parse error: {exc}")
+    p=control/'CODING-AGENT-START-PROMPT.md'; q=control/'planning/handoff/FINAL-START-PROMPT.md'
+    if p.is_file() and q.is_file() and p.read_bytes()!=q.read_bytes(): errors.append('start prompt parity mismatch')
+    try:
+        baseline=json.loads((control/'planning/execution/PLANNING-BASELINE.json').read_text(encoding='utf-8'))
+        if baseline.get('status')!='ATTESTED' or not baseline.get('aggregate_sha256'): errors.append('planning baseline is not attested')
+    except Exception as exc: errors.append(f'planning baseline parse error: {exc}')
+    s=control/'planning/handoff/HANDOFF-STATUS.yaml'
+    if s.is_file():
+        text=s.read_text(encoding='utf-8')
+        for k,v in {'version':'5.7.1','status':'READY','mode':'EXECUTION_HANDOFF','topology':'ZIP_TO_HIDDEN_CONTROL_ROOT','control_root':'./.ctrlaltdelegate','control_visibility':'LOCAL_PRIVATE','unresolved_blocking_decisions':'0'}.items():
+            if yaml_scalar(text,k)!=v: errors.append(f"handoff {k} mismatch")
+        for k in ['required_paths_present','prompt_paths_verified','planning_ready','planning_baseline_attested','zero_blocking_decisions','control_tree_verified_before_archive','planning_skill_state_present']:
+            if yaml_scalar(text,k)!='true': errors.append(f"closure check not true: {k}")
+    return errors
 
+def update_gitignore(project: Path) -> None:
+    path=project/'.gitignore'
+    existing=path.read_text(encoding='utf-8') if path.exists() else ''
+    missing=[line for line in IGNORE_LINES if line not in existing.splitlines()]
+    if not missing: return
+    suffix='\n' if existing and not existing.endswith('\n') else ''
+    block='\n# CtrlAltDelegate local control plane\n'+'\n'.join(missing)+'\n'
+    path.write_text(existing+suffix+block,encoding='utf-8')
+
+def main() -> int:
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--project-root', default='.')
+    ap.add_argument('--archive', default=ARCHIVE_NAME)
+    ap.add_argument('--replace-existing', action='store_true', help='replace an existing control root only after the incoming package validates')
+    args=ap.parse_args()
+    project=Path(args.project_root).resolve(); archive=(project/args.archive).resolve() if not Path(args.archive).is_absolute() else Path(args.archive).resolve()
+    if not archive.is_file(): print('BLOCKED_DELIVERY_INCOMPLETE: missing',archive); return 2
+    update_gitignore(project)
+    temp=project/f"{CONTROL_NAME}.importing-{uuid.uuid4().hex[:10]}"
+    control=project/CONTROL_NAME
+    try:
+        with zipfile.ZipFile(archive,'r') as zf:
+            errors=validate_members(zf)
+            if errors:
+                print('BLOCKED_DELIVERY_INCOMPLETE'); [print('-',e) for e in errors]; return 2
+            temp.mkdir(parents=False,exist_ok=False)
+            zf.extractall(temp)
+        incoming=temp/CONTROL_NAME
+        errors=validate_tree(incoming)
+        if errors:
+            print('BLOCKED_DELIVERY_INCOMPLETE'); [print('-',e) for e in errors]; return 2
+        if control.exists():
+            if not args.replace_existing:
+                print(f'BLOCKED_DELIVERY_INCOMPLETE: {control} already exists; reconcile existing state or rerun with explicit --replace-existing only when safe')
+                return 2
+            backup=project/f"{CONTROL_NAME}.incoming-{uuid.uuid4().hex[:10]}"
+            control.rename(backup)
+            try: incoming.rename(control)
+            except Exception:
+                backup.rename(control); raise
+        else:
+            incoming.rename(control)
+        # The root-level ZIP is transport, not durable product-tree content.
+        # Retain it under the ignored control root when it originated from the project root.
+        try:
+            if archive.parent == project and archive.name == ARCHIVE_NAME:
+                inbox = control / 'inbox'
+                inbox.mkdir(parents=True, exist_ok=True)
+                retained = inbox / ARCHIVE_NAME
+                if retained.exists():
+                    retained.unlink()
+                archive.replace(retained)
+        except Exception as exc:
+            print(f'CONTROL_PACKAGE_IMPORT_WARNING: could not move inbound archive into control inbox: {exc}')
+        print('CONTROL_PACKAGE_IMPORT_PASS')
+        print('PROJECT_ROOT=',project)
+        print('CONTROL_ROOT=',control)
+        return 0
+    finally:
+        if temp.exists(): shutil.rmtree(temp,ignore_errors=True)
 if __name__=='__main__': raise SystemExit(main())

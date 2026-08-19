@@ -1,47 +1,17 @@
-# Delivery / Repository Handoff — V5.6.3
+# Custom-GPT Delivery Import — V5.7.1
 
-Custom GPT exports a unique `<project-slug>-coding-agent-delivery/` directory whose **contents are repo-root-ready**.
+1. Copy `ctrlaltdelegate-delivery.zip` into the actual target project/repository root.
+2. Start the coding agent from that project root and paste the generated `CODING-AGENT-START-PROMPT.md` text provided by the planner.
+3. The agent preserves the existing `.gitignore`, adds missing CtrlAltDelegate local-control entries, validates the archive topology, extracts to a temporary sibling, validates the package, and atomically promotes it to `./.ctrlaltdelegate/`.
+4. The agent then reads `.ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml`, the canonical handoff and execution state, and continues as `EXECUTION_HANDOFF`.
 
-## Bundle contract
+After import:
 
 ```text
-<project-slug>-coding-agent-delivery/
-├── AGENTS.md
-├── CLAUDE.md
-├── .agents/skills/<selected>/...
-├── .claude/skills/<selected>/SKILL.md
-├── .pi/prompts/autopilot.md               # if relevant/supported
-├── .githooks/...
-├── config/...
-├── scripts/...
-├── docs/system/<project-relevant>/...
-└── planning/
-    ├── PROJECT.md
-    ├── REQUIREMENTS.md
-    ├── architecture/
-    │   ├── STACK-MANIFEST.yaml
-    │   └── PROGRAM-DESIGN.md
-    ├── context/PROJECT-CONTEXT.md
-    ├── research/...
-    ├── repository/...                     # brownfield when relevant
-    ├── execution/...
-    └── handoff/
-        ├── START-HERE.md
-        ├── CODING-AGENT-HANDOFF.md
-        ├── FINAL-START-PROMPT.md
-        └── DELIVERY-MANIFEST.yaml
+PROJECT_ROOT  = .
+CONTROL_ROOT  = ./.ctrlaltdelegate
+PLANNING_ROOT = ./.ctrlaltdelegate/planning
+SKILLS_ROOT   = ./.ctrlaltdelegate/.agents/skills
 ```
 
-There is no nested `project-overlay/` in V5.6.3.
-
-## Greenfield path
-
-The extracted directory itself is the intended initial repository working tree. Initialize/push its **contents** or publish those files directly through an authorized GitHub handoff. Do not commit a second nested delivery folder around them.
-
-## Brownfield path
-
-A delivery targeting an existing repository contains only the planned delta/support files. Merge into a clean/safely isolated branch/worktree, preserve user changes, and never blindly overwrite existing `AGENTS.md`, harness config, `.gitignore`, planning state or product files. `scripts/import_delivery.py` supports a dry-run/collision-staging path if the delivery is nested locally.
-
-## Planning policy
-
-`planning/` is persistent versioned execution truth. Do not gitignore it. Ignore only `planning/private/`, raw/tmp/log/cache outputs and import conflicts as defined by the project `.gitignore`.
+Default visibility is `LOCAL_PRIVATE`; the ZIP and hidden control root are not part of the target application's Git history. Do not work directly from the ZIP except for safe inspection/preflight.

@@ -1,0 +1,12 @@
+{
+  "version": "5.7.1",
+  "active_loop": null,
+  "iteration": 0,
+  "strategy": null,
+  "progress_signature": null,
+  "previous_progress_signature": null,
+  "failure_signature": null,
+  "progress_delta": "NOT_EVALUATED",
+  "last_exit_reason": null,
+  "updated_at": null
+}

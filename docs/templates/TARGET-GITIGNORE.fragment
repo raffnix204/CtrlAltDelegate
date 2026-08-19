@@ -1,0 +1,5 @@
+# CtrlAltDelegate local control plane
+/ctrlaltdelegate-delivery.zip
+/.ctrlaltdelegate/
+/.ctrlaltdelegate.importing-*/
+/.ctrlaltdelegate.incoming-*/

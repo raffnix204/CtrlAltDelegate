@@ -20,3 +20,9 @@ planning/import-conflicts/
 playwright-report/
 test-results/
 coverage/
+# CtrlAltDelegate Custom-GPT inbound/local control plane
+/ctrlaltdelegate-delivery.zip
+/.ctrlaltdelegate/
+/.ctrlaltdelegate.importing-*/
+/.ctrlaltdelegate.incoming-*/
+

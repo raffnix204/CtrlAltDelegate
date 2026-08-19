@@ -99,6 +99,8 @@ Re-verify current first-party documentation/runtime evidence when any of these m
 
 - Read `references/decision-playbook.md` when a material decision, failure path, rollout, recovery or production-verification question needs deeper domain probes.
 
+- Read `references/prompt-contract-design-and-evaluation.md` when prompts are durable product behavior that need structured iteration/evaluation.
+
 ## Companion Skills
 
 - `ai-evaluation`

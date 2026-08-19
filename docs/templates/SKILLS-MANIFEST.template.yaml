@@ -1,7 +1,7 @@
-version: '5.6.3'
-library: software-planning-lead-v5.6.3
+version: '5.7.1'
+library: software-planning-lead-v5.7.1
 canonical_root: .agents/skills
-library_count: 145
+library_count: 154
 selection_state: NOT_SELECTED
 selection_inputs:
 - project_mode
@@ -25,8 +25,8 @@ job_contract:
   - VERIFY_DRIFT
   - TARGETED
   - SPIKE
-  delegation: orchestrator instructs worker to read exact required SKILL.md paths before work; reference files load progressively
-    only when relevant
+  delegation: orchestrator instructs worker to read exact required SKILL.md paths before work; reference files load
+    progressively only when relevant
   worker_return:
   - STATUS
   - SKILLS_APPLIED
@@ -34,8 +34,8 @@ job_contract:
   - critical_findings
   - evidence
   - report_path
-  completion_rule: job cannot be accepted if a mandatory triggered specialist was silently skipped or required skill path
-    was not read
+  completion_rule: job cannot be accepted if a mandatory triggered specialist was silently skipped or required skill
+    path was not read
 routing_policy:
   no_fixed_skill_limit: true
   smallest_complete_set: true

@@ -1,8 +1,8 @@
-# Adaptive Execution & Worker Liveness — V5.6.3
+# Adaptive Execution & Worker Liveness — V5.7.1
 
 ## Purpose
 
-V5.6.3 right-sizes orchestration to the actual project and prevents useful long-running subagents from being killed merely because an arbitrary wall-clock duration elapsed.
+V5.7.1 right-sizes orchestration to the actual project and prevents useful long-running subagents from being killed merely because an arbitrary wall-clock duration elapsed.
 
 Quality requirements remain requirement/risk-driven. **Process ceremony is not a quality metric.**
 

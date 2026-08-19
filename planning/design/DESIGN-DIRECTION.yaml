@@ -1,0 +1,7 @@
+version: '5.7.1'
+status: NOT_APPLICABLE
+visual_variance: AUTO
+motion_intensity: AUTO
+information_density: AUTO
+principles: []
+anti_patterns: []

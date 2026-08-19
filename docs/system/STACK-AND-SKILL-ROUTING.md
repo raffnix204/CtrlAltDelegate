@@ -1,7 +1,7 @@
-# Stack Selection & Skill Routing — V5.6.3
+# Stack Selection & Skill Routing — V5.7.1.1
 
 ## Objective
-V5.6.3 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
+V5.7.1 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
 
 ```text
 PROJECT_UNDERSTOOD
@@ -14,6 +14,13 @@ PROJECT_UNDERSTOOD
 ```
 
 There is **no fixed maximum number of library skills or project-selected skills**. The constraint is relevance: each job receives the smallest complete expert set.
+
+
+## PLANNING_SKILLSET_READY — V5.7.1
+
+Before and during discovery, run the early capability scan from `docs/system/SKILL-DRIVEN-PLANNING.md` and `config/PLANNING-SKILL-ROUTING.yaml`. Recalculate the smallest relevant planning specialist set at every material phase boundary. A specialist that owns a consequential planning decision must be consulted before that decision is finalized. Record consultations in `planning/context/PLANNING-SKILL-STATE.yaml`.
+
+Planning skill selection precedes final stack selection when domain, UX, security, data, protocol, compliance or operational expertise can change requirements. Stack/language/framework specialists join as evidence narrows candidate technology. The final execution skill pool is derived from the resolved project plus these planning decisions; it is not a fresh unrelated selection.
 
 ## STACK_READY
 Create/update `planning/architecture/STACK-MANIFEST.yaml`.

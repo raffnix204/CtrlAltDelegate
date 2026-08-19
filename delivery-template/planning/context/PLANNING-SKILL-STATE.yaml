@@ -1,0 +1,19 @@
+version: '5.7.1'
+status: NOT_STARTED
+current_phase: INTAKE
+project_profiles: []
+content_mode: AUTO
+candidate_skills: []
+active_skills: []
+consulted:
+  # - skill_id: ux-product-design
+  #   phase: COLLABORATIVE_DISCOVERY
+  #   reason: Primary user workflows are in scope.
+  #   decisions_influenced: []
+  #   artifacts_influenced: []
+  #   references_loaded: []
+  #   research_need: NONE
+  #   execution_handoff: true
+  []
+execution_selected_skills: []
+last_refresh_reason: initial

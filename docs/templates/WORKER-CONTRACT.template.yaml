@@ -1,0 +1,12 @@
+version: '5.7.1'
+job_id: JOB-XXX
+purpose: ''
+required_capabilities: []
+permission_class: WORKSPACE_WRITE
+allowed_scope: []
+protected_scope: []
+prohibited_scope: []
+done_when: []
+evidence_required: []
+report_path: planning/private/runs/JOB-XXX/report.json
+checkpoint_policy: progress_aware

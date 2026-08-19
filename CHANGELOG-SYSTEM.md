@@ -1,4 +1,43 @@
+# V5.7.1 — Skill-Driven Planning & Web Product Intelligence
+
+## Highlights
+
+- Every canonical skill is registered for conditional planning participation; relevant skills now shape discovery, research, requirements, architecture, program design and verification before execution.
+- Added `PLANNING-SKILL-ROUTING.yaml` and persistent `PLANNING-SKILL-STATE.yaml` with early capability scan and phase refresh.
+- Added nine specialist skills: SEO strategy, technical SEO, SEO content strategy, structured-data SEO, SXO, SEO drift/audit, local/commerce SEO, data-visualization design and natural-content editing.
+- Strengthened UI/UX planning with design-direction dials and master/page override policy.
+- Added authoritative planning-time content generation: websites can optionally produce final researched page copy as structured Markdown before coding handoff.
+- Added prompt-contract/evaluation guidance for LLM product prompts.
+- Preserved V5.7 closed-loop, ZIP-drop control-plane and DeepSeek Harness support.
+
+## Compatibility
+
+V5.7.1 is a backward-compatible architecture/content upgrade from V5.7. Existing skill IDs remain valid; `seo-content` remains as a general compatibility entrypoint and routes substantive work to the new specialist cluster.
+
+
+# V5.7 — 2026-08-19
+
+- Added closed-loop control registry/state with progress signatures and anti-thrashing semantics.
+- Added machine-readable job graph, claims and append-only decision ledger.
+- Added surface policy and enforcement separation, requirements QA and cross-artifact consistency gates.
+- Added harness-conformance/capability negotiation, DeepSeek Harness first-class-preview support and context/tool right-sizing.
+- Added model-visible reconstructability and expanded doctor/preflight surfaces.
+- Added planning-baseline attestation, scoped correct-course/change identity, worker contracts, pending-input reconciliation and retrospective learning-candidate capture.
+- Added imported-control adapters plus root-drop archive retention under `.ctrlaltdelegate/inbox/` after safe import, keeping application roots clean and control state local-private by default.
+- Changed Custom-GPT handoff input to a single root-dropped `ctrlaltdelegate-delivery.zip`, safely extracted to local-private `./.ctrlaltdelegate/` with Git hygiene.
+- Domain skill library remains 145 skills / 136 progressive references.
+
 # System Changelog
+
+## V5.6.4 — Deterministic Planning Delivery & Handoff Closure
+
+- Custom-GPT planning exports now use the fixed `ctrlaltdelegate-delivery.zip` archive with one fixed `ctrlaltdelegate/` control directory inside the target project root; project names no longer alter delivery topology.
+- Added `docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md`, nested start-prompt/manifest/status templates and `scripts/validate_handoff_delivery.py`.
+- Every Custom-GPT planning handoff now requires `CODING-AGENT-START-PROMPT.md` plus a final `HANDOFF-STATUS.yaml` readiness marker. Delivery fails closed as `BLOCKED_DELIVERY_INCOMPLETE` when required paths are missing or inconsistent.
+- Explicitly separated `PROJECT_ROOT` (application/Git root) from `CONTROL_ROOT=./ctrlaltdelegate` (planning/skills/state) so the coding agent can be started from the real project root while consuming a nested handoff package.
+- Added four system-regression scenarios covering fixed delivery naming, mandatory handoff generation, nested path resolution and fail-closed incomplete packages.
+- Reviewed the user-supplied gstack 1.67.0.0 snapshot as a community workflow reference and independently adapted only deterministic artifact/transition-gate ideas. Claude-specific commands, browser/telemetry/gbrain/Bun infrastructure and opinionated role pipelines are not inherited.
+- Preserved the root-native GitHub standalone lifecycle, international language behavior, 145 canonical skills and 136 progressive references.
 
 ## V5.6.3 — Internationalization & Canonical English Artifacts
 

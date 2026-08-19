@@ -1,0 +1,10 @@
+id: CHG-XXXX
+version: '5.7.1'
+intent: ''
+status: OPEN
+trigger: ''
+affected_requirements: []
+affected_artifacts: []
+affected_jobs: []
+invalidated_evidence: []
+decision: UPDATE_EXISTING_CHANGE

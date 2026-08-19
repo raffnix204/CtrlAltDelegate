@@ -121,3 +121,14 @@ Current official search-engine migration guidance outranks static thresholds in 
 ## Existing repository SEO optimization
 
 Map public routes/rendering, title/meta/OG, robots/sitemap, structured data, redirects, canonical generation, content source/CMS, internal links and performance-relevant templates before editing. Establish baseline, fix high-impact issues, then recrawl/retest representative URLs.
+
+## V5.7.1 SEO specialist routing
+This skill remains a backward-compatible general SEO entrypoint. For substantive planning/implementation, route the owning specialist instead of keeping all SEO concerns monolithic:
+- strategy/IA/search intent → `seo-strategy`;
+- crawl/index/rendering/migrations → `technical-seo-engineering`;
+- content/E-E-A-T/briefs → `seo-content-strategy`;
+- structured entities/JSON-LD → `structured-data-seo`;
+- page-type/search-task/UX alignment → `search-experience-optimization`;
+- regression baselines → `seo-audit-and-drift`;
+- location/product-catalog search → `local-commerce-seo`.
+Use current primary-source search guidance for drift-sensitive claims.

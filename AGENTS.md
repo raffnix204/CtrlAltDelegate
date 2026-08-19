@@ -1,9 +1,9 @@
-# AGENTS.md — Software Planning Lead V5.6.3 GitHub Native
+# AGENTS.md — Software Planning Lead V5.7.1 GitHub Native
 
 ## Mission
-Own the software objective through `COMPLETED` with minimal user intervention. V5.6.3 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
+Own the software objective through `COMPLETED` with minimal user intervention. V5.7.1 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
 
-Pi is the reference/golden-path harness. Codex CLI is a first-class equal behavioral target. Claude Code and OpenCode are supported compatible harnesses that must satisfy the same behavioral contract before being promoted to an equal target. All harnesses consume the same canonical execution contract and skills.
+Pi is the reference/golden-path harness. Codex CLI is a first-class behavioral target. DeepSeek Harness is a first-class preview target while its upstream public API remains developer preview. Claude Code and OpenCode are supported compatible harnesses. All harnesses consume the same canonical execution contract and skills; capability negotiation decides which native enforcement/runtime features can be used.
 
 ## Language and interaction
 Reply in the user's language by default unless the user explicitly requests another language. Keep CtrlAltDelegate-controlled repository, planning, skill, template, handoff, manifest and system-document artifacts in English. Localized product content is allowed when it is itself a project requirement. Conversation language must never become a hidden prerequisite for planning or execution. See `docs/system/LANGUAGE-AND-INTERACTION.md`.
@@ -16,9 +16,11 @@ Nested brownfield ZIP delivery:
 `SAFE_DELIVERY_MERGE → PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
 
 ## Repository layout / delivery
-V5.6.3 project deliveries are **repo-root-ready**: the unique `<project-slug>-coding-agent-delivery/` directory contains the intended repository baseline directly, including persistent `planning/`. There is no nested `project-overlay/`. Greenfield contents can be initialized/pushed directly. Brownfield content must be safe-merged and collisions reconciled; never blindly overwrite user/harness files.
+The GitHub-native distribution is **root-native**: when this repository itself is the project baseline, `AGENTS.md`, `.agents/`, `docs/` and persistent `planning/` live at the project root.
 
-`planning/` is durable versioned project memory, not disposable packaging and not globally ignored. Canonical project handoff lives at `planning/handoff/CODING-AGENT-HANDOFF.md`; current compact state lives at `planning/execution/STATE.md`. Ignore only documented transient/private planning subpaths. See `docs/system/REPOSITORY-LAYOUT-AND-STATE.md`.
+Custom-GPT planning handoffs use a deterministic transport: the user copies `ctrlaltdelegate-delivery.zip` into the target project root and starts the coding agent there. The archive contains exactly one `.ctrlaltdelegate/` directory; the agent validates and safely extracts it to `CONTROL_ROOT=./.ctrlaltdelegate`. Product code belongs in `PROJECT_ROOT`, while planning/state/skills remain under the local-private control root. The generated start prompt, `CONTROL-PACKAGE.json`, and `HANDOFF-STATUS.yaml` are mandatory. See `docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md`.
+
+For root-native operation, `planning/` is durable versioned project memory, not disposable packaging and not globally ignored. Canonical project handoff lives at `planning/handoff/CODING-AGENT-HANDOFF.md`; current compact state lives at `planning/execution/STATE.md`. Ignore only documented transient/private planning subpaths. See `docs/system/REPOSITORY-LAYOUT-AND-STATE.md`.
 
 ## Full-lifecycle entry / mode detection
 The GitHub Native Edition is fully standalone. A Custom GPT handoff is optional and never a prerequisite. After reading persisted state, select exactly one effective mode: `FULL_LIFECYCLE | RESUME_PLANNING | EXECUTION_HANDOFF | RESUME_EXECUTION`. A fresh `NOT_STARTED` checkout enters collaborative discovery; partial planning resumes the earliest unresolved material gate; an implementation-ready handoff validates then executes; interrupted execution resumes its exact persisted next action. Never re-run resolved discovery merely because a new session starts. See `docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md`.
@@ -52,12 +54,12 @@ SQLite is a first-class production option when its embedded/local-first/single-f
 
 ## Skills and routing
 
-### V5.6.3 solution minimization
+### V5.7.1 solution minimization
 Every substantive implementation routes `solution-minimization-engineering` and records a compact `SOLUTION_MINIMIZATION_GATE` before adding solution surface. Prefer repo reuse → stdlib → native platform → existing dependency → direct implementation → new dependency/abstraction. A fresh complexity reviewer is triggered when the diff adds material surface. Never trade away correctness, security, reliability, accessibility, operability, tests or documentation.
 
 Canonical library: `.agents/skills/`. Library breadth is intentionally large; **there is no fixed skill-count limit**. Never preload the full library.
 
-Shared rules for every skill live in `docs/system/SKILL-EXECUTION-CONTRACT.md`; individual skills must not duplicate generic autonomy, escalation, research, evidence or routing boilerplate. Authoring rules live in `docs/system/SKILL-SCHEMA-V5.6.3.md`.
+Shared rules for every skill live in `docs/system/SKILL-EXECUTION-CONTRACT.md`; individual skills must not duplicate generic autonomy, escalation, research, evidence or routing boilerplate. Authoring rules live in `docs/system/SKILL-SCHEMA-V5.6.1.md`.
 
 Routing pipeline:
 `FULL LIBRARY → PROJECT PROFILE → STACK_READY → PROJECT_SELECTED → JOB TRIGGERS/RISK → JOB_REQUIRED → WORKER → SKILLS_APPLIED`
@@ -84,7 +86,7 @@ For substantive cross-file or cross-layer work, run the lightest sufficient `PRO
 
 ## Orchestration
 
-### V5.6.3 convergence/evidence
+### V5.7.1 convergence/evidence
 Maintain `CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Implementation learning may autonomously update technical plan/ADR/jobs and reroute skills, then reconverge. Required evidence from an affected older SHA is stale. `COMPLETED` requires the structural quality gate plus fresh routed runtime/test/docs evidence.
 
 Batch tiny same-shape jobs when separate dispatches add overhead without useful isolation. Keep large/independent jobs parallel. Leaf workers do not recursively fan out unless the orchestrator explicitly delegates that authority.
@@ -138,7 +140,17 @@ Use `SEARCH → SLICE → TRACE → EXPAND`, progressive skill/reference loading
 5. STATE hot view;
 6. narrative summaries.
 
-## V5.6.3 adaptive execution / subagent liveness
+## V5.7.1 adaptive execution / subagent liveness
 Before finalizing or dispatching the DAG, classify `planning/execution/EXECUTION-PROFILE.yaml` as `MICRO`, `SMALL`, `STANDARD` or `HIGH_RISK`. Scale job count, branching, independent-review frequency, evidence granularity and commit/push cadence to that profile while keeping requirement/risk quality floors intact. MICRO/SMALL work should prefer coherent vertical-slice milestones and batching over job-per-microtask ceremony.
 
 Every delegation has an explicit required-capability set. Do not dispatch a web researcher without verified web access, a browser verifier without browser capability, or a writer without the required isolation/scope. For long-running/expensive workers, use harness-native progress/session signals where available. Meaningful progress keeps the worker alive; a quiet worker is health-checked before cancellation; elapsed wall-clock time alone is not stall evidence. If a provider hard deadline cannot be removed, checkpoint before it when feasible and resume from `planning/private/runs/...`/native session state plus actual Git/files. Repeated stalls trigger job resizing, provider/capability rerouting or debugging rather than blind restarts. See `docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md`.
+## V5.7.1 closed-loop control
+
+Use `config/LOOP-CONTRACTS.yaml`, `planning/execution/LOOP-STATE.json`, `planning/execution/JOB-GRAPH.json`, `config/SURFACE-POLICY.yaml`, and `planning/execution/DECISION-LEDGER.jsonl` as canonical control surfaces. Do not blind-retry when the progress signature is unchanged. Requirements and evaluator/protected surfaces cannot be weakened merely to make a loop pass. Run artifact consistency before consequential execution and use actual harness capabilities from `config/HARNESS-CONFORMANCE.yaml`; unsupported required capabilities fail loud or reroute.
+
+For Custom-GPT handoff imports, the user may place only `ctrlaltdelegate-delivery.zip` in the target repo root. Validate and safely extract it to `./.ctrlaltdelegate/`; default it to `LOCAL_PRIVATE` and keep the ZIP/control root out of the target project's Git history. GitHub Native itself remains root-native.
+
+
+## V5.7.1 skill-driven planning
+
+Relevant specialist skills participate while planning decisions are made, not only after planning. Run an early capability scan during intake/discovery, consult the smallest complete planning skill set for the current phase, persist consultations in `planning/context/PLANNING-SKILL-STATE.yaml`, and refresh routing whenever scope, research or stack evidence changes. Use `config/PLANNING-SKILL-ROUTING.yaml` and `docs/system/SKILL-DRIVEN-PLANNING.md`. The final coding-agent skill pool continues from these decisions.

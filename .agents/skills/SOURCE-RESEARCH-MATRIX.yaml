@@ -1,5 +1,5 @@
-version: 5.6.1
-reviewed_at: '2026-08-14'
+version: '5.7.1'
+reviewed_at: '2026-08-19'
 policy:
   external_sources_are_research_inputs_only: true
   copy_upstream_skill_verbatim: false
@@ -33,6 +33,17 @@ sources:
     - locating current vendor/project-maintained skill repositories
     - identifying high-value domain gaps and version-sensitive specialist topics
     caution: verify the underlying repository and first-party documentation; index labels are not authority
+  gstack:
+    repository: https://github.com/garrytan/gstack
+    reviewed_snapshot: 1.67.0.0 (user-supplied archive)
+    class: community_agent_workflow_reference
+    used_for:
+    - deterministic artifact-path thinking
+    - plan/review completion gates
+    - persistent decision/review state on disk
+    - handoff/transition closure checks
+    adaptation: concepts independently rewritten; Claude-specific slash commands, browser stack, telemetry, gbrain, Bun tooling
+      and opinionated role pipeline are not inherited
 vendor_project_repositories:
   nextjs:
     repository: https://github.com/vercel-labs/next-skills
@@ -209,8 +220,8 @@ primary_authority_families:
 - Cloud/IaC/network vendor documentation for current resource/provider/runtime behavior
 - OWASP and applicable standards for security baselines
 maintenance_review_v5_6_1:
-  scope: all 145 skills structurally audited; 59 incomplete V5.6 migrations received substantive domain completion and a progressive decision
-    playbook
+  scope: V5.6.1 audit of the then-current 145 skills; 59 incomplete V5.6 migrations received substantive domain completion and a progressive
+    decision playbook
   ecc:
     reviewed_commit: c9de8f5b2b3a225bca9befa2b7700aa5e3a4d1b8
     reviewed_patterns:
@@ -244,8 +255,8 @@ maintenance_review_v5_6_1:
     - Windows/PowerShell platform sharp-edge inventory
     - progressive-reference and review ergonomics
   officialskills_and_first_party:
-    policy: officialskills.sh is discovery only; underlying repositories and current first-party documentation are authority for version-sensitive
-      claims
+    policy: officialskills.sh is discovery only; underlying repositories and current first-party documentation are authority
+      for version-sensitive claims
     reviewed_families:
     - Cloudflare Workers/platform
     - HashiCorp Terraform
@@ -258,5 +269,142 @@ maintenance_review_v5_6_1:
     - version/capability drift triggers
     - provider/platform-specific failure modes
     - safe remote network change and rollback evidence
-  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification language; no upstream harness policy
-    or dependency choice is inherited by default
+  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification language; no
+    upstream harness policy or dependency choice is inherited by default
+architecture_research_v5_7:
+  policy: independently adapt mechanisms; do not copy prompts/runtime dependencies
+  repositories:
+  - name: ECC
+    url: https://github.com/affaan-m/ECC
+    ideas:
+    - harness action/observation/recovery/context quality
+    - structured tool-result recovery hints
+  - name: superpowers
+    url: https://github.com/obra/superpowers
+    ideas:
+    - spec authority over plan
+    - ruling ledger
+    - cross-task conflict scan
+  - name: planning-with-files
+    url: https://github.com/OthmanAdi/planning-with-files
+    ideas:
+    - disk-first working memory
+    - plan attestation
+    - completion gates
+    - doctor/recovery verification
+  - name: spec-kit
+    url: https://github.com/github/spec-kit
+    ideas:
+    - requirements QA
+    - read-only cross-artifact analysis
+    - append-only convergence
+  - name: OpenSpec
+    url: https://github.com/Fission-AI/OpenSpec
+    ideas:
+    - artifact dependency graph
+    - change identity and scoped deltas
+  - name: BMAD-METHOD
+    url: https://github.com/bmad-code-org/BMAD-METHOD
+    ideas:
+    - correct-course workflow
+    - evidence-sourced retrospective
+  - name: Agent-Skills-for-Context-Engineering
+    url: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+    ideas:
+    - locked/editable/append-only/human-controlled surfaces
+    - mechanism registry
+  - name: beads
+    url: https://github.com/gastownhall/beads
+    ideas:
+    - machine-readable dependency graph
+    - ready/claim semantics
+  - name: loopgate_harness
+    url: https://github.com/rxdt/loopgate_harness
+    ideas:
+    - fast preflight vs full gate
+    - protected surfaces
+  - name: sub-agents-skills
+    url: https://github.com/shinpr/sub-agents-skills
+    ideas:
+    - worker permission/scope/done-when contracts
+  - name: open-swe
+    url: https://github.com/langchain-ai/open-swe
+    ideas:
+    - middleware/in-flight input
+    - sandbox lifecycle
+  - name: OpenHands
+    url: https://github.com/OpenHands/OpenHands
+    ideas:
+    - control-plane/execution-backend separation
+  - name: opencode
+    url: https://github.com/anomalyco/opencode
+    ideas:
+    - native plan/build separation
+    - session/compaction capabilities
+  - name: oh-my-openagent
+    url: https://github.com/code-yeongyu/oh-my-openagent
+    ideas:
+    - instruction-vs-enforcement distinction
+    - task claims/mailbox
+  - name: codex
+    url: https://github.com/openai/codex
+    ideas:
+    - native AGENTS/skills/sandbox/session capability mapping
+  - name: ralph-claude-code
+    url: https://github.com/frankbria/ralph-claude-code
+    ideas:
+    - progress signatures
+    - circuit breaker
+    - dual completion signals
+  - name: hermes-agent-self-evolution
+    url: https://github.com/NousResearch/hermes-agent-self-evolution
+    ideas:
+    - eval-gated offline skill/prompt evolution
+    - constraint gates before PR
+  - name: deepseek-harness
+    url: https://github.com/deepseek-ai/deepseek-harness
+    reviewed_commit: 99f6f02fecdb7dff40c3fbc9470f5907c29f74ca
+    reviewed_release: 0.1.0-rc.7
+    ideas:
+    - native .agents/skills
+    - AGENTS-compatible instructions
+    - event-sourced sessions
+    - capability-negotiated continuable subagents
+    - full/partial sandbox enforcement
+    - fail-closed approval
+    - minimal tool/context profile
+domain_skill_research_v5_7_1:
+  policy: External skill repositories are coverage and mechanism research. CtrlAltDelegate independently rewrites concepts,
+    keeps current first-party evidence authoritative for drift-sensitive facts, and does not inherit provider-specific runtime
+    assumptions.
+  repositories:
+  - name: claude-seo
+    url: https://github.com/AgriciDaniel/claude-seo
+    ideas:
+    - specialized SEO planning/audit coverage
+    - SEO drift baselines
+    - SXO page-type and user-task alignment
+    - conditional specialists and progressive references
+  - name: ui-ux-pro-max-skill
+    url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+    ideas:
+    - design-direction reasoning before implementation
+    - visual variance/motion/density planning dials
+    - master design system with scoped page overrides
+    - data-visualization and stack-aware UX guidance
+  - name: humanizer-de
+    url: https://github.com/marmbiz/humanizer-de
+    ideas:
+    - claim/persona locks
+    - cluster-based naturalness review
+    - minimal revision and null-edit behavior
+    - evidence-safe editing rather than detector evasion
+    license_note: Concepts only. Do not import language-specific Wikipedia-derived pattern catalogs; upstream contains mixed
+      MIT and CC BY-SA material.
+  - name: prompts.chat
+    url: https://github.com/f/prompts.chat
+    ideas:
+    - prompt contract structure
+    - targeted iterative refinement
+    - structured outputs/examples as discriminating tools
+    - record and evaluate prompt changes rather than random rewrites

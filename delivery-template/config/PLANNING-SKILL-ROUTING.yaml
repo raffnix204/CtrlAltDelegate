@@ -1,0 +1,2016 @@
+version: 5.7.1
+contract: docs/system/SKILL-DRIVEN-PLANNING.md
+policy:
+  all_canonical_skills_registered: true
+  early_capability_scan: true
+  refresh_at_phase_boundaries: true
+  smallest_complete_active_set: true
+  full_library_preload: false
+  planning_consultation_record_required: true
+  selected_execution_skills_handed_off: true
+skills:
+  accessibility-audit:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: &id013
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id014
+    - DISCOVERY_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id015
+    - requirements
+    - planning/design
+    - planning/content
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `accessibility-audit` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `accessibility-audit` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  adversarial-verification:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: &id022
+    - REQUIREMENTS
+    - RESEARCH
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id023
+    - REQUIREMENTS_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id024
+    - requirements
+    - program_design
+    - execution_plan
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `adversarial-verification` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `adversarial-verification` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  agent-application-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: &id001
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id002
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id003
+    - requirements
+    - research
+    - stack_manifest
+    - program_design
+    - evaluation_plan
+    activation: Load when the current project phase materially intersects the ownership described by `agent-application-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `agent-application-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ai-evaluation:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `ai-evaluation` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ai-evaluation` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  analytics-database-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: &id028
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id029
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id030
+    - requirements
+    - data_model
+    - stack_manifest
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `analytics-database-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `analytics-database-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  android-architecture:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: &id004
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id005
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id006
+    - requirements
+    - planning/design
+    - stack_manifest
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `android-architecture` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `android-architecture` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  android-testing:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `android-testing` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `android-testing` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  angular-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: &id007
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id008
+    - RESEARCH_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id009
+    - stack_manifest
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `angular-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `angular-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  api-contracts:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: &id010
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id011
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id012
+    - requirements
+    - api_contracts
+    - architecture
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `api-contracts` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `api-contracts` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  astro-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `astro-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `astro-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  auth-architecture:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `auth-architecture` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `auth-architecture` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  backend-architecture:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `backend-architecture` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `backend-architecture` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  background-job-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `background-job-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `background-job-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  backup-disaster-recovery-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: &id019
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id020
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id021
+    - requirements
+    - architecture
+    - deployment_runtime
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `backup-disaster-recovery-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `backup-disaster-recovery-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  browser-acceptance:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `browser-acceptance` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `browser-acceptance` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  browser-extension-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `browser-extension-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `browser-extension-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  build-system-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: &id016
+    - INTAKE
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id017
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id018
+    - project_context
+    - requirements
+    - architecture
+    - program_design
+    - execution_plan
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `build-system-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `build-system-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  c-systems-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: &id025
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id026
+    - RESEARCH_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id027
+    - stack_manifest
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `c-systems-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `c-systems-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ci-cd-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `ci-cd-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ci-cd-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  cli-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `cli-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `cli-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  cloudflare-platform-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `cloudflare-platform-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `cloudflare-platform-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  code-review:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `code-review` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `code-review` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  component-engineering:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `component-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `component-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  configuration-feature-flag-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `configuration-feature-flag-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `configuration-feature-flag-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  content-copywriting:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/content/CONTENT-STRATEGY.md
+    - planning/content/VOICE-GUIDE.md
+    - planning/content/pages
+    - content_acceptance
+    activation: Load when the current project phase materially intersects the ownership described by `content-copywriting` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `content-copywriting` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  context-efficiency:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `context-efficiency` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `context-efficiency` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  cpp-systems-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `cpp-systems-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `cpp-systems-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  data-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `data-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `data-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  data-visualization-design:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - requirements
+    - planning/design/DESIGN-SYSTEM.md
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `data-visualization-design` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `data-visualization-design` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  database-design:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `database-design` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `database-design` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  database-migrations:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `database-migrations` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `database-migrations` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  database-operations:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `database-operations` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `database-operations` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  dependency-supply-chain-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `dependency-supply-chain-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `dependency-supply-chain-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  dependency-upgrade-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `dependency-upgrade-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `dependency-upgrade-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  deployment-readiness:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `deployment-readiness` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `deployment-readiness` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  desktop-application-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `desktop-application-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `desktop-application-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  development-environment-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `development-environment-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `development-environment-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  distributed-systems-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `distributed-systems-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `distributed-systems-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  django-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `django-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `django-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  dns-dhcp-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `dns-dhcp-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `dns-dhcp-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  docker-runtime:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `docker-runtime` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `docker-runtime` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  document-processing-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: &id031
+    - COLLABORATIVE_DISCOVERY
+    - REQUIREMENTS
+    - RESEARCH
+    - ARCHITECTURE
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles: &id032
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces: &id033
+    - requirements
+    - product_workflows
+    - architecture
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `document-processing-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `document-processing-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  documentation-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `documentation-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `documentation-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  dotnet-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `dotnet-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `dotnet-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  email-delivery-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `email-delivery-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `email-delivery-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  fastapi-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `fastapi-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `fastapi-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  file-object-storage-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `file-object-storage-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `file-object-storage-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  flutter-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `flutter-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `flutter-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  formal-modeling-verification:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `formal-modeling-verification`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `formal-modeling-verification` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  frontend-architecture:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `frontend-architecture` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `frontend-architecture` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  frontend-performance:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `frontend-performance` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `frontend-performance` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  fsharp-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `fsharp-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `fsharp-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  go-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `go-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `go-engineering` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  graphql-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `graphql-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `graphql-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  grpc-protobuf-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `grpc-protobuf-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `grpc-protobuf-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  harmonyos-arkts-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `harmonyos-arkts-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `harmonyos-arkts-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  implementation-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `implementation-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `implementation-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  incident-response-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `incident-response-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `incident-response-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  infrastructure-as-code-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `infrastructure-as-code-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `infrastructure-as-code-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  integration-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `integration-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `integration-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  interaction-state-audit:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `interaction-state-audit` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `interaction-state-audit` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  internationalization-localization-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `internationalization-localization-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `internationalization-localization-engineering` merely because its category is adjacent; skip when
+      it cannot change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  jvm-java-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `jvm-java-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `jvm-java-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  kotlin-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `kotlin-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `kotlin-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  kotlin-multiplatform-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `kotlin-multiplatform-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `kotlin-multiplatform-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ktor-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `ktor-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ktor-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  kubernetes-operations:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `kubernetes-operations` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `kubernetes-operations` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  landing-conversion:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `landing-conversion` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `landing-conversion` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  laravel-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `laravel-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `laravel-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  library-sdk-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `library-sdk-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `library-sdk-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  llm-application-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `llm-application-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `llm-application-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  local-commerce-seo:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/SEO-STRATEGY.md
+    - planning/seo/SEO-ROUTE-MATRIX.yaml
+    - planning/seo/STRUCTURED-DATA-PLAN.yaml
+    activation: Load when the current project phase materially intersects the ownership described by `local-commerce-seo` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `local-commerce-seo` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  machine-learning-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `machine-learning-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `machine-learning-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  mcp-server-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `mcp-server-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `mcp-server-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  media-processing-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `media-processing-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `media-processing-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  messaging-broker-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `messaging-broker-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `messaging-broker-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  mongodb-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `mongodb-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `mongodb-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  monorepo-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `monorepo-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `monorepo-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  motion-design-engineering:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `motion-design-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `motion-design-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  multi-tenancy-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `multi-tenancy-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `multi-tenancy-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  mysql-mariadb-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `mysql-mariadb-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `mysql-mariadb-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  natural-content-editing:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - CONTENT_OR_DESIGN_PRODUCER
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/content/pages
+    - planning/content/VOICE-GUIDE.md
+    - content_acceptance
+    activation: Load when the current project phase materially intersects the ownership described by `natural-content-editing` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `natural-content-editing` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  nestjs-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `nestjs-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `nestjs-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  network-automation-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `network-automation-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `network-automation-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  network-infrastructure-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `network-infrastructure-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `network-infrastructure-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  nextjs-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `nextjs-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `nextjs-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  notification-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `notification-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `notification-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  open-source-release-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `open-source-release-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `open-source-release-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  openwrt-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `openwrt-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `openwrt-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  opnsense-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `opnsense-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `opnsense-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  payments-billing-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `payments-billing-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `payments-billing-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  performance-profiling:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `performance-profiling` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `performance-profiling` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  perl-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `perl-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `perl-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  php-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `php-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `php-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  plugin-extension-platform-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `plugin-extension-platform-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `plugin-extension-platform-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  postgres-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `postgres-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `postgres-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  powershell-windows-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `powershell-windows-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `powershell-windows-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  privacy-data-governance-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `privacy-data-governance-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `privacy-data-governance-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  product-analytics-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `product-analytics-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `product-analytics-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  property-based-testing:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `property-based-testing` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `property-based-testing` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  python-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `python-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `python-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  pytorch-deep-learning-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `pytorch-deep-learning-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `pytorch-deep-learning-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  quarkus-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `quarkus-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `quarkus-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  rails-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `rails-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `rails-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  react-native-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `react-native-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `react-native-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  react-web-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `react-web-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `react-web-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  realtime-communications-engineering:
+    participation: CONDITIONAL
+    category: backend-api-integration
+    phases: *id010
+    roles: *id011
+    informs_or_produces: *id012
+    activation: Load when the current project phase materially intersects the ownership described by `realtime-communications-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `realtime-communications-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  recommendation-ranking-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `recommendation-ranking-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `recommendation-ranking-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  redis-caching-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `redis-caching-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `redis-caching-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  refactoring-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `refactoring-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `refactoring-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  release-package-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `release-package-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `release-package-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  reliability-observability:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `reliability-observability` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `reliability-observability` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  repository-onboarding:
+    participation: CONDITIONAL
+    category: core-quality
+    phases:
+    - INTAKE
+    - RESEARCH
+    - ARCHITECTURE
+    roles:
+    - RESEARCH_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    informs_or_produces:
+    - planning/repository
+    - planning/context/PROJECT-CONTEXT.md
+    activation: Load when the current project phase materially intersects the ownership described by `repository-onboarding` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `repository-onboarding` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  responsive-design:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `responsive-design` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `responsive-design` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  reverse-proxy-edge-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `reverse-proxy-edge-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `reverse-proxy-edge-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ruby-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `ruby-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ruby-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  rust-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `rust-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `rust-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  search-experience-optimization:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/SEARCH-INTENT-MAP.yaml
+    - planning/seo/SEO-ROUTE-MATRIX.yaml
+    - planning/design/UX-PRINCIPLES.md
+    - planning/content/pages
+    activation: Load when the current project phase materially intersects the ownership described by `search-experience-optimization`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `search-experience-optimization` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  search-retrieval-rag-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `search-retrieval-rag-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `search-retrieval-rag-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  security-review:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `security-review` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `security-review` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  seo-audit-and-drift:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - RESEARCH_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/SEO-VERIFICATION-PLAN.md
+    - verification_plan
+    - deployment_gate
+    activation: Load when the current project phase materially intersects the ownership described by `seo-audit-and-drift` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `seo-audit-and-drift` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  seo-content:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `seo-content` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `seo-content` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  seo-content-strategy:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/content/CONTENT-STRATEGY.md
+    - planning/content/pages
+    - planning/seo/SEARCH-INTENT-MAP.yaml
+    activation: Load when the current project phase materially intersects the ownership described by `seo-content-strategy` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `seo-content-strategy` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  seo-strategy:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - ARCHITECTURE_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/SEO-STRATEGY.md
+    - planning/seo/SEARCH-INTENT-MAP.yaml
+    - planning/seo/SEO-ROUTE-MATRIX.yaml
+    - information_architecture
+    activation: Load when the current project phase materially intersects the ownership described by `seo-strategy` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `seo-strategy` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  serverless-edge-engineering:
+    participation: CONDITIONAL
+    category: architecture-delivery
+    phases: *id016
+    roles: *id017
+    informs_or_produces: *id018
+    activation: Load when the current project phase materially intersects the ownership described by `serverless-edge-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `serverless-edge-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  solution-minimization-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `solution-minimization-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `solution-minimization-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  spring-boot-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `spring-boot-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `spring-boot-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  sqlite-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `sqlite-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `sqlite-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  sqlite-vector-search-engineering:
+    participation: CONDITIONAL
+    category: data-storage
+    phases: *id028
+    roles: *id029
+    informs_or_produces: *id030
+    activation: Load when the current project phase materially intersects the ownership described by `sqlite-vector-search-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `sqlite-vector-search-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  structured-data-seo:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/STRUCTURED-DATA-PLAN.yaml
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `structured-data-seo` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `structured-data-seo` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  sveltekit-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `sveltekit-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `sveltekit-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  swift-engineering:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `swift-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `swift-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  swift-testing:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `swift-testing` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `swift-testing` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  swiftui-architecture:
+    participation: CONDITIONAL
+    category: mobile-native
+    phases: *id004
+    roles: *id005
+    informs_or_produces: *id006
+    activation: Load when the current project phase materially intersects the ownership described by `swiftui-architecture` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `swiftui-architecture` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  systematic-debugging:
+    participation: CONDITIONAL
+    category: core-quality
+    phases:
+    - PROGRAM_DESIGN
+    - VERIFICATION_PLANNING
+    roles:
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - failure_model
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `systematic-debugging` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `systematic-debugging` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  tdd-workflow:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `tdd-workflow` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `tdd-workflow` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  technical-research:
+    participation: CONDITIONAL
+    category: core-quality
+    phases:
+    - RESEARCH
+    roles:
+    - RESEARCH_ADVISOR
+    informs_or_produces:
+    - planning/research/RESEARCH-REGISTER.md
+    activation: Load when the current project phase materially intersects the ownership described by `technical-research` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `technical-research` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  technical-seo-engineering:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - RESEARCH_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/seo/SEO-ROUTE-MATRIX.yaml
+    - rendering_architecture
+    - deployment_plan
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `technical-seo-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `technical-seo-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  technology-stack-selection:
+    participation: CONDITIONAL
+    category: core-quality
+    phases:
+    - RESEARCH
+    - ARCHITECTURE
+    roles:
+    - RESEARCH_ADVISOR
+    - ARCHITECTURE_ADVISOR
+    informs_or_produces:
+    - planning/architecture/STACK-MANIFEST.yaml
+    activation: Load when the current project phase materially intersects the ownership described by `technology-stack-selection` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `technology-stack-selection` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  terraform-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `terraform-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `terraform-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  test-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `test-engineering` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `test-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  threat-modeling-engineering:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `threat-modeling-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `threat-modeling-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  typescript-node-engineering:
+    participation: CONDITIONAL
+    category: language-stacks
+    phases: *id025
+    roles: *id026
+    informs_or_produces: *id027
+    activation: Load when the current project phase materially intersects the ownership described by `typescript-node-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `typescript-node-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ui-design-system:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - planning/design/DESIGN-DIRECTION.yaml
+    - planning/design/DESIGN-SYSTEM.md
+    - program_design
+    - verification_plan
+    activation: Load when the current project phase materially intersects the ownership described by `ui-design-system` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ui-design-system` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  unifi-network-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `unifi-network-engineering` and
+      the capability/risk is in scope.
+    negative_trigger: Do not load `unifi-network-engineering` merely because its category is adjacent; skip when it cannot change the
+      current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  ux-product-design:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles:
+    - DISCOVERY_ADVISOR
+    - REQUIREMENTS_ADVISOR
+    - CONTENT_OR_DESIGN_PRODUCER
+    - PROGRAM_DESIGN_ADVISOR
+    - VERIFICATION_ADVISOR
+    - EXECUTION_SPECIALIST
+    informs_or_produces:
+    - requirements
+    - planning/design/UX-PRINCIPLES.md
+    - information_architecture
+    - user_journeys
+    - program_design
+    activation: Load when the current project phase materially intersects the ownership described by `ux-product-design` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `ux-product-design` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  verification-gate:
+    participation: CONDITIONAL
+    category: core-quality
+    phases: *id022
+    roles: *id023
+    informs_or_produces: *id024
+    activation: Load when the current project phase materially intersects the ownership described by `verification-gate` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `verification-gate` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  virtualization-homelab-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `virtualization-homelab-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `virtualization-homelab-engineering` merely because its category is adjacent; skip when it cannot
+      change the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  visual-polish:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `visual-polish` and the capability/risk
+      is in scope.
+    negative_trigger: Do not load `visual-polish` merely because its category is adjacent; skip when it cannot change the current planning
+      decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  vpn-overlay-network-engineering:
+    participation: CONDITIONAL
+    category: infra-network
+    phases: *id019
+    roles: *id020
+    informs_or_produces: *id021
+    activation: Load when the current project phase materially intersects the ownership described by `vpn-overlay-network-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `vpn-overlay-network-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  vue-nuxt-engineering:
+    participation: CONDITIONAL
+    category: framework-stacks
+    phases: *id007
+    roles: *id008
+    informs_or_produces: *id009
+    activation: Load when the current project phase materially intersects the ownership described by `vue-nuxt-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `vue-nuxt-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  web-data-acquisition-engineering:
+    participation: CONDITIONAL
+    category: ai-agent-data
+    phases: *id001
+    roles: *id002
+    informs_or_produces: *id003
+    activation: Load when the current project phase materially intersects the ownership described by `web-data-acquisition-engineering`
+      and the capability/risk is in scope.
+    negative_trigger: Do not load `web-data-acquisition-engineering` merely because its category is adjacent; skip when it cannot change
+      the current planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  website-modernization:
+    participation: CONDITIONAL
+    category: frontend-product
+    phases: *id013
+    roles: *id014
+    informs_or_produces: *id015
+    activation: Load when the current project phase materially intersects the ownership described by `website-modernization` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `website-modernization` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT
+  wordpress-engineering:
+    participation: CONDITIONAL
+    category: product-platform
+    phases: *id031
+    roles: *id032
+    informs_or_produces: *id033
+    activation: Load when the current project phase materially intersects the ownership described by `wordpress-engineering` and the
+      capability/risk is in scope.
+    negative_trigger: Do not load `wordpress-engineering` merely because its category is adjacent; skip when it cannot change the current
+      planning decision or verification shape.
+    execution_handoff: WHEN_JOB_RELEVANT

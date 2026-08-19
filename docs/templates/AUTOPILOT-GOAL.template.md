@@ -1,4 +1,4 @@
-# AUTOPILOT GOAL — V5.6.3
+# AUTOPILOT GOAL — V5.7.1
 
 Status: READY_TO_START
 Terminal target: `COMPLETED`
@@ -100,11 +100,15 @@ Before every commit: classify documentation impact, update affected README/docs 
 Read and maintain `planning/execution/STATE.md` as the compact live snapshot. Update it after every meaningful job/wave/commit-push/runtime/blocker/restart/context/convergence boundary. Use fresh isolated agents for independent jobs/reviews/debugger escalation; persist truth to disk and rotate context epochs at semantic boundaries. Every wave maximizes **end-to-end throughput**, not agent count: identify the current bottleneck and avoid writer WIP that only queues before saturated integration/test/CI/review/runtime capacity. No fixed agent count; keep the operator/harness-selected model unchanged.
 
 
-## V5.6.3 convergence invariant
+## V5.7.1 convergence invariant
 Maintain `planning/execution/CONVERGENCE-MATRIX.json` and `EVIDENCE-INDEX.json`. Technical discoveries update planning/ADRs/jobs autonomously within authority and then reconverge. Affected evidence from an older SHA is stale. Final completion requires the current mandatory requirement set to be `CONVERGED`/authorized `WAIVED`, fresh required evidence, `DOCUMENTATION_READY`, runtime acceptance and intended remote-main state.
 
-## V5.6.3 program/flow invariant
+## V5.7.1 program/flow invariant
 Every substantive implementation routes `solution-minimization-engineering`. Resolve consequential Program Design before broad code generation, prefer executable vertical slices and re-steer after the first high-impact slice if needed. Batch tiny same-shape tasks; parallelize real independent work only while it improves throughput. Use measurable outcomes as backpressure where honest/useful. After escaped/repeated failures close the failure mode with the smallest effective durable control. Use token-budgeted repo maps/semantic navigation only when repository scale warrants it; keep scratch private and parent handoffs compact.
 
-## V5.6.3 adaptive execution / worker liveness invariant
+## V5.7.1 adaptive execution / worker liveness invariant
 Read `EXECUTION-PROFILE.yaml` before final DAG dispatch. `MICRO/SMALL` means fewer coherent milestones, fewer process-only branches/commits/reviews and milestone evidence; it never means weaker product quality. `STANDARD/HIGH_RISK` keeps or increases the required rigor. Route each worker only after its exact job capabilities are verified. For long-running workers, observable meaningful progress renews the lease; a quiet worker receives a health check; elapsed time alone does not justify cancellation. If a provider has a hard deadline, checkpoint beforehand when feasible and resume from the actual Git/files/checkpoint state afterward. Repeated stalls trigger resizing/capability rerouting/root-cause debugging, not blind restarts.
+
+## V5.7.1 Control Gates
+
+Before dispatch, reconcile `JOB-GRAPH.json`, `LOOP-STATE.json`, `SURFACE-POLICY.yaml`, artifact consistency and actual harness capabilities. Each repeated loop iteration needs a meaningful progress delta or a changed strategy. Use fast feedback while iterating, but require the project acceptance gate before final convergence.

@@ -1,25 +1,40 @@
-# Final Coding-Agent Start Prompt — V5.6.3
+# Coding-Agent Start Prompt — CtrlAltDelegate V5.7.1 ZIP Handoff
 
-Work from the root of this cloned repository. This prompt assumes an execution-ready planning handoff. Do not re-plan the project from scratch. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md` instead.
+Work from the actual target project/repository root. A completed CtrlAltDelegate planning handoff is provided as `./ctrlaltdelegate-delivery.zip`.
 
-Read `AGENTS.md`, then `planning/handoff/CODING-AGENT-HANDOFF.md`, then `planning/execution/STATE.md`. Treat Git plus the versioned `planning/` tree as persistent project memory. Read only the additional requirements/architecture/jobs/skills required for the immediate next action.
+Set and preserve:
+- `PROJECT_ROOT` = current target project/repository root;
+- `INBOUND_PACKAGE` = `./ctrlaltdelegate-delivery.zip`;
+- `CONTROL_ROOT` = `./.ctrlaltdelegate`;
+- `PLANNING_ROOT` = `./.ctrlaltdelegate/planning`;
+- `SKILLS_ROOT` = `./.ctrlaltdelegate/.agents/skills`.
 
-Reach `HARNESS_READY`, `GIT_GUARDS_READY`, `GITHUB_READY`, repository/source readiness, `STACK_READY` and `SKILLSET_READY` using the active harness capabilities. Pi is the reference/golden-path harness and Codex CLI is a first-class equal behavioral target. Do not route/switch/pin models. Reuse existing healthy capabilities; bootstrap only genuinely missing required capabilities with current supported mechanisms and persist `RESTART_REQUIRED` before any necessary harness restart.
+Do not implement application code inside `CONTROL_ROOT`.
 
-Execute `planning/execution/AUTOPILOT-GOAL.md` autonomously until `COMPLETED`. Keep `planning/execution/STATE.md` concise and current after every meaningful job, integrated wave, material commit/push, runtime apply, blocker/hard-stop, restart/resume, context epoch and convergence/evidence verdict. Before a restart/context reset, persist the authoritative branch/SHA/runtime/evidence state and exact next action; resume from disk afterward.
+Bootstrap before normal execution:
+1. Reconcile the current directory with `git rev-parse --show-toplevel` when Git exists. Do not switch to a nested control directory as the project root.
+2. Preserve the target repository's existing `.gitignore` and add any missing CtrlAltDelegate local-control entries for `/ctrlaltdelegate-delivery.zip`, `/.ctrlaltdelegate/`, `/.ctrlaltdelegate.importing-*/`, and `/.ctrlaltdelegate.incoming-*/` before creating project commits. Default control visibility is `LOCAL_PRIVATE`.
+3. Require `INBOUND_PACKAGE` unless an already validated matching `CONTROL_ROOT` exists. Inspect ZIP members before extraction: reject absolute paths, traversal (`..`), symlink/link entries, or any top-level path other than `.ctrlaltdelegate/`.
+4. Extract into a temporary sibling directory, not directly over an existing control root. Validate the extracted package with its stdlib-safe control-package/handoff validators. Only then atomically promote the validated `.ctrlaltdelegate/` directory to `CONTROL_ROOT`.
+5. If a different `CONTROL_ROOT` already contains active/resumable state, do not overwrite it. Stage the incoming package separately and reconcile identity/state; report a blocker if safe reconciliation is not possible.
 
-For substantive work: satisfy the lightest sufficient `PROGRAM_DESIGN_GATE`, then `SOLUTION_MINIMIZATION_GATE`. Prefer repo reuse → stdlib/runtime → native platform/framework/DB → existing dependency → direct implementation → only then justified new dependency/abstraction. Prefer testable vertical slices over broad horizontal layer batches when dependencies allow: establish a minimal end-to-end path, verify it, then extend rules/edge cases incrementally. Re-steer after the first high-impact slice if actual code/runtime diverges from program design.
+After import read, in order:
+1. `./.ctrlaltdelegate/AGENTS.md`;
+2. `./.ctrlaltdelegate/CONTROL-PACKAGE.json`;
+3. `./.ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml`;
+4. `./.ctrlaltdelegate/planning/handoff/CODING-AGENT-HANDOFF.md`;
+5. `./.ctrlaltdelegate/planning/execution/STATE.md`;
+6. `./.ctrlaltdelegate/planning/execution/PLANNING-BASELINE.json`, then verify its attested fingerprint against the current authoritative planning files;
+7. `./.ctrlaltdelegate/planning/execution/JOB-GRAPH.json`, `LOOP-STATE.json`, and queued `PENDING-INPUT.jsonl` when present;
+8. only additional requirements, architecture, research, ADRs, evidence and routed skills required for the next action.
 
-For confirmed bugfixes, when practical prove the regression with `PRE_FIX_FAIL → POST_FIX_PASS`. Tests must be falsifiable and expectations independently derived. After defects/incidents/repeated repairs, perform `FAILURE_MODE_CLOSURE`: add only the smallest durable protection that prevents the same class escaping again.
+Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.7.1 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
 
-Before DAG execution, read `planning/execution/EXECUTION-PROFILE.yaml` and enforce `EXECUTION_RIGHTSIZING_GATE`: small/low-risk work gets fewer, larger coherent milestones and less branch/review/evidence ceremony; standard/high-risk work gets the depth it needs. Never reduce quality floors. Before delegation verify the worker actually has every required capability. For long-running workers, use progress-aware leases: meaningful progress keeps them alive; quiet requires a health check; elapsed wall-clock time alone is not stall evidence; checkpoint/resume before known provider deadlines or after worker loss instead of blindly restarting completed work.
-
-At every wave perform bottleneck-aware parallel planning. Maximize safe concurrency only while it increases end-to-end throughput; do not create writer WIP in front of a slower integration/test/CI/review/runtime bottleneck. Batch tiny same-shape work, parallelize substantive independent jobs with safe isolation, and record any required serialization reason.
-
-Maintain `planning/execution/CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Use measurable product/NFR outcomes as execution backpressure wherever meaningful, without substituting proxy metrics for correctness/security/accessibility. Keep README and all affected canonical docs accurate for every commit/push; final user-facing deliverables require clean-room/fresh-user acceptance when practical.
-
-Continue automatically between jobs/subagents/waves while dependency-ready work exists. Ask me only for a true product/business/safety/external hard stop defined by the project contract.
+Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.7.1 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and `COMPLETED`. Ask the user only for a true contract-defined hard stop.
 
 
-## Language continuity
-Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.
+## V5.7.1 planning-skill and authoritative-content handoff
+
+Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
+
+Files under `planning/content/pages/` with `status: approved` are authoritative product content. Preserve wording, factual claims, CTA intent, hierarchy and approved SEO metadata unless implementation proves a genuine conflict; route such conflicts through scoped change control instead of silently rewriting copy.

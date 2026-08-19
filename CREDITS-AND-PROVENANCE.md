@@ -1,6 +1,6 @@
-# Provenance & Maintenance — V5.6.3
+# Provenance & Maintenance — V5.7.1
 
-Software Planning Lead V5.6.3 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
+Software Planning Lead V5.6.4 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
 
 ## Research families
 
@@ -16,9 +16,9 @@ Software Planning Lead V5.6.3 is an independently written first-party planning/a
 
 External skill bodies are not copied into this library. Review useful concepts, verify drift-sensitive claims against authoritative sources, extract the durable engineering decision/failure model, and rewrite it in CtrlAltDelegate's own portable terminology. Do not inherit source-specific harness assumptions, mandatory libraries, branding, arbitrary thresholds or vendor preferences unless the target project itself requires them.
 
-## V5.6.3 research refresh
+## V5.6.4 research refresh
 
-The V5.6.3 completion pass rechecked current ECC network/database review patterns, Shokunin CI/CD/PowerShell/Terraform patterns, and vendor/project sources discovered through officialskills.sh. Network specialists additionally revalidated their drift model against current UniFi, OPNsense and OpenWrt first-party documentation. These sources supplied challenge cases and verification ideas only; local skill text remains independently authored.
+The V5.6.4 completion pass rechecked current ECC network/database review patterns, Shokunin CI/CD/PowerShell/Terraform patterns, and vendor/project sources discovered through officialskills.sh. Network specialists additionally revalidated their drift model against current UniFi, OPNsense and OpenWrt first-party documentation. These sources supplied challenge cases and verification ideas only; local skill text remains independently authored.
 
 ## Maintenance rules
 
@@ -33,3 +33,13 @@ The V5.6.3 completion pass rechecked current ECC network/database review pattern
 ## Earlier research normalization
 
 A user-provided transcript discussing agentic engineering/program design informed V5.3 Program Design, vertical slices, regression proof, failure closure, measurable outcomes and bottleneck-flow ideas. Those concepts were independently normalized into this first-party methodology; no external prompt/skill body is vendored.
+
+## V5.6.4 workflow-reference review
+
+A user-supplied snapshot of `garrytan/gstack` 1.67.0.0 was reviewed as a community workflow reference. CtrlAltDelegate independently reformulated only durable concepts relevant to deterministic planning delivery: stable artifact paths, persistent decision/review state and blocking transition checks that verify required outputs before execution handoff. No gstack prompt body or runtime code is vendored. Claude-specific slash commands, browser infrastructure, telemetry, gbrain, Bun tooling and the opinionated role/review pipeline are not inherited.
+
+## V5.7 architecture research
+
+V5.7 additionally reviewed ECC, Superpowers, planning-with-files, GitHub Spec Kit, OpenSpec, BMAD, Agent Skills for Context Engineering, Beads, LoopGate, sub-agents-skills, Open SWE, OpenHands, OpenCode, Oh My OpenAgent, OpenAI Codex, Ralph, Hermes Agent Self-Evolution and DeepSeek Harness. The release independently adapts only durable mechanisms relevant to CtrlAltDelegate: closed-loop/progress control, machine-readable dependency state, protected surfaces, requirements/artifact consistency, capability negotiation, safe resume, scoped replanning and evidence-driven retrospectives. No upstream prompt body or runtime is vendored.
+
+DeepSeek Harness was reviewed at `0.1.0-rc.7` / commit `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca` and is classified `FIRST_CLASS_PREVIEW` while upstream remains pre-stable.

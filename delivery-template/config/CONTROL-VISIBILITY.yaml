@@ -1,0 +1,17 @@
+version: 5.7.1
+default: LOCAL_PRIVATE
+modes:
+  LOCAL_PRIVATE:
+    inbound_archive_ignored: true
+    control_root_ignored: true
+    parent_git_history_required: false
+  TRACKED_SHARED:
+    opt_in_only: true
+    require_allowlist: true
+    always_ignore:
+    - private
+    - raw
+    - tmp
+    - logs
+    - cache
+    - import-conflicts

@@ -1,4 +1,4 @@
-# Existing Projects, Audits & Remediation — V5.6.3
+# Existing Projects, Audits & Remediation — V5.7.1
 
 ## Modes
 `EXISTING_CONTINUE`, `AUDIT_ONLY`, `AUDIT_REMEDIATE`, `BUGFIX`, `SECURITY_HARDEN`, `FRONTEND_UPGRADE`, `SEO_OPTIMIZE` (combinable).

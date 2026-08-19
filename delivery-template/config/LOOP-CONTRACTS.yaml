@@ -1,0 +1,124 @@
+version: 5.7.1
+policy:
+  blind_retry: forbidden
+  progress_required_for_same_strategy: true
+  fast_feedback_is_not_acceptance: true
+  state_file: planning/execution/LOOP-STATE.json
+loops:
+  DISCOVERY_LOOP:
+    trigger:
+    - intake_started
+    - material_unknown_found
+    continue_when:
+    - material_unknown_remaining
+    - useful_opportunity_unresolved
+    success_when:
+    - discovery_ready
+    escalate_when:
+    - true_product_decision_required
+  RESEARCH_LOOP:
+    trigger:
+    - drift_prone_decision
+    - evidence_gap
+    continue_when:
+    - new_research_likely_to_change_decision
+    success_when:
+    - decision_evidence_sufficient
+    escalate_when:
+    - authority_conflict
+    - unavailable_required_source
+  PROGRAM_DESIGN_STEERING_LOOP:
+    trigger:
+    - cross_file_change
+    - cross_layer_change
+    - first_vertical_slice
+    continue_when:
+    - design_runtime_mismatch
+    success_when:
+    - design_and_runtime_converged
+    escalate_when:
+    - architecture_invalidated
+  EXECUTION_LOOP:
+    trigger:
+    - dependency_ready_job
+    continue_when:
+    - ready_work_exists
+    success_when:
+    - all_required_jobs_validated
+    escalate_when:
+    - blocked_external
+    - policy_denied
+  REPAIR_LOOP:
+    trigger:
+    - verification_failed
+    continue_when:
+    - recoverable
+    - new_evidence_or_strategy
+    success_when:
+    - targeted_verification_passed
+    no_progress_action: change_strategy
+    escalation:
+    - fresh_debugger
+    - job_resize
+    - reroute_capability
+    - architecture_review
+    terminal:
+    - RESOLVED
+    - BLOCKED_EXTERNAL
+    - RETRY_EXHAUSTED
+  WORKER_LIVENESS_LOOP:
+    trigger:
+    - worker_quiet
+    - worker_health_signal
+    continue_when:
+    - worker_running_or_recoverable
+    success_when:
+    - worker_done_with_evidence
+    no_progress_action: health_check_then_reconcile
+    escalation:
+    - checkpoint_resume
+    - resize_job
+    - reroute_worker
+  CONVERGENCE_LOOP:
+    trigger:
+    - job_integrated
+    - evidence_stale
+    - requirement_changed
+    continue_when:
+    - uncovered_requirement
+    - stale_evidence
+    - docs_out_of_sync
+    success_when:
+    - requirements_code_evidence_docs_converged
+    escalation:
+    - scoped_replan
+  CONTEXT_RESUME_LOOP:
+    trigger:
+    - context_boundary
+    - restart
+    - compaction
+    continue_when:
+    - state_reconstruction_incomplete
+    success_when:
+    - minimal_authoritative_context_reconstructed
+    escalation:
+    - state_reconciliation
+  PARALLELISM_LOOP:
+    trigger:
+    - multiple_ready_jobs
+    continue_when:
+    - parallelism_improves_validated_throughput
+    success_when:
+    - wave_integrated
+    escalation:
+    - reduce_wip
+    - serialize_shared_surface
+  FAILURE_MODE_CLOSURE_LOOP:
+    trigger:
+    - confirmed_defect
+    continue_when:
+    - durable_protection_missing
+    success_when:
+    - root_cause_fixed_and_smallest_durable_guard_verified
+    escalation:
+    - independent_review

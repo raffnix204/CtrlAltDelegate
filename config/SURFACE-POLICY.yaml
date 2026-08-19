@@ -1,0 +1,24 @@
+version: 5.7.1
+policy:
+  instructions_are_not_enforcement: true
+  fail_closed_when_required_enforcement_missing: true
+classes:
+  LOCKED:
+    default_examples:
+    - acceptance_evaluators
+    - security_policy
+    - requirement_baseline_during_job
+  EDITABLE:
+    default_examples:
+    - job_allowed_source_scope
+    - job_allowed_tests
+  APPEND_ONLY:
+    default_examples:
+    - planning/execution/DECISION-LEDGER.jsonl
+    - execution_evidence_history
+  HUMAN_CONTROLLED:
+    default_examples:
+    - production_deploy
+    - destructive_data_action
+    - credentials
+    - compliance_exception

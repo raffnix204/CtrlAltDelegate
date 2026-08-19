@@ -1,5 +1,5 @@
-delivery_version: '5.6.3'
-layout: REPO_ROOT_READY
+delivery_version: '5.7.1'
+layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
 root_policy:

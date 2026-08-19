@@ -1,4 +1,4 @@
-version: '5.6.3'
+version: '5.7.1'
 status: NOT_CLASSIFIED
 profile: AUTO
 basis:
@@ -39,3 +39,10 @@ selected_strategy:
   evidence_granularity: AUTO
   commit_push_cadence: AUTO
   parallelism: AUTO
+context_tool_rightsizing:
+  enabled: true
+  principle: smallest sufficient context and tool surface
+  micro: minimal job skills and tools
+  small: targeted tools and verification
+  standard: broader capabilities only when useful
+  high_risk: explicit specialists, enforcement checks, independent verification

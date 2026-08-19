@@ -1,0 +1,63 @@
+version: 5.7.1
+policy:
+  same_behavioral_contract: true
+  use_native_capabilities_when_available: true
+  unsupported_required_capability: FAIL_LOUD_OR_REROUTE
+  model_routing: false
+harnesses:
+  pi:
+    support: REFERENCE
+    instructions: native_or_adapter
+    canonical_skills: .agents/skills
+  codex:
+    support: FIRST_CLASS
+    instructions: AGENTS.md
+    canonical_skills: .agents/skills
+    sandbox: detect
+    approvals: detect
+    sessions: detect
+    subagents: detect
+    hooks: detect
+  deepseek-harness:
+    support: FIRST_CLASS_PREVIEW
+    upstream_status: developer_preview
+    instructions: AGENTS_COMPATIBLE
+    canonical_skills: .agents/skills
+    duplicate_dsh_skill_copy: false
+    imported_control_skills:
+      root: ./.ctrlaltdelegate/.agents/skills
+      native_strategy: configure_custom_skill_dir_when_available
+      fallback: explicit_file_routing
+    session_event_log: native
+    resume_fork: native
+    headless: native
+    approval: fail_closed_native
+    sandbox:
+      modes:
+      - read-only
+      - workspace-write
+      - danger-full-access
+      enforcement_quality:
+      - full
+      - partial
+    subagents:
+      supported: true
+      capabilities_to_detect:
+      - outputSchema
+      - depthLimit
+      - toolFilter
+      - persona
+      - continuable
+    hooks: native_and_bridges
+    compaction: optional_native
+  claude-code:
+    support: COMPATIBLE
+    instructions: CLAUDE.md_and_project_rules
+    canonical_skills: .agents/skills_with_adapter
+    hooks: detect
+  opencode:
+    support: COMPATIBLE
+    instructions: detect
+    canonical_skills: .agents/skills_when_supported
+    sessions: detect
+    plan_build_permissions: detect

@@ -1,0 +1,51 @@
+version: 5.7.1
+policy:
+  new_skill_requires_mechanism_overlap_check: true
+  semantic_overlap_requires_owner_or_explicit_specialization: true
+mechanisms:
+- id: CLOSED_LOOP_REPAIR
+  owner: verification-gate
+  related:
+  - systematic-debugging
+  - adversarial-verification
+- id: SOLUTION_MINIMIZATION
+  owner: implementation-engineering
+  related:
+  - backend-architecture
+  - frontend-architecture
+- id: REQUIREMENT_TO_EVIDENCE_CONVERGENCE
+  owner: verification-gate
+  related:
+  - code-review
+  - deployment-readiness
+- id: CONTEXT_EFFICIENCY
+  owner: context-efficiency
+  related:
+  - technical-research
+- id: SKILL_DRIVEN_PLANNING
+  owner: skill-driven-planning-contract
+  related:
+  - technology-stack-selection
+  - ux-product-design
+  - security-review
+- id: AUTHORITATIVE_CONTENT_PIPELINE
+  owner: content-copywriting
+  related:
+  - natural-content-editing
+  - seo-content-strategy
+  - landing-conversion
+- id: SEO_DRIFT_VERIFICATION
+  owner: seo-audit-and-drift
+  related:
+  - technical-seo-engineering
+  - structured-data-seo
+- id: SEARCH_EXPERIENCE_ALIGNMENT
+  owner: search-experience-optimization
+  related:
+  - seo-strategy
+  - ux-product-design
+- id: DESIGN_DIRECTION_DIALS
+  owner: ui-design-system
+  related:
+  - ux-product-design
+  - motion-design-engineering

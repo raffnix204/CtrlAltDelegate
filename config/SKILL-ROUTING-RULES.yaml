@@ -1,6 +1,6 @@
-version: '5.6.3'
-goal: Maximize job-specific expertise and correctness while minimizing active context and solution surface. Library size is
-  unconstrained; active job skill set is the smallest complete evidence-backed set.
+version: '5.7.1'
+goal: Maximize job-specific expertise and correctness while minimizing active context and solution surface. Library
+  size is unconstrained; active job skill set is the smallest complete evidence-backed set.
 selection_pipeline:
 - PROJECT_PROFILE
 - STACK_READY
@@ -181,10 +181,10 @@ change_triggers:
   property_based_testing:
   - property-based-testing
   - test-engineering
-language_framework_rule: Add each language/runtime/framework specialist only when the job materially edits/reviews that stack.
-  Framework specialist complements, not replaces, language specialist.
-review_rule: Use diff-sensitive reviewers. Security/data/network/release specialists review only when their risk trigger is
-  present. Avoid fixed reviewer counts.
+language_framework_rule: Add each language/runtime/framework specialist only when the job materially edits/reviews
+  that stack. Framework specialist complements, not replaces, language specialist.
+review_rule: Use diff-sensitive reviewers. Security/data/network/release specialists review only when their risk
+  trigger is present. Avoid fixed reviewer counts.
 research_rule:
   reuse_exported_evidence_first: true
   modes:
@@ -192,8 +192,8 @@ research_rule:
   - VERIFY_DRIFT
   - TARGETED
   - SPIKE
-  add_technical_research_skill_when: a material technical decision depends on current external facts or an unresolved compatibility/behavior
-    claim
+  add_technical_research_skill_when: a material technical decision depends on current external facts or an unresolved
+    compatibility/behavior claim
   autonomous_decision_after_research: true
   user_decision_only_for:
   - product/scope behavior change

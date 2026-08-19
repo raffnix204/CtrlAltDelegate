@@ -107,3 +107,6 @@ Treat copy as part of the product contract. Distinguish marketing claims, UI lab
 For product UI, optimize for action clarity: button labels name the action, errors explain recovery, destructive confirmations name the consequence, empty states explain the next useful step, and jargon is introduced only when the audience uses it. Maintain terminology consistency across UI, docs and API-visible concepts.
 
 For localized products, avoid layouts/copy that depend on English word length and record strings whose meaning cannot be safely translated without product context.
+
+## V5.7.1 Planning participation
+When user-facing content is in scope, participate during planning instead of leaving copy to the coding agent. Decide content mode, create research-backed briefs/copy where requested, and persist approved content under `planning/content/`. Read `references/authoritative-content-planning.md` for the authority and review pipeline.

@@ -1,6 +1,6 @@
-# Harness Compatibility & Capability Bootstrap — V5.6.3
+# Harness Compatibility & Capability Bootstrap — V5.7.1
 
-Pi is the reference/golden-path harness. **Codex CLI is a first-class equal behavioral target**; Claude Code and OpenCode are supported compatible harnesses under the same contract. One methodology applies to all harnesses.
+Pi is the reference/golden-path harness. **Codex CLI is first-class**. **DeepSeek Harness is first-class preview** while upstream remains in developer preview. Claude Code and OpenCode are supported compatible harnesses. One methodology applies to all harnesses, with native capability negotiation defined by `config/HARNESS-CONFORMANCE.yaml`.
 
 ## Canonical surfaces
 - `AGENTS.md`
@@ -27,3 +27,8 @@ Use native delegation/subagent/worktree capabilities when available and the same
 
 ## HARNESS_READY
 Set only when required instructions/skills/delegation/core tools and project-selected conditional tools are available and verified, or a documented allowed fallback exists.
+
+
+## DeepSeek Harness
+
+Use canonical `.agents/skills` and AGENTS-compatible instructions. Do not generate a duplicate `.dsh/skills` library. Detect actual session, subagent, sandbox, approval, hook, headless and compaction capabilities at runtime because the upstream project is still preview. Treat partial sandbox enforcement as partial and fail loud/reroute when a job needs an unsupported capability.

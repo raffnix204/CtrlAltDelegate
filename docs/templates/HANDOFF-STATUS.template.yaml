@@ -1,0 +1,25 @@
+version: 5.7.1
+status: NOT_READY
+mode: EXECUTION_HANDOFF
+topology: ZIP_TO_HIDDEN_CONTROL_ROOT
+project_root: .
+inbound_package: ./ctrlaltdelegate-delivery.zip
+control_root: ./.ctrlaltdelegate
+planning_root: ./.ctrlaltdelegate/planning
+skills_root: ./.ctrlaltdelegate/.agents/skills
+start_prompt: ./.ctrlaltdelegate/CODING-AGENT-START-PROMPT.md
+canonical_handoff: ./.ctrlaltdelegate/planning/handoff/CODING-AGENT-HANDOFF.md
+final_start_prompt: ./.ctrlaltdelegate/planning/handoff/FINAL-START-PROMPT.md
+start_prompt_parity: BYTE_IDENTICAL
+state: ./.ctrlaltdelegate/planning/execution/STATE.md
+control_visibility: LOCAL_PRIVATE
+unresolved_blocking_decisions: 0
+closure_checks:
+  required_paths_present: false
+  prompt_paths_verified: false
+  planning_ready: false
+  zero_blocking_decisions: false
+  control_tree_verified_before_archive: false
+  planning_baseline_attested: false
+  planning_skill_state_present: false
+planning_baseline: ./.ctrlaltdelegate/planning/execution/PLANNING-BASELINE.json

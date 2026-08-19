@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "ctrlaltdelegate_version": "5.7.1",
+  "delivery_id": "GENERATE_AT_EXPORT",
+  "archive_name": "ctrlaltdelegate-delivery.zip",
+  "top_level_directory": ".ctrlaltdelegate",
+  "target_project_root": ".",
+  "control_root": "./.ctrlaltdelegate",
+  "control_visibility": "LOCAL_PRIVATE",
+  "handoff_status": "planning/handoff/HANDOFF-STATUS.yaml",
+  "start_prompt": "CODING-AGENT-START-PROMPT.md",
+  "manifest": "DELIVERY-MANIFEST.yaml",
+  "post_import_archive": "./.ctrlaltdelegate/inbox/ctrlaltdelegate-delivery.zip"
+}

@@ -1,5 +1,5 @@
-delivery_version: 5.6.3
-layout: REPO_ROOT_READY
+delivery_version: 5.7.1
+layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
 root_policy:
@@ -33,6 +33,9 @@ required_files:
 - planning/research/RESEARCH-POLICY.yaml
 - docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md
 - docs/system/LANGUAGE-AND-INTERACTION.md
+- planning/context/PLANNING-SKILL-STATE.yaml
+- config/PLANNING-SKILL-ROUTING.yaml
+- docs/system/SKILL-DRIVEN-PLANNING.md
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -52,3 +55,4 @@ language_contract:
   conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
   ctrlaltdelegate_artifacts: ENGLISH
   localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES
+version: 5.7.1

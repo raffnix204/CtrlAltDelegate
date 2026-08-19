@@ -1,6 +1,6 @@
-library: software-planning-lead-v5.6.3
-version: 5.6.3
-library_count: 145
+library: software-planning-lead-v5.7.1
+version: 5.7.1
+library_count: 154
 policy:
   project_export: copy_selected_skill_directories_only
   runtime_download_required: false
@@ -73,11 +73,21 @@ policy:
   harness_support:
     pi: reference
     codex: first_class_equal_behavioral_contract
+    deepseek_harness: first_class_preview
     claude_code: compatible_same_contract
     opencode: compatible_same_contract
-  skill_schema: 5.6.1-domain-expertise
+  skill_schema: 5.7.1-domain-expertise+planning-registry
   global_execution_contract: docs/system/SKILL-EXECUTION-CONTRACT.md
   source_research_matrix: .agents/skills/SOURCE-RESEARCH-MATRIX.yaml
+  planning_skill_orchestration:
+    contract: docs/system/SKILL-DRIVEN-PLANNING.md
+    registry: config/PLANNING-SKILL-ROUTING.yaml
+    state: planning/context/PLANNING-SKILL-STATE.yaml
+    early_capability_scan: true
+    refresh_each_phase: true
+    consult_relevant_skill_before_owned_planning_decision: true
+    full_library_preload: false
+    same_selected_skills_available_to_execution: true
 core_routing:
   substantive_implementation:
   - solution-minimization-engineering
@@ -124,6 +134,15 @@ categories:
   - ux-product-design
   - visual-polish
   - website-modernization
+  - seo-strategy
+  - technical-seo-engineering
+  - seo-content-strategy
+  - structured-data-seo
+  - search-experience-optimization
+  - seo-audit-and-drift
+  - local-commerce-seo
+  - data-visualization-design
+  - natural-content-editing
   core-quality:
   - adversarial-verification
   - code-review
@@ -267,8 +286,8 @@ categories:
 skills:
 - id: accessibility-audit
   title: Accessibility Engineering & Audit
-  description: Design and independently verify inclusive interfaces using current platform guidance and WCAG 2.2 AA as the default web target
-    unless project requirements specify otherwise.
+  description: Design and independently verify inclusive interfaces using current platform guidance and WCAG 2.2 AA as the
+    default web target unless project requirements specify otherwise.
   category: frontend-product
   source: skills/accessibility-audit/SKILL.md
   project_path: .agents/skills/accessibility-audit/SKILL.md
@@ -292,8 +311,8 @@ skills:
       - community_operational_evidence
 - id: adversarial-verification
   title: Adversarial Factual Verification
-  description: Independently attempt to refute material factual completion claims using fresh evidence while avoiding fake confidence from majority-voting
-    subjective judgments.
+  description: Independently attempt to refute material factual completion claims using fresh evidence while avoiding fake
+    confidence from majority-voting subjective judgments.
   category: core-quality
   source: skills/adversarial-verification/SKILL.md
   project_path: .agents/skills/adversarial-verification/SKILL.md
@@ -315,8 +334,8 @@ skills:
       - community_operational_evidence
 - id: agent-application-engineering
   title: Agent & LLM Application Engineering
-  description: Design and debug production LLM/agent applications across prompts, tool routing, structured outputs, memory, retrieval, loops,
-    evaluation, cost and wrapper layers. Use when the product itself contains an LLM or autonomous agent.
+  description: Design and debug production LLM/agent applications across prompts, tool routing, structured outputs, memory,
+    retrieval, loops, evaluation, cost and wrapper layers. Use when the product itself contains an LLM or autonomous agent.
   category: ai-agent-data
   source: skills/agent-application-engineering/SKILL.md
   project_path: .agents/skills/agent-application-engineering/SKILL.md
@@ -344,8 +363,9 @@ skills:
       - community_operational_evidence
 - id: ai-evaluation
   title: AI Evaluation Engineering
-  description: Evaluate AI/LLM/RAG/agent features with versioned datasets, capability and regression evals, deterministic/rule/model/human graders,
-    repeated-run stability, cost/latency tracking, and failure analysis. Use only when product behavior materially depends on stochastic AI outputs.
+  description: Evaluate AI/LLM/RAG/agent features with versioned datasets, capability and regression evals, deterministic/rule/model/human
+    graders, repeated-run stability, cost/latency tracking, and failure analysis. Use only when product behavior materially
+    depends on stochastic AI outputs.
   category: ai-agent-data
   source: skills/ai-evaluation/SKILL.md
   project_path: .agents/skills/ai-evaluation/SKILL.md
@@ -371,8 +391,8 @@ skills:
       - community_operational_evidence
 - id: analytics-database-engineering
   title: Analytics Database Engineering
-  description: Design analytical/OLAP data stores and queries for large scans, aggregations, columnar storage, partitioning, materialized views
-    and high-throughput ingestion.
+  description: Design analytical/OLAP data stores and queries for large scans, aggregations, columnar storage, partitioning,
+    materialized views and high-throughput ingestion.
   category: data-storage
   source: skills/analytics-database-engineering/SKILL.md
   project_path: .agents/skills/analytics-database-engineering/SKILL.md
@@ -406,8 +426,8 @@ skills:
       - community_operational_evidence
 - id: android-architecture
   title: Android & Kotlin Mobile Architecture
-  description: Design production Android application architecture with lifecycle-aware state, modular boundaries, persistence, background work,
-    navigation and platform integration. Use for Android or Android-heavy Kotlin Multiplatform applications.
+  description: Design production Android application architecture with lifecycle-aware state, modular boundaries, persistence,
+    background work, navigation and platform integration. Use for Android or Android-heavy Kotlin Multiplatform applications.
   category: mobile-native
   source: skills/android-architecture/SKILL.md
   project_path: .agents/skills/android-architecture/SKILL.md
@@ -435,8 +455,8 @@ skills:
       - community_operational_evidence
 - id: android-testing
   title: Android Test Engineering
-  description: Design reliable Android test strategy across JVM/unit, coroutine/Flow, persistence, Compose/UI and device/instrumentation layers.
-    Use for Android feature testing, regression work or flaky mobile test diagnosis.
+  description: Design reliable Android test strategy across JVM/unit, coroutine/Flow, persistence, Compose/UI and device/instrumentation
+    layers. Use for Android feature testing, regression work or flaky mobile test diagnosis.
   category: mobile-native
   source: skills/android-testing/SKILL.md
   project_path: .agents/skills/android-testing/SKILL.md
@@ -464,8 +484,8 @@ skills:
       - community_operational_evidence
 - id: angular-engineering
   title: Angular Engineering
-  description: Engineer Angular applications with standalone components, signals/reactivity, dependency injection, forms, router, RxJS interoperability,
-    SSR/hydration and scalable module boundaries.
+  description: Engineer Angular applications with standalone composition, dependency injection, signals/RxJS interoperability,
+    typed forms, routing, SSR/hydration and predictable change-detection boundaries.
   category: framework-stacks
   source: skills/angular-engineering/SKILL.md
   project_path: .agents/skills/angular-engineering/SKILL.md
@@ -498,8 +518,8 @@ skills:
       - community_operational_evidence
 - id: api-contracts
   title: API & Integration Contract Engineering
-  description: Design stable, evolvable APIs/events/webhooks with explicit schemas, errors, authorization, idempotency, pagination, compatibility
-    and consumer impact.
+  description: Design stable, evolvable APIs/events/webhooks with explicit schemas, errors, authorization, idempotency, pagination,
+    compatibility and consumer impact.
   category: backend-api-integration
   source: skills/api-contracts/SKILL.md
   project_path: .agents/skills/api-contracts/SKILL.md
@@ -522,8 +542,8 @@ skills:
       - community_operational_evidence
 - id: astro-engineering
   title: Astro Engineering
-  description: Engineer Astro content and hybrid web applications with static/SSR rendering, islands, content collections, framework components,
-    routing, image/content pipelines and deployment adapters.
+  description: Engineer Astro content and hybrid applications with HTML-first rendering, selective islands, content schemas,
+    static/server output decisions, SEO and adapter-aware deployment.
   category: framework-stacks
   source: skills/astro-engineering/SKILL.md
   project_path: .agents/skills/astro-engineering/SKILL.md
@@ -558,8 +578,8 @@ skills:
       - community_operational_evidence
 - id: auth-architecture
   title: Authentication & Authorization Architecture
-  description: Design identity, session, recovery and authorization boundaries using established protocols/provider capabilities without building
-    unnecessary custom authentication.
+  description: Design identity, session, recovery and authorization boundaries using established protocols/provider capabilities
+    without building unnecessary custom authentication.
   category: backend-api-integration
   source: skills/auth-architecture/SKILL.md
   project_path: .agents/skills/auth-architecture/SKILL.md
@@ -587,8 +607,8 @@ skills:
       - community_operational_evidence
 - id: backend-architecture
   title: Backend Architecture Engineering
-  description: Design maintainable backend service and module boundaries, application flows, transaction ownership, jobs, caches and integration
-    seams. Use when planning or implementing non-trivial server-side application architecture.
+  description: Design maintainable backend service and module boundaries, application flows, transaction ownership, jobs,
+    caches and integration seams. Use when planning or implementing non-trivial server-side application architecture.
   category: backend-api-integration
   source: skills/backend-architecture/SKILL.md
   project_path: .agents/skills/backend-architecture/SKILL.md
@@ -611,8 +631,8 @@ skills:
       - community_operational_evidence
 - id: background-job-engineering
   title: Background Job & Worker Engineering
-  description: Design reliable asynchronous jobs, schedulers and workers with idempotency, retries, leases, concurrency, dead-letter handling,
-    progress and operational visibility.
+  description: Design reliable asynchronous jobs, schedulers and workers with idempotency, retries, leases, concurrency, dead-letter
+    handling, progress and operational visibility.
   category: backend-api-integration
   source: skills/background-job-engineering/SKILL.md
   project_path: .agents/skills/background-job-engineering/SKILL.md
@@ -645,8 +665,8 @@ skills:
       - community_operational_evidence
 - id: backup-disaster-recovery-engineering
   title: Backup & Disaster Recovery Engineering
-  description: Design verified backups, restore paths, replication-independent recovery, retention, encryption and disaster exercises across databases,
-    files, configuration and critical runtime state.
+  description: Design verified backups, restore paths, replication-independent recovery, retention, encryption and disaster
+    exercises across databases, files, configuration and critical runtime state.
   category: infra-network
   source: skills/backup-disaster-recovery-engineering/SKILL.md
   project_path: .agents/skills/backup-disaster-recovery-engineering/SKILL.md
@@ -681,8 +701,8 @@ skills:
       - community_operational_evidence
 - id: browser-acceptance
   title: Browser Acceptance & Visual Evidence
-  description: Verify real user journeys against the integrated running application using resilient browser automation, visual evidence and runtime
-    inspection.
+  description: Verify real user journeys against the integrated running application using resilient browser automation, visual
+    evidence and runtime inspection.
   category: frontend-product
   source: skills/browser-acceptance/SKILL.md
   project_path: .agents/skills/browser-acceptance/SKILL.md
@@ -705,8 +725,8 @@ skills:
       - community_operational_evidence
 - id: browser-extension-engineering
   title: Browser Extension Engineering
-  description: Build secure browser extensions across manifests, content scripts, background/service workers, messaging, storage, permissions,
-    CSP and store packaging.
+  description: Build secure browser extensions across manifest permissions, content-script isolation, background/service-worker
+    lifecycle, messaging, storage, CSP and store packaging.
   category: framework-stacks
   source: skills/browser-extension-engineering/SKILL.md
   project_path: .agents/skills/browser-extension-engineering/SKILL.md
@@ -742,8 +762,8 @@ skills:
       - community_operational_evidence
 - id: build-system-engineering
   title: Build System Engineering
-  description: Design and debug deterministic build graphs, compilers, generators, native toolchains, caching and cross-platform build configuration
-    for small projects through large monorepos.
+  description: Design and debug deterministic build graphs, compilers, generators, native toolchains, caching and cross-platform
+    build configuration for small projects through large monorepos.
   category: architecture-delivery
   source: skills/build-system-engineering/SKILL.md
   project_path: .agents/skills/build-system-engineering/SKILL.md
@@ -775,8 +795,8 @@ skills:
       - community_operational_evidence
 - id: c-systems-engineering
   title: C Systems Engineering
-  description: Engineer safe C systems code with explicit ownership, lifetimes, allocation, bounds, error paths, portability, concurrency and
-    build/toolchain diagnostics.
+  description: Engineer safe C systems code with explicit ownership, lifetimes, allocation, bounds, error paths, portability,
+    concurrency and build/toolchain diagnostics.
   category: language-stacks
   source: skills/c-systems-engineering/SKILL.md
   project_path: .agents/skills/c-systems-engineering/SKILL.md
@@ -807,8 +827,8 @@ skills:
       - community_operational_evidence
 - id: ci-cd-engineering
   title: CI/CD Engineering
-  description: Design fast, deterministic and secure build/test/release pipelines with correct caching, artifact flow, environment gates, credentials,
-    deployment strategy and failure recovery.
+  description: Design fast, deterministic and secure build/test/release pipelines with correct caching, artifact flow, environment
+    gates, credentials, deployment strategy and failure recovery.
   category: architecture-delivery
   source: skills/ci-cd-engineering/SKILL.md
   project_path: .agents/skills/ci-cd-engineering/SKILL.md
@@ -844,8 +864,8 @@ skills:
       - community_operational_evidence
 - id: cli-engineering
   title: CLI Engineering
-  description: Design robust command-line tools with predictable parsing, composable output, configuration precedence, exit codes, interactive/non-interactive
-    modes and safe automation behavior.
+  description: Design robust command-line tools with predictable parsing, composable output, configuration precedence, exit
+    codes, interactive/non-interactive modes and safe automation behavior.
   category: backend-api-integration
   source: skills/cli-engineering/SKILL.md
   project_path: .agents/skills/cli-engineering/SKILL.md
@@ -872,10 +892,47 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: cloudflare-platform-engineering
+  title: Cloudflare Platform Engineering
+  description: Engineer Cloudflare Workers/Pages and platform services with runtime-correct async execution, request-safe
+    state, bindings/secrets, Durable Objects/storage semantics, Wrangler configuration and edge observability.
+  category: infra-network
+  source: skills/cloudflare-platform-engineering/SKILL.md
+  project_path: .agents/skills/cloudflare-platform-engineering/SKILL.md
+  skill_directory: .agents/skills/cloudflare-platform-engineering/
+  references:
+  - references/storage-and-durable-state.md
+  - references/workers-runtime-and-bindings.md
+  routing:
+    signals:
+    - cloudflare
+    - workers
+    - durable objects
+    - d1
+    - r2
+    - wrangler
+    companions:
+    - serverless-edge-engineering
+    - reliability-observability
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: code-review
   title: Precision Code Review
-  description: Perform high-signal, evidence-based code review that finds real correctness, security, data, contract, concurrency and maintainability
-    defects without drowning the project in stylistic noise.
+  description: Perform high-signal, evidence-based code review that finds real correctness, security, data, contract, concurrency
+    and maintainability defects without drowning the project in stylistic noise.
   category: core-quality
   source: skills/code-review/SKILL.md
   project_path: .agents/skills/code-review/SKILL.md
@@ -897,8 +954,8 @@ skills:
       - community_operational_evidence
 - id: component-engineering
   title: Production Component Engineering
-  description: Implement reusable, accessible and resilient UI components with explicit APIs, states and edge-case behavior without premature
-    abstraction.
+  description: Implement reusable, accessible and resilient UI components with explicit APIs, states and edge-case behavior
+    without premature abstraction.
   category: frontend-product
   source: skills/component-engineering/SKILL.md
   project_path: .agents/skills/component-engineering/SKILL.md
@@ -921,8 +978,8 @@ skills:
       - community_operational_evidence
 - id: configuration-feature-flag-engineering
   title: Configuration & Feature Flag Engineering
-  description: Design safe configuration, environment overrides, dynamic flags and rollout controls with schema validation, ownership, auditability,
-    cleanup and fail-safe behavior.
+  description: Design safe configuration, environment overrides, dynamic flags and rollout controls with schema validation,
+    ownership, auditability, cleanup and fail-safe behavior.
   category: architecture-delivery
   source: skills/configuration-feature-flag-engineering/SKILL.md
   project_path: .agents/skills/configuration-feature-flag-engineering/SKILL.md
@@ -952,13 +1009,14 @@ skills:
       - community_operational_evidence
 - id: content-copywriting
   title: Product & Marketing Copywriting
-  description: Create differentiated, truthful, audience-specific website/product copy that communicates value clearly and supports user action
-    without fabricated proof or manipulative tactics.
+  description: Create differentiated, truthful, audience-specific website/product copy that communicates value clearly and
+    supports user action without fabricated proof or manipulative tactics.
   category: frontend-product
   source: skills/content-copywriting/SKILL.md
   project_path: .agents/skills/content-copywriting/SKILL.md
   skill_directory: .agents/skills/content-copywriting/
-  references: []
+  references:
+  - references/authoritative-content-planning.md
   routing:
     signals:
     - web
@@ -976,8 +1034,8 @@ skills:
       - community_operational_evidence
 - id: context-efficiency
   title: Agent Context Efficiency
-  description: Maximize useful reasoning per token by routing only relevant context, using progressive reads and persistent hot/cold state without
-    compressing away evidence.
+  description: Maximize useful reasoning per token by routing only relevant context, using progressive reads and persistent
+    hot/cold state without compressing away evidence.
   category: core-quality
   source: skills/context-efficiency/SKILL.md
   project_path: .agents/skills/context-efficiency/SKILL.md
@@ -999,8 +1057,8 @@ skills:
       - community_operational_evidence
 - id: cpp-systems-engineering
   title: C++ Systems Engineering
-  description: Write and review modern C++ with explicit ownership, RAII, lifetime/ABI safety, concurrency, undefined-behavior defenses, build
-    systems, sanitizers and measured performance. Use when C++ is a primary project language.
+  description: Write and review modern C++ with explicit ownership, RAII, lifetime/ABI safety, concurrency, undefined-behavior
+    defenses, build systems, sanitizers and measured performance. Use when C++ is a primary project language.
   category: language-stacks
   source: skills/cpp-systems-engineering/SKILL.md
   project_path: .agents/skills/cpp-systems-engineering/SKILL.md
@@ -1023,8 +1081,8 @@ skills:
       - community_operational_evidence
 - id: data-engineering
   title: Data Engineering
-  description: Design reliable batch/stream data pipelines with contracts, lineage, quality checks, idempotency, partitioning, backfills, orchestration
-    and reproducible transformations.
+  description: Design reliable batch/stream data pipelines with contracts, lineage, quality checks, idempotency, partitioning,
+    backfills, orchestration and reproducible transformations.
   category: ai-agent-data
   source: skills/data-engineering/SKILL.md
   project_path: .agents/skills/data-engineering/SKILL.md
@@ -1057,10 +1115,36 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: data-visualization-design
+  title: Data Visualization Design
+  description: Choose and design charts, tables and analytical views from the user question and data semantics, with truthful
+    encoding, accessible alternatives, responsive behavior and performance-aware interaction.
+  category: frontend-product
+  source: skills/data-visualization-design/SKILL.md
+  project_path: .agents/skills/data-visualization-design/SKILL.md
+  skill_directory: .agents/skills/data-visualization-design/
+  references:
+  - references/chart-selection-matrix.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: database-design
   title: Database & Data Model Engineering
-  description: Create durable relational/document data models around domain invariants, ownership, lifecycle and access patterns with safe migrations
-    and measured indexing.
+  description: Create durable relational/document data models around domain invariants, ownership, lifecycle and access patterns
+    with safe migrations and measured indexing.
   category: data-storage
   source: skills/database-design/SKILL.md
   project_path: .agents/skills/database-design/SKILL.md
@@ -1087,8 +1171,8 @@ skills:
       - community_operational_evidence
 - id: database-migrations
   title: Database Migration & Schema Evolution
-  description: Plan and execute safe schema evolution, expand-contract rollouts, online backfills and compatibility across application versions.
-    Use for production database migrations, large backfills or risky schema changes.
+  description: Plan and execute safe schema evolution, expand-contract rollouts, online backfills and compatibility across
+    application versions. Use for production database migrations, large backfills or risky schema changes.
   category: data-storage
   source: skills/database-migrations/SKILL.md
   project_path: .agents/skills/database-migrations/SKILL.md
@@ -1115,8 +1199,8 @@ skills:
       - community_operational_evidence
 - id: database-operations
   title: Database Operations Engineering
-  description: Operate production databases safely across backup, restore, replication, pooling, maintenance, capacity, observability, failover
-    and disaster recovery without conflating operations with schema design.
+  description: Operate production databases safely across backup, restore, replication, pooling, maintenance, capacity, observability,
+    failover and disaster recovery without conflating operations with schema design.
   category: data-storage
   source: skills/database-operations/SKILL.md
   project_path: .agents/skills/database-operations/SKILL.md
@@ -1153,8 +1237,8 @@ skills:
       - community_operational_evidence
 - id: dependency-supply-chain-engineering
   title: Dependency & Software Supply Chain Engineering
-  description: Control third-party dependency provenance, licensing, integrity, lockfiles, build inputs, package publication and compromise blast
-    radius across the software supply chain.
+  description: Control third-party dependency provenance, licensing, integrity, lockfiles, build inputs, package publication
+    and compromise blast radius across the software supply chain.
   category: core-quality
   source: skills/dependency-supply-chain-engineering/SKILL.md
   project_path: .agents/skills/dependency-supply-chain-engineering/SKILL.md
@@ -1187,8 +1271,8 @@ skills:
       - community_operational_evidence
 - id: dependency-upgrade-engineering
   title: Dependency Upgrade Engineering
-  description: Plan and execute dependency, runtime and framework upgrades with compatibility research, incremental change, codemods/migrations,
-    regression evidence and rollback awareness.
+  description: Plan and execute dependency, runtime and framework upgrades with compatibility research, incremental change,
+    codemods/migrations, regression evidence and rollback awareness.
   category: architecture-delivery
   source: skills/dependency-upgrade-engineering/SKILL.md
   project_path: .agents/skills/dependency-upgrade-engineering/SKILL.md
@@ -1220,8 +1304,8 @@ skills:
       - community_operational_evidence
 - id: deployment-readiness
   title: Deployment & Operations Readiness
-  description: Ensure build, environments, migrations, observability, rollback and operational ownership are sufficient for safe release without
-    forcing enterprise infrastructure onto small projects.
+  description: Ensure build, environments, migrations, observability, rollback and operational ownership are sufficient for
+    safe release without forcing enterprise infrastructure onto small projects.
   category: infra-network
   source: skills/deployment-readiness/SKILL.md
   project_path: .agents/skills/deployment-readiness/SKILL.md
@@ -1248,8 +1332,8 @@ skills:
       - community_operational_evidence
 - id: desktop-application-engineering
   title: Desktop Application Engineering
-  description: Engineer cross-platform or native desktop applications with window/process lifecycle, filesystem integration, updates, IPC, packaging,
-    OS permissions and platform-specific UX.
+  description: Engineer cross-platform or native desktop applications with window/process lifecycle, filesystem integration,
+    updates, IPC, packaging, OS permissions and platform-specific UX.
   category: mobile-native
   source: skills/desktop-application-engineering/SKILL.md
   project_path: .agents/skills/desktop-application-engineering/SKILL.md
@@ -1285,8 +1369,8 @@ skills:
       - community_operational_evidence
 - id: development-environment-engineering
   title: Development Environment Engineering
-  description: Create reproducible, low-friction development environments across language toolchains, native dependencies, services, containers
-    or declarative environment managers without polluting user systems.
+  description: Create reproducible, low-friction development environments across language toolchains, native dependencies,
+    services, containers or declarative environment managers without polluting user systems.
   category: architecture-delivery
   source: skills/development-environment-engineering/SKILL.md
   project_path: .agents/skills/development-environment-engineering/SKILL.md
@@ -1320,8 +1404,8 @@ skills:
       - community_operational_evidence
 - id: distributed-systems-engineering
   title: Distributed Systems Engineering
-  description: Design reliable queues, events, distributed workflows, caches and service interactions with explicit consistency, delivery, ordering,
-    idempotency and backpressure semantics. Use when state or work crosses process/service boundaries.
+  description: Design reliable queues, events, distributed workflows, caches and service interactions with explicit consistency,
+    delivery, ordering, idempotency and backpressure semantics. Use when state or work crosses process/service boundaries.
   category: backend-api-integration
   source: skills/distributed-systems-engineering/SKILL.md
   project_path: .agents/skills/distributed-systems-engineering/SKILL.md
@@ -1344,8 +1428,8 @@ skills:
       - community_operational_evidence
 - id: django-engineering
   title: Django Engineering
-  description: Engineer Django applications with robust settings, models/ORM, transactions, auth, middleware, forms/DRF, caching, async boundaries,
-    background jobs and deployment behavior.
+  description: Engineer Django applications with explicit ORM/query behavior, durable database invariants, transaction boundaries,
+    auth/CSRF, middleware, async/ASGI boundaries, background work and production deployment.
   category: framework-stacks
   source: skills/django-engineering/SKILL.md
   project_path: .agents/skills/django-engineering/SKILL.md
@@ -1380,8 +1464,8 @@ skills:
       - community_operational_evidence
 - id: dns-dhcp-engineering
   title: DNS & DHCP Engineering
-  description: Design and operate DNS and DHCP services with authoritative/recursive boundaries, split-horizon, records, leases, reservations,
-    dynamic updates, redundancy and safe migration.
+  description: Design and operate DNS and DHCP services with authoritative/recursive boundaries, split-horizon, records, leases,
+    reservations, dynamic updates, redundancy and safe migration.
   category: infra-network
   source: skills/dns-dhcp-engineering/SKILL.md
   project_path: .agents/skills/dns-dhcp-engineering/SKILL.md
@@ -1417,8 +1501,8 @@ skills:
       - community_operational_evidence
 - id: docker-runtime
   title: Docker Runtime Engineering
-  description: Create deterministic, secure and maintainable container builds/local runtime with correct secrets, health, persistence, networking
-    and rebuild behavior.
+  description: Create deterministic, secure and maintainable container builds/local runtime with correct secrets, health,
+    persistence, networking and rebuild behavior.
   category: infra-network
   source: skills/docker-runtime/SKILL.md
   project_path: .agents/skills/docker-runtime/SKILL.md
@@ -1445,8 +1529,8 @@ skills:
       - community_operational_evidence
 - id: document-processing-engineering
   title: Document Processing Engineering
-  description: Engineer PDF/Office/text ingestion, extraction, conversion and generation with fidelity checks, parser isolation, structure preservation,
-    OCR fallback and provenance.
+  description: Engineer PDF/Office/text ingestion, extraction, conversion and generation with fidelity checks, parser isolation,
+    structure preservation, OCR fallback and provenance.
   category: product-platform
   source: skills/document-processing-engineering/SKILL.md
   project_path: .agents/skills/document-processing-engineering/SKILL.md
@@ -1477,8 +1561,8 @@ skills:
       - community_operational_evidence
 - id: documentation-engineering
   title: Documentation Engineering
-  description: Create and govern accurate developer/operator documentation including README, setup, API reference, architecture, ADR indexes,
-    changelogs, migration guides and runbooks with executable verification.
+  description: Create and govern accurate developer/operator documentation including README, setup, API reference, architecture,
+    ADR indexes, changelogs, migration guides and runbooks with executable verification.
   category: core-quality
   source: skills/documentation-engineering/SKILL.md
   project_path: .agents/skills/documentation-engineering/SKILL.md
@@ -1510,8 +1594,8 @@ skills:
       - community_operational_evidence
 - id: dotnet-engineering
   title: .NET & C# Production Engineering
-  description: Write and review production C#/.NET with async/cancellation, DI/lifetimes, resource disposal, nullable types, LINQ/data access,
-    background services, testing and runtime performance.
+  description: Write and review production C#/.NET with async/cancellation, DI/lifetimes, resource disposal, nullable types,
+    LINQ/data access, background services, testing and runtime performance.
   category: language-stacks
   source: skills/dotnet-engineering/SKILL.md
   project_path: .agents/skills/dotnet-engineering/SKILL.md
@@ -1535,8 +1619,8 @@ skills:
       - community_operational_evidence
 - id: email-delivery-engineering
   title: Email Delivery Engineering
-  description: Engineer transactional and product email with provider abstraction, templates, queues, deliverability, domain authentication, bounce/complaint
-    handling, idempotency and environment-safe testing.
+  description: Engineer transactional and product email with provider abstraction, templates, queues, deliverability, domain
+    authentication, bounce/complaint handling, idempotency and environment-safe testing.
   category: product-platform
   source: skills/email-delivery-engineering/SKILL.md
   project_path: .agents/skills/email-delivery-engineering/SKILL.md
@@ -1569,8 +1653,8 @@ skills:
       - community_operational_evidence
 - id: fastapi-engineering
   title: FastAPI Engineering
-  description: Engineer FastAPI services with typed contracts, Pydantic models, dependency lifecycles, async correctness, auth, middleware, OpenAPI
-    and production server behavior.
+  description: Engineer FastAPI services with typed transport contracts, Pydantic validation, dependency/resource lifecycles,
+    async correctness, auth, middleware, OpenAPI and real ASGI process behavior.
   category: framework-stacks
   source: skills/fastapi-engineering/SKILL.md
   project_path: .agents/skills/fastapi-engineering/SKILL.md
@@ -1604,8 +1688,8 @@ skills:
       - community_operational_evidence
 - id: file-object-storage-engineering
   title: File & Object Storage Engineering
-  description: Design safe file uploads, object storage, CDN delivery, metadata, retention, lifecycle, resumability and authorization for user
-    and system-generated blobs.
+  description: Design safe file uploads, object storage, CDN delivery, metadata, retention, lifecycle, resumability and authorization
+    for user and system-generated blobs.
   category: data-storage
   source: skills/file-object-storage-engineering/SKILL.md
   project_path: .agents/skills/file-object-storage-engineering/SKILL.md
@@ -1639,9 +1723,9 @@ skills:
       - strong_independent
       - community_operational_evidence
 - id: flutter-engineering
-  title: Flutter & Dart Application Engineering
-  description: Build production Flutter/Dart applications with explicit widget/state lifecycle, async/isolate behavior, navigation, platform channels,
-    persistence, performance and cross-platform release quality.
+  title: Flutter Engineering
+  description: Build production Flutter/Dart applications with explicit widget/state lifecycle, async/isolate boundaries,
+    navigation/restoration, platform integration, persistence, rendering performance and cross-platform release quality.
   category: mobile-native
   source: skills/flutter-engineering/SKILL.md
   project_path: .agents/skills/flutter-engineering/SKILL.md
@@ -1673,8 +1757,8 @@ skills:
       - community_operational_evidence
 - id: formal-modeling-verification
   title: Formal Modeling & Verification
-  description: Conditionally model/check high-risk state machines, concurrency, transactions and distributed protocols where ordinary example
-    tests cannot efficiently explore dangerous state combinations.
+  description: Model and verify high-risk state machines, concurrent/distributed protocols and transaction invariants when
+    ordinary tests cannot efficiently cover the dangerous state space. Use conditionally, never as routine ceremony.
   category: core-quality
   source: skills/formal-modeling-verification/SKILL.md
   project_path: .agents/skills/formal-modeling-verification/SKILL.md
@@ -1704,8 +1788,8 @@ skills:
       - community_operational_evidence
 - id: frontend-architecture
   title: Frontend Application Architecture
-  description: Structure frontend modules, rendering boundaries, state, data access and error/loading behavior around product concepts while avoiding
-    unnecessary global state and framework cargo cults.
+  description: Structure frontend modules, rendering boundaries, state, data access and error/loading behavior around product
+    concepts while avoiding unnecessary global state and framework cargo cults.
   category: frontend-product
   source: skills/frontend-architecture/SKILL.md
   project_path: .agents/skills/frontend-architecture/SKILL.md
@@ -1728,8 +1812,8 @@ skills:
       - community_operational_evidence
 - id: frontend-performance
   title: Frontend Performance Engineering
-  description: Measure and improve real user-perceived web performance using project-specific budgets, Core Web Vitals and causal profiling rather
-    than score chasing.
+  description: Measure and improve real user-perceived web performance using project-specific budgets, Core Web Vitals and
+    causal profiling rather than score chasing.
   category: frontend-product
   source: skills/frontend-performance/SKILL.md
   project_path: .agents/skills/frontend-performance/SKILL.md
@@ -1753,8 +1837,8 @@ skills:
       - community_operational_evidence
 - id: fsharp-engineering
   title: F# Engineering
-  description: Engineer idiomatic F# applications with domain modeling, discriminated unions, immutability, async/task interop, error modeling,
-    .NET libraries and testable effect boundaries.
+  description: Engineer idiomatic F# applications with domain modeling, discriminated unions, immutability, async/task interop,
+    error modeling, .NET libraries and testable effect boundaries.
   category: language-stacks
   source: skills/fsharp-engineering/SKILL.md
   project_path: .agents/skills/fsharp-engineering/SKILL.md
@@ -1781,8 +1865,8 @@ skills:
       - community_operational_evidence
 - id: go-engineering
   title: Go Production Engineering
-  description: Write and review idiomatic Go with explicit context propagation, concurrency ownership, errors, interfaces, resource lifecycles,
-    testing, race safety and profiling. Use when Go is a primary project language.
+  description: Write and review idiomatic Go with explicit context propagation, concurrency ownership, errors, interfaces,
+    resource lifecycles, testing, race safety and profiling. Use when Go is a primary project language.
   category: language-stacks
   source: skills/go-engineering/SKILL.md
   project_path: .agents/skills/go-engineering/SKILL.md
@@ -1805,8 +1889,8 @@ skills:
       - community_operational_evidence
 - id: graphql-engineering
   title: GraphQL Engineering
-  description: Design GraphQL schemas, resolvers, authorization, pagination, batching, subscriptions, performance and evolution without turning
-    the graph into an unbounded backend coupling.
+  description: Design and operate GraphQL schemas, operations and resolver execution with evolvable nullability, batching,
+    pagination, authorization, cost controls and subscription/runtime semantics.
   category: backend-api-integration
   source: skills/graphql-engineering/SKILL.md
   project_path: .agents/skills/graphql-engineering/SKILL.md
@@ -1838,8 +1922,8 @@ skills:
       - community_operational_evidence
 - id: grpc-protobuf-engineering
   title: gRPC & Protobuf Engineering
-  description: Design Protobuf/gRPC contracts, services, streaming, deadlines, retries, compatibility and generated-code boundaries for polyglot
-    service communication.
+  description: Design Protobuf/gRPC contracts, services, streaming, deadlines, retries, compatibility and generated-code boundaries
+    for polyglot service communication.
   category: backend-api-integration
   source: skills/grpc-protobuf-engineering/SKILL.md
   project_path: .agents/skills/grpc-protobuf-engineering/SKILL.md
@@ -1868,8 +1952,8 @@ skills:
       - community_operational_evidence
 - id: harmonyos-arkts-engineering
   title: HarmonyOS & ArkTS Engineering
-  description: Engineer HarmonyOS/ArkTS applications with stage/component lifecycle, ArkUI state, permissions, data persistence, networking and
-    platform packaging using current platform documentation.
+  description: Engineer HarmonyOS/ArkTS applications with stage/component lifecycle, ArkUI state, permissions, data persistence,
+    networking and platform packaging using current platform documentation.
   category: mobile-native
   source: skills/harmonyos-arkts-engineering/SKILL.md
   project_path: .agents/skills/harmonyos-arkts-engineering/SKILL.md
@@ -1902,8 +1986,9 @@ skills:
       - community_operational_evidence
 - id: implementation-engineering
   title: Production Implementation Engineering
-  description: 'Write and modify production code with senior engineering discipline: fit existing architecture, explicit boundaries, failure-aware
-    behavior, maintainable structure, safe side effects, and self-review. Use for substantive implementation or refactoring work.'
+  description: 'Write and modify production code with senior engineering discipline: fit existing architecture, explicit boundaries,
+    failure-aware behavior, maintainable structure, safe side effects, and self-review. Use for substantive implementation
+    or refactoring work.'
   category: core-quality
   source: skills/implementation-engineering/SKILL.md
   project_path: .agents/skills/implementation-engineering/SKILL.md
@@ -1925,8 +2010,8 @@ skills:
       - community_operational_evidence
 - id: incident-response-engineering
   title: Incident Response & Runbook Engineering
-  description: Prepare and execute evidence-driven incident response with detection, severity, containment, diagnosis, recovery, communication,
-    post-incident learning and tested runbooks.
+  description: Prepare and execute evidence-driven incident response with detection, severity, containment, diagnosis, recovery,
+    communication, post-incident learning and tested runbooks.
   category: architecture-delivery
   source: skills/incident-response-engineering/SKILL.md
   project_path: .agents/skills/incident-response-engineering/SKILL.md
@@ -1959,8 +2044,8 @@ skills:
       - community_operational_evidence
 - id: infrastructure-as-code-engineering
   title: Infrastructure as Code Engineering
-  description: Design, change and verify reproducible infrastructure definitions with safe state handling, modularity, drift control, reviewable
-    plans and rollback-aware delivery.
+  description: Design and review declarative infrastructure ownership across Terraform, Pulumi, CloudFormation, Bicep and
+    similar systems with explicit state, blast radius, drift, CI identity and recovery semantics.
   category: infra-network
   source: skills/infrastructure-as-code-engineering/SKILL.md
   project_path: .agents/skills/infrastructure-as-code-engineering/SKILL.md
@@ -1998,8 +2083,8 @@ skills:
       - community_operational_evidence
 - id: integration-engineering
   title: External Integration & Connector Engineering
-  description: Build reliable third-party API, SDK, webhook and provider integrations that match repository patterns and handle auth, pagination,
-    limits, retries and contract drift. Use when adding or hardening external service integrations.
+  description: Build reliable third-party API, SDK, webhook and provider integrations that match repository patterns and handle
+    auth, pagination, limits, retries and contract drift. Use when adding or hardening external service integrations.
   category: backend-api-integration
   source: skills/integration-engineering/SKILL.md
   project_path: .agents/skills/integration-engineering/SKILL.md
@@ -2022,8 +2107,8 @@ skills:
       - community_operational_evidence
 - id: interaction-state-audit
   title: Interaction State & Concurrency Audit
-  description: Trace complex interactive flows end-to-end to detect race conditions, stale state, double actions, contradictory effects and broken
-    refresh/navigation outcomes.
+  description: Trace complex interactive flows end-to-end to detect race conditions, stale state, double actions, contradictory
+    effects and broken refresh/navigation outcomes.
   category: frontend-product
   source: skills/interaction-state-audit/SKILL.md
   project_path: .agents/skills/interaction-state-audit/SKILL.md
@@ -2046,8 +2131,8 @@ skills:
       - community_operational_evidence
 - id: internationalization-localization-engineering
   title: Internationalization & Localization Engineering
-  description: Engineer locale-aware UI, content, dates/numbers/currency, pluralization, bidirectional layout, translation workflows and localized
-    routing without hardcoded language assumptions.
+  description: Engineer locale-aware UI, content, dates/numbers/currency, pluralization, bidirectional layout, translation
+    workflows and localized routing without hardcoded language assumptions.
   category: product-platform
   source: skills/internationalization-localization-engineering/SKILL.md
   project_path: .agents/skills/internationalization-localization-engineering/SKILL.md
@@ -2079,8 +2164,8 @@ skills:
       - community_operational_evidence
 - id: jvm-java-engineering
   title: Java & JVM Production Engineering
-  description: Write and review production Java/JVM systems with explicit concurrency, resource management, type/API design, build tooling, GC/performance
-    and framework boundaries. Use when Java is a primary language or JVM behavior is material.
+  description: Write and review production Java/JVM systems with explicit concurrency, resource management, type/API design,
+    build tooling, GC/performance and framework boundaries. Use when Java is a primary language or JVM behavior is material.
   category: language-stacks
   source: skills/jvm-java-engineering/SKILL.md
   project_path: .agents/skills/jvm-java-engineering/SKILL.md
@@ -2104,8 +2189,8 @@ skills:
       - community_operational_evidence
 - id: kotlin-engineering
   title: Kotlin Production Engineering
-  description: Write and review production Kotlin with explicit nullability, sealed/domain modeling, coroutines/Flow, structured concurrency,
-    JVM/KMP boundaries, Gradle tooling and testing. Use when Kotlin is a primary project language.
+  description: Write and review production Kotlin with explicit nullability, sealed/domain modeling, coroutines/Flow, structured
+    concurrency, JVM/KMP boundaries, Gradle tooling and testing. Use when Kotlin is a primary project language.
   category: language-stacks
   source: skills/kotlin-engineering/SKILL.md
   project_path: .agents/skills/kotlin-engineering/SKILL.md
@@ -2130,8 +2215,8 @@ skills:
       - community_operational_evidence
 - id: kotlin-multiplatform-engineering
   title: Kotlin Multiplatform Engineering
-  description: Engineer Kotlin Multiplatform projects with stable common/platform boundaries, coroutines, serialization, networking, persistence
-    and expect/actual APIs across Android, iOS and other targets.
+  description: Engineer Kotlin Multiplatform projects with stable common/platform boundaries, coroutines, serialization, networking,
+    persistence and expect/actual APIs across Android, iOS and other targets.
   category: mobile-native
   source: skills/kotlin-multiplatform-engineering/SKILL.md
   project_path: .agents/skills/kotlin-multiplatform-engineering/SKILL.md
@@ -2165,8 +2250,8 @@ skills:
       - community_operational_evidence
 - id: ktor-engineering
   title: Ktor Engineering
-  description: Engineer Ktor services with typed routing, plugins, coroutines, serialization, auth, persistence, structured concurrency and production
-    server lifecycle.
+  description: Engineer Ktor services with explicit plugin ordering, coroutine/structured-concurrency semantics, typed serialization,
+    authentication, persistence and production server lifecycle.
   category: framework-stacks
   source: skills/ktor-engineering/SKILL.md
   project_path: .agents/skills/ktor-engineering/SKILL.md
@@ -2199,8 +2284,8 @@ skills:
       - community_operational_evidence
 - id: kubernetes-operations
   title: Kubernetes Workload & Operations Engineering
-  description: Design, review and debug production Kubernetes workloads, probes, resources, RBAC, configuration, autoscaling, rollout and runtime
-    failures. Use when Kubernetes is an actual deployment target.
+  description: Design, review and debug production Kubernetes workloads, probes, resources, RBAC, configuration, autoscaling,
+    rollout and runtime failures. Use when Kubernetes is an actual deployment target.
   category: infra-network
   source: skills/kubernetes-operations/SKILL.md
   project_path: .agents/skills/kubernetes-operations/SKILL.md
@@ -2227,8 +2312,8 @@ skills:
       - community_operational_evidence
 - id: landing-conversion
   title: Landing Page Conversion Design
-  description: Design high-quality conversion surfaces around audience intent, persuasive evidence and low-friction action without fake urgency,
-    formulaic layouts or ungrounded A/B-test claims.
+  description: Design high-quality conversion surfaces around audience intent, persuasive evidence and low-friction action
+    without fake urgency, formulaic layouts or ungrounded A/B-test claims.
   category: frontend-product
   source: skills/landing-conversion/SKILL.md
   project_path: .agents/skills/landing-conversion/SKILL.md
@@ -2251,8 +2336,8 @@ skills:
       - community_operational_evidence
 - id: laravel-engineering
   title: Laravel Engineering
-  description: Engineer Laravel applications with service/container boundaries, Eloquent, validation, authorization, queues, events, caching,
-    migrations and production runtime behavior.
+  description: Engineer Laravel applications with explicit service/container boundaries, Eloquent query/transaction behavior,
+    validation/authorization, queues/events, migrations and production worker/runtime semantics.
   category: framework-stacks
   source: skills/laravel-engineering/SKILL.md
   project_path: .agents/skills/laravel-engineering/SKILL.md
@@ -2286,8 +2371,8 @@ skills:
       - community_operational_evidence
 - id: library-sdk-engineering
   title: Library & SDK Engineering
-  description: Design stable reusable libraries and SDKs with ergonomic APIs, compatibility discipline, versioning, generated/manual code boundaries,
-    examples and multi-version verification.
+  description: Design stable reusable libraries and SDKs with ergonomic APIs, compatibility discipline, versioning, generated/manual
+    code boundaries, examples and multi-version verification.
   category: backend-api-integration
   source: skills/library-sdk-engineering/SKILL.md
   project_path: .agents/skills/library-sdk-engineering/SKILL.md
@@ -2318,8 +2403,8 @@ skills:
       - community_operational_evidence
 - id: llm-application-engineering
   title: LLM Application Engineering
-  description: Build non-agentic and agentic LLM features with structured outputs, provider/model abstraction, context construction, caching,
-    batching, cost/latency controls, deterministic fallbacks and safe failure handling.
+  description: Build non-agentic and agentic LLM features with structured outputs, provider/model abstraction, context construction,
+    caching, batching, cost/latency controls, deterministic fallbacks and safe failure handling.
   category: ai-agent-data
   source: skills/llm-application-engineering/SKILL.md
   project_path: .agents/skills/llm-application-engineering/SKILL.md
@@ -2327,6 +2412,7 @@ skills:
   references:
   - references/decision-playbook.md
   - references/field-guide.md
+  - references/prompt-contract-design-and-evaluation.md
   routing:
     signals:
     - anthropic
@@ -2355,10 +2441,36 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: local-commerce-seo
+  title: Local & Commerce SEO
+  description: Plan and verify location/service-area and commerce search surfaces using truthful business/product data, local
+    entity consistency, product/category architecture, reviews/proof and current platform requirements.
+  category: frontend-product
+  source: skills/local-commerce-seo/SKILL.md
+  project_path: .agents/skills/local-commerce-seo/SKILL.md
+  skill_directory: .agents/skills/local-commerce-seo/
+  references: []
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: machine-learning-engineering
   title: Production Machine Learning Engineering
-  description: Build production ML systems with explicit data contracts, reproducible training, evaluation, model artifacts, serving, monitoring,
-    drift handling and rollback. Use for classifiers, ranking, forecasting, recommenders, embeddings or other learned models.
+  description: Build production ML systems with explicit data contracts, reproducible training, evaluation, model artifacts,
+    serving, monitoring, drift handling and rollback. Use for classifiers, ranking, forecasting, recommenders, embeddings
+    or other learned models.
   category: ai-agent-data
   source: skills/machine-learning-engineering/SKILL.md
   project_path: .agents/skills/machine-learning-engineering/SKILL.md
@@ -2386,8 +2498,8 @@ skills:
       - community_operational_evidence
 - id: mcp-server-engineering
   title: MCP Server Engineering
-  description: Design, implement and verify Model Context Protocol servers with safe tools/resources/prompts, schemas, transports, permissions
-    and operability. Use when building or maintaining an MCP server or exposing application capabilities to agents.
+  description: Design, implement and verify Model Context Protocol servers with safe tools/resources/prompts, schemas, transports,
+    permissions and operability. Use when building or maintaining an MCP server or exposing application capabilities to agents.
   category: ai-agent-data
   source: skills/mcp-server-engineering/SKILL.md
   project_path: .agents/skills/mcp-server-engineering/SKILL.md
@@ -2414,8 +2526,8 @@ skills:
       - community_operational_evidence
 - id: media-processing-engineering
   title: Media Processing Engineering
-  description: Engineer image, audio and video ingestion/transformation pipelines with codec/container awareness, streaming, thumbnails, metadata,
-    resource bounds and untrusted-file safety.
+  description: Engineer image, audio and video ingestion/transformation pipelines with codec/container awareness, streaming,
+    thumbnails, metadata, resource bounds and untrusted-file safety.
   category: product-platform
   source: skills/media-processing-engineering/SKILL.md
   project_path: .agents/skills/media-processing-engineering/SKILL.md
@@ -2446,8 +2558,8 @@ skills:
       - community_operational_evidence
 - id: messaging-broker-engineering
   title: Messaging & Broker Engineering
-  description: Design queue, stream and pub/sub infrastructure with delivery semantics, ordering, partitioning, consumer groups, backpressure,
-    schemas, retries and operational recovery.
+  description: Design queue, stream and pub/sub infrastructure with delivery semantics, ordering, partitioning, consumer groups,
+    backpressure, schemas, retries and operational recovery.
   category: backend-api-integration
   source: skills/messaging-broker-engineering/SKILL.md
   project_path: .agents/skills/messaging-broker-engineering/SKILL.md
@@ -2478,10 +2590,46 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: mongodb-engineering
+  title: MongoDB Engineering
+  description: Engineer MongoDB document models, indexes, aggregation/query plans, transactions/consistency, connection pools
+    and Atlas/search capabilities from workload shape rather than relational habits.
+  category: data-storage
+  source: skills/mongodb-engineering/SKILL.md
+  project_path: .agents/skills/mongodb-engineering/SKILL.md
+  skill_directory: .agents/skills/mongodb-engineering/
+  references:
+  - references/consistency-and-search.md
+  - references/queries-indexes-connections.md
+  - references/schema-modeling.md
+  routing:
+    signals:
+    - mongodb
+    - atlas
+    - document database
+    companions:
+    - database-design
+    - database-operations
+    - search-retrieval-rag-engineering
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - server_version
+      - driver_client_version
+      - provider_capabilities
+      - extension_feature_support
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: monorepo-engineering
   title: Monorepo Engineering
-  description: Design and operate multi-package repositories with clear ownership, dependency boundaries, task graphs, affected execution, shared
-    tooling, release strategy and cache correctness.
+  description: Design and operate multi-package repositories with clear ownership, dependency boundaries, task graphs, affected
+    execution, shared tooling, release strategy and cache correctness.
   category: architecture-delivery
   source: skills/monorepo-engineering/SKILL.md
   project_path: .agents/skills/monorepo-engineering/SKILL.md
@@ -2512,8 +2660,8 @@ skills:
       - community_operational_evidence
 - id: motion-design-engineering
   title: Motion Design Engineering
-  description: Design and implement motion that makes interfaces feel immediate, spatially coherent and high-quality without turning animation
-    into decoration or latency.
+  description: Design and implement motion that makes interfaces feel immediate, spatially coherent and high-quality without
+    turning animation into decoration or latency.
   category: frontend-product
   source: skills/motion-design-engineering/SKILL.md
   project_path: .agents/skills/motion-design-engineering/SKILL.md
@@ -2536,8 +2684,8 @@ skills:
       - community_operational_evidence
 - id: multi-tenancy-engineering
   title: Multi-Tenancy Engineering
-  description: Design tenant isolation, identity, data partitioning, authorization, quotas, migrations, observability and operational workflows
-    for shared SaaS systems.
+  description: Design tenant isolation, identity, data partitioning, authorization, quotas, migrations, observability and
+    operational workflows for shared SaaS systems.
   category: backend-api-integration
   source: skills/multi-tenancy-engineering/SKILL.md
   project_path: .agents/skills/multi-tenancy-engineering/SKILL.md
@@ -2567,8 +2715,8 @@ skills:
       - community_operational_evidence
 - id: mysql-mariadb-engineering
   title: MySQL & MariaDB Engineering
-  description: Engineer MySQL/MariaDB schemas, indexes, transactions, query plans and replication-aware application patterns while verifying engine/version-specific
-    semantics.
+  description: Engineer MySQL/MariaDB schemas, indexes, transactions, query plans and replication-aware application patterns
+    while verifying engine/version-specific semantics.
   category: data-storage
   source: skills/mysql-mariadb-engineering/SKILL.md
   project_path: .agents/skills/mysql-mariadb-engineering/SKILL.md
@@ -2599,10 +2747,36 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: natural-content-editing
+  title: Natural Content Editing
+  description: Edit generated or existing user-facing prose so it is clear, specific, natural and register-appropriate while
+    preserving claims, evidence, persona and product meaning; never optimize for detector evasion.
+  category: frontend-product
+  source: skills/natural-content-editing/SKILL.md
+  project_path: .agents/skills/natural-content-editing/SKILL.md
+  skill_directory: .agents/skills/natural-content-editing/
+  references:
+  - references/revision-pass.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: nestjs-engineering
   title: NestJS Engineering
-  description: Engineer NestJS backends with modules, providers, controllers, guards, pipes, interceptors, transactions, configuration and testing
-    without hidden dependency or lifecycle coupling.
+  description: Engineer NestJS backends with explicit module/provider boundaries, DI scopes, pipes/guards/interceptors, stable
+    error contracts, transaction ownership and lifecycle-aware testing.
   category: framework-stacks
   source: skills/nestjs-engineering/SKILL.md
   project_path: .agents/skills/nestjs-engineering/SKILL.md
@@ -2636,8 +2810,8 @@ skills:
       - community_operational_evidence
 - id: network-automation-engineering
   title: Network Automation Engineering
-  description: Automate network-device discovery, configuration, validation and rollback using APIs, NETCONF/RESTCONF, SNMP, SSH or controller
-    interfaces while protecting reachability and configuration integrity.
+  description: Automate network-device discovery, configuration, validation and rollback using APIs, NETCONF/RESTCONF, SNMP,
+    SSH or controller interfaces while protecting reachability and configuration integrity.
   category: infra-network
   source: skills/network-automation-engineering/SKILL.md
   project_path: .agents/skills/network-automation-engineering/SKILL.md
@@ -2673,8 +2847,8 @@ skills:
       - community_operational_evidence
 - id: network-infrastructure-engineering
   title: Network Infrastructure Engineering
-  description: Design and safely change routing, switching, VLAN, firewall, wireless, DNS, DHCP, NAT, VPN and segmentation architectures with
-    explicit reachability, failure-domain and rollback reasoning.
+  description: Design and safely change routing, switching, VLAN, firewall, wireless, DNS, DHCP, NAT, VPN and segmentation
+    architectures with explicit reachability, failure-domain and rollback reasoning.
   category: infra-network
   source: skills/network-infrastructure-engineering/SKILL.md
   project_path: .agents/skills/network-infrastructure-engineering/SKILL.md
@@ -2713,8 +2887,8 @@ skills:
       - community_operational_evidence
 - id: nextjs-engineering
   title: Next.js Engineering
-  description: Engineer Next.js applications across App Router, server/client boundaries, rendering, caching/revalidation, route handlers, middleware,
-    data access and deployment semantics.
+  description: Engineer Next.js App Router applications across React Server Components, server/client boundaries, route rendering,
+    caching/revalidation, mutations, route handlers, metadata and deployment runtimes.
   category: framework-stacks
   source: skills/nextjs-engineering/SKILL.md
   project_path: .agents/skills/nextjs-engineering/SKILL.md
@@ -2752,8 +2926,8 @@ skills:
       - community_operational_evidence
 - id: notification-engineering
   title: Notification Engineering
-  description: Design multi-channel in-app, push, email and webhook notifications with preferences, fan-out, deduplication, rate limits, delivery
-    state and product relevance.
+  description: Design multi-channel in-app, push, email and webhook notifications with preferences, fan-out, deduplication,
+    rate limits, delivery state and product relevance.
   category: product-platform
   source: skills/notification-engineering/SKILL.md
   project_path: .agents/skills/notification-engineering/SKILL.md
@@ -2783,8 +2957,8 @@ skills:
       - community_operational_evidence
 - id: open-source-release-engineering
   title: Open Source Release Engineering
-  description: Prepare private or internal software for safe public release with secret/PII sanitization, licensing, dependency attribution, documentation,
-    packaging and public-repository governance.
+  description: Prepare private or internal software for safe public release with secret/PII sanitization, licensing, dependency
+    attribution, documentation, packaging and public-repository governance.
   category: architecture-delivery
   source: skills/open-source-release-engineering/SKILL.md
   project_path: .agents/skills/open-source-release-engineering/SKILL.md
@@ -2814,8 +2988,8 @@ skills:
       - community_operational_evidence
 - id: openwrt-engineering
   title: OpenWrt Engineering
-  description: Safely configure and automate OpenWrt devices using UCI, ubus/rpcd, netifd, firewall, wireless and service primitives with transactional
-    rollback and device-version verification.
+  description: Safely configure and automate OpenWrt devices using UCI, ubus/rpcd, netifd, firewall, wireless and service
+    primitives with transactional rollback and device-version verification.
   category: infra-network
   source: skills/openwrt-engineering/SKILL.md
   project_path: .agents/skills/openwrt-engineering/SKILL.md
@@ -2850,8 +3024,8 @@ skills:
       - community_operational_evidence
 - id: opnsense-engineering
   title: OPNsense Engineering
-  description: Safely automate and operate OPNsense firewalls through current official API/model surfaces with explicit privileges, configuration
-    ownership, rollback, firewall/NAT/VPN/DNS validation and lockout protection.
+  description: Safely automate and operate OPNsense firewalls through current official API/model surfaces with explicit privileges,
+    configuration ownership, rollback, firewall/NAT/VPN/DNS validation and lockout protection.
   category: infra-network
   source: skills/opnsense-engineering/SKILL.md
   project_path: .agents/skills/opnsense-engineering/SKILL.md
@@ -2884,8 +3058,8 @@ skills:
       - community_operational_evidence
 - id: payments-billing-engineering
   title: Payments & Billing Engineering
-  description: Engineer checkout, subscriptions, invoices, entitlements, refunds and payment-provider integrations with idempotency, webhook verification,
-    ledger clarity and reconciliation.
+  description: Engineer checkout, subscriptions, invoices, entitlements, refunds and payment-provider integrations with idempotency,
+    webhook verification, ledger clarity and reconciliation.
   category: product-platform
   source: skills/payments-billing-engineering/SKILL.md
   project_path: .agents/skills/payments-billing-engineering/SKILL.md
@@ -2917,8 +3091,9 @@ skills:
       - community_operational_evidence
 - id: performance-profiling
   title: Performance Profiling & Optimization
-  description: Profile and optimize real performance bottlenecks across frontend, backend, database, runtime, memory, CPU, I/O, queues, network,
-    and latency. Use when a system is slow, resource-heavy, scaling poorly, or needs evidence-based performance budgets.
+  description: Profile and optimize real performance bottlenecks across frontend, backend, database, runtime, memory, CPU,
+    I/O, queues, network, and latency. Use when a system is slow, resource-heavy, scaling poorly, or needs evidence-based
+    performance budgets.
   category: infra-network
   source: skills/performance-profiling/SKILL.md
   project_path: .agents/skills/performance-profiling/SKILL.md
@@ -2945,8 +3120,8 @@ skills:
       - community_operational_evidence
 - id: perl-engineering
   title: Perl Engineering
-  description: Maintain and modernize Perl systems with strict/warnings, modules, CPAN dependency discipline, references/context, regex safety,
-    DBI, testing and secure process execution.
+  description: Maintain and modernize Perl systems with strict/warnings, modules, CPAN dependency discipline, references/context,
+    regex safety, DBI, testing and secure process execution.
   category: language-stacks
   source: skills/perl-engineering/SKILL.md
   project_path: .agents/skills/perl-engineering/SKILL.md
@@ -2975,8 +3150,8 @@ skills:
       - community_operational_evidence
 - id: php-engineering
   title: PHP Production Engineering
-  description: Write and review production PHP applications and services with strong typing where useful, Composer/package hygiene, request/job
-    lifecycles, framework boundaries, data access, testing and security.
+  description: Write and review production PHP applications and services with strong typing where useful, Composer/package
+    hygiene, request/job lifecycles, framework boundaries, data access, testing and security.
   category: language-stacks
   source: skills/php-engineering/SKILL.md
   project_path: .agents/skills/php-engineering/SKILL.md
@@ -2999,8 +3174,8 @@ skills:
       - community_operational_evidence
 - id: plugin-extension-platform-engineering
   title: Plugin & Extension Platform Engineering
-  description: Design host/plugin architectures with stable extension points, capability boundaries, version negotiation, lifecycle, sandboxing,
-    discovery and compatibility testing.
+  description: Design host/plugin architectures with stable extension points, capability boundaries, version negotiation,
+    lifecycle, sandboxing, discovery and compatibility testing.
   category: backend-api-integration
   source: skills/plugin-extension-platform-engineering/SKILL.md
   project_path: .agents/skills/plugin-extension-platform-engineering/SKILL.md
@@ -3029,8 +3204,8 @@ skills:
       - community_operational_evidence
 - id: postgres-engineering
   title: PostgreSQL Engineering
-  description: Engineer PostgreSQL schemas, queries, indexes, transactions, concurrency, RLS and performance using workload evidence while separating
-    design, migration and operations concerns.
+  description: Engineer PostgreSQL schemas, queries, indexes, transactions, concurrency, row-level security and connection
+    behavior using database evidence rather than ORM assumptions.
   category: data-storage
   source: skills/postgres-engineering/SKILL.md
   project_path: .agents/skills/postgres-engineering/SKILL.md
@@ -3067,8 +3242,8 @@ skills:
       - community_operational_evidence
 - id: powershell-windows-engineering
   title: Windows & PowerShell Engineering
-  description: Build and automate reliable Windows tooling, services, packaging and administration with PowerShell while respecting execution
-    policy, quoting, encoding, paths, privileges and cross-platform boundaries.
+  description: Build and automate reliable Windows tooling, services, packaging and administration with PowerShell while respecting
+    execution policy, quoting, encoding, paths, privileges and cross-platform boundaries.
   category: language-stacks
   source: skills/powershell-windows-engineering/SKILL.md
   project_path: .agents/skills/powershell-windows-engineering/SKILL.md
@@ -3099,8 +3274,8 @@ skills:
       - community_operational_evidence
 - id: privacy-data-governance-engineering
   title: Privacy & Data Governance Engineering
-  description: Engineer data minimization, classification, retention, consent, access/deletion/export and privacy-safe telemetry boundaries while
-    routing jurisdiction-specific legal conclusions to current authoritative research.
+  description: Engineer data minimization, classification, retention, consent, access/deletion/export and privacy-safe telemetry
+    boundaries while routing jurisdiction-specific legal conclusions to current authoritative research.
   category: core-quality
   source: skills/privacy-data-governance-engineering/SKILL.md
   project_path: .agents/skills/privacy-data-governance-engineering/SKILL.md
@@ -3131,8 +3306,8 @@ skills:
       - community_operational_evidence
 - id: product-analytics-engineering
   title: Product Analytics Engineering
-  description: Design trustworthy product telemetry, event schemas, funnels, experiments and metric definitions with privacy, identity, deduplication
-    and data-quality controls.
+  description: Design trustworthy product telemetry, event schemas, funnels, experiments and metric definitions with privacy,
+    identity, deduplication and data-quality controls.
   category: product-platform
   source: skills/product-analytics-engineering/SKILL.md
   project_path: .agents/skills/product-analytics-engineering/SKILL.md
@@ -3161,10 +3336,42 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: property-based-testing
+  title: Property-Based Testing Engineering
+  description: Design property-based and fuzz-style tests by identifying invariants, round trips, normalization laws, state-machine
+    rules and adversarial input spaces, with reproducible shrinking and failure interpretation.
+  category: core-quality
+  source: skills/property-based-testing/SKILL.md
+  project_path: .agents/skills/property-based-testing/SKILL.md
+  skill_directory: .agents/skills/property-based-testing/
+  references:
+  - references/properties-generators-state-machines.md
+  routing:
+    signals:
+    - property testing
+    - fuzz
+    - hypothesis
+    - quickcheck
+    - fast-check
+    companions:
+    - test-engineering
+    - systematic-debugging
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - external_api_or_tool_version
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: python-engineering
   title: Python Production Engineering
-  description: Write and review idiomatic production Python with robust typing, packaging, async/concurrency, resource ownership, error handling,
-    testing and runtime performance. Use for Python services, tools, data or automation code.
+  description: Write and review idiomatic production Python with robust typing, packaging, async/concurrency, resource ownership,
+    error handling, testing and runtime performance. Use for Python services, tools, data or automation code.
   category: language-stacks
   source: skills/python-engineering/SKILL.md
   project_path: .agents/skills/python-engineering/SKILL.md
@@ -3187,8 +3394,8 @@ skills:
       - community_operational_evidence
 - id: pytorch-deep-learning-engineering
   title: PyTorch Deep Learning Engineering
-  description: Engineer PyTorch training and inference pipelines with reproducibility, data loading, devices/dtypes, optimization, checkpoints,
-    distributed training, evaluation and deployment correctness.
+  description: Engineer PyTorch training and inference pipelines with reproducibility, data loading, devices/dtypes, optimization,
+    checkpoints, distributed training, evaluation and deployment correctness.
   category: ai-agent-data
   source: skills/pytorch-deep-learning-engineering/SKILL.md
   project_path: .agents/skills/pytorch-deep-learning-engineering/SKILL.md
@@ -3221,8 +3428,8 @@ skills:
       - community_operational_evidence
 - id: quarkus-engineering
   title: Quarkus Engineering
-  description: Engineer Quarkus services with CDI, REST, persistence, reactive/blocking execution, configuration, native-image constraints, testing
-    and deployment behavior.
+  description: Engineer Quarkus services across CDI scopes, REST/persistence, imperative/reactive execution, build-time augmentation,
+    native-image constraints, configuration and deployment verification.
   category: framework-stacks
   source: skills/quarkus-engineering/SKILL.md
   project_path: .agents/skills/quarkus-engineering/SKILL.md
@@ -3254,9 +3461,9 @@ skills:
       - strong_independent
       - community_operational_evidence
 - id: rails-engineering
-  title: Ruby on Rails Engineering
-  description: Engineer Rails applications with Active Record, transactions, validations, authorization, jobs, caching, Hotwire/API boundaries
-    and production process behavior.
+  title: Rails Engineering
+  description: Engineer Rails applications with explicit Active Record query/transaction behavior, durable database constraints,
+    authorization, background jobs, callbacks, caching/Hotwire boundaries and production process semantics.
   category: framework-stacks
   source: skills/rails-engineering/SKILL.md
   project_path: .agents/skills/rails-engineering/SKILL.md
@@ -3289,9 +3496,9 @@ skills:
       - strong_independent
       - community_operational_evidence
 - id: react-native-engineering
-  title: React Native Application Engineering
-  description: Build and review production React Native applications across JavaScript/native boundaries, lifecycle, navigation, offline state,
-    lists, native modules, performance and release behavior.
+  title: React Native Engineering
+  description: Build and review production React Native applications across JavaScript/native boundaries, app lifecycle, navigation/deep
+    links, offline data, lists, New Architecture/native modules, performance and iOS/Android release behavior.
   category: mobile-native
   source: skills/react-native-engineering/SKILL.md
   project_path: .agents/skills/react-native-engineering/SKILL.md
@@ -3325,8 +3532,8 @@ skills:
       - community_operational_evidence
 - id: react-web-engineering
   title: React Web Engineering
-  description: Build production React applications with sound component boundaries, state ownership, effects, forms, concurrency, server/client
-    integration, accessibility and performance.
+  description: Build and review production React applications with deliberate state ownership, pure rendering, effect discipline,
+    server/client boundaries, forms, concurrency, accessibility and measured performance.
   category: framework-stacks
   source: skills/react-web-engineering/SKILL.md
   project_path: .agents/skills/react-web-engineering/SKILL.md
@@ -3363,8 +3570,8 @@ skills:
       - community_operational_evidence
 - id: realtime-communications-engineering
   title: Realtime Communications Engineering
-  description: Design WebSocket, Server-Sent Events, presence and bidirectional realtime features with connection lifecycle, backpressure, ordering,
-    reconnection, fan-out and horizontal scaling correctness.
+  description: Design WebSocket, Server-Sent Events, presence and bidirectional realtime features with connection lifecycle,
+    backpressure, ordering, reconnection, fan-out and horizontal scaling correctness.
   category: backend-api-integration
   source: skills/realtime-communications-engineering/SKILL.md
   project_path: .agents/skills/realtime-communications-engineering/SKILL.md
@@ -3394,8 +3601,8 @@ skills:
       - community_operational_evidence
 - id: recommendation-ranking-engineering
   title: Recommendation & Ranking Engineering
-  description: Design candidate generation, eligibility filtering, scoring, reranking, selection, feedback and experimentation pipelines for feeds,
-    recommendations and prioritization systems.
+  description: Design candidate generation, eligibility filtering, scoring, reranking, selection, feedback and experimentation
+    pipelines for feeds, recommendations and prioritization systems.
   category: ai-agent-data
   source: skills/recommendation-ranking-engineering/SKILL.md
   project_path: .agents/skills/recommendation-ranking-engineering/SKILL.md
@@ -3430,8 +3637,8 @@ skills:
       - community_operational_evidence
 - id: redis-caching-engineering
   title: Redis & Caching Engineering
-  description: Engineer Redis-backed caching, coordination, rate limiting, sessions, streams and ephemeral state with explicit key design, invalidation,
-    atomicity, eviction and failure behavior.
+  description: Engineer Redis-backed caching, coordination, rate limiting, sessions, streams and ephemeral state with explicit
+    key design, invalidation, atomicity, eviction and failure behavior.
   category: data-storage
   source: skills/redis-caching-engineering/SKILL.md
   project_path: .agents/skills/redis-caching-engineering/SKILL.md
@@ -3466,9 +3673,9 @@ skills:
       - community_operational_evidence
 - id: refactoring-engineering
   title: Refactoring Engineering
-  description: Restructure existing code while preserving intended behavior through characterization, contract mapping, incremental reversible
-    steps, dependency untangling, migration seams, and regression evidence. Use for refactors, legacy modernization, modularization, or architecture
-    cleanup without primary product-behavior change.
+  description: Restructure existing code while preserving intended behavior through characterization, contract mapping, incremental
+    reversible steps, dependency untangling, migration seams, and regression evidence. Use for refactors, legacy modernization,
+    modularization, or architecture cleanup without primary product-behavior change.
   category: core-quality
   source: skills/refactoring-engineering/SKILL.md
   project_path: .agents/skills/refactoring-engineering/SKILL.md
@@ -3490,8 +3697,8 @@ skills:
       - community_operational_evidence
 - id: release-package-engineering
   title: Release & Package Engineering
-  description: Design reproducible versioning, artifacts, changelogs, signing, provenance, publishing and rollback for applications, libraries,
-    containers and multi-platform distributions.
+  description: Design reproducible versioning, artifacts, changelogs, signing, provenance, publishing and rollback for applications,
+    libraries, containers and multi-platform distributions.
   category: architecture-delivery
   source: skills/release-package-engineering/SKILL.md
   project_path: .agents/skills/release-package-engineering/SKILL.md
@@ -3522,8 +3729,9 @@ skills:
       - community_operational_evidence
 - id: reliability-observability
   title: Reliability & Observability Engineering
-  description: 'Design failure handling and production diagnosability: timeouts, retries/idempotency, backpressure, degradation, health/readiness,
-    structured logs, metrics, traces, SLOs, and incident evidence. Use for networked, asynchronous, critical, or production-operated systems.'
+  description: 'Design failure handling and production diagnosability: timeouts, retries/idempotency, backpressure, degradation,
+    health/readiness, structured logs, metrics, traces, SLOs, and incident evidence. Use for networked, asynchronous, critical,
+    or production-operated systems.'
   category: infra-network
   source: skills/reliability-observability/SKILL.md
   project_path: .agents/skills/reliability-observability/SKILL.md
@@ -3550,7 +3758,8 @@ skills:
       - community_operational_evidence
 - id: repository-onboarding
   title: Repository Onboarding & Brownfield Mapping
-  description: Build a reliable, token-efficient understanding of an existing repository before planning, auditing, debugging or changing it.
+  description: Build a reliable, token-efficient understanding of an existing repository before planning, auditing, debugging
+    or changing it.
   category: core-quality
   source: skills/repository-onboarding/SKILL.md
   project_path: .agents/skills/repository-onboarding/SKILL.md
@@ -3572,8 +3781,8 @@ skills:
       - community_operational_evidence
 - id: responsive-design
   title: Adaptive Responsive Design
-  description: Make layouts and interactions adapt intentionally across container sizes, viewports, input modes, zoom/text scaling and content
-    extremes.
+  description: Make layouts and interactions adapt intentionally across container sizes, viewports, input modes, zoom/text
+    scaling and content extremes.
   category: frontend-product
   source: skills/responsive-design/SKILL.md
   project_path: .agents/skills/responsive-design/SKILL.md
@@ -3596,8 +3805,8 @@ skills:
       - community_operational_evidence
 - id: reverse-proxy-edge-engineering
   title: Reverse Proxy & Edge Engineering
-  description: Configure reverse proxies, gateways and edge servers for routing, TLS, headers, compression, caching, upstream health, rate limits
-    and safe zero-downtime changes.
+  description: Configure reverse proxies, gateways and edge servers for routing, TLS, headers, compression, caching, upstream
+    health, rate limits and safe zero-downtime changes.
   category: infra-network
   source: skills/reverse-proxy-edge-engineering/SKILL.md
   project_path: .agents/skills/reverse-proxy-edge-engineering/SKILL.md
@@ -3633,8 +3842,8 @@ skills:
       - community_operational_evidence
 - id: ruby-engineering
   title: Ruby Production Engineering
-  description: Write and review production Ruby/Rails systems with clear object boundaries, Active Record/query behavior, background jobs, transactions,
-    concurrency, testing, gems and runtime performance.
+  description: Write and review production Ruby/Rails systems with clear object boundaries, Active Record/query behavior,
+    background jobs, transactions, concurrency, testing, gems and runtime performance.
   category: language-stacks
   source: skills/ruby-engineering/SKILL.md
   project_path: .agents/skills/ruby-engineering/SKILL.md
@@ -3657,8 +3866,8 @@ skills:
       - community_operational_evidence
 - id: rust-engineering
   title: Rust Production & Systems Engineering
-  description: Write and review production Rust with deliberate ownership, error types, traits, async concurrency, unsafe boundaries, Cargo features,
-    testing and performance. Use when Rust is a primary project language.
+  description: Write and review production Rust with deliberate ownership, error types, traits, async concurrency, unsafe
+    boundaries, Cargo features, testing and performance. Use when Rust is a primary project language.
   category: language-stacks
   source: skills/rust-engineering/SKILL.md
   project_path: .agents/skills/rust-engineering/SKILL.md
@@ -3679,10 +3888,34 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: search-experience-optimization
+  title: Search Experience Optimization
+  description: Align searchable pages with the user task and page type search results actually reward, combining search intent,
+    UX, information architecture, content structure and conversion evidence.
+  category: frontend-product
+  source: skills/search-experience-optimization/SKILL.md
+  project_path: .agents/skills/search-experience-optimization/SKILL.md
+  skill_directory: .agents/skills/search-experience-optimization/
+  references:
+  - references/page-type-and-user-story-method.md
+  routing:
+    signals: []
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: search-retrieval-rag-engineering
   title: Search, Retrieval & RAG Engineering
-  description: Design lexical, semantic, hybrid and retrieval-augmented systems with chunking, indexing, filters, ranking, citations, freshness,
-    evaluation and secure context assembly.
+  description: Design lexical, semantic, hybrid and retrieval-augmented systems with chunking, indexing, filters, ranking,
+    citations, freshness, evaluation and secure context assembly.
   category: ai-agent-data
   source: skills/search-retrieval-rag-engineering/SKILL.md
   project_path: .agents/skills/search-retrieval-rag-engineering/SKILL.md
@@ -3718,8 +3951,8 @@ skills:
       - community_operational_evidence
 - id: security-review
   title: Application Security Review
-  description: Perform risk-based secure-design and implementation review using current OWASP guidance, with testable findings around trust boundaries
-    rather than generic checklists.
+  description: Perform risk-based secure-design and implementation review using current OWASP guidance, with testable findings
+    around trust boundaries rather than generic checklists.
   category: core-quality
   source: skills/security-review/SKILL.md
   project_path: .agents/skills/security-review/SKILL.md
@@ -3746,10 +3979,37 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: seo-audit-and-drift
+  title: SEO Audit & Drift Verification
+  description: Capture evidence-backed SEO baselines, run pre/post-deployment audits and detect regressions in status, indexability,
+    metadata, canonicals, headings, schema, rendering and performance-critical search signals.
+  category: frontend-product
+  source: skills/seo-audit-and-drift/SKILL.md
+  project_path: .agents/skills/seo-audit-and-drift/SKILL.md
+  skill_directory: .agents/skills/seo-audit-and-drift/
+  references:
+  - references/baseline-fields-and-severity.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - search_platform_guidance
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: seo-content
   title: Technical SEO & Search Discoverability
-  description: Make public content crawlable, indexable, understandable and useful using current primary-source search guidance, while treating
-    AI-search/GEO claims as evidence-sensitive rather than folklore.
+  description: Make public content crawlable, indexable, understandable and useful using current primary-source search guidance,
+    while treating AI-search/GEO claims as evidence-sensitive rather than folklore.
   category: frontend-product
   source: skills/seo-content/SKILL.md
   project_path: .agents/skills/seo-content/SKILL.md
@@ -3770,10 +4030,64 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: seo-content-strategy
+  title: SEO Content Strategy & E-E-A-T
+  description: Plan and review people-first search content using audience intent, original value, source discipline, authorship/transparency
+    where appropriate, topical coverage and AI-search citation readiness without keyword folklore.
+  category: frontend-product
+  source: skills/seo-content-strategy/SKILL.md
+  project_path: .agents/skills/seo-content-strategy/SKILL.md
+  skill_directory: .agents/skills/seo-content-strategy/
+  references:
+  - references/content-brief-contract.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - search_platform_guidance
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
+- id: seo-strategy
+  title: SEO Strategy & Search Architecture
+  description: 'Plan search discoverability before implementation: audience and query intent, page/route strategy, information
+    architecture, internal linking, content opportunities, measurement and a prioritized SEO roadmap.'
+  category: frontend-product
+  source: skills/seo-strategy/SKILL.md
+  project_path: .agents/skills/seo-strategy/SKILL.md
+  skill_directory: .agents/skills/seo-strategy/
+  references:
+  - references/planning-artifact-model.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - search_platform_guidance
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: serverless-edge-engineering
   title: Serverless & Edge Runtime Engineering
-  description: Design applications for function and edge runtimes with stateless execution, cold starts, concurrency, runtime limits, distributed
-    state, observability and vendor portability trade-offs.
+  description: Design applications for function and edge runtimes with stateless execution, cold starts, concurrency, runtime
+    limits, distributed state, observability and vendor portability trade-offs.
   category: architecture-delivery
   source: skills/serverless-edge-engineering/SKILL.md
   project_path: .agents/skills/serverless-edge-engineering/SKILL.md
@@ -3805,8 +4119,9 @@ skills:
       - community_operational_evidence
 - id: solution-minimization-engineering
   title: Solution Minimization Engineering
-  description: Choose and review the smallest complete solution using repo reuse, stdlib/native capabilities, existing dependencies and only then
-    new code/abstractions, while preserving all quality guards.
+  description: Choose the smallest complete solution that satisfies confirmed requirements without sacrificing correctness,
+    security, reliability, accessibility, operability, tests or documentation. Use for substantive implementation/design and
+    for fresh complexity review of completed diffs.
   category: core-quality
   source: skills/solution-minimization-engineering/SKILL.md
   project_path: .agents/skills/solution-minimization-engineering/SKILL.md
@@ -3833,8 +4148,8 @@ skills:
       - community_operational_evidence
 - id: spring-boot-engineering
   title: Spring Boot Engineering
-  description: Engineer Spring Boot services with clear bean/configuration boundaries, MVC/WebFlux choice, validation, security, transactions,
-    JPA, events, testing and production observability.
+  description: Engineer Spring Boot services with explicit bean/configuration boundaries, MVC/WebFlux selection, validation,
+    Spring Security filter/method authorization, transaction proxy semantics, JPA queries and production observability.
   category: framework-stacks
   source: skills/spring-boot-engineering/SKILL.md
   project_path: .agents/skills/spring-boot-engineering/SKILL.md
@@ -3870,8 +4185,8 @@ skills:
       - community_operational_evidence
 - id: sqlite-engineering
   title: SQLite Engineering
-  description: Engineer embedded SQLite databases with correct schema, transactions, WAL/locking, concurrency, FTS, backups, migrations and deployment
-    semantics for local-first, desktop, mobile and lightweight server workloads.
+  description: Engineer embedded SQLite databases with correct schema, transactions, WAL/locking, concurrency, FTS, backups,
+    migrations and deployment semantics for local-first, desktop, mobile and lightweight server workloads.
   category: data-storage
   source: skills/sqlite-engineering/SKILL.md
   project_path: .agents/skills/sqlite-engineering/SKILL.md
@@ -3907,8 +4222,8 @@ skills:
       - community_operational_evidence
 - id: sqlite-vector-search-engineering
   title: SQLite Vector Search Engineering
-  description: Build local-first semantic and hybrid retrieval on SQLite using current supported vector extensions, embedding lifecycle, metadata
-    filtering, FTS/vector fusion and measurable retrieval quality.
+  description: Build local-first semantic and hybrid retrieval on SQLite using current supported vector extensions, embedding
+    lifecycle, metadata filtering, FTS/vector fusion and measurable retrieval quality.
   category: data-storage
   source: skills/sqlite-vector-search-engineering/SKILL.md
   project_path: .agents/skills/sqlite-vector-search-engineering/SKILL.md
@@ -3944,10 +4259,36 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: structured-data-seo
+  title: Structured Data & Entity SEO
+  description: Plan, generate and verify truthful structured data and entity relationships for public pages using current
+    Schema.org and search-platform support, without fabricating rich-result facts.
+  category: frontend-product
+  source: skills/structured-data-seo/SKILL.md
+  project_path: .agents/skills/structured-data-seo/SKILL.md
+  skill_directory: .agents/skills/structured-data-seo/
+  references: []
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - search_platform_guidance
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: sveltekit-engineering
   title: SvelteKit Engineering
-  description: Engineer Svelte/SvelteKit applications with reactive state, load functions, server/client boundaries, forms/actions, routing, SSR/prerendering
-    and deployment adapters.
+  description: Engineer Svelte/SvelteKit applications with version-correct reactivity, request-safe server/client state, load
+    functions, form actions, SSR/prerendering, invalidation and adapter-aware deployment.
   category: framework-stacks
   source: skills/sveltekit-engineering/SKILL.md
   project_path: .agents/skills/sveltekit-engineering/SKILL.md
@@ -3981,8 +4322,9 @@ skills:
       - community_operational_evidence
 - id: swift-engineering
   title: Swift Production Engineering
-  description: Write and review production Swift with value/reference ownership, structured concurrency, actors/Sendable, errors, protocols/generics,
-    resource lifetime, packages and platform interoperability. Use for Swift beyond SwiftUI-only concerns.
+  description: Write and review production Swift with value/reference ownership, structured concurrency, actors/Sendable,
+    errors, protocols/generics, resource lifetime, packages and platform interoperability. Use for Swift beyond SwiftUI-only
+    concerns.
   category: mobile-native
   source: skills/swift-engineering/SKILL.md
   project_path: .agents/skills/swift-engineering/SKILL.md
@@ -4009,8 +4351,8 @@ skills:
       - community_operational_evidence
 - id: swift-testing
   title: Swift Testing & Dependency Isolation
-  description: Make Apple-native domain logic, concurrency and platform integrations testable through narrow dependency seams and layered tests
-    without over-mocking SwiftUI internals.
+  description: Make Apple-native domain logic, concurrency and platform integrations testable through narrow dependency seams
+    and layered tests without over-mocking SwiftUI internals.
   category: mobile-native
   source: skills/swift-testing/SKILL.md
   project_path: .agents/skills/swift-testing/SKILL.md
@@ -4038,8 +4380,8 @@ skills:
       - community_operational_evidence
 - id: swiftui-architecture
   title: Native Apple UX & SwiftUI Architecture
-  description: Design Apple-platform apps that feel native, adapt to platform/window/accessibility contexts, and keep SwiftUI state/navigation/domain
-    boundaries testable.
+  description: Design Apple-platform apps that feel native, adapt to platform/window/accessibility contexts, and keep SwiftUI
+    state/navigation/domain boundaries testable.
   category: mobile-native
   source: skills/swiftui-architecture/SKILL.md
   project_path: .agents/skills/swiftui-architecture/SKILL.md
@@ -4067,7 +4409,8 @@ skills:
       - community_operational_evidence
 - id: systematic-debugging
   title: Systematic Debugging & Root-Cause Repair
-  description: Find the real cause of a defect efficiently, prove it, implement the smallest correct repair and leave durable regression evidence.
+  description: Find the real cause of a defect efficiently, prove it, implement the smallest correct repair and leave durable
+    regression evidence.
   category: core-quality
   source: skills/systematic-debugging/SKILL.md
   project_path: .agents/skills/systematic-debugging/SKILL.md
@@ -4089,8 +4432,8 @@ skills:
       - community_operational_evidence
 - id: tdd-workflow
   title: Pragmatic Test-Driven Workflow
-  description: Use RED → GREEN → REFACTOR when test-first gives strong behavioral signal, especially for business logic, bugs, APIs, security,
-    parsers and state transitions.
+  description: "Use RED \u2192 GREEN \u2192 REFACTOR when test-first gives strong behavioral signal, especially for business\
+    \ logic, bugs, APIs, security, parsers and state transitions."
   category: core-quality
   source: skills/tdd-workflow/SKILL.md
   project_path: .agents/skills/tdd-workflow/SKILL.md
@@ -4112,8 +4455,9 @@ skills:
       - community_operational_evidence
 - id: technical-research
   title: Technical Research & Evidence Engineering
-  description: Perform autonomous, current, evidence-first technical research for architecture and implementation decisions, using the lightest
-    sufficient path and converting findings into decisions, ADRs and routing updates without unnecessary user questions.
+  description: Perform autonomous, current, evidence-first technical research for architecture and implementation decisions,
+    using the lightest sufficient path and converting findings into decisions, ADRs and routing updates without unnecessary
+    user questions.
   category: core-quality
   source: skills/technical-research/SKILL.md
   project_path: .agents/skills/technical-research/SKILL.md
@@ -4143,10 +4487,37 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: technical-seo-engineering
+  title: Technical SEO Engineering
+  description: Design and verify crawlability, indexability, rendering, canonicals, redirects, robots/sitemaps, performance-sensitive
+    search delivery and deployment-safe technical SEO.
+  category: frontend-product
+  source: skills/technical-seo-engineering/SKILL.md
+  project_path: .agents/skills/technical-seo-engineering/SKILL.md
+  skill_directory: .agents/skills/technical-seo-engineering/
+  references:
+  - references/deployment-and-migration-gate.md
+  routing:
+    signals:
+    - web
+    - content
+    companions: []
+    freshness_sensitive: false
+    research:
+      default: repository_first
+      drift_sensitive: false
+      drift_domains: []
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: technology-stack-selection
   title: Technology & Stack Selection Engineering
-  description: Select languages, runtimes, frameworks, rendering models, databases and deployment targets from explicit project constraints and
-    current evidence. Use for non-trivial greenfield stack decisions or justified brownfield replatforming decisions.
+  description: Select languages, runtimes, frameworks, rendering models, databases and deployment targets from explicit project
+    constraints and current evidence. Use for non-trivial greenfield stack decisions or justified brownfield replatforming
+    decisions.
   category: core-quality
   source: skills/technology-stack-selection/SKILL.md
   project_path: .agents/skills/technology-stack-selection/SKILL.md
@@ -4168,10 +4539,45 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: terraform-engineering
+  title: Terraform Engineering
+  description: Engineer Terraform configurations, modules, state-preserving refactors/imports, plans, tests and multi-environment
+    composition using current Terraform/provider capabilities.
+  category: infra-network
+  source: skills/terraform-engineering/SKILL.md
+  project_path: .agents/skills/terraform-engineering/SKILL.md
+  skill_directory: .agents/skills/terraform-engineering/
+  references:
+  - references/modules-plans-tests.md
+  - references/state-refactor-import.md
+  routing:
+    signals:
+    - terraform
+    - .tf
+    - hcl
+    companions:
+    - infrastructure-as-code-engineering
+    - ci-cd-engineering
+    - deployment-readiness
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - tool_firmware_platform_version
+      - provider_api_schema
+      - runtime_capabilities
+      - support_status
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: test-engineering
   title: Test Engineering
-  description: Design and implement risk-proportional test architecture across unit, integration, contract, E2E, property/fuzz, concurrency, visual,
-    and regression layers. Use when deciding what tests a project/change needs or improving a test suite.
+  description: Design and implement risk-proportional test architecture across unit, integration, contract, E2E, property/fuzz,
+    concurrency, visual, and regression layers. Use when deciding what tests a project/change needs or improving a test suite.
   category: core-quality
   source: skills/test-engineering/SKILL.md
   project_path: .agents/skills/test-engineering/SKILL.md
@@ -4191,10 +4597,44 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
+- id: threat-modeling-engineering
+  title: Threat Modeling Engineering
+  description: Build an evidence-based threat model from assets, actors, trust boundaries, entry points, abuse cases and security
+    invariants, then convert material threats into design requirements and verification.
+  category: core-quality
+  source: skills/threat-modeling-engineering/SKILL.md
+  project_path: .agents/skills/threat-modeling-engineering/SKILL.md
+  skill_directory: .agents/skills/threat-modeling-engineering/
+  references:
+  - references/abuse-cases-and-controls.md
+  - references/modeling-method.md
+  routing:
+    signals:
+    - threat model
+    - trust boundary
+    - abuse case
+    companions:
+    - security-review
+    - adversarial-verification
+    - auth-architecture
+    freshness_sensitive: true
+    research:
+      default: repository_first
+      drift_sensitive: true
+      drift_domains:
+      - protocol_provider_guidance
+      - security_advisories
+      - platform_controls
+      source_priority:
+      - repository_runtime
+      - first_party_docs_specs_releases
+      - first_party_repo_issues
+      - strong_independent
+      - community_operational_evidence
 - id: typescript-node-engineering
   title: TypeScript & Node.js Engineering
-  description: Write and review production TypeScript/JavaScript server and tooling code with strong runtime validation, async/resource ownership,
-    module/package boundaries, streams, workers and build compatibility.
+  description: Write and review production TypeScript/JavaScript server and tooling code with strong runtime validation, async/resource
+    ownership, module/package boundaries, streams, workers and build compatibility.
   category: language-stacks
   source: skills/typescript-node-engineering/SKILL.md
   project_path: .agents/skills/typescript-node-engineering/SKILL.md
@@ -4219,13 +4659,14 @@ skills:
       - community_operational_evidence
 - id: ui-design-system
   title: Premium UI Design System
-  description: Create a distinctive, coherent, implementation-ready visual language that can support premium multi-page interfaces without drifting
-    into generic AI aesthetics.
+  description: Create a distinctive, coherent, implementation-ready visual language that can support premium multi-page interfaces
+    without drifting into generic AI aesthetics.
   category: frontend-product
   source: skills/ui-design-system/SKILL.md
   project_path: .agents/skills/ui-design-system/SKILL.md
   skill_directory: .agents/skills/ui-design-system/
-  references: []
+  references:
+  - references/design-intelligence-planning.md
   routing:
     signals:
     - web
@@ -4243,8 +4684,8 @@ skills:
       - community_operational_evidence
 - id: unifi-network-engineering
   title: UniFi / Ubiquiti Network Engineering
-  description: Safely automate and operate UniFi networks using current official Site Manager and local application APIs, with topology-aware
-    change control, controller/version discovery and rollback-safe network validation.
+  description: Safely automate and operate UniFi networks using current official Site Manager and local application APIs,
+    with topology-aware change control, controller/version discovery and rollback-safe network validation.
   category: infra-network
   source: skills/unifi-network-engineering/SKILL.md
   project_path: .agents/skills/unifi-network-engineering/SKILL.md
@@ -4278,13 +4719,14 @@ skills:
       - community_operational_evidence
 - id: ux-product-design
   title: Product UX & Interaction Design
-  description: Turn product requirements into clear information architecture, task flows, interaction models and resilient states before visual
-    polish or implementation.
+  description: Turn product requirements into clear information architecture, task flows, interaction models and resilient
+    states before visual polish or implementation.
   category: frontend-product
   source: skills/ux-product-design/SKILL.md
   project_path: .agents/skills/ux-product-design/SKILL.md
   skill_directory: .agents/skills/ux-product-design/
-  references: []
+  references:
+  - references/planning-phase-ux.md
   routing:
     signals:
     - web
@@ -4302,7 +4744,8 @@ skills:
       - community_operational_evidence
 - id: verification-gate
   title: Evidence-Based Verification Gate
-  description: Determine readiness from fresh reproducible evidence with project-specific gates, preserving exact failures and refusing completion-by-assertion.
+  description: Determine readiness from fresh reproducible evidence with project-specific gates, preserving exact failures
+    and refusing completion-by-assertion.
   category: core-quality
   source: skills/verification-gate/SKILL.md
   project_path: .agents/skills/verification-gate/SKILL.md
@@ -4324,8 +4767,8 @@ skills:
       - community_operational_evidence
 - id: virtualization-homelab-engineering
   title: Virtualization & Homelab Engineering
-  description: Design and operate small-scale virtualization and self-hosted infrastructure with VM/container boundaries, storage, networking,
-    backups, service placement and recoverable automation.
+  description: Design and operate small-scale virtualization and self-hosted infrastructure with VM/container boundaries,
+    storage, networking, backups, service placement and recoverable automation.
   category: infra-network
   source: skills/virtualization-homelab-engineering/SKILL.md
   project_path: .agents/skills/virtualization-homelab-engineering/SKILL.md
@@ -4360,8 +4803,8 @@ skills:
       - community_operational_evidence
 - id: visual-polish
   title: Premium Visual Polish
-  description: Perform a disciplined final visual-design review that raises perceived quality without inventing a new design language or masking
-    UX problems with decoration.
+  description: Perform a disciplined final visual-design review that raises perceived quality without inventing a new design
+    language or masking UX problems with decoration.
   category: frontend-product
   source: skills/visual-polish/SKILL.md
   project_path: .agents/skills/visual-polish/SKILL.md
@@ -4384,8 +4827,8 @@ skills:
       - community_operational_evidence
 - id: vpn-overlay-network-engineering
   title: VPN & Overlay Network Engineering
-  description: Design site-to-site, remote-access and overlay networking with routing, identity, key lifecycle, MTU, DNS, segmentation, HA and
-    safe rollout across WireGuard/IPsec/managed overlays.
+  description: Design site-to-site, remote-access and overlay networking with routing, identity, key lifecycle, MTU, DNS,
+    segmentation, HA and safe rollout across WireGuard/IPsec/managed overlays.
   category: infra-network
   source: skills/vpn-overlay-network-engineering/SKILL.md
   project_path: .agents/skills/vpn-overlay-network-engineering/SKILL.md
@@ -4421,8 +4864,8 @@ skills:
       - community_operational_evidence
 - id: vue-nuxt-engineering
   title: Vue & Nuxt Engineering
-  description: Build Vue/Nuxt applications with sound Composition API state, reactivity, SSR/hydration, routing, server endpoints, data fetching
-    and deployment boundaries.
+  description: Engineer Vue/Nuxt applications with deliberate Composition API reactivity, composable ownership, SSR/hydration,
+    server endpoints, async data/cache semantics and deployment-aware plugins/modules.
   category: framework-stacks
   source: skills/vue-nuxt-engineering/SKILL.md
   project_path: .agents/skills/vue-nuxt-engineering/SKILL.md
@@ -4456,8 +4899,8 @@ skills:
       - community_operational_evidence
 - id: web-data-acquisition-engineering
   title: Web Data Acquisition Engineering
-  description: Design respectful, reliable web search/scrape/map/crawl/extract pipelines with provider abstraction, URL frontiers, canonicalization,
-    rendering escalation, rate limits, provenance and incremental refresh.
+  description: Design respectful, reliable web search/scrape/map/crawl/extract pipelines with provider abstraction, URL frontiers,
+    canonicalization, rendering escalation, rate limits, provenance and incremental refresh.
   category: ai-agent-data
   source: skills/web-data-acquisition-engineering/SKILL.md
   project_path: .agents/skills/web-data-acquisition-engineering/SKILL.md
@@ -4494,8 +4937,8 @@ skills:
       - community_operational_evidence
 - id: website-modernization
   title: Website Modernization & Content Migration
-  description: Turn an existing public website into a modern, high-quality replacement while preserving legitimate content value, search equity,
-    brand intent and important URLs.
+  description: Turn an existing public website into a modern, high-quality replacement while preserving legitimate content
+    value, search equity, brand intent and important URLs.
   category: frontend-product
   source: skills/website-modernization/SKILL.md
   project_path: .agents/skills/website-modernization/SKILL.md
@@ -4516,118 +4959,10 @@ skills:
       - first_party_repo_issues
       - strong_independent
       - community_operational_evidence
-- id: mongodb-engineering
-  title: MongoDB Engineering
-  description: Engineer MongoDB document models, indexes, aggregation/query plans, transactions/consistency, connection pools and Atlas/search
-    capabilities from workload shape rather than relational habits.
-  category: data-storage
-  source: skills/mongodb-engineering/SKILL.md
-  project_path: .agents/skills/mongodb-engineering/SKILL.md
-  skill_directory: .agents/skills/mongodb-engineering/
-  references:
-  - references/consistency-and-search.md
-  - references/queries-indexes-connections.md
-  - references/schema-modeling.md
-  routing:
-    signals:
-    - mongodb
-    - atlas
-    - document database
-    companions:
-    - database-design
-    - database-operations
-    - search-retrieval-rag-engineering
-    freshness_sensitive: true
-    research:
-      default: repository_first
-      drift_sensitive: true
-      drift_domains:
-      - server_version
-      - driver_client_version
-      - provider_capabilities
-      - extension_feature_support
-      source_priority:
-      - repository_runtime
-      - first_party_docs_specs_releases
-      - first_party_repo_issues
-      - strong_independent
-      - community_operational_evidence
-- id: terraform-engineering
-  title: Terraform Engineering
-  description: Engineer Terraform configurations, modules, state-preserving refactors/imports, plans, tests and multi-environment composition
-    using current Terraform/provider capabilities.
-  category: infra-network
-  source: skills/terraform-engineering/SKILL.md
-  project_path: .agents/skills/terraform-engineering/SKILL.md
-  skill_directory: .agents/skills/terraform-engineering/
-  references:
-  - references/modules-plans-tests.md
-  - references/state-refactor-import.md
-  routing:
-    signals:
-    - terraform
-    - .tf
-    - hcl
-    companions:
-    - infrastructure-as-code-engineering
-    - ci-cd-engineering
-    - deployment-readiness
-    freshness_sensitive: true
-    research:
-      default: repository_first
-      drift_sensitive: true
-      drift_domains:
-      - tool_firmware_platform_version
-      - provider_api_schema
-      - runtime_capabilities
-      - support_status
-      source_priority:
-      - repository_runtime
-      - first_party_docs_specs_releases
-      - first_party_repo_issues
-      - strong_independent
-      - community_operational_evidence
-- id: cloudflare-platform-engineering
-  title: Cloudflare Platform Engineering
-  description: Engineer Cloudflare Workers/Pages and platform services with runtime-correct async execution, request-safe state, bindings/secrets,
-    Durable Objects/storage semantics, Wrangler configuration and edge observability.
-  category: infra-network
-  source: skills/cloudflare-platform-engineering/SKILL.md
-  project_path: .agents/skills/cloudflare-platform-engineering/SKILL.md
-  skill_directory: .agents/skills/cloudflare-platform-engineering/
-  references:
-  - references/storage-and-durable-state.md
-  - references/workers-runtime-and-bindings.md
-  routing:
-    signals:
-    - cloudflare
-    - workers
-    - durable objects
-    - d1
-    - r2
-    - wrangler
-    companions:
-    - serverless-edge-engineering
-    - reliability-observability
-    freshness_sensitive: true
-    research:
-      default: repository_first
-      drift_sensitive: true
-      drift_domains:
-      - tool_firmware_platform_version
-      - provider_api_schema
-      - runtime_capabilities
-      - support_status
-      source_priority:
-      - repository_runtime
-      - first_party_docs_specs_releases
-      - first_party_repo_issues
-      - strong_independent
-      - community_operational_evidence
 - id: wordpress-engineering
   title: WordPress Engineering
-  description: Engineer WordPress plugins/themes/blocks, REST endpoints, hooks, cron and operations with capability/nonce boundaries, safe database
-    APIs, lifecycle hooks, performance and WP-CLI-aware deployment.
+  description: Engineer WordPress plugins/themes/blocks, REST endpoints, hooks, cron and operations with capability/nonce
+    boundaries, safe database APIs, lifecycle hooks, performance and WP-CLI-aware deployment.
   category: product-platform
   source: skills/wordpress-engineering/SKILL.md
   project_path: .agents/skills/wordpress-engineering/SKILL.md
@@ -4645,72 +4980,6 @@ skills:
     - php-engineering
     - security-review
     - performance-profiling
-    freshness_sensitive: true
-    research:
-      default: repository_first
-      drift_sensitive: true
-      drift_domains:
-      - external_api_or_tool_version
-      source_priority:
-      - repository_runtime
-      - first_party_docs_specs_releases
-      - first_party_repo_issues
-      - strong_independent
-      - community_operational_evidence
-- id: threat-modeling-engineering
-  title: Threat Modeling Engineering
-  description: Build an evidence-based threat model from assets, actors, trust boundaries, entry points, abuse cases and security invariants,
-    then convert material threats into design requirements and verification.
-  category: core-quality
-  source: skills/threat-modeling-engineering/SKILL.md
-  project_path: .agents/skills/threat-modeling-engineering/SKILL.md
-  skill_directory: .agents/skills/threat-modeling-engineering/
-  references:
-  - references/abuse-cases-and-controls.md
-  - references/modeling-method.md
-  routing:
-    signals:
-    - threat model
-    - trust boundary
-    - abuse case
-    companions:
-    - security-review
-    - adversarial-verification
-    - auth-architecture
-    freshness_sensitive: true
-    research:
-      default: repository_first
-      drift_sensitive: true
-      drift_domains:
-      - protocol_provider_guidance
-      - security_advisories
-      - platform_controls
-      source_priority:
-      - repository_runtime
-      - first_party_docs_specs_releases
-      - first_party_repo_issues
-      - strong_independent
-      - community_operational_evidence
-- id: property-based-testing
-  title: Property-Based Testing Engineering
-  description: Design property-based and fuzz-style tests by identifying invariants, round trips, normalization laws, state-machine rules and
-    adversarial input spaces, with reproducible shrinking and failure interpretation.
-  category: core-quality
-  source: skills/property-based-testing/SKILL.md
-  project_path: .agents/skills/property-based-testing/SKILL.md
-  skill_directory: .agents/skills/property-based-testing/
-  references:
-  - references/properties-generators-state-machines.md
-  routing:
-    signals:
-    - property testing
-    - fuzz
-    - hypothesis
-    - quickcheck
-    - fast-check
-    companions:
-    - test-engineering
-    - systematic-debugging
     freshness_sensitive: true
     research:
       default: repository_first
