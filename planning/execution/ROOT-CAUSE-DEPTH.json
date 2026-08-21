@@ -1,0 +1,17 @@
+{
+  "version": "5.8",
+  "status": "NOT_REQUIRED",
+  "job_id": null,
+  "behavioral_oracle": {
+    "authority": null,
+    "statement": null,
+    "baseline_evidence": null
+  },
+  "behavior_home": null,
+  "input_state_classes": [],
+  "deepest_responsible_cause": null,
+  "proposed_fix_boundary": null,
+  "depth_match": null,
+  "exception": null,
+  "evidence": []
+}

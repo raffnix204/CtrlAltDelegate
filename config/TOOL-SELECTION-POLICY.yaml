@@ -1,0 +1,72 @@
+version: '5.8'
+resolution_ladder:
+- NATIVE_VERIFIED
+- EXISTING_PROJECT_VERIFIED
+- EXISTING_EXTERNAL_VERIFIED
+- CURRENT_PROVIDER_RESEARCH
+- SAFE_PROJECT_LOCAL_INSTALL
+- REGISTER_OR_RELOAD
+- SMOKE_TEST
+- LOCK_AND_RECORD
+- READY_OR_BLOCK
+auto_install_requirements:
+- capability_is_required
+- no_verified_equivalent
+- official_or_primary_source_resolved
+- license_recorded
+- no_sudo_or_admin
+- no_global_config_overwrite
+- no_credentials_required
+- no_new_paid_commitment
+- no_security_policy_bypass
+install_rules:
+  root: ./.ctrlaltdelegate/tools
+  global_install: false
+  curl_pipe_shell: false
+  prefer_exact_release: true
+  checksum: REQUIRED_WHEN_UPSTREAM_PUBLISHES
+  signature_attestation: VERIFY_WHEN_AVAILABLE
+  preserve_application_dependencies: true
+  mcp_transport_preference:
+  - stdio
+  - 127.0.0.1
+  bind_all_interfaces: false
+  private_network_access: DENY_UNLESS_PROJECT_REQUIRES_AND_POLICY_ALLOWS
+provider_preferences:
+  web.search:
+  - existing_verified
+  - crw
+  web.scrape:
+  - existing_verified
+  - crw
+  - obscura
+  - lightweight_http_when_static
+  web.map:
+  - existing_verified
+  - crw
+  web.crawl:
+  - existing_verified
+  - crw
+  web.extract:
+  - existing_verified
+  - crw
+  browser.interactive:
+  - existing_project_playwright
+  - existing_verified_browser_mcp
+  - playwright_mcp
+  - obscura
+  browser.lightweight_agent:
+  - existing_verified
+  - obscura
+  - playwright_mcp
+  browser.production_acceptance:
+  - existing_project_playwright
+  - playwright_mcp
+  - project_native_real_browser_e2e
+escalate_to_user_only_for:
+- credentials_or_account
+- paid_service_or_material_recurring_cost
+- sudo_admin_or_system_wide_change
+- global_user_config_change_without_safe_project_scope
+- security_or_compliance_exception
+- license_or_business_commitment_requiring_user_authority

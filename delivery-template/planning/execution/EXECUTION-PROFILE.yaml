@@ -1,4 +1,4 @@
-version: 5.7.1
+version: '5.8'
 status: NOT_CLASSIFIED
 profile: AUTO
 basis:
@@ -24,6 +24,8 @@ policy:
   per_job_branch_required: false
   fresh_final_review_for_small: true
   risk_trigger_can_escalate_single_job: true
+  work_size_and_assurance_are_independent: true
+  tiny_diff_can_require_high_assurance: true
 worker_liveness:
   static_wall_clock_timeout_is_stall_evidence: false
   meaningful_progress_renews_lease: true
@@ -46,3 +48,9 @@ context_tool_rightsizing:
   small: targeted tools and verification
   standard: broader capabilities only when useful
   high_risk: explicit specialists, enforcement checks, independent verification
+assurance_profile: AUTO
+allowed_assurance_profiles:
+- NORMAL
+- ELEVATED
+- HIGH
+- CRITICAL

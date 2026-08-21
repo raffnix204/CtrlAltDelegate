@@ -6,7 +6,7 @@ description: "Choose and design charts, tables and analytical views from the use
 # Data Visualization Design
 
 Skill ID: `data-visualization-design`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

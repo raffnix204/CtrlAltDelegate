@@ -1,4 +1,4 @@
-version: '5.7.1'
+version: '5.8'
 goal: Maximize job-specific expertise and correctness while minimizing active context and solution surface. Library
   size is unconstrained; active job skill set is the smallest complete evidence-backed set.
 selection_pipeline:

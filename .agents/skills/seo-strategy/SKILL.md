@@ -6,7 +6,7 @@ description: "Plan search discoverability before implementation: audience and qu
 # SEO Strategy & Search Architecture
 
 Skill ID: `seo-strategy`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

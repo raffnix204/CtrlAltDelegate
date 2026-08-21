@@ -1,0 +1,266 @@
+version: '5.8'
+policy: Capability candidates are routing/evaluation inputs, never automatic defaults.
+  Verify drift-prone facts from current first-party sources before consequential selection.
+candidate_tiers:
+  CORE: Mature/broad candidate that should normally be considered when its capability
+    is required.
+  SPECIALIST: Strong candidate for a distinct architecture/workload; requires matching
+    project evidence.
+  EMERGING: Useful but higher-drift candidate; requires explicit current research
+    and justification.
+capabilities:
+  web_rendering:
+    candidates:
+    - Astro
+    - Next.js
+    - Nuxt
+    - SvelteKit
+    - Angular
+    - React SPA
+    - Vue SPA
+    - HTMX
+    notes: Choose static/MPA/islands/SSR/SPA/hybrid rendering model before framework.
+  backend_framework:
+    candidates:
+    - FastAPI
+    - Django
+    - NestJS
+    - Fastify
+    - Hono
+    - Elysia
+    - ASP.NET Core
+    - Spring Boot
+    - Ktor
+    - Laravel
+    - Rails
+    - Phoenix
+    - Go stdlib/Chi
+    - Axum
+    notes: Keep a small candidate set based on language/runtime and workload.
+  backend_platform:
+    candidates:
+    - Supabase
+    - Appwrite
+    - PocketBase
+    - Directus
+    - Payload
+    - Convex
+    - Nhost
+    notes: Evaluate a platform bundle against equivalent individual services; self-hostability
+      and exit path are material.
+  api_contract:
+    candidates:
+    - OpenAPI
+    - GraphQL Schema
+    - Protobuf/gRPC
+    - AsyncAPI
+    notes: Contract style follows communication semantics; framework does not decide
+      the contract.
+  api_gateway_management:
+    candidates:
+    - Traefik
+    - Kong
+    - Apache APISIX
+    - Envoy Gateway
+    - Caddy
+    - Nginx
+    - Tyk
+    - Gravitee
+    - KrakenD
+    notes: Distinguish reverse proxy, gateway, API management and service-mesh responsibilities.
+  identity_iam:
+    candidates:
+    - Supabase Auth
+    - Better Auth
+    - Keycloak
+    - Authentik
+    - Zitadel
+    - Ory
+    - Microsoft Entra ID
+    - Okta
+    notes: SSO/SAML/OIDC/SCIM/LDAP/tenant requirements determine whether application
+      auth or dedicated IAM is appropriate.
+  relational_data:
+    candidates:
+    - PostgreSQL
+    - SQLite
+    - MariaDB
+    - MySQL
+    - CockroachDB
+    notes: Prefer PostgreSQL/SQLite for ordinary fit only when requirements support
+      them; distributed SQL needs explicit justification.
+  document_data:
+    candidates:
+    - MongoDB
+    - CouchDB
+    notes: Use document storage for a real document/access-pattern advantage, not
+      avoidance of schema design.
+  analytics_olap:
+    candidates:
+    - DuckDB
+    - ClickHouse
+    - PostgreSQL
+    notes: DuckDB covers embedded/local analytics; ClickHouse covers server OLAP;
+      ordinary reporting may remain in PostgreSQL.
+  time_series_metrics:
+    candidates:
+    - TimescaleDB
+    - InfluxDB
+    - VictoriaMetrics
+    notes: Select from query model, retention, ingest volume and operational context.
+  cache_kv:
+    candidates:
+    - Valkey
+    - Redis
+    notes: Add a cache only after identifying the latency/load/state problem it solves.
+  object_storage:
+    candidates:
+    - MinIO
+    - Garage
+    - S3-compatible existing service
+    - Ceph
+    notes: Reuse existing S3-compatible infrastructure before adding another object
+      store.
+  search:
+    candidates:
+    - PostgreSQL FTS
+    - Meilisearch
+    - Typesense
+    - OpenSearch
+    - Elasticsearch
+    notes: Start with the simplest search that satisfies ranking, typo tolerance,
+      scale and operational requirements.
+  vector_search:
+    candidates:
+    - pgvector
+    - Qdrant
+    - Weaviate
+    - Milvus
+    notes: Existing PostgreSQL + moderate vector needs should evaluate pgvector before
+      a separate vector service.
+  task_queue:
+    candidates:
+    - BullMQ
+    - Celery
+    - RQ
+    - Valkey/Redis primitives
+    notes: Task queues are not event streams or durable workflow engines.
+  message_broker:
+    candidates:
+    - RabbitMQ
+    - NATS
+    notes: Select delivery semantics and topology from workload requirements.
+  event_streaming:
+    candidates:
+    - Kafka
+    - Redpanda
+    notes: Use for durable high-throughput event streams when simpler broker/queue
+      semantics are insufficient.
+  durable_workflow:
+    candidates:
+    - Temporal
+    notes: Use for long-lived/retryable business workflows requiring durable execution
+      semantics.
+  workflow_automation:
+    candidates:
+    - n8n
+    - Windmill
+    - Activepieces
+    - Kestra
+    notes: Prefer workflow automation when integration orchestration avoids unnecessary
+      custom worker code.
+  realtime_collaboration:
+    candidates:
+    - WebSocket
+    - SSE
+    - Yjs
+    - Supabase Realtime
+    - Convex
+    - Electric
+    - Liveblocks
+    notes: Separate server push, bidirectional realtime, database-driven realtime
+      and CRDT collaboration.
+  mobile:
+    candidates:
+    - Swift/SwiftUI
+    - Kotlin/Jetpack Compose
+    - React Native/Expo
+    - Flutter
+    notes: Native integration and platform behavior can outweigh cross-platform code
+      sharing.
+  desktop:
+    candidates:
+    - Tauri
+    - Electron
+    - Qt
+    - Wails
+    - Avalonia
+    - .NET MAUI
+    - Flutter Desktop
+    notes: Evaluate native integration, footprint, web reuse, platform coverage and
+      updater/packaging needs.
+  cms_content:
+    candidates:
+    - Directus
+    - Payload
+    - Strapi
+    - WordPress
+    - Ghost
+    - Drupal
+    notes: Do not build a custom CMS when an existing content platform satisfies workflows
+      and ownership.
+  commerce:
+    candidates:
+    - Medusa
+    - Saleor
+    - Vendure
+    - Sylius
+    - WooCommerce
+    - Shopify
+    notes: Self-hosted candidates are preferred when fit is equal; managed ecosystems
+      remain valid when their concrete business benefit wins.
+  iot_device_telemetry:
+    candidates:
+    - MQTT
+    - NATS
+    - ThingsBoard
+    - ChirpStack
+    - The Things Stack
+    - OPC UA
+    - Modbus
+    notes: Protocols and platforms are distinct; route industrial/LoRaWAN/device-management
+      expertise only when relevant.
+  observability:
+    candidates:
+    - OpenTelemetry
+    - Prometheus
+    - Grafana
+    - Loki
+    - Tempo
+    - Jaeger
+    notes: Reuse existing observability; avoid deploying a complete stack for a small
+      application without a requirement.
+  ai_model_serving:
+    candidates:
+    - Ollama
+    - llama.cpp
+    - vLLM
+    notes: Select from model size/hardware/concurrency/latency/deployment constraints.
+  ai_gateway_orchestration:
+    candidates:
+    - LiteLLM
+    - LlamaIndex
+    - LangChain
+    - custom direct SDK
+    notes: Frameworks are optional; simple model calls should not automatically acquire
+      orchestration infrastructure.
+  deployment:
+    candidates:
+    - systemd/native service
+    - Docker Compose
+    - Coolify
+    - Dokploy
+    - Kubernetes
+    - Nomad
+    notes: Kubernetes is not a default. Choose deployment topology from workload and
+      operator capability.

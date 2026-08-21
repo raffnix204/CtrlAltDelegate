@@ -6,7 +6,7 @@ description: "Plan and review people-first search content using audience intent,
 # SEO Content Strategy & E-E-A-T
 
 Skill ID: `seo-content-strategy`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

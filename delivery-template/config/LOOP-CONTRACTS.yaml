@@ -1,9 +1,11 @@
-version: 5.7.1
+version: '5.8'
 policy:
   blind_retry: forbidden
   progress_required_for_same_strategy: true
   fast_feedback_is_not_acceptance: true
   state_file: planning/execution/LOOP-STATE.json
+  behavioral_oracle_from_authority: true
+  assurance_failure_invalidates_only_affected_evidence: true
 loops:
   DISCOVERY_LOOP:
     trigger:
@@ -56,7 +58,7 @@ loops:
     - new_evidence_or_strategy
     success_when:
     - targeted_verification_passed
-    no_progress_action: change_strategy
+    no_progress_action: change_strategy_or_repair_diagnosis
     escalation:
     - fresh_debugger
     - job_resize
@@ -66,6 +68,9 @@ loops:
     - RESOLVED
     - BLOCKED_EXTERNAL
     - RETRY_EXHAUSTED
+    pre_repair_gates:
+    - behavioral_oracle
+    - root_cause_depth_gate
   WORKER_LIVENESS_LOOP:
     trigger:
     - worker_quiet

@@ -6,7 +6,7 @@ description: "Align searchable pages with the user task and page type search res
 # Search Experience Optimization
 
 Skill ID: `search-experience-optimization`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

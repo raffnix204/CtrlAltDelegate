@@ -1,5 +1,5 @@
 ---
-description: Start or resume the V5.7.1 full lifecycle until COMPLETED
+description: Start or resume the V5.8 full lifecycle until COMPLETED
 ---
 Read `AGENTS.md`, inspect Git and `planning/execution/STATE.md`, then determine `FULL_LIFECYCLE | RESUME_PLANNING | EXECUTION_HANDOFF | RESUME_EXECUTION` from persisted evidence.
 

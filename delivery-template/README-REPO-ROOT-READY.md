@@ -1,4 +1,4 @@
-# V5.7.1 Root-Native Project Delivery Template
+# V5.8 Root-Native Project Delivery Template
 
 This `delivery-template/` models a root-native GitHub-native project baseline. The public GitHub-native distribution itself is tracked in its repository and can run the full lifecycle directly.
 

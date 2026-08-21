@@ -1,0 +1,111 @@
+version: '5.8'
+policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities
+  before installation.
+providers:
+  harness_native:
+    priority: HIGHEST_WHEN_VERIFIED
+    install: NEVER
+    capabilities:
+    - ANY_DECLARED_AND_SMOKE_TESTED
+  project_existing:
+    priority: HIGHEST_WHEN_VERIFIED
+    install: NEVER
+    capabilities:
+    - ANY_PROJECT_NATIVE
+  crw:
+    source:
+      type: github_release
+      repository: us/crw
+    license: AGPL-3.0 engine/MCP; SDK licensing may differ
+    self_hostable: true
+    roles:
+    - WEB_ACQUISITION
+    capabilities:
+    - web.search
+    - web.scrape
+    - web.map
+    - web.crawl
+    - web.extract
+    - browser.render_optional
+    auto_install: true
+    install_scope: .ctrlaltdelegate/tools
+    notes:
+    - Search/render capabilities vary by deployment and must be probed, not inferred
+      from binary presence.
+    - Keep as an external executable/service; do not vendor AGPL engine into CtrlAltDelegate.
+  obscura:
+    source:
+      type: github_release
+      repository: h4ckf0r0day/obscura
+    license: Apache-2.0
+    self_hostable: true
+    roles:
+    - BROWSER_AUTOMATION
+    - INTERACTIVE_SCRAPING
+    capabilities:
+    - browser.javascript
+    - browser.dom
+    - browser.interaction
+    - browser.cookies
+    - browser.network
+    - browser.screenshot
+    - browser.pdf
+    - browser.mcp
+    auto_install: true
+    install_scope: .ctrlaltdelegate/tools
+    notes:
+    - Independent renderer is not the sole production browser-acceptance oracle.
+    - Prefer MCP stdio/loopback; never auto-bind unauthenticated browser control to
+      0.0.0.0.
+  playwright_mcp:
+    source:
+      type: npm
+      package: '@playwright/mcp'
+    license: VERIFY_CURRENT
+    self_hostable: true
+    roles:
+    - BROWSER_AUTOMATION
+    - BROWSER_ACCEPTANCE
+    capabilities:
+    - browser.interaction
+    - browser.accessibility_snapshot
+    - browser.screenshot
+    - browser.production_acceptance
+    auto_install: true
+    install_scope: .ctrlaltdelegate/tools/node
+    notes:
+    - Real browser acceptance remains preferred for production UI/browser claims.
+      Browser binary download may be large; install only when required.
+  firecrawl_existing:
+    source:
+      type: external_or_self_hosted
+    roles:
+    - WEB_ACQUISITION
+    capabilities:
+    - web.scrape
+    - web.crawl
+    - web.map
+    - web.extract
+    - web.search_optional
+    auto_install: false
+    reuse_when_verified: true
+  crawl4ai_existing:
+    source:
+      type: external_or_project
+    roles:
+    - WEB_ACQUISITION
+    capabilities:
+    - web.scrape
+    - web.crawl
+    - browser.render
+    auto_install: false
+    reuse_when_verified: true
+  lightweight_http:
+    source:
+      type: system_or_project
+    roles:
+    - STATIC_FETCH
+    capabilities:
+    - web.fetch_static
+    auto_install: false
+    reuse_when_verified: true

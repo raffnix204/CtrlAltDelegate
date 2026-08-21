@@ -1,4 +1,4 @@
-# Harness State — V5.7.1
+# Harness State — V5.8
 
 Lifecycle: NOT_CHECKED
 Active Harness: AUTO_DETECT
@@ -26,11 +26,15 @@ Readiness: NOT_READY
 | SQLite vector extension | SQLite-vector project dependent | UNKNOWN | | | |
 | Remote operator channel | NO | UNKNOWN | | | |
 
-Missing capabilities are resolved current-at-runtime and recorded here. V5.7.1 prescribes capabilities and safety contracts, not third-party package versions.
+Missing capabilities are resolved current-at-runtime and recorded here. V5.8 prescribes capabilities and safety contracts, not third-party package versions.
 
 Restart Required: NO
 Restart Reason: NONE
 Resume Action: NONE
 
-## V5.7.1 worker-liveness capability check
+## V5.8 worker-liveness capability check
 Before long-running/expensive delegation, record whether the active provider exposes progress/update signals, cancellation and resumable session/checkpoint behavior. Before every delegation, verify the job-required capability set (for example web/browser/runtime/device) is actually available to that worker. A static provider timeout must not be interpreted as proof that the worker was idle.
+
+
+## V5.8 harness notes
+Command Code Support: `FIRST_CLASS_PREVIEW` pending runtime conformance. Canonical skills remain `.agents/skills`; no duplicate Command Code skill tree. Tool/provider capability evidence lives in `CAPABILITY-STATE.json` and `TOOL-LOCK.json`; harness readiness must not infer web/browser capability from executable presence alone.

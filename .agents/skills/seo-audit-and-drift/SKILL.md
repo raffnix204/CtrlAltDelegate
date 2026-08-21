@@ -6,7 +6,7 @@ description: "Capture evidence-backed SEO baselines, run pre/post-deployment aud
 # SEO Audit & Drift Verification
 
 Skill ID: `seo-audit-and-drift`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

@@ -1,7 +1,7 @@
-# Stack Selection & Skill Routing — V5.7.1.1
+# Stack Selection & Skill Routing — V5.8
 
 ## Objective
-V5.7.1 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
+V5.8 intentionally has a broad expert library. The planner and coding orchestrator must keep active context small by routing only skills that materially affect the project/job.
 
 ```text
 PROJECT_UNDERSTOOD
@@ -16,14 +16,16 @@ PROJECT_UNDERSTOOD
 There is **no fixed maximum number of library skills or project-selected skills**. The constraint is relevance: each job receives the smallest complete expert set.
 
 
-## PLANNING_SKILLSET_READY — V5.7.1
+## PLANNING_SKILLSET_READY — V5.8
 
 Before and during discovery, run the early capability scan from `docs/system/SKILL-DRIVEN-PLANNING.md` and `config/PLANNING-SKILL-ROUTING.yaml`. Recalculate the smallest relevant planning specialist set at every material phase boundary. A specialist that owns a consequential planning decision must be consulted before that decision is finalized. Record consultations in `planning/context/PLANNING-SKILL-STATE.yaml`.
 
 Planning skill selection precedes final stack selection when domain, UX, security, data, protocol, compliance or operational expertise can change requirements. Stack/language/framework specialists join as evidence narrows candidate technology. The final execution skill pool is derived from the resolved project plus these planning decisions; it is not a fresh unrelated selection.
 
 ## STACK_READY
-Create/update `planning/architecture/STACK-MANIFEST.yaml`.
+Before final stack selection, resolve `planning/architecture/TECHNOLOGY-EVALUATION.yaml` using `docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md`, `config/TECHNOLOGY-CAPABILITY-CATALOG.yaml` and `config/TECHNOLOGY-SELECTION-POLICY.yaml`. Derive capability bundles before technology names, compare integrated platforms against equivalent component stacks, prefer self-hostable/portable options when fit is equal, and apply solution minimization.
+
+Create/update `planning/architecture/STACK-MANIFEST.yaml` only after material capability/candidate decisions are resolved.
 
 ### Greenfield
 Use `technology-stack-selection` and current evidence to decide:

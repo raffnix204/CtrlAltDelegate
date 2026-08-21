@@ -1,4 +1,4 @@
-# CODING AGENT HANDOFF — V5.7.1
+# CODING AGENT HANDOFF — V5.8
 
 
 > **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.
@@ -65,11 +65,11 @@ Where requirements expose meaningful measurable outcomes, use them as backpressu
 Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.
 
 
-## V5.7.1 control surfaces
+## V5.8 control surfaces
 Use the canonical loop registry/state, machine-readable job graph, surface policy, decision ledger, artifact-consistency gate and harness-conformance profile. For Custom-GPT ZIP handoffs, import to `./.ctrlaltdelegate/` under `LOCAL_PRIVATE` Git visibility before execution.
 
 
-## V5.7.1 planning-skill and authoritative-content handoff
+## V5.8 planning-skill and authoritative-content handoff
 
 Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
 

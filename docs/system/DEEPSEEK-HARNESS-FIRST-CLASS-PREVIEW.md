@@ -1,4 +1,4 @@
-# DeepSeek Harness First-Class Preview Target — V5.7.1
+# DeepSeek Harness First-Class Preview Target — V5.8
 
 Repository: https://github.com/deepseek-ai/deepseek-harness
 Reviewed public release line: `0.1.0-rc.7`, developer preview, reviewed 2026-08-19.

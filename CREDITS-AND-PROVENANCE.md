@@ -1,4 +1,4 @@
-# Provenance & Maintenance — V5.7.1
+# Provenance & Maintenance — V5.8
 
 Software Planning Lead V5.6.4 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
 
@@ -43,3 +43,7 @@ A user-supplied snapshot of `garrytan/gstack` 1.67.0.0 was reviewed as a communi
 V5.7 additionally reviewed ECC, Superpowers, planning-with-files, GitHub Spec Kit, OpenSpec, BMAD, Agent Skills for Context Engineering, Beads, LoopGate, sub-agents-skills, Open SWE, OpenHands, OpenCode, Oh My OpenAgent, OpenAI Codex, Ralph, Hermes Agent Self-Evolution and DeepSeek Harness. The release independently adapts only durable mechanisms relevant to CtrlAltDelegate: closed-loop/progress control, machine-readable dependency state, protected surfaces, requirements/artifact consistency, capability negotiation, safe resume, scoped replanning and evidence-driven retrospectives. No upstream prompt body or runtime is vendored.
 
 DeepSeek Harness was reviewed at `0.1.0-rc.7` / commit `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca` and is classified `FIRST_CLASS_PREVIEW` while upstream remains pre-stable.
+
+
+## V5.8 research
+V5.8 reviewed CRW/fastCRW, Obscura and Command Code as external architecture/tool/harness references. CtrlAltDelegate vendors none of their runtimes. It independently defines capability-based provider resolution, project-local safe bootstrap, web acquisition/browser role separation and Command Code conformance mapping. Technology catalog entries are candidates only; drift-prone facts are revalidated when selected.

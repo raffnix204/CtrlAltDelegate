@@ -1,0 +1,9 @@
+version: '5.8'
+source_of_truth: planning/execution/JOB-GRAPH.json
+native_tasks: OPTIONAL_EXECUTION_MIRROR
+rules:
+- Only dependency-ready CtrlAltDelegate jobs may become runnable native tasks.
+- Native task completion is a worker claim until CtrlAltDelegate verification/evidence
+  closes the job.
+- Never let native tasks overwrite requirement IDs, protected scope, assurance or
+  convergence state.

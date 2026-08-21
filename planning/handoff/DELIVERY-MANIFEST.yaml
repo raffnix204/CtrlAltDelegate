@@ -1,4 +1,4 @@
-delivery_version: 5.7.1
+delivery_version: '5.8'
 layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
@@ -36,6 +36,11 @@ required_files:
 - planning/context/PLANNING-SKILL-STATE.yaml
 - config/PLANNING-SKILL-ROUTING.yaml
 - docs/system/SKILL-DRIVEN-PLANNING.md
+- config/ASSURANCE-PROFILES.yaml
+- docs/system/ASSURANCE-BEHAVIORAL-ORACLES-AND-ROOT-CAUSE-DEPTH.md
+- docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md
+- planning/execution/ASSURANCE-STATE.yaml
+- planning/execution/ROOT-CAUSE-DEPTH.json
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -55,4 +60,13 @@ language_contract:
   conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
   ctrlaltdelegate_artifacts: ENGLISH
   localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES
-version: 5.7.1
+version: '5.8'
+assurance_contract:
+  work_and_assurance_axes: INDEPENDENT
+  profiles:
+  - NORMAL
+  - ELEVATED
+  - HIGH
+  - CRITICAL
+  behavioral_oracle: AUTHORITY_DERIVED
+  root_cause_depth_gate: RISK_TRIGGERED

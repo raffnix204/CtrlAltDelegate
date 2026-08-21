@@ -1,0 +1,18 @@
+{
+  "version": "5.8",
+  "status": "NOT_ATTESTED",
+  "harness": null,
+  "harness_version": null,
+  "config_sha256": null,
+  "permission_profile": null,
+  "adapter_sha256": null,
+  "capabilities": {},
+  "verified_at": null,
+  "evidence": [],
+  "invalidators": [
+    "harness_version_changes",
+    "config_hash_changes",
+    "permission_profile_changes",
+    "adapter_hash_changes"
+  ]
+}

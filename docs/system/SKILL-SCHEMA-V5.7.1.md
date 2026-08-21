@@ -1,8 +1,8 @@
-# Skill Schema V5.7.1
+# Skill Schema V5.7.2
 
 ## Purpose
 
-V5.7.1 keeps each canonical `SKILL.md` focused on domain expertise while making planning participation explicit through a centralized registry. A specialist can influence Custom-GPT planning, coding-agent execution, or both without duplicating global planning/governance prose across every skill.
+V5.7.2 keeps each canonical `SKILL.md` focused on domain expertise while making planning participation explicit through a centralized registry. A specialist can influence Custom-GPT planning, coding-agent execution, or both without duplicating global planning/governance prose across every skill.
 
 ## Canonical skill directory
 

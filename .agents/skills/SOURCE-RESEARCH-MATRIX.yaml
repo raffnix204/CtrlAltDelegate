@@ -1,5 +1,5 @@
-version: '5.7.1'
-reviewed_at: '2026-08-19'
+version: '5.8'
+reviewed_at: '2026-08-21'
 policy:
   external_sources_are_research_inputs_only: true
   copy_upstream_skill_verbatim: false
@@ -16,7 +16,8 @@ sources:
     - react component/state/effect and server-client pattern depth
     - security review/checklist and framework-rule organization ideas
     - skill/rule separation and current agent-skill ergonomics
-    adaptation: concepts independently rewritten; ECC harness/model assumptions are not inherited
+    adaptation: concepts independently rewritten; ECC harness/model assumptions are
+      not inherited
   shokunin:
     repository: https://github.com/EliasOulkadi/shokunin
     reviewed_commit: 4c68e5bcb49453053cebf3390939a0a2e8e9a5e8
@@ -32,7 +33,8 @@ sources:
     used_for:
     - locating current vendor/project-maintained skill repositories
     - identifying high-value domain gaps and version-sensitive specialist topics
-    caution: verify the underlying repository and first-party documentation; index labels are not authority
+    caution: verify the underlying repository and first-party documentation; index
+      labels are not authority
   gstack:
     repository: https://github.com/garrytan/gstack
     reviewed_snapshot: 1.67.0.0 (user-supplied archive)
@@ -42,8 +44,25 @@ sources:
     - plan/review completion gates
     - persistent decision/review state on disk
     - handoff/transition closure checks
-    adaptation: concepts independently rewritten; Claude-specific slash commands, browser stack, telemetry, gbrain, Bun tooling
-      and opinionated role pipeline are not inherited
+    adaptation: concepts independently rewritten; Claude-specific slash commands,
+      browser stack, telemetry, gbrain, Bun tooling and opinionated role pipeline
+      are not inherited
+  autoprompt_skill:
+    repository: https://github.com/Spielewoy/autoprompt-skill
+    class: community_agent_orchestration_reference
+    reviewed_for: V5.7.2
+    used_for:
+    - behavior-derived regression oracle
+    - root-cause depth gate
+    - blind independent assurance
+    - hash-bound compact worker briefs
+    - capability attestation fast path
+    - collect-then-stop worker lifecycle
+    not_adopted:
+    - universal strict TDD
+    - universal 95 percent coverage mandate
+    - fixed multi-level persona hierarchy
+    - model routing
 vendor_project_repositories:
   nextjs:
     repository: https://github.com/vercel-labs/next-skills
@@ -220,8 +239,8 @@ primary_authority_families:
 - Cloud/IaC/network vendor documentation for current resource/provider/runtime behavior
 - OWASP and applicable standards for security baselines
 maintenance_review_v5_6_1:
-  scope: V5.6.1 audit of the then-current 145 skills; 59 incomplete V5.6 migrations received substantive domain completion and a progressive
-    decision playbook
+  scope: V5.6.1 audit of the then-current 145 skills; 59 incomplete V5.6 migrations
+    received substantive domain completion and a progressive decision playbook
   ecc:
     reviewed_commit: c9de8f5b2b3a225bca9befa2b7700aa5e3a4d1b8
     reviewed_patterns:
@@ -255,8 +274,8 @@ maintenance_review_v5_6_1:
     - Windows/PowerShell platform sharp-edge inventory
     - progressive-reference and review ergonomics
   officialskills_and_first_party:
-    policy: officialskills.sh is discovery only; underlying repositories and current first-party documentation are authority
-      for version-sensitive claims
+    policy: officialskills.sh is discovery only; underlying repositories and current
+      first-party documentation are authority for version-sensitive claims
     reviewed_families:
     - Cloudflare Workers/platform
     - HashiCorp Terraform
@@ -269,8 +288,8 @@ maintenance_review_v5_6_1:
     - version/capability drift triggers
     - provider/platform-specific failure modes
     - safe remote network change and rollback evidence
-  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification language; no
-    upstream harness policy or dependency choice is inherited by default
+  adaptation: ideas were independently rewritten into CtrlAltDelegate decision/invariant/failure/verification
+    language; no upstream harness policy or dependency choice is inherited by default
 architecture_research_v5_7:
   policy: independently adapt mechanisms; do not copy prompts/runtime dependencies
   repositories:
@@ -374,9 +393,9 @@ architecture_research_v5_7:
     - fail-closed approval
     - minimal tool/context profile
 domain_skill_research_v5_7_1:
-  policy: External skill repositories are coverage and mechanism research. CtrlAltDelegate independently rewrites concepts,
-    keeps current first-party evidence authoritative for drift-sensitive facts, and does not inherit provider-specific runtime
-    assumptions.
+  policy: External skill repositories are coverage and mechanism research. CtrlAltDelegate
+    independently rewrites concepts, keeps current first-party evidence authoritative
+    for drift-sensitive facts, and does not inherit provider-specific runtime assumptions.
   repositories:
   - name: claude-seo
     url: https://github.com/AgriciDaniel/claude-seo
@@ -399,8 +418,8 @@ domain_skill_research_v5_7_1:
     - cluster-based naturalness review
     - minimal revision and null-edit behavior
     - evidence-safe editing rather than detector evasion
-    license_note: Concepts only. Do not import language-specific Wikipedia-derived pattern catalogs; upstream contains mixed
-      MIT and CC BY-SA material.
+    license_note: Concepts only. Do not import language-specific Wikipedia-derived
+      pattern catalogs; upstream contains mixed MIT and CC BY-SA material.
   - name: prompts.chat
     url: https://github.com/f/prompts.chat
     ideas:
@@ -408,3 +427,28 @@ domain_skill_research_v5_7_1:
     - targeted iterative refinement
     - structured outputs/examples as discriminating tools
     - record and evaluate prompt changes rather than random rewrites
+architecture_research_v5_8:
+  policy: Independent mechanism research; products remain external providers/candidates,
+    not vendored dependencies.
+  repositories:
+  - name: CRW / fastCRW
+    url: https://github.com/us/crw
+    used_for:
+    - web acquisition capability model
+    - search/scrape/map/crawl/extract provider candidate
+    - capability probing and self-hosted deployment awareness
+    license_note: Engine/MCP AGPL-3.0; keep external and record resolved deployment/license.
+  - name: Obscura
+    url: https://github.com/h4ckf0r0day/obscura
+    used_for:
+    - lightweight interactive browser capability
+    - MCP/CDP/session/form/network/screenshot/PDF mapping
+    license_note: Apache-2.0; independent renderer is not the sole production-browser
+      oracle.
+  - name: Command Code
+    url: https://github.com/CommandCodeAI/command-code
+    used_for:
+    - AGENTS/.agents skill compatibility
+    - subagent/task/headless/resume/MCP/hook/permission/worktree capability mapping
+    caution: Public repository does not expose complete CLI implementation; FIRST_CLASS
+      promotion requires runtime conformance.

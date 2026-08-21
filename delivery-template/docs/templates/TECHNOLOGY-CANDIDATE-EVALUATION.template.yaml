@@ -1,0 +1,32 @@
+version: '5.8'
+capability_or_bundle: REPLACE_ME
+hard_constraints: []
+candidates:
+- name: REPLACE_ME
+  status: CANDIDATE
+  capability_coverage: []
+  current_evidence: []
+  evaluation:
+    functional_fit: AUTO
+    architecture_fit: AUTO
+    existing_infrastructure_fit: AUTO
+    self_hostability: AUTO
+    security: AUTO
+    operational_complexity: AUTO
+    maturity: AUTO
+    maintenance_burden: AUTO
+    ecosystem: AUTO
+    performance_headroom: AUTO
+    scalability: AUTO
+    portability: AUTO
+    vendor_lock_in: AUTO
+    cost: AUTO
+    migration_exit_path: AUTO
+    team_fit: AUTO
+  risks: []
+  exit_path: AUTO
+decision:
+  selected: AUTO
+  rejected: []
+  reason: AUTO
+  confidence: AUTO

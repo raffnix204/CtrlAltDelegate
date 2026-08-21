@@ -6,7 +6,7 @@ description: "Plan and verify location/service-area and commerce search surfaces
 # Local & Commerce SEO
 
 Skill ID: `local-commerce-seo`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

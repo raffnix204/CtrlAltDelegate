@@ -1,7 +1,7 @@
-# Curated Skills and Execution Tools — V5.7.1
+# Curated Skills and Execution Tools — V5.8
 
 ## Library philosophy
-V5.7.1 ships **154 first-party canonical skills** in this release. That count is not a design ceiling. New skills are added when a recurring responsibility has enough distinct reasoning, failure modes and verification to justify its own expert context.
+V5.8 ships **154 first-party canonical skills** in this release. That count is not a design ceiling. New skills are added when a recurring responsibility has enough distinct reasoning, failure modes and verification to justify its own expert context.
 
 The opposite constraint applies at execution time: **never preload the library**.
 

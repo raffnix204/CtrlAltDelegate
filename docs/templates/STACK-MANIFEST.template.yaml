@@ -1,4 +1,4 @@
-version: '5.7.1'
+version: '5.8'
 status: NOT_RESOLVED
 project_mode: AUTO
 project_profile: AUTO
@@ -38,6 +38,20 @@ selected:
   network_platforms: []
   integration_protocols: []
   external_providers: []
+  backend_platforms: []
+  api_contracts: []
+  api_gateways: []
+  identity_iam: []
+  object_storage: []
+  analytics_olap: []
+  time_series: []
+  workflow_automation: []
+  durable_workflows: []
+  realtime_collaboration: []
+  cms_content: []
+  commerce: []
+  iot_telemetry: []
+  observability: []
 decisions: []
 evidence: []
 research_freshness:
@@ -51,3 +65,9 @@ skill_signals:
   domain_specialists: []
   risk_specialists: []
 reconsideration_triggers: []
+selection_policy:
+  capability_model: planning/architecture/TECHNOLOGY-EVALUATION.yaml
+  catalog: config/TECHNOLOGY-CAPABILITY-CATALOG.yaml
+  self_hostable_first_when_fit_equal: true
+  solution_minimization: true
+candidate_decisions: []

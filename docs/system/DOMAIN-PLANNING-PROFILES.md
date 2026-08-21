@@ -1,4 +1,4 @@
-# Domain Planning Profiles — V5.7.1
+# Domain Planning Profiles — V5.8
 
 ## Purpose
 
@@ -35,3 +35,15 @@ Use for system integrations, provider migrations and modernization. Candidate co
 Profiles compose. For example, a SaaS may be `WEB_PRODUCT + BACKEND_SERVICE + DATA_AI`; a device controller may be `DESKTOP_LOCAL + INFRA_NETWORK`; a commerce system may add payment, e-commerce, search and analytics specialists.
 
 Profiles never replace capability/risk routing. The registry is refreshed whenever new facts emerge.
+
+
+## V5.8 capability overlays
+
+These overlays compose with the core project-type profiles and are **not capability ceilings**:
+
+- `COMMERCE` — catalog/product model, pricing, checkout, payment boundaries, order/inventory/tax/fulfillment integrations, idempotency, reconciliation and fraud/abuse surfaces.
+- `IOT_EDGE` — device identity/provisioning, telemetry, command/control, offline behavior, fleet lifecycle, MQTT/LoRaWAN/industrial protocols, time-series retention and edge/network failure modes.
+- `REALTIME_COLLABORATION` — presence, synchronization semantics, WebSocket/SSE choice, CRDT/merge model, reconnect/offline behavior and conflict/recovery verification.
+- `CONTENT_PLATFORM` — authoring/editorial workflow, schema/content model, preview/publishing, media, permissions, SEO/search and migration.
+
+Profiles and overlays only activate relevant planning skills/capability questions; they do not hard-code a framework or platform.

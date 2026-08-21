@@ -1,0 +1,17 @@
+version: '5.8'
+support: FIRST_CLASS_PREVIEW
+binary: cmd
+instructions: AGENTS.md
+canonical_skills: .agents/skills
+detect:
+- headless
+- structured_output
+- resume_continue
+- subagents
+- parallel_background
+- tasks
+- mcp
+- hooks
+- permission_enforcement
+- worktrees
+model_routing: HARNESS_OWNED_NOT_CTRLALTDELEGATE

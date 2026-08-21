@@ -1,0 +1,46 @@
+version: '5.8'
+policy:
+  work_size_and_assurance_are_independent: true
+  author_success_claim_is_not_evidence: true
+  behavior_oracle_from_authority_not_patch: true
+  coverage_percentage_is_not_universal_quality_gate: true
+  strict_tdd_is_not_universal: true
+allowed_assurance_profiles:
+- NORMAL
+- ELEVATED
+- HIGH
+- CRITICAL
+triggers:
+  ELEVATED:
+  - public_contract_change
+  - nontrivial_concurrency
+  - migration_or_persistent_state
+  - externally_integrated_behavior
+  HIGH:
+  - authentication_or_authorization
+  - security_boundary
+  - destructive_data_path
+  - money_or_billing
+  - network_lockout_risk
+  - critical_migration
+  CRITICAL:
+  - safety_or_regulatory_critical
+  - irreversible_high_blast_radius
+requirements:
+  NORMAL:
+    author_independent_final_review: risk_triggered
+    sibling_verdict_blind: false
+  ELEVATED:
+    author_independent_final_review: true
+    sibling_verdict_blind: preferred
+  HIGH:
+    author_independent_final_review: true
+    independent_runtime_verification: true
+    sibling_verdict_blind: true
+    root_cause_depth_gate_for_substantive_debug: true
+  CRITICAL:
+    author_independent_final_review: true
+    independent_runtime_verification: true
+    sibling_verdict_blind: true
+    root_cause_depth_gate_for_substantive_debug: true
+    additional_fresh_assurance: required_when_materially_independent

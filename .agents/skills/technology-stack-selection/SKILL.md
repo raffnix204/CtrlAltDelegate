@@ -7,7 +7,7 @@ description: Select languages, runtimes, frameworks, rendering models, databases
 
 ## Purpose
 
-Turn product and operational requirements into a defensible technology stack instead of defaulting to familiar tools. The output must explain why the selected language, runtime, framework, data store, deployment model and supporting services fit this project better than credible alternatives.
+Turn product and operational requirements into a capability model and then a defensible technology stack instead of defaulting to familiar tools. The output must explain why the selected language, runtime, framework, data store, deployment model and supporting services fit this project better than credible alternatives.
 
 This skill owns this responsibility narrowly. It complements the general V5.6.1 planning, implementation, testing, review, security, performance and verification system rather than replacing those layers. Prefer project-native conventions and current authoritative documentation over memorized framework details.
 
@@ -46,6 +46,14 @@ If the user has not expressed these constraints, the planner should have run a c
 - Verify current support windows, licenses, compatibility and deployment constraints for all consequential choices before finalizing.
 
 Prefer the simplest design that satisfies correctness, operability, security and expected scale. Reject complexity whose benefit cannot be tied to a concrete requirement or measured risk.
+
+## Capability-Driven Selection
+
+Before naming technologies, derive required capabilities and useful bundles (for example auth + database + storage + realtime). Consult `config/TECHNOLOGY-CAPABILITY-CATALOG.yaml` only to prevent blind spots, then form a small credible candidate set. Prefer self-hostable/portable solutions when fit is equivalent, but allow managed services when current evidence shows a material reliability, compliance, ecosystem, delivery-speed or total-cost advantage. Compare integrated platforms against the equivalent individual-service stack and apply solution minimization.
+
+For APIs, decide contract/protocol separately from framework and gateway: OpenAPI/HTTP, GraphQL schema, Protobuf/gRPC and AsyncAPI/event contracts are not interchangeable. For messaging, distinguish task queues, brokers, event streams and durable workflow engines.
+
+Persist candidate reasoning in `planning/architecture/TECHNOLOGY-EVALUATION.yaml`; `STACK-MANIFEST.yaml` remains the resolved architecture source.
 
 ## Workflow
 

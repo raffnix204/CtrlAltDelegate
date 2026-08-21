@@ -1,4 +1,4 @@
-version: 5.7.1
+version: '5.8'
 layout: ZIP_TO_HIDDEN_CONTROL_ROOT
 archive_name: ctrlaltdelegate-delivery.zip
 control_root_name: .ctrlaltdelegate
@@ -65,3 +65,10 @@ required_files:
 - config/PLANNING-SKILL-ROUTING.yaml
 - docs/system/SKILL-DRIVEN-PLANNING.md
 - planning/context/PLANNING-SKILL-STATE.yaml
+- config/ASSURANCE-PROFILES.yaml
+- docs/system/ASSURANCE-BEHAVIORAL-ORACLES-AND-ROOT-CAUSE-DEPTH.md
+- docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md
+- planning/execution/ASSURANCE-STATE.yaml
+- planning/execution/ROOT-CAUSE-DEPTH.json
+- scripts/validate_assurance_control.py
+- scripts/worker_brief_hash.py

@@ -1,4 +1,4 @@
-delivery_version: '5.7.1'
+delivery_version: '5.8'
 layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff

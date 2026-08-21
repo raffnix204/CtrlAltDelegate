@@ -1,0 +1,58 @@
+version: '5.8'
+principles:
+- HARD_CONSTRAINTS_FIRST
+- SELF_HOSTABLE_FIRST_WHEN_FIT_IS_EQUAL
+- EXISTING_INFRASTRUCTURE_FIRST
+- CAPABILITY_BUNDLE_MINIMIZATION
+- PORTABILITY_AND_EXIT_PATH
+- CURRENT_EVIDENCE_FOR_DRIFT
+- BORING_DEFAULTS_FOR_ORDINARY_REQUIREMENTS
+- NO_TREND_AS_EVIDENCE
+preference_authority:
+- REQUIRED
+- PREFERRED
+- AUTO
+pipeline:
+- PROJECT_REQUIREMENTS
+- CONSTRAINT_EXTRACTION
+- DOMAIN_PROFILE
+- CAPABILITY_MATRIX
+- CANDIDATE_GENERATION
+- CURRENT_RESEARCH
+- COMPATIBILITY_CHECK
+- WEIGHTED_EVALUATION
+- SOLUTION_MINIMIZATION
+- STACK_DECISION
+- STACK_MANIFEST
+- SPECIALIST_SKILL_ACTIVATION
+- ARCHITECTURE
+evaluation_dimensions:
+- functional_fit
+- architecture_fit
+- existing_infrastructure_fit
+- self_hostability
+- security
+- operational_complexity
+- maturity
+- maintenance_burden
+- ecosystem
+- performance_headroom
+- scalability
+- portability
+- vendor_lock_in
+- cost
+- migration_exit_path
+- team_fit
+rules:
+  candidate_limit: Prefer 2-5 credible candidates per consequential capability/bundle;
+    expand only when evidence is insufficient.
+  bundle_comparison: Compare integrated platforms against equivalent component stacks
+    using the same capability list.
+  saas: SaaS may win when its concrete benefit outweighs self-hosting/control/lock-in
+    concerns; document why.
+  brownfield: Continuation is default; replatform only when benefit exceeds migration
+    and dual-system risk.
+  current_research: Current version/license/support/platform facts used in a consequential
+    decision require source evidence.
+  decision_record: Record selected option, credible rejected alternatives, tradeoffs,
+    evidence and confidence.

@@ -1,9 +1,11 @@
-version: 5.7.1
+version: '5.8'
 policy:
   same_behavioral_contract: true
   use_native_capabilities_when_available: true
   unsupported_required_capability: FAIL_LOUD_OR_REROUTE
   model_routing: false
+  capability_attestation_cache: true
+  attestation_cache_miss_is_not_capability_proof: true
 harnesses:
   pi:
     support: REFERENCE
@@ -61,3 +63,31 @@ harnesses:
     canonical_skills: .agents/skills_when_supported
     sessions: detect
     plan_build_permissions: detect
+  command-code:
+    support: FIRST_CLASS_PREVIEW
+    binary: cmd
+    instructions: AGENTS.md
+    canonical_skills: .agents/skills
+    duplicate_skill_copy: false
+    capabilities_to_detect:
+    - headless_structured_output
+    - resume_continue
+    - subagents
+    - parallel_background
+    - persistent_tasks
+    - mcp
+    - hooks
+    - permission_enforcement
+    - worktrees
+    task_source_of_truth: planning/execution/JOB-GRAPH.json
+    model_routing: HARNESS_OWNED
+    promotion: runtime_conformance_required
+attestation:
+  template: docs/templates/HARNESS-ATTESTATION.template.json
+  bindings:
+  - harness_identity
+  - harness_version
+  - config_hash
+  - permission_profile
+  - adapter_hash
+  reuse_only_when_all_required_bindings_match: true

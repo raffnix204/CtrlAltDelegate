@@ -1,4 +1,4 @@
-# Skill Evaluation — V5.7.1
+# Skill Evaluation — V5.8
 
 The skill library is software behavior, not static prose. Release QA must test routing and behavioral effect, especially as the library grows.
 

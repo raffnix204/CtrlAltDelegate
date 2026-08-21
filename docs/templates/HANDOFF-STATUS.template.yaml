@@ -1,4 +1,4 @@
-version: 5.7.1
+version: '5.8'
 status: NOT_READY
 mode: EXECUTION_HANDOFF
 topology: ZIP_TO_HIDDEN_CONTROL_ROOT
@@ -22,4 +22,5 @@ closure_checks:
   control_tree_verified_before_archive: false
   planning_baseline_attested: false
   planning_skill_state_present: false
+  assurance_state_present: false
 planning_baseline: ./.ctrlaltdelegate/planning/execution/PLANNING-BASELINE.json

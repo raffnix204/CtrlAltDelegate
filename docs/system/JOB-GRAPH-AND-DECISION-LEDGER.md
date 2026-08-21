@@ -1,4 +1,4 @@
-# Machine-Readable Job Graph and Decision Ledger — V5.7.1
+# Machine-Readable Job Graph and Decision Ledger — V5.8
 
 `planning/execution/JOB-GRAPH.json` is the canonical machine-readable execution graph. Human-oriented execution plans may summarize it but must not silently disagree with it.
 

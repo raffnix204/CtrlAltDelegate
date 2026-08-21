@@ -1,4 +1,4 @@
-# Closed-Loop Control Architecture — V5.7.1
+# Closed-Loop Control Architecture — V5.8
 
 CtrlAltDelegate treats recurring agent behavior as explicit control loops rather than informal "repeat until done" instructions.
 
@@ -26,7 +26,7 @@ On `NO_PROGRESS`, change strategy or escalate according to the loop contract. Re
 
 ## Standard loops
 
-V5.7.1 registers at least:
+V5.8 registers at least:
 - `DISCOVERY_LOOP`;
 - `RESEARCH_LOOP`;
 - `PROGRAM_DESIGN_STEERING_LOOP`;

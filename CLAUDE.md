@@ -1,7 +1,7 @@
 @AGENTS.md
 
 # Claude Code compatibility
-Canonical V5.7.1 instructions are `AGENTS.md`; `.claude/skills/` are thin adapters to `.agents/skills/`.
+Canonical V5.8 instructions are `AGENTS.md`; `.claude/skills/` are thin adapters to `.agents/skills/`.
 
 
-Use the V5.7.1 closed-loop control and harness-conformance rules from `AGENTS.md`; `AGENTS.md` is authoritative.
+Use the V5.8 closed-loop control and harness-conformance rules from `AGENTS.md`; `AGENTS.md` is authoritative.

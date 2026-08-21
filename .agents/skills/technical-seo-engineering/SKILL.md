@@ -6,7 +6,7 @@ description: "Design and verify crawlability, indexability, rendering, canonical
 # Technical SEO Engineering
 
 Skill ID: `technical-seo-engineering`
-Library: `software-planning-lead-v5.7.1`
+Library: `software-planning-lead-v5.8`
 Version: `5.7.1`
 
 ## Purpose / Ownership

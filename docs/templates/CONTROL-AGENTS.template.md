@@ -1,4 +1,4 @@
-# CtrlAltDelegate V5.7.1 — Imported Control Package Instructions
+# CtrlAltDelegate V5.8 — Imported Control Package Instructions
 
 This file belongs to an imported Custom-GPT planning handoff. The coding agent runs from the real application repository root, not from this directory.
 
@@ -17,7 +17,7 @@ Application code, tests and normal project configuration belong in `PROJECT_ROOT
 3. Treat the resolved planning baseline as authoritative unless real repository/runtime evidence materially contradicts it.
 4. Read only job-relevant planning, ADR, research and skills progressively.
 
-## V5.7.1 control plane
+## V5.8 control plane
 Use:
 - `config/LOOP-CONTRACTS.yaml` + `planning/execution/LOOP-STATE.json`;
 - `planning/execution/JOB-GRAPH.json`;
@@ -40,3 +40,6 @@ Default control visibility is `LOCAL_PRIVATE`. After successful root-drop import
 
 ## Completion
 Continue through implementation, verification, documentation, Git/GitHub integration and convergence until `COMPLETED`. Ask the user only for a true product/business/safety/external hard stop.
+
+## V5.8 assurance and debug integrity
+Read `planning/execution/ASSURANCE-STATE.yaml` and `config/ASSURANCE-PROFILES.yaml`. Work size and assurance depth are independent. For substantive bug repair, derive a behavioral oracle from authoritative observed behavior and use `planning/execution/ROOT-CAUSE-DEPTH.json` when a symptom-layer fix could hide a deeper cause. High-assurance acceptance must be author-independent; parallel assurance verdicts remain blind when required. Delegated workers verify hash-bound authority pointers and return `STALE_BRIEF` rather than executing stale planning state.

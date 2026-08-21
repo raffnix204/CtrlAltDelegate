@@ -158,5 +158,5 @@ Create or update `USER-FLOWS.md`/`UI-SPEC.md` with:
 
 Critical journeys must later be traceable to browser/native acceptance tests.
 
-## V5.7.1 Planning participation
+## V5.8 Planning participation
 Load this skill during discovery whenever the software has meaningful human workflows. Its job is to influence requirements and information architecture before visual design/code. Read `references/planning-phase-ux.md` when discovery still has unresolved journeys, states, navigation or searchable page-purpose questions.

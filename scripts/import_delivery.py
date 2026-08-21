@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Safely import a CtrlAltDelegate V5.7.1 planning delivery ZIP into a target project.
+"""Safely import a CtrlAltDelegate V5.8 planning delivery ZIP into a target project.
 
 This helper belongs to the root-native distribution. A Custom-GPT handoff can be
 bootstrapped by a coding agent with equivalent standard archive operations when
@@ -57,7 +57,7 @@ def validate_tree(control: Path) -> list[str]:
     try:
         cp=json.loads((control/'CONTROL-PACKAGE.json').read_text(encoding='utf-8'))
         expected={
-            'ctrlaltdelegate_version':'5.7.1', 'archive_name':ARCHIVE_NAME,
+            'ctrlaltdelegate_version':'5.8', 'archive_name':ARCHIVE_NAME,
             'top_level_directory':CONTROL_NAME, 'control_root':'./.ctrlaltdelegate',
             'control_visibility':'LOCAL_PRIVATE',
         }
@@ -73,7 +73,7 @@ def validate_tree(control: Path) -> list[str]:
     s=control/'planning/handoff/HANDOFF-STATUS.yaml'
     if s.is_file():
         text=s.read_text(encoding='utf-8')
-        for k,v in {'version':'5.7.1','status':'READY','mode':'EXECUTION_HANDOFF','topology':'ZIP_TO_HIDDEN_CONTROL_ROOT','control_root':'./.ctrlaltdelegate','control_visibility':'LOCAL_PRIVATE','unresolved_blocking_decisions':'0'}.items():
+        for k,v in {'version':'5.8','status':'READY','mode':'EXECUTION_HANDOFF','topology':'ZIP_TO_HIDDEN_CONTROL_ROOT','control_root':'./.ctrlaltdelegate','control_visibility':'LOCAL_PRIVATE','unresolved_blocking_decisions':'0'}.items():
             if yaml_scalar(text,k)!=v: errors.append(f"handoff {k} mismatch")
         for k in ['required_paths_present','prompt_paths_verified','planning_ready','planning_baseline_attested','zero_blocking_decisions','control_tree_verified_before_archive','planning_skill_state_present']:
             if yaml_scalar(text,k)!='true': errors.append(f"closure check not true: {k}")

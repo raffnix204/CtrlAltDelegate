@@ -1,4 +1,4 @@
-# Requirements Quality and Artifact Consistency — V5.7.1
+# Requirements Quality and Artifact Consistency — V5.8
 
 Before consequential implementation, test the planning artifacts themselves.
 

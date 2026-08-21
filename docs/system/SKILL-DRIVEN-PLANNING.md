@@ -1,4 +1,4 @@
-# Skill-Driven Planning Contract — V5.7.1
+# Skill-Driven Planning Contract — V5.8
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# Coding-Agent Start Prompt — CtrlAltDelegate V5.7.1 ZIP Handoff
+# Coding-Agent Start Prompt — CtrlAltDelegate V5.8 ZIP Handoff
 
 Work from the actual target project/repository root. A completed CtrlAltDelegate planning handoff is provided as `./ctrlaltdelegate-delivery.zip`.
 
@@ -28,12 +28,12 @@ After import read, in order:
 7. `./.ctrlaltdelegate/planning/execution/JOB-GRAPH.json`, `LOOP-STATE.json`, and queued `PENDING-INPUT.jsonl` when present;
 8. only additional requirements, architecture, research, ADRs, evidence and routed skills required for the next action.
 
-Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.7.1 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
+Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.8 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
 
-Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.7.1 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and `COMPLETED`. Ask the user only for a true contract-defined hard stop.
+Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.8 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and `COMPLETED`. Ask the user only for a true contract-defined hard stop.
 
 
-## V5.7.1 planning-skill and authoritative-content handoff
+## V5.8 planning-skill and authoritative-content handoff
 
 Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
 

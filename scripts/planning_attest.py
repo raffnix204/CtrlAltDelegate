@@ -34,6 +34,6 @@ def main():
  old=None
  try: old=json.loads(out.read_text(encoding='utf-8')).get('aggregate_sha256')
  except: pass
- data={'version':'5.7.1','status':'ATTESTED','aggregate_sha256':agg,'files':files,'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'supersedes':old}
+ data={'version':'5.8','status':'ATTESTED','aggregate_sha256':agg,'files':files,'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'supersedes':old}
  out.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8'); print('PLANNING_ATTEST_WRITTEN',agg); return 0
 if __name__=='__main__': raise SystemExit(main())

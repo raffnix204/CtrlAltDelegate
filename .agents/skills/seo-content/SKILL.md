@@ -122,7 +122,7 @@ Current official search-engine migration guidance outranks static thresholds in 
 
 Map public routes/rendering, title/meta/OG, robots/sitemap, structured data, redirects, canonical generation, content source/CMS, internal links and performance-relevant templates before editing. Establish baseline, fix high-impact issues, then recrawl/retest representative URLs.
 
-## V5.7.1 SEO specialist routing
+## V5.8 SEO specialist routing
 This skill remains a backward-compatible general SEO entrypoint. For substantive planning/implementation, route the owning specialist instead of keeping all SEO concerns monolithic:
 - strategy/IA/search intent → `seo-strategy`;
 - crawl/index/rendering/migrations → `technical-seo-engineering`;

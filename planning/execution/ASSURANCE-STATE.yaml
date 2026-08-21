@@ -1,0 +1,17 @@
+version: '5.8'
+status: NOT_CLASSIFIED
+work_profile: AUTO
+assurance_profile: AUTO
+basis:
+  consequence: UNKNOWN
+  reversibility: UNKNOWN
+  security_privacy_data: UNKNOWN
+  concurrency_hidden_state: UNKNOWN
+  external_contract: UNKNOWN
+  verification_difficulty: UNKNOWN
+required_assurance:
+  author_independent: AUTO
+  sibling_verdict_blind: AUTO
+  independent_runtime_verification: AUTO
+  root_cause_depth_gate: AUTO
+last_decision_id: null

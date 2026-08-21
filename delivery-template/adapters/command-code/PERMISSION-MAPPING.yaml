@@ -1,0 +1,9 @@
+version: '5.8'
+principle: INSTRUCTIONS != ENFORCEMENT
+ctrlaltdelegate_to_command_code:
+  LOCKED: DENY unless owning workflow
+  HUMAN_CONTROLLED: ASK/DENY based on required authority
+  EDITABLE: ALLOW within worker scope
+  APPEND_ONLY: ALLOW append; deny destructive rewrite
+fallback: If native enforcement is unavailable, reduce authority/reroute rather than
+  pretending prompt text is enforcement.

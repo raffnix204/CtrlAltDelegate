@@ -151,5 +151,5 @@ A page override may refine layout or emphasis; it must not silently invent a sec
 - no material UI value is hard-coded inconsistently outside the system without documented reason;
 - visual reviewer can explain why the interface suits this product rather than any generic SaaS.
 
-## V5.7.1 Planning participation
+## V5.8 Planning participation
 During planning, this skill is an active design decision surface, not an execution-only review. Use it before program design whenever visual hierarchy, design tokens, density, motion or page/surface consistency can change the product plan. Persist `planning/design/DESIGN-DIRECTION.yaml` and `DESIGN-SYSTEM.md` when material. Read `references/design-intelligence-planning.md` for design dials, direction comparison and master/page-override policy.

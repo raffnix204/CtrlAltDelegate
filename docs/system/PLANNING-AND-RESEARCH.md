@@ -409,7 +409,7 @@ Firecrawl (cloud/self-hosted) and compatible services such as CRW are examples. 
 Use acquisition APIs for clean textual/structured evidence; use browser automation for interactive/visual/runtime behavior.
 
 
-## V5.7.1 Stack Decision Gate
+## V5.8 Stack Decision Gate
 
 For every non-trivial greenfield project, planning must explicitly reach `STACK_READY` before execution design. Use `technology-stack-selection` to derive language/runtime/framework/rendering/database/deployment choices from product constraints and current authoritative research. Do not default to a familiar web stack.
 
@@ -419,12 +419,12 @@ Brownfield planning preserves the detected stack by default. A new language/runt
 
 Output: `planning/architecture/STACK-MANIFEST.yaml` plus ADR evidence for consequential choices.
 
-## V5.7.1 Skill Selection Gate
+## V5.8 Skill Selection Gate
 
 After `STACK_READY`, reach `SKILLSET_READY`. Use project profile + STACK-MANIFEST + domain capabilities + risk/change triggers. Select the smallest complete project skill set; then each job receives an even smaller exact subset. The planner must export the actual selected `.agents/skills/<id>/SKILL.md` files and list exact paths in every job/delegation contract.
 
 
-## V5.7.1 Program design depth
+## V5.8 Program design depth
 Planning should resolve expensive-to-reverse structure before broad agent coding without turning into implementation-by-proxy. For substantive cross-layer work capture reuse points, likely modules/files, public contracts, main call/data flow, state/failure invariants, test shape and the first executable vertical slice. Keep local/private implementation choices open.
 
 Where a meaningful measurable outcome exists, capture its baseline/target/measurement as part of acceptance.

@@ -1,0 +1,23 @@
+version: '5.8'
+brief_id: null
+run_nonce: null
+job:
+  id: null
+  objective: null
+  requirements: []
+  dependencies: []
+  owned_scope: []
+  prohibited_scope: []
+  required_skill_ids: []
+  required_capabilities: []
+authority_pointers:
+  - path: planning/PROJECT.md
+    sha256: null
+  - path: planning/execution/JOB-GRAPH.json
+    sha256: null
+acceptance: []
+evidence_required: []
+report_path: null
+integrity:
+  mismatch_status: STALE_BRIEF
+  verify_before_action: true
