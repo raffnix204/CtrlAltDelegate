@@ -1,4 +1,4 @@
-# Provenance & Maintenance — V5.8
+# Provenance & Maintenance — V5.8.1
 
 Software Planning Lead V5.6.4 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
 
@@ -45,5 +45,5 @@ V5.7 additionally reviewed ECC, Superpowers, planning-with-files, GitHub Spec Ki
 DeepSeek Harness was reviewed at `0.1.0-rc.7` / commit `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca` and is classified `FIRST_CLASS_PREVIEW` while upstream remains pre-stable.
 
 
-## V5.8 research
-V5.8 reviewed CRW/fastCRW, Obscura and Command Code as external architecture/tool/harness references. CtrlAltDelegate vendors none of their runtimes. It independently defines capability-based provider resolution, project-local safe bootstrap, web acquisition/browser role separation and Command Code conformance mapping. Technology catalog entries are candidates only; drift-prone facts are revalidated when selected.
+## V5.8.1 research
+V5.8.1 reviewed CRW/fastCRW, Obscura and Command Code as external architecture/tool/harness references. CtrlAltDelegate vendors none of their runtimes. It independently defines capability-based provider resolution, project-local safe bootstrap, web acquisition/browser role separation and Command Code conformance mapping. Technology catalog entries are candidates only; drift-prone facts are revalidated when selected.

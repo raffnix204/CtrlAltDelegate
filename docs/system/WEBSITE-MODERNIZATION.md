@@ -1,4 +1,4 @@
-# Website Modernization — GitHub-Native V5.8
+# Website Modernization — GitHub-Native V5.8.1
 
 This document is the GitHub-native operating guide for rebuilding an existing site.
 
@@ -98,5 +98,5 @@ Do not:
 Then build from real migrated content.
 
 
-## V5.8 provider routing
+## V5.8.1 provider routing
 Bulk corpus discovery/content uses `WEB_ACQUISITION`; browser is required for representative interactive/visual verification. Existing self-hosted Firecrawl/compatible MCP wins over installing another crawler.

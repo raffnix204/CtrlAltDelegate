@@ -1,4 +1,4 @@
-version: '5.8'
+version: 5.8.1
 policy:
   blind_retry: forbidden
   progress_required_for_same_strategy: true
@@ -127,3 +127,16 @@ loops:
     - root_cause_fixed_and_smallest_durable_guard_verified
     escalation:
     - independent_review
+  SKILL_ESCALATION_LOOP:
+    trigger:
+    - worker_reports_missing_skill_or_reference
+    continue_when:
+    - request_classification_pending
+    success_when:
+    - L0_reference_loaded
+    - L1_skill_granted
+    - L2_job_rebriefed
+    - L3_change_control_entered
+    escalate_when:
+    - semantic_job_change
+    - project_authority_boundary_change

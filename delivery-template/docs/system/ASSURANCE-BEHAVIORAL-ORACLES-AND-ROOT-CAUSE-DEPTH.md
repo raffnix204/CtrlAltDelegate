@@ -1,8 +1,8 @@
-# Assurance, Behavioral Oracles & Root-Cause Depth — V5.8
+# Assurance, Behavioral Oracles & Root-Cause Depth — V5.8.1
 
 ## Purpose
 
-V5.8 strengthens debugging and verification without imposing one testing style on every domain. The core rule is: **verify the behavior independently, diagnose the deepest responsible boundary before repair, and do not let the author grade its own work.**
+V5.8.1 strengthens debugging and verification without imposing one testing style on every domain. The core rule is: **verify the behavior independently, diagnose the deepest responsible boundary before repair, and do not let the author grade its own work.**
 
 ## 1. Behavioral oracle
 

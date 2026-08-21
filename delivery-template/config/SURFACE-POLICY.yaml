@@ -1,4 +1,4 @@
-version: '5.8'
+version: '5.8.1'
 policy:
   instructions_are_not_enforcement: true
   fail_closed_when_required_enforcement_missing: true

@@ -1,4 +1,4 @@
-# Program Design & Vertical Slice Contract — V5.8
+# Program Design & Vertical Slice Contract — V5.8.1
 
 ## Purpose
 

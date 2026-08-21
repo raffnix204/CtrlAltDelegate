@@ -1,10 +1,10 @@
-# Pi Reference Harness — V5.8
+# Pi Reference Harness — V5.8.1
 
 Pi is V5.8's golden-path harness, while the core planning/skills remain portable.
 
 ## Philosophy
 
-Pi core is intentionally minimal. V5.8 does not mandate package names or versions. It asks: **does the required capability exist in the active session?**
+Pi core is intentionally minimal. V5.8.1 does not mandate package names or versions. It asks: **does the required capability exist in the active session?**
 
 ## Capability inventory
 
@@ -33,14 +33,14 @@ A Goal extension may provide persistence and/or a verifier but not general worke
 When installing:
 - prefer Pi's supported package mechanism and project-local scope when project-specific;
 - verify current package identity/source/license/maintenance/compatibility;
-- do not use a stale version from V5.8 docs;
+- do not use a stale version from V5.8.1 docs;
 - record the actually resolved version/provider in `HARNESS-STATE.md` for reproducibility;
 - do not overwrite global settings or duplicate an equivalent installed capability;
 - project trust/policy is authoritative.
 
 ## Goal integration
 
-If persistent Goal mode exists, use it as the **outer persistence loop** for `AUTOPILOT-GOAL.md`. The V5.8 orchestrator still controls jobs/waves/gates/continuation. Do not stack another looping extension merely to keep the run alive.
+If persistent Goal mode exists, use it as the **outer persistence loop** for `AUTOPILOT-GOAL.md`. The V5.8.1 orchestrator still controls jobs/waves/gates/continuation. Do not stack another looping extension merely to keep the run alive.
 
 ## Remote operator
 
@@ -50,7 +50,7 @@ Project `.pi/prompts/autopilot.md` exposes `/autopilot` in Pi after project trus
 
 ## Model selection
 
-V5.8 does not route, rank, pin, or switch models. Use the model/provider configured by the operator or active harness. Delegation, context freshness, research and verification must work without changing that selection.
+V5.8.1 does not route, rank, pin, or switch models. Use the model/provider configured by the operator or active harness. Delegation, context freshness, research and verification must work without changing that selection.
 
 ## Restart/reload handling
 Capability selection is dynamic and model-neutral. If isolated fresh-context or parallel delegation is required but absent, research a current trusted Pi-compatible provider at runtime and install through supported Pi mechanisms, preferring project scope where appropriate. Do not encode a permanent package/version/model in this system. After installation, use a supported `/reload`/reload mechanism when possible and smoke-test again. If the current process cannot activate the capability, persist state and set `RESTART_REQUIRED`; the operator only needs to restart/resume Pi, after which preflight resumes from disk. Never bypass Project Trust.

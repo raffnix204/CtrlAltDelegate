@@ -12,13 +12,13 @@ def load_json(rel):
     except Exception as e: errors.append(f'{rel}: {e}'); return {}
 
 ap=load_yaml('config/ASSURANCE-PROFILES.yaml')
-if str(ap.get('version'))!='5.8': errors.append('ASSURANCE-PROFILES version')
+if str(ap.get('version'))!='5.8.1': errors.append('ASSURANCE-PROFILES version')
 if set(ap.get('allowed_assurance_profiles') or []) != {'NORMAL','ELEVATED','HIGH','CRITICAL'}: errors.append('assurance profile set')
 if (ap.get('policy') or {}).get('work_size_and_assurance_are_independent') is not True: errors.append('work/assurance independence')
 state=load_yaml('planning/execution/ASSURANCE-STATE.yaml')
-if str(state.get('version'))!='5.8': errors.append('ASSURANCE-STATE version')
+if str(state.get('version'))!='5.8.1': errors.append('ASSURANCE-STATE version')
 rc=load_json('planning/execution/ROOT-CAUSE-DEPTH.json')
-if rc.get('version')!='5.8': errors.append('ROOT-CAUSE-DEPTH version')
+if rc.get('version')!='5.8.1': errors.append('ROOT-CAUSE-DEPTH version')
 for rel in ['docs/system/ASSURANCE-BEHAVIORAL-ORACLES-AND-ROOT-CAUSE-DEPTH.md','docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md','docs/templates/WORKER-BRIEF.template.yaml','docs/templates/HARNESS-ATTESTATION.template.json']:
     if not (R/rel).is_file(): errors.append(f'missing {rel}')
 loop=load_yaml('config/LOOP-CONTRACTS.yaml')

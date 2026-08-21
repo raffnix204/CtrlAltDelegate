@@ -85,7 +85,7 @@ def main():
         print(json.dumps({'status':'DRY_RUN','provider':a.provider,'install_root':str(TOOLS),'policy':'project-local; no sudo; verify after install'},indent=2)); return 0
     TOOLS.mkdir(parents=True,exist_ok=True)
     info=install_playwright() if a.provider=='playwright_mcp' else install_github(a.provider)
-    lockp=R/'planning/execution/TOOL-LOCK.json'; lock={'version':'5.8','tools':{}}
+    lockp=R/'planning/execution/TOOL-LOCK.json'; lock={'version':'5.8.1','tools':{}}
     if lockp.exists():
         try: lock=json.loads(lockp.read_text())
         except Exception: pass

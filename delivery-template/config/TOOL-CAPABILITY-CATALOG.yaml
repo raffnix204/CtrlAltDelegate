@@ -1,4 +1,4 @@
-version: '5.8'
+version: '5.8.1'
 policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities
   before installation.
 providers:

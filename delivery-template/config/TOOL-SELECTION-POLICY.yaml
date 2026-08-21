@@ -1,4 +1,4 @@
-version: '5.8'
+version: '5.8.1'
 resolution_ladder:
 - NATIVE_VERIFIED
 - EXISTING_PROJECT_VERIFIED

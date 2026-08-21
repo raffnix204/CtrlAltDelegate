@@ -1,4 +1,4 @@
-version: '5.8'
+version: '5.8.1'
 impact_classes:
 - NONE
 - USER

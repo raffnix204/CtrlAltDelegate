@@ -108,5 +108,5 @@ For product UI, optimize for action clarity: button labels name the action, erro
 
 For localized products, avoid layouts/copy that depend on English word length and record strings whose meaning cannot be safely translated without product context.
 
-## V5.8 Planning participation
+## V5.8.1 Planning participation
 When user-facing content is in scope, participate during planning instead of leaving copy to the coding agent. Decide content mode, create research-backed briefs/copy where requested, and persist approved content under `planning/content/`. Read `references/authoritative-content-planning.md` for the authority and review pipeline.

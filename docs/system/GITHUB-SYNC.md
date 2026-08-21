@@ -1,4 +1,4 @@
-# GitHub Bootstrap & Continuous Sync — V5.8
+# GitHub Bootstrap & Continuous Sync — V5.8.1
 
 ## Remote resolution
 

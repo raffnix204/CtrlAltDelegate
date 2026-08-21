@@ -119,3 +119,6 @@ A sentence belongs in a skill only if it earns its context cost. Repeated global
 ## V5.6.1 completion note
 
 V5.6.1 closes the V5.6 migration gap: the Custom-GPT planning pack must embed this exact contract for deterministic delivery export, and release QA rejects empty specialist decision points or heading-only placeholder content. This maintenance change does not move domain knowledge back into the global contract.
+
+## 2.1 Runtime skill escalation
+If a dispatched worker discovers missing expertise, use `docs/system/RUNTIME-SKILL-ESCALATION.md`. Loading one reference from an authorized skill or injecting one canonical skill with unchanged job semantics is an append-only brief delta, not automatically a project replan. Job-scope/acceptance/capability changes require rebrief; requirement/architecture/security/privacy/data-loss/compliance/material-cost changes use scoped change control. The immutable base brief and SHA-bound authority remain authoritative.

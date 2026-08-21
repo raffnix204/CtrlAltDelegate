@@ -97,7 +97,7 @@ Project profiles route expertise; they do not restrict what the system can plan.
 
 ## Capability-driven technology selection
 
-V5.8 selects technology from required capabilities rather than from a fashionable default stack:
+V5.8.1 retains the V5.8 capability-driven approach and selects technology from required capabilities rather than from a fashionable default stack:
 
 ```text
 REQUIREMENTS
@@ -161,7 +161,7 @@ NATIVE / EXISTING VERIFIED CAPABILITY
 → CAPABILITY STATE + TOOL LOCK
 ```
 
-V5.8 includes provider-neutral tooling policies and first-class candidate mappings for:
+V5.8.1 includes provider-neutral tooling policies and first-class candidate mappings for:
 
 - **CRW / fastCRW** — preferred candidate for web search, scrape, map, crawl and structured extraction.
 - **Obscura** — lightweight interactive agent browser for JavaScript, DOM interaction, sessions, forms, screenshots/PDF and MCP.
@@ -193,11 +193,18 @@ A worker saying "done" is a claim. Completion requires evidence appropriate to t
 
 ---
 
+
+## Runtime adaptation without full replanning
+
+V5.8.1 adds a deterministic runtime skill-escalation ladder. A worker that discovers missing expertise can request one progressive reference or one canonical skill without forcing a whole-project replan when the job's objective, requirements, acceptance, scope and authority are unchanged. Larger semantic changes escalate to job rebrief or normal scoped change control. The original worker brief remains immutable and every grant is SHA-bound.
+
+Skill maintenance is also usage-aware: all 154 skills keep structural QA and remain selectable, while expensive research/behavior campaigns can focus on frequently used or safety-critical skills using explicit local/export history. CtrlAltDelegate adds no network telemetry for this.
+
 ## Supported coding-agent harnesses
 
 CtrlAltDelegate keeps one canonical methodology and `.agents/skills` library while adapting to the capabilities of the active harness.
 
-| Harness | V5.8 support |
+| Harness | V5.8.1 support |
 |---|---|
 | **OpenAI Codex CLI** | `FIRST_CLASS` |
 | **Command Code** | `FIRST_CLASS_PREVIEW` — `.agents/skills`, AGENTS.md, subagents, headless/resume, tasks, MCP, hooks, permissions and worktrees are mapped; promotion requires the runtime conformance lane |
@@ -252,7 +259,7 @@ python3 scripts/harness_preflight.py --json
 ├── START-HERE.md
 ├── .agents/skills/          # canonical specialist library
 ├── .claude/skills/          # thin adapters
-├── adapters/command-code/   # V5.8 harness mapping
+├── adapters/command-code/   # V5.8.1 harness mapping
 ├── config/                  # routing, technology, tooling, assurance
 ├── docs/system/             # detailed engineering contracts
 ├── docs/templates/

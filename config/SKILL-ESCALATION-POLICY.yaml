@@ -1,0 +1,41 @@
+version: 5.8.1
+purpose: Allow runtime expertise expansion without abandoning hash-bound worker briefs
+  or triggering unnecessary full replanning.
+state:
+  request_log: planning/execution/SKILL-REQUESTS.jsonl
+  delta_dir: planning/execution/brief-deltas
+  usage_log: planning/execution/SKILL-USAGE-EVENTS.jsonl
+levels:
+  L0_REFERENCE_LOAD:
+    when:
+    - requested skill is already authorized for the job
+    - requested reference belongs to that canonical skill
+    - reference load does not change objective/scope/acceptance/authority
+    action: append auditable reference-load event; no brief replacement
+  L1_JIT_SKILL_INJECT:
+    when:
+    - exactly one canonical skill is requested
+    - job objective/requirements/acceptance/owned/prohibited scope are unchanged
+    - no architecture/shared-contract/security/privacy/cost/compliance/data-loss boundary
+      changes
+    action: append hash-chained grant delta bound to base brief and skill SHA; continue
+      same job
+  L2_JOB_REBRIEF:
+    when:
+    - new expertise changes required worker capability, acceptance shape, or owned
+      job scope but not project intent/architecture
+    action: stop at safe boundary; issue new hash-bound worker brief for same job
+      identity/revision; invalidate only affected job evidence
+  L3_SCOPED_CHANGE:
+    when:
+    - requirements, product behavior, architecture/shared contract, security/privacy
+      posture, data-loss risk, compliance or material recurring cost changes
+    action: use scoped change control and affected-artifact invalidation
+invariants:
+  base_brief_immutable: true
+  grant_events_append_only: true
+  skill_sha_required: true
+  parent_brief_sha_required: true
+  effective_brief_hash_chain_required: true
+  full_replan_not_required_for_L0_L1: true
+  user_escalation_boundary_unchanged: true

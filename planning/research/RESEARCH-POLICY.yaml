@@ -1,4 +1,4 @@
-version: '5.8'
+version: '5.8.1'
 principle: Planning research is the baseline; execution performs only the additional research needed to safely make
   current technical decisions.
 modes:

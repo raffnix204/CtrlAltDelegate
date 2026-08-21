@@ -1,4 +1,4 @@
-delivery_version: '5.8'
+delivery_version: 5.8.1
 layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
@@ -41,6 +41,11 @@ required_files:
 - docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md
 - planning/execution/ASSURANCE-STATE.yaml
 - planning/execution/ROOT-CAUSE-DEPTH.json
+- config/SKILL-ESCALATION-POLICY.yaml
+- planning/execution/SKILL-REQUESTS.jsonl
+- planning/execution/SKILL-USAGE-EVENTS.jsonl
+- docs/system/RUNTIME-SKILL-ESCALATION.md
+- config/SKILL-MAINTENANCE-POLICY.yaml
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -60,7 +65,7 @@ language_contract:
   conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
   ctrlaltdelegate_artifacts: ENGLISH
   localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES
-version: '5.8'
+version: 5.8.1
 assurance_contract:
   work_and_assurance_axes: INDEPENDENT
   profiles:

@@ -1,16 +1,16 @@
-# Skill Evals — V5.8
+# Skill Evals — V5.8.1
 
-V5.8 evaluates skills as behavior-changing expert context, not by file count or prose length.
+V5.8.1 evaluates skills as behavior-changing expert context, not by file count or prose length.
 
 ## Eval classes
 
 - **routing** — correct specialist is available/loaded; near-miss specialists remain unloaded.
-- **behavior** — V5.8 specialist must improve a discriminating technical decision versus the frozen V5.5/no-specialist baseline.
+- **behavior** — V5.8.1 specialist must improve a discriminating technical decision versus the frozen V5.5/no-specialist baseline.
 - **system_regression** — proves global autonomy/evidence/rightsizing/routing behavior still applies after boilerplate was removed from individual skills.
 
 ## Baselines
 
-Existing skills compare against their V5.5 entrypoint. New V5.8 skills compare against the global execution contract plus adjacent generic skills without the new specialist. Preserve the prompt, repository fixture and tool surface across compared runs.
+Existing skills compare against their V5.5 entrypoint. New V5.8.1 skills compare against the global execution contract plus adjacent generic skills without the new specialist. Preserve the prompt, repository fixture and tool surface across compared runs.
 
 ## Measurements
 

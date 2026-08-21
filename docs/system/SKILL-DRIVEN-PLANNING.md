@@ -1,4 +1,4 @@
-# Skill-Driven Planning Contract — V5.8
+# Skill-Driven Planning Contract — V5.8.1
 
 ## Purpose
 
@@ -123,3 +123,6 @@ The final delivery must include:
 - enough traceability for a coding agent to understand why the decisions exist.
 
 The coding agent implements the resolved plan. It may re-open a specialist decision only when current repository/runtime evidence materially contradicts the planning baseline or a scoped change introduces a new capability/risk.
+
+## Runtime routing miss feedback
+Planning remains AOT-first, but it is not assumed perfect. A worker-discovered missing specialist may use the deterministic runtime skill-escalation path. `RUNTIME_INJECTED`/`ROUTING_MISS` events feed local maintenance/routing analysis without making runtime behavior self-modifying.

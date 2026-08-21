@@ -6,7 +6,7 @@ cat=yaml.safe_load((R/'.agents/skills/CATALOG.yaml').read_text(encoding='utf-8')
 ids={x['id'] for x in cat.get('skills',[]) if isinstance(x,dict) and x.get('id')}
 d=yaml.safe_load((R/'evals/skills/scenarios.yaml').read_text(encoding='utf-8'))
 errs=[]; seen=set(); classes=set(); behavior_targets=set()
-if d.get('version') != '5.8': errs.append('eval version mismatch')
+if d.get('version') != '5.8.1': errs.append('eval version mismatch')
 for s in d.get('scenarios',[]):
     sid=s.get('id'); cls=s.get('class','routing')
     if not sid or sid in seen: errs.append(f'bad/duplicate scenario id {sid}')
@@ -23,7 +23,7 @@ for s in d.get('scenarios',[]):
     if cls=='behavior': behavior_targets.update(s.get('required',[]) or [])
 for need in {'routing','behavior','system_regression'}:
     if need not in classes: errs.append(f'missing eval class {need}')
-# V5.8 high-priority/new/network specialists must have at least one behavior scenario.
+# V5.8.1 high-priority/new/network specialists must have at least one behavior scenario.
 priority={'nextjs-engineering','react-web-engineering','angular-engineering','react-native-engineering','flutter-engineering','postgres-engineering','graphql-engineering','terraform-engineering','mongodb-engineering','cloudflare-platform-engineering','wordpress-engineering','threat-modeling-engineering','property-based-testing','unifi-network-engineering','opnsense-engineering','openwrt-engineering','network-infrastructure-engineering'}
 missing=sorted(priority-behavior_targets)
 if missing: errs.append(f'priority skills missing behavior eval: {missing}')

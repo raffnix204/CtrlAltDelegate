@@ -1,4 +1,4 @@
-# Capability-Driven Technology Selection — V5.8
+# Capability-Driven Technology Selection — V5.8.1
 
 ## Objective
 Select the smallest complete architecture that satisfies project capabilities and hard constraints. Technology names are candidates, not defaults.

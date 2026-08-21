@@ -17,7 +17,7 @@ def main():
     try: cp=json.loads((root/'CONTROL-PACKAGE.json').read_text(encoding='utf-8'))
     except Exception as e: errors.append(f'CONTROL-PACKAGE.json parse error: {e}')
     if cp:
-        expected={'ctrlaltdelegate_version':'5.8','archive_name':'ctrlaltdelegate-delivery.zip','top_level_directory':EXPECTED,'control_root':'./.ctrlaltdelegate','control_visibility':'LOCAL_PRIVATE'}
+        expected={'ctrlaltdelegate_version':'5.8.1','archive_name':'ctrlaltdelegate-delivery.zip','top_level_directory':EXPECTED,'control_root':'./.ctrlaltdelegate','control_visibility':'LOCAL_PRIVATE'}
         for k,v in expected.items():
             if cp.get(k)!=v: errors.append(f'CONTROL-PACKAGE {k} mismatch: {cp.get(k)!r} != {v!r}')
     p=root/'CODING-AGENT-START-PROMPT.md'; q=root/'planning/handoff/FINAL-START-PROMPT.md'

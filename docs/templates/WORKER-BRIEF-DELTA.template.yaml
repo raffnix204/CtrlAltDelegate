@@ -1,0 +1,20 @@
+version: '5.8.1'
+delta_id: null
+level: L1_JIT_SKILL_INJECT
+job_id: null
+base_brief_path: null
+base_brief_sha256: null
+previous_grant_sha256: null
+request:
+  skill_id: null
+  reason: null
+  evidence: []
+grant:
+  canonical_skill_path: null
+  skill_sha256: null
+  references: []
+  scope_impact: NONE
+integrity:
+  event_sha256: null
+  effective_brief_sha256: null
+  mismatch_status: STALE_BRIEF

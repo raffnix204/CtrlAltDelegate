@@ -1,19 +1,29 @@
-# V5.8 — Skill-Driven Planning & Web Product Intelligence
+# V5.8.1 — Runtime Skill Escalation, Release Integrity & Usage-Aware Maintenance
 
-## Highlights
+- Added deterministic `L0_REFERENCE_LOAD -> L1_JIT_SKILL_INJECT -> L2_JOB_REBRIEF -> L3_SCOPED_CHANGE` runtime skill escalation without mutating the original hash-bound worker brief.
+- Added append-only, SHA-chained skill request/grant evidence and skill usage events; JIT expertise no longer requires full project replanning when job semantics are unchanged.
+- Added Git-/release-delta-backed changelog claim validation. Release claims about added skills/files/counts must match generated diff evidence; public-repo validation can re-check the real Git diff.
+- Corrected historical documentation: the nine SEO/SXO/content/data-visualization specialists were introduced in V5.7.1, not V5.8.
+- Added usage-aware maintenance tiers. All 154 skills retain structural QA and runtime eligibility; expensive research/behavior campaigns are prioritized by observed usage plus safety criticality.
+- No new canonical skills; library remains 154 skills / 147 progressive references.
 
-- Every canonical skill is registered for conditional planning participation; relevant skills now shape discovery, research, requirements, architecture, program design and verification before execution.
-- Added `PLANNING-SKILL-ROUTING.yaml` and persistent `PLANNING-SKILL-STATE.yaml` with early capability scan and phase refresh.
-- Added nine specialist skills: SEO strategy, technical SEO, SEO content strategy, structured-data SEO, SXO, SEO drift/audit, local/commerce SEO, data-visualization design and natural-content editing.
-- Strengthened UI/UX planning with design-direction dials and master/page override policy.
-- Added authoritative planning-time content generation: websites can optionally produce final researched page copy as structured Markdown before coding handoff.
-- Added prompt-contract/evaluation guidance for LLM product prompts.
-- Preserved V5.7 closed-loop, ZIP-drop control-plane and DeepSeek Harness support.
+# V5.8 — Capability Selection, Tool Bootstrap & Harness Expansion
 
-## Compatibility
+- Capability-driven technology selection with curated cross-domain candidate catalog and self-hostable-first-when-fit-equal policy.
+- Safe capability resolver/project-local tool bootstrap with CRW/fastCRW, Obscura and Playwright roles.
+- Command Code added as `FIRST_CLASS_PREVIEW`.
+- Canonical README rewritten around Custom GPT -> delivery ZIP -> coding-agent workflow.
+- Existing V5.7.2 assurance architecture retained.
 
-V5.8 is a backward-compatible architecture/content upgrade from V5.7. Existing skill IDs remain valid; `seo-content` remains as a general compatibility entrypoint and routes substantive work to the new specialist cluster.
+# V5.7.2 — Assurance Control Hardening
 
+- Added behavioral-oracle/root-cause-depth assurance, blind independent verification, hash-bound worker briefs, capability attestations, separate assurance profiles, collect/persist/terminate lifecycle and scoped assurance invalidation.
+
+# V5.7.1 — Skill-Driven Planning & Web Product Intelligence
+
+- Added the planning-skill registry/state and nine specialists: SEO strategy, technical SEO, SEO content strategy, structured data SEO, SXO, SEO audit/drift, local/commerce SEO, data visualization and natural content editing.
+- Canonical library grew from 145 to 154 skills; progressive references from 136 to 147.
+- Added planning-time UI/UX/content authority and prompt-contract/evaluation guidance.
 
 # V5.7 — 2026-08-19
 
@@ -132,19 +142,3 @@ V5.8 is a backward-compatible architecture/content upgrade from V5.7. Existing s
 - Added token-budgeted repository context map and run-scoped scratch policy.
 - Added microtask batching alongside maximum safe parallelism.
 - Promoted Codex CLI to explicit first-class equal behavioral target while Pi remains the reference harness; no model routing was introduced.
-
-
-# CtrlAltDelegate V5.8
-
-V5.8 is a capability-selection and harness/tooling architecture release.
-
-## Major changes
-- Capability-driven technology selection with a curated cross-domain candidate catalog and self-hostable-first-when-fit-equal policy.
-- Explicit capability bundles and solution-minimization comparison of backend platforms versus fragmented component stacks.
-- Broader architecture coverage for API contracts/gateways, backend platforms, desktop/mobile, analytics/time-series, messaging/streaming/durable workflows, realtime/collaboration, CMS/commerce, IoT and AI/model serving without adding technology-specific skill bloat.
-- Safe capability resolver and project-local tool bootstrap with `CAPABILITY-STATE` and `TOOL-LOCK`.
-- CRW/fastCRW mapped as preferred web acquisition candidate; Obscura as lightweight interactive agent browser; Playwright retained as real-browser acceptance reference.
-- Command Code added as `FIRST_CLASS_PREVIEW` with canonical `.agents/skills`/AGENTS mapping, task/permission adapters and runtime conformance requirement.
-- Canonical README rewritten around the recommended Custom GPT → delivery ZIP → coding-agent workflow, including the coding-account token/credit separation benefit.
-- Every release now includes a public-repository update handoff and release merge/ownership manifest.
-- Existing V5.7.2 assurance architecture remains: behavioral oracles, root-cause depth, blind verification, hash-bound briefs, capability attestations, independent assurance profile and scoped invalidation.

@@ -1,4 +1,4 @@
-# Verification System — V5.8
+# Verification System — V5.8.1
 
 ## Evidence before claims
 Agent reports are claims. The orchestrator reproduces load-bearing checks on the exact candidate SHA/environment.
@@ -39,7 +39,7 @@ When GitHub sync is enabled, final evidence includes remote identity, final vali
 For long autonomous runs retain `CONTEXT-STATE.yaml` epoch evidence and `PARALLELISM-STATE.yaml`. When multiple independent jobs were ready, verification should explain useful concurrent dispatch or the concrete dependency/conflict/resource/bottleneck reason for serialization/throttling.
 
 
-## V5.8 convergence and evidence freshness
+## V5.8.1 convergence and evidence freshness
 Candidate verification is requirement-linked, not suite-count based. Maintain `CONVERGENCE-MATRIX.json` and `EVIDENCE-INDEX.json`; required evidence is bound to candidate SHA/environment/scope and becomes stale after affected changes. Before completion run `python scripts/quality_gate.py --validate` plus the routed project-native checks.
 
 Tests must be falsifiable: name the production defect caught, derive expected results independently, and use targeted mutation reasoning for material behavior. A passing test that cannot catch a plausible bug is not useful evidence.
@@ -52,10 +52,10 @@ For a distributable/user-facing product, when safe/practical verify from a fresh
 Run product/runtime/test/documentation evidence on a committed **verified candidate SHA**. After verification, a final commit may update only canonical evidence/state attestation files. `quality_gate.py` permits this narrow post-candidate diff. Any code, configuration, test, build/runtime definition or user-facing documentation change after the verified candidate invalidates the affected evidence and requires a new candidate/reverification.
 
 
-## V5.8 regression / closure / outcome evidence
+## V5.8.1 regression / closure / outcome evidence
 For a confirmed bug with safe baseline access, preserve evidence that the focused regression check fails for the intended reason before the fix and passes after it. If `FAILURE_MODE_CLOSURE` was triggered, verify the new durable control actually detects/prevents the named failure class.
 
 For declared measurable outcomes, compare candidate and baseline under a credible comparable method. A claimed improvement without comparable measurement is not completion evidence.
 
-## V5.8 behavioral-oracle and independent-assurance gate
+## V5.8.1 behavioral-oracle and independent-assurance gate
 For substantive defect repair derive the acceptance oracle from authoritative observable behavior, not the proposed patch. When symptom-layer repair could hide a deeper cause, complete `ROOT_CAUSE_DEPTH_GATE` before implementation. Elevated/high assurance uses author-independent verification; high/critical assurance additionally keeps sibling assurance verdicts blind where parallel independent checks are used. Work-size and assurance profiles are independent.

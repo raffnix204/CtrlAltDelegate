@@ -1,0 +1,51 @@
+version: 5.8.1
+principle: Usage prioritizes maintenance effort, never runtime eligibility or structural
+  QA.
+structural_validation:
+  all_canonical_skills_every_release: true
+dimensions:
+  usage_events:
+  - PLANNING_CONSULTED
+  - EXECUTION_SELECTED
+  - WORKER_APPLIED
+  - VERIFIER_APPLIED
+  - RUNTIME_INJECTED
+  - REFERENCE_LOADED
+  - ROUTING_MISS
+  - INCIDENT_RELATED
+  criticality_overrides:
+    P0_CORE_SAFETY:
+    - auth-architecture
+    - security-review
+    - threat-modeling-engineering
+    - database-migrations
+    - verification-gate
+    - systematic-debugging
+    - dependency-supply-chain-engineering
+    - privacy-data-governance-engineering
+usage_tiers:
+  HOT:
+    min_weighted_events: 20
+    maintenance: proactive drift review + full behavior campaign
+  WARM:
+    min_weighted_events: 5
+    maintenance: rotating behavior campaign + drift review when signaled
+  COLD:
+    min_weighted_events: 0
+    maintenance: structural QA always; expensive research deferred until activation/VERIFY_DRIFT
+weights:
+  PLANNING_CONSULTED: 1
+  EXECUTION_SELECTED: 2
+  WORKER_APPLIED: 3
+  VERIFIER_APPLIED: 2
+  RUNTIME_INJECTED: 5
+  REFERENCE_LOADED: 1
+  ROUTING_MISS: 7
+  INCIDENT_RELATED: 8
+retirement:
+  automatic: false
+  candidate_when:
+  - long-term low usage
+  - mechanism/domain overlap exists
+  - behavior eval shows no unique value
+  requires_human_review: true

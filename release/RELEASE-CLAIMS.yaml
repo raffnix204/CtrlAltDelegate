@@ -1,0 +1,28 @@
+version: 5.8.1
+base_release: '5.8.1'
+claims:
+- id: skill-count
+  type: SKILL_COUNT
+  before: 154
+  after: 154
+- id: new-skills
+  type: ADDED_SKILLS
+  skills: []
+- id: jit-skill-escalation
+  type: ADDED_PATHS
+  paths:
+  - config/SKILL-ESCALATION-POLICY.yaml
+  - scripts/resolve_skill_request.py
+  - docs/system/RUNTIME-SKILL-ESCALATION.md
+- id: release-claims-integrity
+  type: ADDED_PATHS
+  paths:
+  - scripts/validate_release_claims.py
+  - release/RELEASE-BASELINE.json
+  - release/RELEASE-CLAIMS.yaml
+- id: usage-aware-maintenance
+  type: ADDED_PATHS
+  paths:
+  - config/SKILL-MAINTENANCE-POLICY.yaml
+  - scripts/aggregate_skill_usage.py
+  - docs/system/USAGE-AWARE-SKILL-MAINTENANCE.md
