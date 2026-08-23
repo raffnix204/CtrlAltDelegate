@@ -1,4 +1,4 @@
-# Worker Brief Integrity & Capability Attestation — V5.8.1
+# Worker Brief Integrity & Capability Attestation — V5.8.2
 
 ## Purpose
 

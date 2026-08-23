@@ -1,0 +1,44 @@
+{
+  "version": "5.8.2",
+  "generated": true,
+  "status": "INITIAL_TEMPLATE",
+  "candidate_sha": "",
+  "git_head": "",
+  "jobs": {
+    "total": 0,
+    "by_status": {},
+    "derived_ready": []
+  },
+  "blockers": {
+    "unresolved": 0,
+    "execution": 0,
+    "verification": 0
+  },
+  "validation": {
+    "pending": 0
+  },
+  "assumptions": {
+    "count": 0
+  },
+  "next_state": "PLANNING_REQUIRED",
+  "evidence": {
+    "entries": 0,
+    "status": "NOT_EVALUATED"
+  },
+  "convergence": {
+    "requirements": 0,
+    "status": "NOT_EVALUATED"
+  },
+  "journeys": {
+    "total": 0,
+    "mandatory": 0,
+    "mandatory_pass": 0
+  },
+  "providers": {
+    "count": 0,
+    "consumer_verified": 0
+  },
+  "runtime_preflight": "NOT_RUN",
+  "product_drift": "NOT_RUN",
+  "updated_at": null
+}

@@ -1,4 +1,4 @@
-# Control Package Import and Git Hygiene — V5.8.1
+# Control Package Import and Git Hygiene — V5.8.2
 
 ## User workflow
 
@@ -24,9 +24,10 @@ Working directly from the ZIP is not the default because skills, progressive ref
 2. Protect the inbound archive and control root from accidental project commits before implementation.
 3. Inspect ZIP members and reject absolute paths, `..` traversal, links or any top-level path other than `.ctrlaltdelegate/`.
 4. Extract to a temporary sibling path.
-5. Validate manifest, required files, prompt parity and handoff readiness.
+5. Validate manifest, required files, prompt parity, planning-baseline attestation and handoff readiness.
 6. Atomically promote the validated directory to `.ctrlaltdelegate/`.
-7. Never overwrite an active different control state silently. Stage/reconcile a newer package instead.
+7. When the inbound archive came from the project root, move it to `.ctrlaltdelegate/inbox/ctrlaltdelegate-delivery.zip` after successful promotion. Keep the root ignore rule because it protects the bootstrap window and failed imports.
+8. Never overwrite an active different control state silently. Stage/reconcile a newer package instead.
 
 ## Default Git visibility
 
@@ -40,6 +41,8 @@ Custom-GPT control packages default to `LOCAL_PRIVATE`:
 ```
 
 The coding agent must preserve existing `.gitignore` content and add only missing CtrlAltDelegate lines. If the archive/control root is already tracked accidentally, do not rewrite history; remove it from the index in a normal safe commit unless the user intentionally selected `TRACKED_SHARED`.
+
+After a successful default import, the root-level ZIP is no longer needed beside product files; its retained copy lives under the already-ignored control root.
 
 The framework's own public GitHub-native repository is different: its root-native CtrlAltDelegate system files are part of that repository and remain tracked.
 

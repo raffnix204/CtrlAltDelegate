@@ -1,4 +1,4 @@
-# CODING AGENT HANDOFF — V5.8.1
+# CODING AGENT HANDOFF — V5.8.2
 
 
 > **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.
@@ -11,7 +11,7 @@ Own this repository from its current persisted state through `COMPLETED` with mi
 
 From repository root read, in this order:
 1. `AGENTS.md`;
-2. `planning/execution/STATE.md`;
+2. `planning/execution/EXECUTION-SNAPSHOT.json` and generated `STATE.md`;
 3. `planning/discovery/DISCOVERY-STATE.md` and `planning/discovery/TECHNICAL-PREFERENCES.yaml`;
 4. `planning/execution/AUTOPILOT-GOAL.md`;
 5. current requirements / active job(s);
@@ -28,7 +28,7 @@ Treat resolved `REQUIRED` preferences as user-owned constraints and `PREFERRED` 
 
 ## Persistent state obligation
 
-Keep `planning/execution/STATE.md` short and current. Update it after every meaningful job, integrated wave, material commit/push, runtime apply, hard-stop/blocker, restart boundary, context reset and convergence/evidence verdict change. Append detailed history to `execution-ledger.md` instead of bloating STATE.
+Treat normalized control artifacts as source of truth and regenerate `EXECUTION-SNAPSHOT.json` plus `STATE.md` with `scripts/build_execution_snapshot.py --write-state-md` after material job/wave/commit/runtime/blocker/restart/convergence changes. Do not hand-maintain a competing summary truth.
 
 Before any restart or context reset, persist the exact next action and authoritative branch/SHA/runtime/evidence status. After restart, reconstruct from disk and re-run the required preflight rather than replanning.
 
@@ -58,19 +58,22 @@ Where requirements expose meaningful measurable outcomes, use them as backpressu
 
 ## Completion
 
-`COMPLETED` requires convergence of mandatory requirements through code/tests/docs, fresh SHA-bound evidence, documentation readiness, runtime/user acceptance where applicable, and intended remote-main state. Ask the user only on defined hard stops.
+`COMPLETED` requires typed requirement-appropriate evidence, mandatory user-journey PASS, live provider/consumer verification where required, product-drift PASS, fresh SHA-bound convergence, documentation readiness and intended remote-main state. Use `transition_job.py` for `DONE` and `validate_product_completion.py` for final completion. Missing external proof is deferred while dependency-ready work continues; after feasible work is exhausted report `VALIDATION_PENDING_EXTERNAL` rather than false completion.
 
 
 ## Language continuity
 Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.
 
 
-## V5.8.1 control surfaces
+## V5.8.2 control surfaces
 Use the canonical loop registry/state, machine-readable job graph, surface policy, decision ledger, artifact-consistency gate and harness-conformance profile. For Custom-GPT ZIP handoffs, import to `./.ctrlaltdelegate/` under `LOCAL_PRIVATE` Git visibility before execution.
 
 
-## V5.8.1 planning-skill and authoritative-content handoff
+## V5.8.2 planning-skill and authoritative-content handoff
 
 Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
 
 Files under `planning/content/pages/` with `status: approved` are authoritative product content. Preserve wording, factual claims, CTA intent, hierarchy and approved SEO metadata unless implementation proves a genuine conflict; route such conflicts through scoped change control instead of silently rewriting copy.
+## V5.8.2 blocker / deferred-validation contract
+Classify unavailable prerequisites by effect. A `VERIFICATION_BLOCKER` (human test, physical device, later credential, external validation window) blocks only the affected proof: research, implement the best evidence-backed path, record an assumption and deferred validation, then continue all dependency-ready work, including downstream jobs whose dependency gate is `IMPLEMENTATION`. Only a dependency explicitly gated `VERIFIED` waits for `DONE`. An `EXECUTION_BLOCKER` is reserved for a path that cannot proceed meaningfully or safely and is scoped to `JOB|SUBGRAPH|GLOBAL`; global stop is allowed only when no required ready work remains. Batch unavoidable external checks into a final validation wave and turn failures into repair jobs.
+

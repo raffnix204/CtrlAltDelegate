@@ -1,4 +1,4 @@
-# Coding Agent Handoff — CtrlAltDelegate V5.8.1 Imported Control Package
+# Coding Agent Handoff — CtrlAltDelegate V5.8.2 Imported Control Package
 
 ## Operating roots
 
@@ -20,7 +20,7 @@ Default control visibility is `LOCAL_PRIVATE`. Preserve the target repository's 
 
 ## Control-plane execution
 
-Use the V5.8.1 canonical control surfaces:
+Use the V5.8.2 canonical control surfaces:
 
 - `planning/execution/JOB-GRAPH.json` for dependency/ready/claim state;
 - `planning/execution/LOOP-STATE.json` plus `config/LOOP-CONTRACTS.yaml` for closed-loop state and anti-thrashing;
@@ -46,8 +46,8 @@ Persist state before restart/context reset and reconstruct from disk on resume. 
 Continue through implementation, targeted and acceptance verification, evidence refresh, documentation, safe Git/GitHub integration and convergence until `COMPLETED`. Do not declare completion from worker success alone. Ask the user only for a contract-defined business/product/safety/external hard stop.
 
 
-## V5.8.1 specialist-planning authority
+## V5.8.2 specialist-planning authority
 Read `$CONTROL_ROOT/planning/context/PLANNING-SKILL-STATE.yaml` before implementation. The planning baseline may contain specialist-produced design, SEO, data, security, content or other domain artifacts. Preserve their resolved decisions unless current repository/runtime evidence materially contradicts them. Approved files under `$CONTROL_ROOT/planning/content/pages/` are authoritative copy and must not be casually rewritten.
 
-## V5.8.1 assurance and debug integrity
+## V5.8.2 assurance and debug integrity
 Read `planning/execution/ASSURANCE-STATE.yaml` and `config/ASSURANCE-PROFILES.yaml`. Work size and assurance depth are independent. For substantive bug repair, derive a behavioral oracle from authoritative observed behavior and use `planning/execution/ROOT-CAUSE-DEPTH.json` when a symptom-layer fix could hide a deeper cause. High-assurance acceptance must be author-independent; parallel assurance verdicts remain blind when required. Delegated workers verify hash-bound authority pointers and return `STALE_BRIEF` rather than executing stale planning state.

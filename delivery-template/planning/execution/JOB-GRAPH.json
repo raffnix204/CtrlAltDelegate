@@ -1,6 +1,12 @@
 {
-  "version": "5.8.1",
+  "version": "5.8.2",
   "jobs": [],
   "claims": {},
-  "updated_at": null
+  "updated_at": null,
+  "transition_policy": "config/PRODUCT-COMPLETION-POLICY.yaml",
+  "dependency_policy": {
+    "default_gate": "IMPLEMENTATION",
+    "implementation_satisfied_by": ["IMPLEMENTED_UNVERIFIED", "VERIFYING", "DONE"],
+    "verified_satisfied_by": ["DONE"]
+  }
 }

@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 reviewed_at: '2026-08-21'
 policy:
   external_sources_are_research_inputs_only: true
@@ -452,3 +452,15 @@ architecture_research_v5_8:
     - subagent/task/headless/resume/MCP/hook/permission/worktree capability mapping
     caution: Public repository does not expose complete CLI implementation; FIRST_CLASS
       promotion requires runtime conformance.
+
+skill_optimization_research_v5_8_2:
+  repository: https://github.com/microsoft/SkillOpt
+  reviewed_commit: bdfdc30a8e17309c06cdbe8449f01bdecc120203
+  reviewed_at: '2026-08-22'
+  license: MIT
+  used_for:
+  - validation-gated bounded skill edits
+  - train/validation/test separation for skill maintenance
+  - session-derived offline optimization as explicit opt-in only
+  - skill-defect versus execution-lapse failure classification
+  adaptation: SkillOpt is optional external maintainer tooling; canonical CtrlAltDelegate skills remain SHA-bound, review/eval gated and never self-promote.

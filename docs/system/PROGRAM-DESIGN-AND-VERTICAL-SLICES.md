@@ -1,4 +1,4 @@
-# Program Design & Vertical Slice Contract — V5.8.1
+# Program Design & Vertical Slice Contract — V5.8.2
 
 ## Purpose
 
@@ -53,3 +53,6 @@ After the first executable slice of a high-impact change, compare actual code/ru
 Whenever a product or NFR goal has a meaningful observable metric, record it before implementation: latency, throughput, error rate, resource/cost budget, conversion/success rate, queue age, accessibility criterion, migration row invariants, network reachability, or another domain measure.
 
 Do not invent vanity metrics for requirements whose correctness is inherently categorical. The metric is backpressure for autonomous iteration, not a substitute for product judgment.
+
+## V5.8.2 Golden Journey gate
+For user-visible products, program design identifies one or more mandatory executable user journeys before broad implementation. The first meaningful vertical slice should prove a Golden Journey with the strongest currently automatable runtime surface. If final real proof requires later external/human validation, record that as deferred validation while continuing implementation; never substitute a mock for the final oracle.

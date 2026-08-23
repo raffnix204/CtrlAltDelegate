@@ -18,6 +18,11 @@
 
 ---
 
+## V5.8.2 runtime completion hardening
+
+CtrlAltDelegate now distinguishes **implementation progress from product completion**. Mandatory user journeys and live integrations can require real runtime/provider/browser/native evidence; mocks and scaffolds remain useful feedback but cannot close those claims. Verification-only blockers are deferred while dependency-ready implementation continues. An upstream job can remain `IMPLEMENTED_UNVERIFIED` and still unblock normal implementation dependencies; final `DONE/COMPLETED` still waits for real proof. This lets the coding agent build as far as safely possible before asking for human/device/credential validation.
+
+
 ## What is CtrlAltDelegate?
 
 CtrlAltDelegate turns a software idea, existing codebase, migration, audit, or infrastructure objective into an **implementation-ready engineering plan**, then hands that plan to a capable coding agent for autonomous implementation and verification.
@@ -97,7 +102,7 @@ Project profiles route expertise; they do not restrict what the system can plan.
 
 ## Capability-driven technology selection
 
-V5.8.1 retains the V5.8 capability-driven approach and selects technology from required capabilities rather than from a fashionable default stack:
+V5.8.2 retains the V5.8 capability-driven approach and selects technology from required capabilities rather than from a fashionable default stack:
 
 ```text
 REQUIREMENTS
@@ -161,7 +166,7 @@ NATIVE / EXISTING VERIFIED CAPABILITY
 → CAPABILITY STATE + TOOL LOCK
 ```
 
-V5.8.1 includes provider-neutral tooling policies and first-class candidate mappings for:
+V5.8.2 includes provider-neutral tooling policies and first-class candidate mappings for:
 
 - **CRW / fastCRW** — preferred candidate for web search, scrape, map, crawl and structured extraction.
 - **Obscura** — lightweight interactive agent browser for JavaScript, DOM interaction, sessions, forms, screenshots/PDF and MCP.
@@ -196,7 +201,7 @@ A worker saying "done" is a claim. Completion requires evidence appropriate to t
 
 ## Runtime adaptation without full replanning
 
-V5.8.1 adds a deterministic runtime skill-escalation ladder. A worker that discovers missing expertise can request one progressive reference or one canonical skill without forcing a whole-project replan when the job's objective, requirements, acceptance, scope and authority are unchanged. Larger semantic changes escalate to job rebrief or normal scoped change control. The original worker brief remains immutable and every grant is SHA-bound.
+V5.8.2 adds a deterministic runtime skill-escalation ladder. A worker that discovers missing expertise can request one progressive reference or one canonical skill without forcing a whole-project replan when the job's objective, requirements, acceptance, scope and authority are unchanged. Larger semantic changes escalate to job rebrief or normal scoped change control. The original worker brief remains immutable and every grant is SHA-bound.
 
 Skill maintenance is also usage-aware: all 154 skills keep structural QA and remain selectable, while expensive research/behavior campaigns can focus on frequently used or safety-critical skills using explicit local/export history. CtrlAltDelegate adds no network telemetry for this.
 
@@ -204,7 +209,7 @@ Skill maintenance is also usage-aware: all 154 skills keep structural QA and rem
 
 CtrlAltDelegate keeps one canonical methodology and `.agents/skills` library while adapting to the capabilities of the active harness.
 
-| Harness | V5.8.1 support |
+| Harness | V5.8.2 support |
 |---|---|
 | **OpenAI Codex CLI** | `FIRST_CLASS` |
 | **Command Code** | `FIRST_CLASS_PREVIEW` — `.agents/skills`, AGENTS.md, subagents, headless/resume, tasks, MCP, hooks, permissions and worktrees are mapped; promotion requires the runtime conformance lane |
@@ -259,7 +264,7 @@ python3 scripts/harness_preflight.py --json
 ├── START-HERE.md
 ├── .agents/skills/          # canonical specialist library
 ├── .claude/skills/          # thin adapters
-├── adapters/command-code/   # V5.8.1 harness mapping
+├── adapters/command-code/   # V5.8.2 harness mapping
 ├── config/                  # routing, technology, tooling, assurance
 ├── docs/system/             # detailed engineering contracts
 ├── docs/templates/

@@ -1,0 +1,16 @@
+version: 5.8.2
+status: NOT_DEFINED
+journeys: []
+# Example journey fields:
+# - id: JOURNEY-001
+#   title: Discover and use one real item
+#   requirement_ids: [REQ-001]
+#   mandatory: true
+#   surface: browser|android_emulator|native_device|api|cli|network
+#   steps: []
+#   final_real_required: true
+#   mock_allowed_for_final: false
+#   required_evidence_types: [USER_JOURNEY_REAL]
+#   status: NOT_RUN|PASS|FAIL|DEFERRED_VALIDATION
+#   evidence_ids: []
+#   blocker_id: null

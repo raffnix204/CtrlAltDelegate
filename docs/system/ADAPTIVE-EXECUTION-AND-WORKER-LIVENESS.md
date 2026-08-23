@@ -1,8 +1,8 @@
-# Adaptive Execution & Worker Liveness — V5.8.1
+# Adaptive Execution & Worker Liveness — V5.8.2
 
 ## Purpose
 
-V5.8.1 right-sizes orchestration to the actual project and prevents useful long-running subagents from being killed merely because an arbitrary wall-clock duration elapsed.
+V5.8.2 right-sizes orchestration to the actual project and prevents useful long-running subagents from being killed merely because an arbitrary wall-clock duration elapsed.
 
 Quality requirements remain requirement/risk-driven. **Process ceremony is not a quality metric.**
 
@@ -135,5 +135,5 @@ Parallelize only when:
 
 Otherwise batch or serialize deliberately and record the reason when required by the profile.
 
-## V5.8.1 separate assurance axis
+## V5.8.2 separate assurance axis
 `MICRO|SMALL|STANDARD|HIGH_RISK` describes orchestration size/cost. `NORMAL|ELEVATED|HIGH|CRITICAL` describes assurance depth. A tiny but security- or data-critical change may remain SMALL while receiving HIGH assurance. Do not inflate unrelated implementation ceremony to satisfy assurance; strengthen independence and evidence instead.

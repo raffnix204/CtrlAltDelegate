@@ -1,7 +1,7 @@
-# AGENTS.md — Software Planning Lead V5.8.1 GitHub Native
+# AGENTS.md — Software Planning Lead V5.8.2 GitHub Native
 
 ## Mission
-Own the software objective through `COMPLETED` with minimal user intervention. V5.8.1 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
+Own the software objective through `COMPLETED` with minimal user intervention. V5.8.2 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
 
 Pi is the reference/golden-path harness. Codex CLI is a first-class behavioral target. DeepSeek Harness is a first-class preview target while its upstream public API remains developer preview. Claude Code and OpenCode are supported compatible harnesses. All harnesses consume the same canonical execution contract and skills; capability negotiation decides which native enforcement/runtime features can be used.
 
@@ -54,7 +54,7 @@ SQLite is a first-class production option when its embedded/local-first/single-f
 
 ## Skills and routing
 
-### V5.8.1 solution minimization
+### V5.8.2 solution minimization
 Every substantive implementation routes `solution-minimization-engineering` and records a compact `SOLUTION_MINIMIZATION_GATE` before adding solution surface. Prefer repo reuse → stdlib → native platform → existing dependency → direct implementation → new dependency/abstraction. A fresh complexity reviewer is triggered when the diff adds material surface. Never trade away correctness, security, reliability, accessibility, operability, tests or documentation.
 
 Canonical library: `.agents/skills/`. Library breadth is intentionally large; **there is no fixed skill-count limit**. Never preload the full library.
@@ -81,12 +81,17 @@ Each job lists exact `.agents/skills/<id>/SKILL.md` paths, why each is needed an
 ## Existing repositories
 Run `repository-onboarding` before broad changes. Protect dirty/untracked user work; record baseline SHA; map stack, capability, contracts and health. Never reset/clean/discard or silently absorb unrelated user changes.
 
+## V5.8.2 product completion and blocker semantics
+A missing test, credential, physical device or external validation prerequisite is normally a `VERIFICATION_BLOCKER`, not an `EXECUTION_BLOCKER`. Research and implement the best evidence-backed path, record assumptions/deferred validation (prefer `scripts/record_blocker.py`), and continue every dependency-ready job. Use an `EXECUTION_BLOCKER` only when the affected implementation path cannot proceed meaningfully/safely; never stop globally while dependency-ready required work remains. Downstream jobs may consume an `IMPLEMENTED_UNVERIFIED` dependency when their dependency gate is `IMPLEMENTATION`; use `VERIFIED` only when proof is genuinely prerequisite.
+
+For real product claims, structure/mocks/unit tests are insufficient. Define mandatory user-journey oracles, typed evidence and provider/runtime attestations. Jobs reach `DONE` only through `scripts/transition_job.py`; project `COMPLETED` requires `scripts/validate_product_completion.py`. When implementation is exhausted but mandatory external proof remains, use `VALIDATION_PENDING_EXTERNAL`. Regenerate `EXECUTION-SNAPSHOT.json`/`STATE.md` from source state rather than maintaining fragmented manual truth. See `docs/system/PRODUCT-RUNTIME-COMPLETION.md` and `docs/system/BLOCKERS-DEFERRED-VALIDATION-AND-CONTINUATION.md`.
+
 ## Program design / vertical slices
 For substantive cross-file or cross-layer work, run the lightest sufficient `PROGRAM_DESIGN_GATE` before broad implementation. Resolve consequential file/module placement, public types/contracts, call/data flow, state/failure boundaries and test shape without over-prescribing private implementation. Prefer executable vertical slices and early trajectory checks over large horizontal layer batches when the dependency graph permits. See `docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md`.
 
 ## Orchestration
 
-### V5.8.1 convergence/evidence
+### V5.8.2 convergence/evidence
 Maintain `CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Implementation learning may autonomously update technical plan/ADR/jobs and reroute skills, then reconverge. Required evidence from an affected older SHA is stale. `COMPLETED` requires the structural quality gate plus fresh routed runtime/test/docs evidence.
 
 Batch tiny same-shape jobs when separate dispatches add overhead without useful isolation. Keep large/independent jobs parallel. Leaf workers do not recursively fan out unless the orchestrator explicitly delegates that authority.
@@ -96,7 +101,7 @@ Main orchestrator is normally spawn-only when capable subagents exist. Workers i
 Jobs form a dependency DAG and waves. Identify cross-job seams before fan-out. Worker reports are claims; tests/tools/runtime evidence decide acceptance.
 
 Continuation states:
-`CONTINUE | CONTINUE_OTHER_WORK | REPAIR_RETRY | RECONCILE_STATE | RESTART_REQUIRED | DECISION_REQUIRED | BLOCKED_EXTERNAL | RETRY_EXHAUSTED | POLICY_DENIED | PAUSED | COMPLETED`.
+`CONTINUE | CONTINUE_OTHER_WORK | REPAIR_RETRY | RECONCILE_STATE | RESTART_REQUIRED | DECISION_REQUIRED | EXECUTION_BLOCKED | VALIDATION_PENDING_EXTERNAL | RETRY_EXHAUSTED | POLICY_DENIED | PAUSED | COMPLETED`.
 
 Do not stop between agents/jobs/waves while dependency-ready work remains. Fresh isolated contexts are the default for new jobs and all independent reviewers/debugger escalations; persistent Goal keeps the mission alive but Git/STATE/ledger carry memory.
 
@@ -107,7 +112,7 @@ For confirmed bugfixes, when practical preserve executable `PRE_FIX_FAIL → POS
 `README.md` is the beginner-first product entry point and must remain accurate for the exact commit. Every major user-visible function must be discoverable from README or linked canonical docs and include current install/setup/configuration/usage guidance. Every staged commit performs `Documentation Impact`; affected docs change in the same commit, while `NONE` requires a concrete attestation. Install/merge `.githooks` guards and require `DOCUMENTATION_READY` plus a fresh-user docs review before `COMPLETED`. See `docs/system/DOCUMENTATION-LIFECYCLE.md`.
 
 ## Persistent state / context freshness / parallelism
-`planning/execution/STATE.md` is the compact current execution snapshot and must be updated after every meaningful job, integrated wave, material commit/push, runtime apply, hard-stop/blocker, restart/resume, context reset and convergence/evidence verdict change. Detailed history goes to the ledger. Before restart/context reset persist authoritative branch/SHA/runtime/evidence plus the exact next action.
+`planning/execution/STATE.md` is a generated human view of `EXECUTION-SNAPSHOT.json` and must be regenerated after every meaningful job, integrated wave, material commit/push, runtime apply, hard-stop/blocker, restart/resume, context reset and convergence/evidence verdict change. Detailed history goes to the ledger. Before restart/context reset persist authoritative branch/SHA/runtime/evidence plus the exact next action.
 
 Run jobs/reviews in fresh bounded contexts by default and rotate orchestrator `CONTEXT_EPOCH`s after validated semantic boundaries. Reconstruct from Git/state rather than chat history. For each wave maximize safe useful concurrency from the ready DAG **subject to the current end-to-end bottleneck**; use isolated worktrees/scopes for concurrent writers and respect actual harness/provider/host limits rather than a fixed agent count. See `docs/system/CONTEXT-AND-PARALLELISM.md` and `docs/system/REPOSITORY-LAYOUT-AND-STATE.md`.
 
@@ -140,27 +145,27 @@ Use `SEARCH → SLICE → TRACE → EXPAND`, progressive skill/reference loading
 5. STATE hot view;
 6. narrative summaries.
 
-## V5.8.1 adaptive execution / subagent liveness
+## V5.8.2 adaptive execution / subagent liveness
 Before finalizing or dispatching the DAG, classify `planning/execution/EXECUTION-PROFILE.yaml` as `MICRO`, `SMALL`, `STANDARD` or `HIGH_RISK`. Scale job count, branching, independent-review frequency, evidence granularity and commit/push cadence to that profile while keeping requirement/risk quality floors intact. MICRO/SMALL work should prefer coherent vertical-slice milestones and batching over job-per-microtask ceremony.
 
 Every delegation has an explicit required-capability set. Do not dispatch a web researcher without verified web access, a browser verifier without browser capability, or a writer without the required isolation/scope. For long-running/expensive workers, use harness-native progress/session signals where available. Meaningful progress keeps the worker alive; a quiet worker is health-checked before cancellation; elapsed wall-clock time alone is not stall evidence. If a provider hard deadline cannot be removed, checkpoint before it when feasible and resume from `planning/private/runs/...`/native session state plus actual Git/files. Repeated stalls trigger job resizing, provider/capability rerouting or debugging rather than blind restarts. See `docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md`.
-## V5.8.1 closed-loop control
+## V5.8.2 closed-loop control
 
 Use `config/LOOP-CONTRACTS.yaml`, `planning/execution/LOOP-STATE.json`, `planning/execution/JOB-GRAPH.json`, `config/SURFACE-POLICY.yaml`, and `planning/execution/DECISION-LEDGER.jsonl` as canonical control surfaces. Do not blind-retry when the progress signature is unchanged. Requirements and evaluator/protected surfaces cannot be weakened merely to make a loop pass. Run artifact consistency before consequential execution and use actual harness capabilities from `config/HARNESS-CONFORMANCE.yaml`; unsupported required capabilities fail loud or reroute.
 
 For Custom-GPT handoff imports, the user may place only `ctrlaltdelegate-delivery.zip` in the target repo root. Validate and safely extract it to `./.ctrlaltdelegate/`; default it to `LOCAL_PRIVATE` and keep the ZIP/control root out of the target project's Git history. GitHub Native itself remains root-native.
 
 
-## V5.8.1 skill-driven planning
+## V5.8.2 skill-driven planning
 
 Relevant specialist skills participate while planning decisions are made, not only after planning. Run an early capability scan during intake/discovery, consult the smallest complete planning skill set for the current phase, persist consultations in `planning/context/PLANNING-SKILL-STATE.yaml`, and refresh routing whenever scope, research or stack evidence changes. Use `config/PLANNING-SKILL-ROUTING.yaml` and `docs/system/SKILL-DRIVEN-PLANNING.md`. The final coding-agent skill pool continues from these decisions.
 
 ## Root-cause depth and assurance
 
-For substantive defect repair, derive the behavioral oracle from authoritative observed behavior, not the proposed patch. Use the V5.8.1 root-cause depth gate when a symptom-layer fix could hide a deeper cause. Work-size and assurance depth are separate; small high-consequence changes may require high independent assurance. Delegated workers must fail `STALE_BRIEF` when required authority-pointer hashes no longer match.
+For substantive defect repair, derive the behavioral oracle from authoritative observed behavior, not the proposed patch. Use the V5.8.2 root-cause depth gate when a symptom-layer fix could hide a deeper cause. Work-size and assurance depth are separate; small high-consequence changes may require high independent assurance. Delegated workers must fail `STALE_BRIEF` when required authority-pointer hashes no longer match.
 
 
-## V5.8.1 capability selection and tool bootstrap
+## V5.8.2 capability selection and tool bootstrap
 Derive capabilities before stack products; apply `TECHNOLOGY-SELECTION-POLICY`, self-hostable-first when fit is equal, and solution minimization. For execution tools, reuse verified native/project capability first; safe project-local installation is autonomous when TOOL-SELECTION-POLICY permits. Command Code is FIRST_CLASS_PREVIEW and uses canonical `.agents/skills`; native tasks never replace JOB-GRAPH.
 
-V5.8.1 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.
+V5.8.2 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.

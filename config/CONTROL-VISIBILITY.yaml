@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 default: LOCAL_PRIVATE
 modes:
   LOCAL_PRIVATE:

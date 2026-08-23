@@ -1,4 +1,4 @@
-version: 5.8.1
+version: 5.8.2
 policy:
   blind_retry: forbidden
   progress_required_for_same_strategy: true
@@ -6,6 +6,8 @@ policy:
   state_file: planning/execution/LOOP-STATE.json
   behavioral_oracle_from_authority: true
   assurance_failure_invalidates_only_affected_evidence: true
+  verification_blocker_is_not_execution_blocker: true
+  completion_transition_fail_closed: true
 loops:
   DISCOVERY_LOOP:
     trigger:
@@ -45,10 +47,11 @@ loops:
     - dependency_ready_job
     continue_when:
     - ready_work_exists
+    - verification_blocker_exists_but_independent_work_remains
     success_when:
     - all_required_jobs_validated
     escalate_when:
-    - blocked_external
+    - execution_blocker_with_no_dependency_ready_work
     - policy_denied
   REPAIR_LOOP:
     trigger:
@@ -94,7 +97,7 @@ loops:
     - stale_evidence
     - docs_out_of_sync
     success_when:
-    - requirements_code_evidence_docs_converged
+    - requirements_code_runtime_ux_evidence_docs_converged
     escalation:
     - scoped_replan
   CONTEXT_RESUME_LOOP:
@@ -140,3 +143,15 @@ loops:
     escalate_when:
     - semantic_job_change
     - project_authority_boundary_change
+  DEFERRED_VALIDATION_LOOP:
+    trigger:
+    - implementation_feasible_work_exhausted
+    - verification_blocker_recorded
+    continue_when:
+    - automatable_validation_ready
+    - batched_human_or_external_validation_can_be_requested
+    success_when:
+    - all_mandatory_deferred_validation_resolved
+    escalate_when:
+    - validation_failure_creates_repair_job
+    - execution_assumption_invalidated

@@ -1,4 +1,4 @@
-# Coding-Agent Start Prompt — CtrlAltDelegate V5.8.1 ZIP Handoff
+# Coding-Agent Start Prompt — CtrlAltDelegate V5.8.2 ZIP Handoff
 
 Work from the actual target project/repository root. A completed CtrlAltDelegate planning handoff is provided as `./ctrlaltdelegate-delivery.zip`.
 
@@ -29,13 +29,13 @@ After import read, in order:
 7. `./.ctrlaltdelegate/planning/execution/JOB-GRAPH.json`, `LOOP-STATE.json`, and queued `PENDING-INPUT.jsonl` when present;
 8. only additional requirements, architecture, research, ADRs, evidence and routed skills required for the next action.
 
-Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.8.1 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
+Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.8.2 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
 
-Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.8.1 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and `COMPLETED`. Ask the user only for a true contract-defined hard stop.
+Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.8.2 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and `COMPLETED`. Ask the user only for a true contract-defined hard stop.
 
 
-## V5.8.1 specialist-planning authority
+## V5.8.2 specialist-planning authority
 Read `$CONTROL_ROOT/planning/context/PLANNING-SKILL-STATE.yaml` before implementation. The planning baseline may contain specialist-produced design, SEO, data, security, content or other domain artifacts. Preserve their resolved decisions unless current repository/runtime evidence materially contradicts them. Approved files under `$CONTROL_ROOT/planning/content/pages/` are authoritative copy and must not be casually rewritten.
 
-## V5.8.1 assurance and debug integrity
+## V5.8.2 assurance and debug integrity
 Read `planning/execution/ASSURANCE-STATE.yaml` and `config/ASSURANCE-PROFILES.yaml`. Work size and assurance depth are independent. For substantive bug repair, derive a behavioral oracle from authoritative observed behavior and use `planning/execution/ROOT-CAUSE-DEPTH.json` when a symptom-layer fix could hide a deeper cause. High-assurance acceptance must be author-independent; parallel assurance verdicts remain blind when required. Delegated workers verify hash-bound authority pointers and return `STALE_BRIEF` rather than executing stale planning state.

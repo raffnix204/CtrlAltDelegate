@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 policy:
   work_size_and_assurance_are_independent: true
   author_success_claim_is_not_evidence: true

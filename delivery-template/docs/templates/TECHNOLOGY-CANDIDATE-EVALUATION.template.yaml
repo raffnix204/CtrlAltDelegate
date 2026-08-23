@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 capability_or_bundle: REPLACE_ME
 hard_constraints: []
 candidates:

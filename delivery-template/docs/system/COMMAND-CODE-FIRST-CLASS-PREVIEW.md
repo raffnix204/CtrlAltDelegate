@@ -1,4 +1,4 @@
-# Command Code First-Class Preview — V5.8.1
+# Command Code First-Class Preview — V5.8.2
 
 Command Code is a `FIRST_CLASS_PREVIEW` harness target. Promotion to `FIRST_CLASS` requires the runtime conformance lane because the public GitHub repository does not expose the complete CLI implementation.
 

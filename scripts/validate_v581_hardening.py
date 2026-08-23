@@ -7,7 +7,7 @@ for x in required:
     if not (R/x).exists(): e.append('missing '+x)
 try:
     p=yaml.safe_load((R/'config/SKILL-ESCALATION-POLICY.yaml').read_text());
-    if str(p.get('version'))!='5.8.1': e.append('skill escalation version')
+    if str(p.get('version'))!='5.8.2': e.append('skill escalation version')
     if list(p.get('levels',{}))!=['L0_REFERENCE_LOAD','L1_JIT_SKILL_INJECT','L2_JOB_REBRIEF','L3_SCOPED_CHANGE']: e.append('skill escalation ladder')
     if not p.get('invariants',{}).get('base_brief_immutable'): e.append('base brief must be immutable')
 except Exception as x:e.append(str(x))
@@ -26,7 +26,7 @@ if 'security-review' not in set(maint.get('dimensions',{}).get('criticality_over
 if 'security-review' not in set(maint.get('dimensions',{}).get('criticality_overrides',{}).get('P0_CORE_SAFETY',[])):e.append('security-review must remain P0 independent of usage')
 # deterministic smoke test: L1 request produces grant without modifying brief
 with tempfile.TemporaryDirectory() as td:
-    b=Path(td)/'brief.yaml'; b.write_text("version: '5.8.1'\njob:\n  required_skill_ids: [implementation-engineering]\n")
+    b=Path(td)/'brief.yaml'; b.write_text("version: '5.8.2'\njob:\n  required_skill_ids: [implementation-engineering]\n")
     cp=subprocess.run([sys.executable,str(R/'scripts/resolve_skill_request.py'),'postgres-engineering','--job-id','SMOKE','--brief',str(b),'--reason','runtime dependency discovered','--impact','none'],cwd=R,text=True,capture_output=True)
     if cp.returncode!=0 or 'L1_JIT_SKILL_INJECT' not in cp.stdout:e.append('L1 skill injection smoke test')
 if e:

@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: 5.8.2
 resolution_ladder:
 - NATIVE_VERIFIED
 - EXISTING_PROJECT_VERIFIED
@@ -63,6 +63,9 @@ provider_preferences:
   - existing_project_playwright
   - playwright_mcp
   - project_native_real_browser_e2e
+  skill.optimization.offline:
+  - existing_verified
+  - skillopt
 escalate_to_user_only_for:
 - credentials_or_account
 - paid_service_or_material_recurring_cost

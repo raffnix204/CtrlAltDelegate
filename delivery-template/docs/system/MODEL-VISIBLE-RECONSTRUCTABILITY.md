@@ -1,4 +1,4 @@
-# Model-Visible Reconstructability — V5.8.1
+# Model-Visible Reconstructability — V5.8.2
 
 For consequential execution decisions, context that influences the agent should be attributable to durable project/control state, explicit user input, a routed skill/reference, or a recorded external source/tool result.
 

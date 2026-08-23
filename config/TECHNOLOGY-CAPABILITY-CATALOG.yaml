@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 policy: Capability candidates are routing/evaluation inputs, never automatic defaults.
   Verify drift-prone facts from current first-party sources before consequential selection.
 candidate_tiers:

@@ -40,7 +40,7 @@ def main():
     elif a.impact in {'job_capability','job_scope','acceptance'}: decision='L2_JOB_REBRIEF'
     else: decision='L3_SCOPED_CHANGE'
     log=root/'planning/execution/SKILL-REQUESTS.jsonl'; prev=last_event_hash(log,bsha)
-    event={'version':'5.8.1','job_id':a.job_id,'base_brief_path':str(brief.relative_to(root)).replace('\\','/') if root in brief.parents else str(brief),'base_brief_sha256':bsha,'previous_grant_sha256':prev,'skill_id':a.skill_id,'canonical_skill_path':str(skill.relative_to(root)).replace('\\','/'),'skill_sha256':skillsha,'reference':refrel,'reason':a.reason,'impact':a.impact,'decision':decision}
+    event={'version':'5.8.2','job_id':a.job_id,'base_brief_path':str(brief.relative_to(root)).replace('\\','/') if root in brief.parents else str(brief),'base_brief_sha256':bsha,'previous_grant_sha256':prev,'skill_id':a.skill_id,'canonical_skill_path':str(skill.relative_to(root)).replace('\\','/'),'skill_sha256':skillsha,'reference':refrel,'reason':a.reason,'impact':a.impact,'decision':decision}
     event['event_sha256']=canonical_event_hash(event)
     event['effective_brief_sha256']=sha((bsha+'|'+(prev or '')+'|'+event['event_sha256']).encode())
     if a.record:
@@ -49,7 +49,7 @@ def main():
             ddir=root/'planning/execution/brief-deltas'; ddir.mkdir(parents=True,exist_ok=True)
             idx=sum(1 for x in log.read_text(encoding='utf-8').splitlines() if x.strip())
             (ddir/f'{a.job_id}.{idx:04d}.{a.skill_id}.yaml').write_text(yaml.safe_dump(event,sort_keys=False),encoding='utf-8')
-            usage={'version':'5.8.1','skill_id':a.skill_id,'event':'REFERENCE_LOADED' if decision=='L0_REFERENCE_LOAD' else 'RUNTIME_INJECTED','job_id':a.job_id,'repo_sha':None,'skill_sha256':skillsha,'source_event_sha256':event['event_sha256']}
+            usage={'version':'5.8.2','skill_id':a.skill_id,'event':'REFERENCE_LOADED' if decision=='L0_REFERENCE_LOAD' else 'RUNTIME_INJECTED','job_id':a.job_id,'repo_sha':None,'skill_sha256':skillsha,'source_event_sha256':event['event_sha256']}
             usage_log=root/'planning/execution/SKILL-USAGE-EVENTS.jsonl'
             append_jsonl(usage_log,usage)
             if decision=='L1_JIT_SKILL_INJECT':

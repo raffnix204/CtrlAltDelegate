@@ -1,0 +1,11 @@
+version: 5.8.2
+status: NOT_DEFINED
+product_type: null
+primary_users: []
+primary_journeys: []
+product_outcomes: []
+ux_constraints:
+  required: []
+  prohibited: []
+non_goals: []
+source_requirements: []

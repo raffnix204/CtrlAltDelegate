@@ -1,4 +1,4 @@
-# START HERE — V5.8.1 Project Handoff
+# START HERE — V5.8.2 Project Handoff
 
 This file is for an execution-ready project handoff. The versioned `planning/` tree is persistent project memory, not temporary packaging.
 

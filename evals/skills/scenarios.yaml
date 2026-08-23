@@ -1,5 +1,5 @@
-version: 5.8.1
-purpose: Routing, behavior and system-regression scenarios for V5.8.1 skill-driven planning, closed-loop execution
+version: 5.8.2
+purpose: Routing, behavior and system-regression scenarios for V5.8.2 skill-driven planning, closed-loop execution
   and deterministic handoff.
 baseline_policy:
   existing_skill_change: compare against frozen V5.5 skill entrypoint
@@ -930,3 +930,87 @@ scenarios:
   - Keep safety/core skill P0 despite low usage
   - Keep structural QA for all skills
   - Never suppress runtime selection from low usage
+- id: v582-verification-blocker-continue
+  class: system_regression
+  prompt: An Android feature is implemented but final proof requires a physical device the user cannot test until later. Several independent required jobs are ready.
+  required:
+  - implementation-engineering
+  - verification-gate
+  assertions:
+  - Classify the unavailable device proof as VERIFICATION_BLOCKER when implementation can proceed
+  - Record deferred validation and any evidence-backed assumption
+  - Continue dependency-ready jobs instead of globally stopping
+  - Do not claim the affected feature fully verified
+- id: v582-mock-cannot-close-real-journey
+  class: system_regression
+  prompt: A consumer app renders mock catalog data and a fake player successfully, but the requirement says users must discover and play real provider content.
+  required:
+  - verification-gate
+  - browser-acceptance
+  assertions:
+  - Treat mock/component success as iteration evidence only
+  - Require real provider/runtime and USER_JOURNEY_REAL evidence for completion
+  - Keep the requirement unconverged until the real journey passes
+- id: v582-provider-consumer-verification
+  class: system_regression
+  prompt: Provider interfaces and classes exist and unit tests pass, but no live request has been made and the app has not consumed a real response.
+  required:
+  - integration-engineering
+  - verification-gate
+  assertions:
+  - Do not equate provider implementation with live verification
+  - Progress provider state through LIVE_VERIFIED and CONSUMER_VERIFIED
+  - Require product-path evidence before closing provider-backed claims
+- id: v582-product-drift-consumer-dashboard
+  class: system_regression
+  prompt: Planning specifies a consumer-first content app, but implementation exposes provider/debug metrics as the primary interface while compilation and tests are green.
+  required:
+  - ux-product-design
+  - verification-gate
+  assertions:
+  - Compare integrated UX against PRODUCT-CONTRACT primary users and journeys
+  - Fail product-drift review despite green structural tests
+  - Create targeted repair work before completion
+- id: v582-batched-deferred-validation
+  class: system_regression
+  prompt: Three implemented capabilities each need a later user credential/device action for final validation; unrelated implementation is still available.
+  required:
+  - implementation-engineering
+  - verification-gate
+  assertions:
+  - Defer the three external checks rather than interrupting after each capability
+  - Finish independent implementation and integration first
+  - Request the smallest grouped validation set in a deferred-validation wave
+  - Failed deferred checks create repair jobs
+- id: v582-no-progress-strategy-change
+  class: system_regression
+  prompt: The same runtime failure signature persists after a patch and the progress signature shows no meaningful change. The worker proposes repeating the same patch strategy.
+  required:
+  - systematic-debugging
+  assertions:
+  - Reject the identical no-progress strategy
+  - Require new evidence or a changed diagnosis/strategy
+  - Escalate through debugger/job resize/capability reroute/architecture review as appropriate
+- id: v582-skillopt-offline-gated
+  class: system_regression
+  prompt: A frequently used skill has repeated execution lapses and routing misses. Improve it with Microsoft SkillOpt without weakening deterministic CtrlAltDelegate governance.
+  required:
+  - verification-gate
+  assertions:
+  - Use SkillOpt only as an optional offline maintenance provider
+  - Distinguish skill defect from execution/routing/harness causes before editing
+  - Stage candidate outside canonical skill root
+  - Gate promotion on held-out validation, no-regression, provenance and risk-appropriate cross-harness evidence
+  - Never auto-promote or require session harvesting
+- id: v582-implemented-unverified-dependency-continuation
+  class: system_regression
+  prompt: An upstream Android integration is fully implemented but awaits later physical-device verification. A downstream UI/integration job needs the implemented interface but does not require that physical-device proof to continue.
+  required:
+  - implementation-engineering
+  - verification-gate
+  assertions:
+  - Transition the upstream job to IMPLEMENTED_UNVERIFIED rather than DONE or global BLOCKED
+  - Treat a normal IMPLEMENTATION dependency as satisfied by IMPLEMENTED_UNVERIFIED
+  - Continue the downstream job while preserving deferred validation
+  - Require an explicit VERIFIED dependency gate only when consuming unverified behavior would be unsafe or meaningless
+  - Final project completion still waits for real proof and DONE

@@ -1,4 +1,4 @@
-# Start Here — CtrlAltDelegate V5.8.1
+# Start Here — CtrlAltDelegate V5.8.2
 
 CtrlAltDelegate GitHub Native is a standalone full-lifecycle planning and execution system. The Custom GPT is optional.
 
@@ -13,12 +13,12 @@ For an existing target project, copy `ctrlaltdelegate-delivery.zip` into that pr
 Do not manually rename the ZIP or control root. Do not commit the ZIP or `.ctrlaltdelegate/` to the target application repository under the default `LOCAL_PRIVATE` visibility policy.
 
 
-## V5.8.1 skill-driven planning
+## V5.8.2 skill-driven planning
 
 Relevant specialist skills participate while planning decisions are made, not only after planning. Run an early capability scan during intake/discovery, consult the smallest complete planning skill set for the current phase, persist consultations in `planning/context/PLANNING-SKILL-STATE.yaml`, and refresh routing whenever scope, research or stack evidence changes. Use `config/PLANNING-SKILL-ROUTING.yaml` and `docs/system/SKILL-DRIVEN-PLANNING.md`. The final coding-agent skill pool continues from these decisions.
 
 
-## V5.8.1 additions
+## V5.8.2 additions
 Before architecture freeze resolve `planning/architecture/TECHNOLOGY-EVALUATION.yaml`. Before jobs requiring external acquisition/browser/tooling, inventory `CAPABILITY-STATE.json`; bootstrap only the missing verified capability.
 
-V5.8.1 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.
+V5.8.2 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.

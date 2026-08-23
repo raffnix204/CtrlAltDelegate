@@ -1,6 +1,7 @@
 {
-  "version": "5.6",
+  "version": "5.8.2",
   "candidate_sha": "",
   "requirements": [],
-  "status": "NOT_EVALUATED"
+  "status": "NOT_EVALUATED",
+  "completion_policy": "config/PRODUCT-COMPLETION-POLICY.yaml"
 }

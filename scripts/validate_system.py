@@ -26,8 +26,8 @@ except Exception as e:
     errors.append(f'catalog parse: {e}'); catalog={}
 entries=[x for x in catalog.get('skills',[]) if isinstance(x,dict)]
 ids={x.get('id') for x in entries}
-if catalog.get('version')!='5.8.1': errors.append('catalog version mismatch')
-if catalog.get('library')!='software-planning-lead-v5.8.1': errors.append('catalog library mismatch')
+if catalog.get('version')!='5.8.2': errors.append('catalog version mismatch')
+if catalog.get('library')!='software-planning-lead-v5.8.2': errors.append('catalog library mismatch')
 if (catalog.get('policy') or {}).get('skill_schema')!='5.7.1-domain-expertise+planning-registry': errors.append('catalog skill_schema mismatch')
 if catalog.get('library_count') != len(skills): errors.append(f"catalog library_count={catalog.get('library_count')} actual={len(skills)}")
 if ids != set(skills): errors.append(f'catalog/file mismatch missing_files={sorted(ids-set(skills))} missing_catalog={sorted(set(skills)-ids)}')
@@ -84,19 +84,19 @@ for sid,p in wrappers.items():
     if f'../../../.agents/skills/{sid}/SKILL.md' not in wt: errors.append(f'{sid}: bad Claude adapter')
 
 required=[
-'docs/system/ASSURANCE-BEHAVIORAL-ORACLES-AND-ROOT-CAUSE-DEPTH.md','docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md','config/ASSURANCE-PROFILES.yaml','planning/execution/ASSURANCE-STATE.yaml','planning/execution/ROOT-CAUSE-DEPTH.json','docs/templates/WORKER-BRIEF.template.yaml','docs/templates/HARNESS-ATTESTATION.template.json','scripts/validate_assurance_control.py','scripts/worker_brief_hash.py','planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-SCHEMA-V5.7.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','docs/system/LANGUAGE-AND-INTERACTION.md','docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md','docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md','docs/templates/NESTED-DELIVERY-MANIFEST.template.yaml','docs/templates/HANDOFF-STATUS.template.yaml','scripts/validate_handoff_delivery.py','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml','docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md','config/TECHNOLOGY-CAPABILITY-CATALOG.yaml','config/TECHNOLOGY-SELECTION-POLICY.yaml','docs/system/CAPABILITY-RESOLUTION-AND-TOOL-BOOTSTRAP.md','config/TOOL-CAPABILITY-CATALOG.yaml','config/TOOL-SELECTION-POLICY.yaml','planning/architecture/TECHNOLOGY-EVALUATION.yaml','planning/execution/CAPABILITY-STATE.json','planning/execution/TOOL-LOCK.json','docs/system/COMMAND-CODE-FIRST-CLASS-PREVIEW.md','adapters/command-code/HARNESS-CAPABILITIES.yaml','scripts/detect_tool_capabilities.py','scripts/resolve_capability_provider.py','scripts/bootstrap_tool.py','scripts/verify_tool_capability.py','release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md','README.md','config/SKILL-ESCALATION-POLICY.yaml','planning/execution/SKILL-REQUESTS.jsonl','planning/execution/SKILL-USAGE-EVENTS.jsonl','docs/system/RUNTIME-SKILL-ESCALATION.md','scripts/resolve_skill_request.py','config/SKILL-MAINTENANCE-POLICY.yaml','scripts/aggregate_skill_usage.py','docs/system/USAGE-AWARE-SKILL-MAINTENANCE.md','release/RELEASE-BASELINE.json','release/RELEASE-DELTA.json','release/RELEASE-CLAIMS.yaml','scripts/validate_release_claims.py']
+'config/BLOCKER-POLICY.yaml','config/PRODUCT-COMPLETION-POLICY.yaml','planning/product/PRODUCT-CONTRACT.yaml','planning/acceptance/USER-JOURNEY-ORACLES.yaml','planning/execution/BLOCKERS.json','planning/execution/DEFERRED-VALIDATION.json','planning/execution/PROVIDER-ATTESTATIONS.json','planning/execution/PRODUCT-RUNTIME-PREFLIGHT.json','planning/execution/PRODUCT-DRIFT-REVIEW.json','planning/execution/EXECUTION-SNAPSHOT.json','scripts/transition_job.py','scripts/build_execution_snapshot.py','scripts/refresh_job_readiness.py','scripts/validate_product_completion.py','scripts/record_loop_attempt.py','scripts/record_blocker.py','config/SKILL-OPTIMIZATION-POLICY.yaml','docs/system/SKILLOPT-OFFLINE-SKILL-LAB.md','scripts/validate_v582_completion.py','docs/system/ASSURANCE-BEHAVIORAL-ORACLES-AND-ROOT-CAUSE-DEPTH.md','docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md','config/ASSURANCE-PROFILES.yaml','planning/execution/ASSURANCE-STATE.yaml','planning/execution/ROOT-CAUSE-DEPTH.json','docs/templates/WORKER-BRIEF.template.yaml','docs/templates/HARNESS-ATTESTATION.template.json','scripts/validate_assurance_control.py','scripts/worker_brief_hash.py','planning/execution/SKILLS-MANIFEST.yaml','planning/architecture/STACK-MANIFEST.yaml','planning/research/RESEARCH-POLICY.yaml','planning/research/RESEARCH-REGISTER.md','planning/execution/DOCUMENTATION-STATE.yaml','planning/execution/DOCUMENTATION-COVERAGE.md','planning/execution/CONTEXT-STATE.yaml','planning/execution/PARALLELISM-STATE.yaml','planning/execution/EXECUTION-PROFILE.yaml','delivery-template/planning/execution/EXECUTION-PROFILE.yaml','config/DOCUMENTATION-RULES.yaml','docs/system/DOCUMENTATION-LIFECYCLE.md','docs/system/CONTEXT-AND-PARALLELISM.md','docs/system/CAPABILITY-BOOTSTRAP.md','.githooks/pre-commit','.githooks/pre-push','scripts/docs_freshness_gate.py','scripts/install_git_guards.py','config/STACK-SIGNALS.yaml','config/SKILL-ROUTING-RULES.yaml','planning/execution/CONVERGENCE-MATRIX.json','planning/execution/EVIDENCE-INDEX.json','planning/repository/REPO-CONTEXT-MAP.md','docs/system/QUALITY-EFFICIENCY-HARDENING.md','docs/system/CONVERGENCE-AND-EVIDENCE.md','docs/system/SKILL-EVALUATION.md','docs/system/SKILL-EXECUTION-CONTRACT.md','docs/system/SKILL-SCHEMA-V5.6.1.md','docs/system/SKILL-SCHEMA-V5.7.1.md','docs/system/SKILL-LIBRARY-QUALITY-AUDIT-V5.6.1.md','.agents/skills/SOURCE-RESEARCH-MATRIX.yaml','docs/system/CODEX-FIRST-CLASS-HARNESS.md','docs/system/GITHUB-DIRECT-HANDOFF.md','docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md','docs/system/REPOSITORY-LAYOUT-AND-STATE.md','docs/system/COLLABORATIVE-DISCOVERY-AND-CONSTRAINTS.md','docs/system/ADAPTIVE-EXECUTION-AND-WORKER-LIVENESS.md','docs/system/FULL-LIFECYCLE-ENTRY-AND-MODE-DETECTION.md','docs/system/LANGUAGE-AND-INTERACTION.md','docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md','docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md','docs/templates/NESTED-DELIVERY-MANIFEST.template.yaml','docs/templates/HANDOFF-STATUS.template.yaml','scripts/validate_handoff_delivery.py','planning/discovery/TECHNICAL-PREFERENCES.yaml','planning/discovery/DISCOVERY-STATE.md','planning/architecture/PROGRAM-DESIGN.md','planning/context/PROJECT-CONTEXT.md','planning/handoff/START-HERE.md','planning/handoff/CODING-AGENT-HANDOFF.md','planning/handoff/FINAL-START-PROMPT.md','planning/handoff/DELIVERY-MANIFEST.yaml','scripts/quality_gate.py','scripts/worker_checkpoint.py','scripts/validate_skill_evals.py','evals/skills/scenarios.yaml','docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md','config/TECHNOLOGY-CAPABILITY-CATALOG.yaml','config/TECHNOLOGY-SELECTION-POLICY.yaml','docs/system/CAPABILITY-RESOLUTION-AND-TOOL-BOOTSTRAP.md','config/TOOL-CAPABILITY-CATALOG.yaml','config/TOOL-SELECTION-POLICY.yaml','planning/architecture/TECHNOLOGY-EVALUATION.yaml','planning/execution/CAPABILITY-STATE.json','planning/execution/TOOL-LOCK.json','docs/system/COMMAND-CODE-FIRST-CLASS-PREVIEW.md','adapters/command-code/HARNESS-CAPABILITIES.yaml','scripts/detect_tool_capabilities.py','scripts/resolve_capability_provider.py','scripts/bootstrap_tool.py','scripts/verify_tool_capability.py','release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md','README.md','config/SKILL-ESCALATION-POLICY.yaml','planning/execution/SKILL-REQUESTS.jsonl','planning/execution/SKILL-USAGE-EVENTS.jsonl','docs/system/RUNTIME-SKILL-ESCALATION.md','scripts/resolve_skill_request.py','config/SKILL-MAINTENANCE-POLICY.yaml','scripts/aggregate_skill_usage.py','docs/system/USAGE-AWARE-SKILL-MAINTENANCE.md','release/RELEASE-BASELINE.json','release/RELEASE-DELTA.json','release/RELEASE-CLAIMS.yaml','scripts/validate_release_claims.py']
 for x in required:
     if not (R/x).exists(): errors.append(f'missing {x}')
 
 for path,key in [('planning/execution/SKILLS-MANIFEST.yaml','library_count')]:
     try:
         d=yaml.safe_load((R/path).read_text(encoding='utf-8'))
-        if d.get('version')!='5.8.1': errors.append(f'{path} version mismatch')
+        if d.get('version')!='5.8.2': errors.append(f'{path} version mismatch')
         if key and d.get(key)!=len(skills): errors.append(f'{path} {key} mismatch')
     except Exception as e: errors.append(f'{path} parse: {e}')
 try:
     pref=yaml.safe_load((R/'planning/discovery/TECHNICAL-PREFERENCES.yaml').read_text(encoding='utf-8'))
-    if pref.get('version')!='5.8.1': errors.append('TECHNICAL-PREFERENCES version mismatch')
+    if pref.get('version')!='5.8.2': errors.append('TECHNICAL-PREFERENCES version mismatch')
     if pref.get('decision_style') not in {'AUTO','AUTOPILOT','COLLABORATIVE','DIRECTED'}: errors.append('TECHNICAL-PREFERENCES invalid decision_style')
     required_items={'technology','runtime_hosting','data_security_region','existing_environment'}
     if not required_items.issubset(set((pref.get('items') or {}).keys())): errors.append('TECHNICAL-PREFERENCES missing required item groups')
@@ -105,7 +105,7 @@ try:
 except Exception as e: errors.append(f'TECHNICAL-PREFERENCES parse: {e}')
 try:
     ep=yaml.safe_load((R/'planning/execution/EXECUTION-PROFILE.yaml').read_text(encoding='utf-8'))
-    if ep.get('version')!='5.8.1': errors.append('EXECUTION-PROFILE version mismatch')
+    if ep.get('version')!='5.8.2': errors.append('EXECUTION-PROFILE version mismatch')
     if ep.get('profile') not in {'AUTO','MICRO','SMALL','STANDARD','HIGH_RISK'}: errors.append('EXECUTION-PROFILE invalid profile')
     if set(ep.get('allowed_assurance_profiles') or []) != {'NORMAL','ELEVATED','HIGH','CRITICAL'}: errors.append('EXECUTION-PROFILE invalid assurance profiles')
     if (ep.get('policy') or {}).get('work_size_and_assurance_are_independent') is not True: errors.append('EXECUTION-PROFILE must separate work size and assurance')
@@ -137,7 +137,7 @@ for p in R.rglob('*'):
     if re.search(r'(?i)capability-class model routing|model_routing:\s*true',t): errors.append(f'{p.relative_to(R)}: prohibited model-routing policy')
 
 
-# V5.8.1 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
+# V5.8.2 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
 forbidden_prereq = re.compile(r'(?i)custom\s*-?gpt\s+(?:should|must|needs?\s+to)\s+(?:already\s+)?(?:have\s+)?completed')
 for rel in ['AGENTS.md','GOAL.md','planning/execution/AUTOPILOT-GOAL.md','START-HERE.md']:
     t=(R/rel).read_text(encoding='utf-8')
@@ -187,7 +187,7 @@ try:
 except Exception as e: errors.append(f'language contract read: {e}')
 
 
-# V5.8.1 CLOSED_LOOP_AND_ZIP_HANDOFF_GATE
+# V5.8.2 CLOSED_LOOP_AND_ZIP_HANDOFF_GATE
 required_v57=[
 'config/LOOP-CONTRACTS.yaml','config/SURFACE-POLICY.yaml','config/HARNESS-CONFORMANCE.yaml','config/CONTROL-VISIBILITY.yaml',
 'planning/execution/LOOP-STATE.json','planning/execution/JOB-GRAPH.json','planning/execution/DECISION-LEDGER.jsonl',
@@ -198,7 +198,7 @@ required_v57=[
 'scripts/validate_control_package.py','scripts/import_delivery.py','scripts/planning_attest.py','scripts/progress_signature.py','.agents/skills/MECHANISM-REGISTRY.yaml','docs/templates/CONTROL-PACKAGE.template.json',
 'docs/templates/TARGET-GITIGNORE.fragment','docs/templates/NESTED-CODING-AGENT-HANDOFF.template.md','docs/templates/CONTROL-AGENTS.template.md','docs/templates/CONTROL-CLAUDE.template.md','docs/templates/JOB-GRAPH.template.json','docs/templates/LOOP-STATE.template.json','docs/templates/PLANNING-BASELINE.template.json','docs/templates/WORKER-CONTRACT.template.yaml','docs/templates/CHANGE.template.yaml','planning/execution/PLANNING-BASELINE.json','planning/execution/PENDING-INPUT.jsonl','planning/execution/LEARNING-CANDIDATES.jsonl','planning/execution/ARTIFACT-CONSISTENCY.json','docs/system/PLANNING-BASELINE-ATTESTATION.md','docs/system/CHANGE-CONTROL-AND-RETROSPECTIVE.md','docs/system/WORKER-CONTRACTS-AND-MIDRUN-INPUT.md']
 for rel in required_v57:
-    if not (R/rel).exists(): errors.append(f'missing V5.8.1 control surface {rel}')
+    if not (R/rel).exists(): errors.append(f'missing V5.8.2 control surface {rel}')
 loop=(R/'config/LOOP-CONTRACTS.yaml').read_text(encoding='utf-8')
 for tok in ['REPAIR_LOOP','WORKER_LIVENESS_LOOP','CONVERGENCE_LOOP','no_progress_action']:
     if tok not in loop: errors.append(f'loop registry missing {tok}')
@@ -211,22 +211,22 @@ for tok in ['deepseek-harness','command-code','FIRST_CLASS_PREVIEW','.agents/ski
 if re.search(r'(?im)^\s*model_routing:\s*true\s*$',harness): errors.append('harness conformance must not enable model routing')
 start_tpl=(R/'docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md').read_text(encoding='utf-8')
 for token in ['ctrlaltdelegate-delivery.zip','./.ctrlaltdelegate','/.ctrlaltdelegate/','LOCAL_PRIVATE','BLOCKED_DELIVERY_INCOMPLETE','ZIP members']:
-    if token not in start_tpl: errors.append(f'V5.8.1 ZIP start prompt template missing {token}')
-if './ctrlaltdelegate/' in start_tpl: errors.append('V5.8.1 ZIP start prompt still references legacy visible control root')
+    if token not in start_tpl: errors.append(f'V5.8.2 ZIP start prompt template missing {token}')
+if './ctrlaltdelegate/' in start_tpl: errors.append('V5.8.2 ZIP start prompt still references legacy visible control root')
 delivery_doc=(R/'docs/system/DETERMINISTIC-PLANNING-DELIVERY-AND-HANDOFF.md').read_text(encoding='utf-8')
 for token in ['ctrlaltdelegate-delivery.zip','.ctrlaltdelegate/','ZIP contains exactly one top-level directory','LOCAL_PRIVATE','atomically promote']:
-    if token not in delivery_doc: errors.append(f'V5.8.1 deterministic delivery contract missing {token}')
+    if token not in delivery_doc: errors.append(f'V5.8.2 deterministic delivery contract missing {token}')
 gitignore=(R/'.gitignore').read_text(encoding='utf-8')
 for token in ['/ctrlaltdelegate-delivery.zip','/.ctrlaltdelegate/','/.ctrlaltdelegate.importing-*/','/.ctrlaltdelegate.incoming-*/']:
-    if token not in gitignore: errors.append(f'root .gitignore missing V5.8.1 control hygiene {token}')
+    if token not in gitignore: errors.append(f'root .gitignore missing V5.8.2 control hygiene {token}')
 try:
     js=json.loads((R/'planning/execution/JOB-GRAPH.json').read_text(encoding='utf-8'))
-    if js.get('version')!='5.8.1' or not isinstance(js.get('jobs'),list): errors.append('JOB-GRAPH invalid baseline')
+    if js.get('version')!='5.8.2' or not isinstance(js.get('jobs'),list): errors.append('JOB-GRAPH invalid baseline')
     ls=json.loads((R/'planning/execution/LOOP-STATE.json').read_text(encoding='utf-8'))
-    if ls.get('version')!='5.8.1' or 'progress_delta' not in ls: errors.append('LOOP-STATE invalid baseline')
-except Exception as e: errors.append(f'V5.8.1 control JSON parse: {e}')
+    if ls.get('version')!='5.8.2' or 'progress_delta' not in ls: errors.append('LOOP-STATE invalid baseline')
+except Exception as e: errors.append(f'V5.8.2 control JSON parse: {e}')
 
-# V5.8.1 SKILL_DRIVEN_PLANNING_GATE
+# V5.8.2 SKILL_DRIVEN_PLANNING_GATE
 required_v571=[
 'docs/system/SKILL-DRIVEN-PLANNING.md','docs/system/DOMAIN-PLANNING-PROFILES.md','docs/system/WEB-PRODUCT-PLANNING-AND-CONTENT.md',
 'config/PLANNING-SKILL-ROUTING.yaml','planning/context/PLANNING-SKILL-STATE.yaml',
@@ -234,21 +234,39 @@ required_v571=[
 'planning/content/CONTENT-STRATEGY.md','planning/content/VOICE-GUIDE.md','planning/content/CONTENT-MANIFEST.yaml','planning/content/pages/README.md',
 'planning/seo/SEO-STRATEGY.md','planning/seo/SEARCH-INTENT-MAP.yaml','planning/seo/SEO-ROUTE-MATRIX.yaml','planning/seo/STRUCTURED-DATA-PLAN.yaml','planning/seo/SEO-VERIFICATION-PLAN.md']
 for rel in required_v571:
-    if not (R/rel).exists(): errors.append(f'missing V5.8.1 planning surface {rel}')
+    if not (R/rel).exists(): errors.append(f'missing V5.8.2 planning surface {rel}')
 try:
     preg=yaml.safe_load((R/'config/PLANNING-SKILL-ROUTING.yaml').read_text(encoding='utf-8')) or {}
     pskills=preg.get('skills') or {}
-    if preg.get('version')!='5.8.1': errors.append('planning skill registry version mismatch')
+    if preg.get('version')!='5.8.2': errors.append('planning skill registry version mismatch')
     if set(pskills)!=set(skills): errors.append('planning skill registry must cover every canonical skill exactly')
     for sid,meta in pskills.items():
         if not meta.get('phases') or not meta.get('roles'): errors.append(f'{sid}: incomplete planning capability metadata')
         if meta.get('execution_handoff')!='WHEN_JOB_RELEVANT': errors.append(f'{sid}: invalid planning-to-execution handoff policy')
 except Exception as e: errors.append(f'planning skill registry parse: {e}')
 for sid in ['seo-strategy','technical-seo-engineering','seo-content-strategy','structured-data-seo','search-experience-optimization','seo-audit-and-drift','local-commerce-seo','data-visualization-design','natural-content-editing']:
-    if sid not in skills: errors.append(f'missing V5.8.1 specialist {sid}')
+    if sid not in skills: errors.append(f'missing V5.8.2 specialist {sid}')
 for rel in ['AGENTS.md','GOAL.md','START-HERE.md','planning/execution/AUTOPILOT-GOAL.md']:
     txt=(R/rel).read_text(encoding='utf-8')
-    if 'V5.8.1 skill-driven planning' not in txt: errors.append(f'{rel}: missing skill-driven planning rule')
+    if 'V5.8.2 skill-driven planning' not in txt: errors.append(f'{rel}: missing skill-driven planning rule')
+
+
+try:
+    jgt=json.loads((R/'docs/templates/JOB-GRAPH.template.json').read_text(encoding='utf-8'))
+    if jgt.get('version')!='5.8.2': errors.append('JOB-GRAPH template version mismatch')
+    dp=jgt.get('dependency_policy') or {}
+    if 'IMPLEMENTED_UNVERIFIED' not in (dp.get('implementation_satisfied_by') or []): errors.append('JOB-GRAPH template lacks implementation-unverified dependency semantics')
+except Exception as ex: errors.append(f'JOB-GRAPH template parse: {ex}')
+
+# V5.8.2 PRODUCT_RUNTIME_COMPLETION_GATE
+for rel in ['config/BLOCKER-POLICY.yaml','config/PRODUCT-COMPLETION-POLICY.yaml','planning/product/PRODUCT-CONTRACT.yaml','planning/acceptance/USER-JOURNEY-ORACLES.yaml','planning/execution/BLOCKERS.json','planning/execution/DEFERRED-VALIDATION.json','planning/execution/PROVIDER-ATTESTATIONS.json','planning/execution/PRODUCT-RUNTIME-PREFLIGHT.json','planning/execution/PRODUCT-DRIFT-REVIEW.json','planning/execution/EXECUTION-SNAPSHOT.json','scripts/transition_job.py','scripts/build_execution_snapshot.py','scripts/refresh_job_readiness.py','scripts/validate_product_completion.py','scripts/record_loop_attempt.py','config/SKILL-OPTIMIZATION-POLICY.yaml','docs/system/SKILLOPT-OFFLINE-SKILL-LAB.md']:
+    if not (R/rel).exists(): errors.append(f'missing V5.8.2 completion surface {rel}')
+bp=(R/'config/BLOCKER-POLICY.yaml').read_text(encoding='utf-8')
+for tok in ['EXECUTION_BLOCKER','VERIFICATION_BLOCKER','verification_blocker_never_global_stop']:
+    if tok not in bp: errors.append(f'blocker policy missing {tok}')
+pc=(R/'config/PRODUCT-COMPLETION-POLICY.yaml').read_text(encoding='utf-8')
+for tok in ['USER_JOURNEY_REAL','CONSUMER_VERIFIED','VALIDATION_PENDING_EXTERNAL','direct_manual_done_edit','IMPLEMENTED_UNVERIFIED','verification_blocker_does_not_block_implementation_dependencies']:
+    if tok not in pc: errors.append(f'completion policy missing {tok}')
 
 if errors:
     print('SYSTEM_QA_FAIL')

@@ -1,0 +1,23 @@
+version: 5.8.2
+provider: skillopt
+mode: OPTIONAL_OFFLINE_MAINTAINER_ONLY
+runtime_dependency: false
+auto_install_for_normal_project: false
+candidate_selection:
+  signals: [P0_CRITICAL, P1_HOT, ROUTING_MISS, EXECUTION_LAPSE, INCIDENT_RELATED, BEHAVIOR_REGRESSION]
+optimization:
+  canonical_skill_direct_write: forbidden
+  train_split_may_influence_edits: true
+  validation_split_gates_candidate: true
+  test_split_visible_to_optimizer: false
+promotion:
+  requires:
+    - structural_qa_pass
+    - held_out_validation_pass
+    - no_regression_pass
+    - risk_appropriate_cross_harness_check
+    - provenance_and_sha_recorded
+  automatic: false
+privacy:
+  session_harvest_default: false
+  prefer_abstract_usage_events: true

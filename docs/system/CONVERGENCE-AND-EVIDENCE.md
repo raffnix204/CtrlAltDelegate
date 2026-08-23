@@ -1,4 +1,4 @@
-# Convergence & Evidence Contract — V5.8.1
+# Convergence & Evidence Contract — V5.8.2
 
 ## Goal
 Completion means the implementation, tests/evidence and documentation match the current accepted requirements/design on the exact candidate state.
@@ -48,3 +48,6 @@ Before `COMPLETED`:
 
 ## Evidence attestation commit
 Run product/runtime/test/documentation evidence on a committed **verified candidate SHA**. After verification, a final commit may update only canonical evidence/state attestation files. `quality_gate.py` permits this narrow post-candidate diff. Any code, configuration, test, build/runtime definition or user-facing documentation change after the verified candidate invalidates the affected evidence and requires a new candidate/reverification.
+
+## V5.8.2 typed product convergence
+Convergence now tracks requirement-appropriate evidence types. For user-visible/integration claims, the chain is `REQUIREMENT → PLAN/JOB → CODE → STATIC/UNIT SUPPORT → REAL RUNTIME/PROVIDER → USER JOURNEY/UX → EVIDENCE → DOCS`. A lower evidence class cannot satisfy a higher realness requirement. Mandatory external validation may be deferred during implementation, but the affected requirement cannot become final `CONVERGED`/project `COMPLETED` until its required real evidence exists.

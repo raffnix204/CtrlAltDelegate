@@ -1,4 +1,4 @@
-# Full-Lifecycle Entry & Mode Detection — V5.8.1
+# Full-Lifecycle Entry & Mode Detection — V5.8.2
 
 ## Purpose
 

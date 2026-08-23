@@ -1,4 +1,4 @@
-delivery_version: '5.8.1'
+delivery_version: 5.8.2
 layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
@@ -41,6 +41,27 @@ required_files:
 - docs/system/WORKER-BRIEF-INTEGRITY-AND-CAPABILITY-ATTESTATION.md
 - planning/execution/ASSURANCE-STATE.yaml
 - planning/execution/ROOT-CAUSE-DEPTH.json
+- config/SKILL-ESCALATION-POLICY.yaml
+- planning/execution/SKILL-REQUESTS.jsonl
+- planning/execution/SKILL-USAGE-EVENTS.jsonl
+- docs/system/RUNTIME-SKILL-ESCALATION.md
+- config/SKILL-MAINTENANCE-POLICY.yaml
+- planning/product/PRODUCT-CONTRACT.yaml
+- planning/acceptance/USER-JOURNEY-ORACLES.yaml
+- planning/execution/BLOCKERS.json
+- planning/execution/DEFERRED-VALIDATION.json
+- planning/execution/ASSUMPTIONS.jsonl
+- planning/execution/PROVIDER-ATTESTATIONS.json
+- planning/execution/PRODUCT-RUNTIME-PREFLIGHT.json
+- planning/execution/PRODUCT-DRIFT-REVIEW.json
+- planning/execution/EXECUTION-SNAPSHOT.json
+- config/BLOCKER-POLICY.yaml
+- config/PRODUCT-COMPLETION-POLICY.yaml
+- scripts/transition_job.py
+- scripts/build_execution_snapshot.py
+- scripts/validate_product_completion.py
+- scripts/record_blocker.py
+- scripts/refresh_job_readiness.py
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -60,7 +81,7 @@ language_contract:
   conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
   ctrlaltdelegate_artifacts: ENGLISH
   localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES
-version: '5.8.1'
+version: 5.8.2
 assurance_contract:
   work_and_assurance_axes: INDEPENDENT
   profiles:
@@ -70,3 +91,8 @@ assurance_contract:
   - CRITICAL
   behavioral_oracle: AUTHORITY_DERIVED
   root_cause_depth_gate: RISK_TRIGGERED
+completion_contract:
+  job_transition: scripts/transition_job.py
+  project_gate: scripts/validate_product_completion.py
+  verification_blocker_does_not_stop_dependency_ready_execution: true
+  implementation_dependency_accepts_implemented_unverified: true

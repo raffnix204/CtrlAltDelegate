@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 principles:
 - HARD_CONSTRAINTS_FIRST
 - SELF_HOSTABLE_FIRST_WHEN_FIT_IS_EQUAL

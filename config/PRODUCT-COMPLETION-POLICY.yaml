@@ -1,0 +1,77 @@
+version: 5.8.2
+principle: Structure, mocks and narrow tests may prove implementation progress; only requirement-appropriate real evidence may prove product completion.
+evidence_types:
+- STATIC
+- UNIT
+- COMPONENT
+- INTEGRATION_SIMULATED
+- INTEGRATION_REAL
+- RUNTIME_REAL
+- BROWSER_REAL
+- NATIVE_RUNTIME_REAL
+- PROVIDER_REAL
+- NETWORK_REAL
+- USER_JOURNEY_REAL
+- PRODUCT_DRIFT_REVIEW
+real_evidence_types:
+- INTEGRATION_REAL
+- RUNTIME_REAL
+- BROWSER_REAL
+- NATIVE_RUNTIME_REAL
+- PROVIDER_REAL
+- NETWORK_REAL
+- USER_JOURNEY_REAL
+realness:
+  MOCK: never_satisfies_real_requirement
+  SIMULATED: may_support_iteration_but_not_real_completion
+  REAL: may_satisfy_completion_when_scope_and_sha_are_valid
+job_transition:
+  done_requires:
+  - acceptance_criteria_satisfied
+  - minimum_evidence_types_satisfied
+  - mandatory_journey_oracles_for_job_passed_or_not_applicable
+  - required_provider_attestations_reach_required_level
+  - no_unresolved_execution_blocker_for_job
+  - candidate_sha_fresh
+  direct_manual_done_edit: forbidden
+  implementation_complete_state: IMPLEMENTED_UNVERIFIED
+  implementation_complete_does_not_mean_done: true
+project_completion:
+  requires:
+  - all_mandatory_requirements_converged
+  - no_dependency_ready_required_jobs_remaining
+  - no_required_job_in_nonterminal_implementation_state
+  - all_mandatory_user_journeys_real_pass
+  - all_required_live_integrations_consumer_verified
+  - product_drift_review_pass
+  - deferred_validation_empty_for_mandatory_completion_claims
+  - no_unresolved_global_execution_blocker
+  - evidence_fresh_for_candidate_sha
+  - documentation_current
+  validation_pending_state: VALIDATION_PENDING_EXTERNAL
+  completed_state: COMPLETED
+product_drift:
+  contract: planning/product/PRODUCT-CONTRACT.yaml
+  review: planning/execution/PRODUCT-DRIFT-REVIEW.json
+runtime_preflight:
+  state: planning/execution/PRODUCT-RUNTIME-PREFLIGHT.json
+  run_before_broad_implementation: true
+  verification_prerequisite_missing_does_not_stop_implementation: true
+  deferred_verification_status: READY_WITH_DEFERRED_VALIDATION
+provider_attestation:
+  states:
+  - DECLARED
+  - IMPLEMENTED
+  - CONFIGURED
+  - LIVE_VERIFIED
+  - CONSUMER_VERIFIED
+  default_required_for_live_integration_claim: CONSUMER_VERIFIED
+dependency_gates:
+  default: IMPLEMENTATION
+  IMPLEMENTATION_satisfied_by:
+  - IMPLEMENTED_UNVERIFIED
+  - VERIFYING
+  - DONE
+  VERIFIED_satisfied_by:
+  - DONE
+  verification_blocker_does_not_block_implementation_dependencies: true

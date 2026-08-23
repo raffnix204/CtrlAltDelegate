@@ -1,5 +1,5 @@
-version: 5.8.1
-base_release: '5.8.1'
+version: 5.8.2
+base_release: 5.8.1
 claims:
 - id: skill-count
   type: SKILL_COUNT
@@ -8,21 +8,28 @@ claims:
 - id: new-skills
   type: ADDED_SKILLS
   skills: []
-- id: jit-skill-escalation
+- id: runtime-completion-hardening
   type: ADDED_PATHS
   paths:
-  - config/SKILL-ESCALATION-POLICY.yaml
-  - scripts/resolve_skill_request.py
-  - docs/system/RUNTIME-SKILL-ESCALATION.md
-- id: release-claims-integrity
+  - config/PRODUCT-COMPLETION-POLICY.yaml
+  - planning/acceptance/USER-JOURNEY-ORACLES.yaml
+  - scripts/validate_product_completion.py
+- id: continuation-first-blockers
   type: ADDED_PATHS
   paths:
-  - scripts/validate_release_claims.py
-  - release/RELEASE-BASELINE.json
-  - release/RELEASE-CLAIMS.yaml
-- id: usage-aware-maintenance
+  - config/BLOCKER-POLICY.yaml
+  - planning/execution/DEFERRED-VALIDATION.json
+  - docs/system/BLOCKERS-DEFERRED-VALIDATION-AND-CONTINUATION.md
+  - scripts/refresh_job_readiness.py
+  - docs/system/EXECUTION-SNAPSHOT-AND-CONTROLLED-TRANSITIONS.md
+- id: execution-snapshot
   type: ADDED_PATHS
   paths:
-  - config/SKILL-MAINTENANCE-POLICY.yaml
-  - scripts/aggregate_skill_usage.py
-  - docs/system/USAGE-AWARE-SKILL-MAINTENANCE.md
+  - planning/execution/EXECUTION-SNAPSHOT.json
+  - scripts/build_execution_snapshot.py
+- id: skillopt-offline-lab
+  type: ADDED_PATHS
+  paths:
+  - config/SKILL-OPTIMIZATION-POLICY.yaml
+  - docs/system/SKILLOPT-OFFLINE-SKILL-LAB.md
+  - skill-lab/candidates/.gitkeep

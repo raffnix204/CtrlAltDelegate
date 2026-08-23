@@ -1,4 +1,4 @@
-# Web Acquisition & Browser Routing — V5.8.1
+# Web Acquisition & Browser Routing — V5.8.2
 
 ## Capability split
 `WEB_SEARCH | WEB_SCRAPE | WEB_MAP | WEB_CRAWL | WEB_EXTRACT` are acquisition capabilities. Browser JS/rendering/interaction/session/visual acceptance are separate capabilities.

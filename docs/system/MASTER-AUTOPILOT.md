@@ -1,4 +1,4 @@
-# Master Autopilot — V5.8.1
+# Master Autopilot — V5.8.2
 
 ## Objective
 Turn the project goal into a fully implemented, verified and GitHub-synchronized result without stopping between schedulable jobs.
@@ -25,7 +25,7 @@ REPO_ROOT_OR_SAFE_DELIVERY_MERGE
 ```
 
 ## Stage -2 — Repository-root delivery / persisted state
-V5.8.1 Custom-GPT deliveries arrive as `ctrlaltdelegate-delivery.zip` in the target project root. Start from that root, safely import the package to local-private `./.ctrlaltdelegate/`, validate `./.ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml`, then read the canonical handoff and state before broad work.
+V5.8.2 Custom-GPT deliveries arrive as `ctrlaltdelegate-delivery.zip` in the target project root. Start from that root, safely import the package to local-private `./.ctrlaltdelegate/`, validate `./.ctrlaltdelegate/planning/handoff/HANDOFF-STATUS.yaml`, then read the canonical handoff and state before broad work.
 
 ## Stage -1 — Harness readiness
 Detect the active harness/capabilities. Pi is the reference harness but Codex, Claude Code and OpenCode remain supported. Reuse native/installed capabilities. If a required capability is missing, research a current compatible provider, install only through supported safe mechanisms, record the resolved provider/version, then verify it. Reach `HARNESS_READY`.
@@ -104,7 +104,7 @@ Allowed interruption states only: `RESTART_REQUIRED` (minimal restart/resume act
 Worker/phase completion is not terminal. If dependency-ready work remains, continue.
 
 
-## V5.8.1 hard gates
+## V5.8.2 hard gates
 - `GIT_GUARDS_READY`: documentation pre-commit/pre-push guard active or safely integrated with existing hooks.
 - `PROGRAM_DESIGN_GATE`: consequential structure/test shape resolved before broad substantive implementation at the lightest useful depth.
 - `VERTICAL_SLICE_GATE`: prefer early executable end-to-end evidence when the dependency graph allows.
@@ -115,11 +115,11 @@ Worker/phase completion is not terminal. If dependency-ready work remains, conti
 - `RESTART_REQUIRED`: only when a newly installed/trusted Pi capability cannot become active via supported reload; persist first, tell operator exact restart/resume action, then rerun preflight.
 
 
-## V5.8.1 hardening loop
+## V5.8.2 hardening loop
 For each substantive job:
 `JOB_BASELINE → PROGRAM_DESIGN_GATE (when material) → JIT_RESEARCH → SKILL_LOAD → SOLUTION_MINIMIZATION_GATE → FIRST_VERTICAL_SLICE → EARLY_VERIFY/RESTEER → IMPLEMENT/EXTEND → FALSIFIABLE_TEST_EVIDENCE → FAILURE_MODE_CLOSURE (when triggered) → DOCS → COMMIT → FRESH COMPLEXITY/QUALITY REVIEW AS ROUTED → EVIDENCE_REFRESH`.
 
 After each validated wave update the convergence/evidence artifacts. Before final completion require `CONVERGENCE_READY + EVIDENCE_READY + DOCUMENTATION_READY + RUNTIME_READY + REMOTE_MAIN_READY`.
 
-## V5.8.1 adaptive execution
+## V5.8.2 adaptive execution
 Autopilot begins execution only after `EXECUTION_RIGHTSIZING_GATE`. The selected profile controls orchestration granularity, not quality. Long-running subagents are governed by progress-aware leases and checkpoint/resume; static elapsed duration alone never proves a stall. Before each dispatch, verify worker capabilities match the job.

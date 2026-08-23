@@ -1,4 +1,4 @@
-# Language and Interaction Contract — V5.8.1
+# Language and Interaction Contract — V5.8.2
 
 ## Purpose
 CtrlAltDelegate is internationally usable without maintaining localized copies of its engineering system. Conversation language and repository artifact language are separate concerns.

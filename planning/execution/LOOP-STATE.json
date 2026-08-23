@@ -1,5 +1,5 @@
 {
-  "version": "5.8.1",
+  "version": "5.8.2",
   "active_loop": null,
   "iteration": 0,
   "strategy": null,
@@ -8,5 +8,9 @@
   "failure_signature": null,
   "progress_delta": "NOT_EVALUATED",
   "last_exit_reason": null,
-  "updated_at": null
+  "updated_at": null,
+  "attempt": 0,
+  "strategy_history": [],
+  "same_strategy_allowed": true,
+  "last_meaningful_progress": null
 }

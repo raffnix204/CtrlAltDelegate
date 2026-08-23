@@ -1,4 +1,4 @@
-# Surface Policy and Enforcement — V5.8.1
+# Surface Policy and Enforcement — V5.8.2
 
 Instructions and enforcement are different planes. `AGENTS.md`, skills and plans guide behavior; they are not a security boundary by themselves.
 

@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: 5.8.2
 policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities
   before installation.
 providers:
@@ -109,3 +109,22 @@ providers:
     - web.fetch_static
     auto_install: false
     reuse_when_verified: true
+  skillopt:
+    source:
+      type: github_or_pypi
+      repository: microsoft/SkillOpt
+      package: skillopt
+    license: MIT
+    roles:
+    - OFFLINE_SKILL_OPTIMIZATION
+    capabilities:
+    - skill.optimization.offline
+    - skill.session_mining.optional
+    auto_install: false
+    install_scope: maintainer_workspace_only
+    notes:
+    - Never a normal project runtime dependency.
+    - Canonical skill edits are candidate-only until CtrlAltDelegate validation/promotion
+      gates pass.
+    - Session harvesting is explicit opt-in because transcript-derived content may
+      leave the machine with real backends.

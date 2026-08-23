@@ -1,4 +1,4 @@
-version: '5.8.1'
+version: '5.8.2'
 policy:
   same_behavioral_contract: true
   use_native_capabilities_when_available: true

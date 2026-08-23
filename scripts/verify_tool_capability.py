@@ -31,9 +31,9 @@ def main():
         base=(R/'tools' if R.name=='.ctrlaltdelegate' else R/'.ctrlaltdelegate-runtime/tools'); hits=list((base/'playwright-mcp').rglob('package.json'))
         ok=bool(hits) or bool(shutil.which('playwright'))
         checks.append({'name':'package_present','exit':0 if ok else 2}); caps=['browser.production_acceptance'] if ok else []
-    ok=all(x['exit']==0 for x in checks); result={'version':'5.8.1','provider':a.provider,'status':'VERIFIED' if ok else 'FAILED','checks':checks,'capabilities':caps}
+    ok=all(x['exit']==0 for x in checks); result={'version':'5.8.2','provider':a.provider,'status':'VERIFIED' if ok else 'FAILED','checks':checks,'capabilities':caps}
     if a.write and ok:
-        p=R/'planning/execution/CAPABILITY-STATE.json'; state={'version':'5.8.1','status':'INVENTORIED','capabilities':{}}
+        p=R/'planning/execution/CAPABILITY-STATE.json'; state={'version':'5.8.2','status':'INVENTORIED','capabilities':{}}
         if p.exists():
             try:state=json.loads(p.read_text())
             except Exception:pass

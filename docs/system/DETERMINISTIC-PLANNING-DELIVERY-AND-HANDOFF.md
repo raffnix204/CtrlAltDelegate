@@ -1,4 +1,4 @@
-# Deterministic Planning Delivery and Coding-Agent Handoff — V5.8.1
+# Deterministic Planning Delivery and Coding-Agent Handoff — V5.8.2
 
 An implementation-ready Custom-GPT planning export is one atomic handoff artifact named `ctrlaltdelegate-delivery.zip`. The user copies this ZIP directly into the actual target project/repository root and starts the coding agent from that root. The user does not need to extract or rename anything manually.
 
