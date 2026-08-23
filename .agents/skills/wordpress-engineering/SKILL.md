@@ -1,6 +1,6 @@
 ---
 name: wordpress-engineering
-description: Engineer WordPress plugins/themes/blocks, REST endpoints, hooks, cron and operations with capability/nonce boundaries, safe database APIs, lifecycle hooks, performance and WP-CLI-aware deployment.
+description: "Use when the task materially involves this skill's owned domain: Engineer WordPress plugins/themes/blocks, REST endpoints, hooks, cron and operations with capability/nonce boundaries, safe database APIs, lifecycle hooks, performance and WP-CLI-aware deployment."
 ---
 
 # WordPress Engineering

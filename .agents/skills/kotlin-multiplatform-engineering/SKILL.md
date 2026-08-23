@@ -1,6 +1,6 @@
 ---
 name: kotlin-multiplatform-engineering
-description: Engineer Kotlin Multiplatform projects with stable common/platform boundaries, coroutines, serialization, networking, persistence and expect/actual APIs across Android, iOS and other targets.
+description: "Use when the task materially involves this skill's owned domain: Engineer Kotlin Multiplatform projects with stable common/platform boundaries, coroutines, serialization, networking, persistence and expect/actual APIs across Android, iOS and other targets."
 ---
 
 # Kotlin Multiplatform Engineering

@@ -1,8 +1,8 @@
 {
-  "release": "5.8.2",
-  "base_release": "5.8.1",
-  "base_git_sha": "18eed4e0d090fd6db22195b16ea6e90761d50580",
-  "base_archive": "software-planning-lead-v5.8.1-github-native.zip",
-  "base_archive_sha256": "a131abbfd2122024bf0023161198bea1ff3fd9f55ac30691fdb2bd0b59e13609",
-  "policy": "Git diff is authoritative after repository merge; packaged RELEASE-DELTA is build evidence before a new Git commit exists."
+  "release": "5.9",
+  "base_release": "5.8.2",
+  "base_git_sha": "91f029c64682064eaf37e3337fe8c90a1fc70f35",
+  "base_archive": "software-planning-lead-v5.8.2-github-native.zip",
+  "base_archive_sha256": "00c4da93ba590c334288309ffcf4d1965cad19efb737ef1b3bebe0bb3721dd7a",
+  "policy": "Git diff is authoritative after repository merge; packaged RELEASE-DELTA is build evidence before the V5.9 Git commit exists."
 }

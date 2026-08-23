@@ -1,6 +1,6 @@
 ---
 name: property-based-testing
-description: Design property-based and fuzz-style tests by identifying invariants, round trips, normalization laws, state-machine rules and adversarial input spaces, with reproducible shrinking and failure interpretation.
+description: "Use when the task materially involves this skill's owned domain: Design property-based and fuzz-style tests by identifying invariants, round trips, normalization laws, state-machine rules and adversarial input spaces, with reproducible shrinking and failure interpretation."
 ---
 
 # Property-Based Testing Engineering

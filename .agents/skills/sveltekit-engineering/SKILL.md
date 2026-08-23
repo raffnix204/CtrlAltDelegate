@@ -1,6 +1,6 @@
 ---
 name: sveltekit-engineering
-description: Engineer Svelte/SvelteKit applications with version-correct reactivity, request-safe server/client state, load functions, form actions, SSR/prerendering, invalidation and adapter-aware deployment.
+description: "Use when the task materially involves this skill's owned domain: Engineer Svelte/SvelteKit applications with version-correct reactivity, request-safe server/client state, load functions, form actions, SSR/prerendering, invalidation and adapter-aware deployment."
 ---
 
 # SvelteKit Engineering

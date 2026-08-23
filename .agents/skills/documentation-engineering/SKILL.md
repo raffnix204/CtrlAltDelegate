@@ -1,6 +1,6 @@
 ---
 name: documentation-engineering
-description: Create and govern accurate developer/operator documentation including README, setup, API reference, architecture, ADR indexes, changelogs, migration guides and runbooks with executable verification.
+description: "Use when the task materially involves this skill's owned domain: Create and govern accurate developer/operator documentation including README, setup, API reference, architecture, ADR indexes, changelogs, migration guides and runbooks with executable verification."
 ---
 
 # Documentation Engineering

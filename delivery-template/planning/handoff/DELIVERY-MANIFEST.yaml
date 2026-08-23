@@ -1,4 +1,4 @@
-delivery_version: 5.8.2
+delivery_version: 5.9
 layout: GITHUB_NATIVE_ROOT
 persistent_planning_root: planning
 handoff_root: planning/handoff
@@ -62,6 +62,58 @@ required_files:
 - scripts/validate_product_completion.py
 - scripts/record_blocker.py
 - scripts/refresh_job_readiness.py
+- config/EXECUTION-CONTROL-POLICY.yaml
+- config/STATE-RECONCILIATION.yaml
+- config/PLANNING-CONVERGENCE-POLICY.yaml
+- config/REVIEW-VERDICT-POLICY.yaml
+- config/CONTROL-EFFECTIVENESS-POLICY.yaml
+- config/SKILL-DISCOVERY-POLICY.yaml
+- planning/architecture/PLANNING-ARTIFACT-GRAPH.yaml
+- planning/execution/CONTROL-STATE.json
+- planning/execution/CONTROL-MUTATION-LOG.jsonl
+- planning/execution/CONTROL-EVENTS.jsonl
+- planning/execution/WORKER-CLAIMS.json
+- planning/execution/ATTEMPT-STATE.json
+- planning/execution/JOB-ATTEMPTS.jsonl
+- planning/execution/RECOVERY-ACTIONS.jsonl
+- planning/execution/RECONCILIATION-LOG.jsonl
+- planning/execution/CONTROL-INSIGHTS.jsonl
+- planning/execution/RULINGS.jsonl
+- planning/execution/REVIEW-VERDICTS.json
+- planning/execution/VERIFICATION-BASELINES.json
+- planning/execution/PLANNING-CONVERGENCE.json
+- docs/system/EXECUTION-CONTROL-PLANE.md
+- docs/system/STATE-RECONCILIATION-AND-RECOVERY.md
+- docs/system/OBJECTIVE-PROGRESS-AND-VERIFICATION-ATTRIBUTION.md
+- docs/system/PLANNING-CONVERGENCE-AND-ARTIFACT-DAG.md
+- docs/system/REVIEW-VERDICTS-RULINGS-AND-NEGATIVE-REQUIREMENTS.md
+- docs/system/STOP-GATE-AND-SURFACE-ENFORCEMENT.md
+- docs/system/CONTROL-EFFECTIVENESS-AND-HARNESS-AUDIT.md
+- docs/system/SKILL-DISCOVERY-AND-OPTIMIZATION.md
+- docs/schemas/WORKER-RESULT.schema.json
+- docs/templates/WORKER-RESULT.template.json
+- scripts/control_state.py
+- scripts/validate_control_mutation.py
+- scripts/claim_job.py
+- scripts/heartbeat_job.py
+- scripts/start_job_attempt.py
+- scripts/settle_job_attempt.py
+- scripts/reconcile_execution_state.py
+- scripts/record_recovery_action.py
+- scripts/validate_worker_result.py
+- scripts/record_verification_baseline.py
+- scripts/classify_verification_delta.py
+- scripts/planning_probe.py
+- scripts/validate_planning_convergence.py
+- scripts/record_review_verdict.py
+- scripts/record_control_insight.py
+- scripts/execution_stop_gate.py
+- scripts/record_ruling.py
+- scripts/validate_oracle_integrity.py
+- scripts/validate_decision_coverage.py
+- scripts/validate_planning_artifact_graph.py
+- scripts/validate_skill_discovery.py
+- scripts/validate_v59_control_plane.py
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -81,7 +133,7 @@ language_contract:
   conversation: FOLLOW_USER_LANGUAGE_UNLESS_EXPLICITLY_OVERRIDDEN
   ctrlaltdelegate_artifacts: ENGLISH
   localized_product_content: ALLOWED_WHEN_PROJECT_REQUIRES
-version: 5.8.2
+version: 5.9
 assurance_contract:
   work_and_assurance_axes: INDEPENDENT
   profiles:
@@ -96,3 +148,14 @@ completion_contract:
   project_gate: scripts/validate_product_completion.py
   verification_blocker_does_not_stop_dependency_ready_execution: true
   implementation_dependency_accepts_implemented_unverified: true
+control_plane_contract:
+  state_authority: REVISIONED_SEALED_CONTROLLER_MUTATIONS
+  ownership: JOB_CLAIM_LEASE_ATTEMPT
+  pre_dispatch_reconciliation: true
+  worker_result_schema: docs/schemas/WORKER-RESULT.schema.json
+  objective_progress: true
+  review_verdicts:
+  - PASS
+  - FAIL
+  - UNVERIFIABLE
+  stop_gate: CAPABILITY_NEGOTIATED

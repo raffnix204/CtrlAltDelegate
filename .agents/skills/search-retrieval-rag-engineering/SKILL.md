@@ -1,6 +1,6 @@
 ---
 name: search-retrieval-rag-engineering
-description: Design lexical, semantic, hybrid and retrieval-augmented systems with chunking, indexing, filters, ranking, citations, freshness, evaluation and secure context assembly.
+description: "Use when the task materially involves this skill's owned domain: Design lexical, semantic, hybrid and retrieval-augmented systems with chunking, indexing, filters, ranking, citations, freshness, evaluation and secure context assembly."
 ---
 
 # Search, Retrieval & RAG Engineering

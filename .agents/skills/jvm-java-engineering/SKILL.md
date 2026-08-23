@@ -1,6 +1,6 @@
 ---
 name: jvm-java-engineering
-description: Write and review production Java/JVM systems with explicit concurrency, resource management, type/API design, build tooling, GC/performance and framework boundaries. Use when Java is a primary language or JVM behavior is material.
+description: "Use when the task materially involves this skill's owned domain: Write and review production Java/JVM systems with explicit concurrency, resource management, type/API design, build tooling, GC/performance and framework boundaries. Use when Java is a primary language or JVM behavior is material."
 ---
 
 # Java & JVM Production Engineering

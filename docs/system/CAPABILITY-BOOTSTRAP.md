@@ -1,6 +1,6 @@
-# Capability Bootstrap — V5.8.2
+# Capability Bootstrap — V5.9
 
-Pi is the reference harness, but V5.8.2 is capability-driven and model-neutral. Never infer capability from a package name alone and never prescribe an LLM/model.
+Pi is the reference harness, but V5.9 is capability-driven and model-neutral. Never infer capability from a package name alone and never prescribe an LLM/model.
 
 ## Required execution capabilities
 Inventory actual session/tool surfaces for instructions, Agent Skills, Git/GitHub, Goal/persistent continuation when used, isolated fresh subagents, parallel delegation when independent ready jobs exist, independent review, file/search/shell, and project-dependent web/browser/network/runtime capabilities.
@@ -28,9 +28,9 @@ When Codex CLI is active, research current OpenAI/Codex documentation before ass
 ## Conditional execution isolation
 Before running unfamiliar repository scripts, dependency installers, generated executables or risky integration experiments, assess whether the active harness sandbox/container/worktree can isolate the operation. Prefer existing safe isolation when material; do not impose Docker or another sandbox when risk does not justify it.
 
-## V5.8.2 delegation capability matching
+## V5.9 delegation capability matching
 Capability resolution now applies **per delegated job** as well as per harness. A job declares required capabilities and the orchestrator proves the selected worker exposes them before dispatch. Long-running/expensive delegation should prefer observable progress, cancellation and resumable session/checkpoint capabilities when available. Do not pin a provider merely to obtain these; resolve current supported capability at runtime and never bypass Project Trust/security policy.
 
 
-## V5.8.2 provider resolver
+## V5.9 provider resolver
 Use `config/TOOL-CAPABILITY-CATALOG.yaml`, `config/TOOL-SELECTION-POLICY.yaml`, `planning/execution/CAPABILITY-STATE.json` and `TOOL-LOCK.json`. Safe installation is autonomous when all policy conditions are satisfied; do not ask the user merely to install a project-local free tool. CRW/Obscura/Playwright mappings are provider candidates, never mandatory dependencies.

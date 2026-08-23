@@ -1,6 +1,6 @@
 ---
 name: sqlite-engineering
-description: Engineer embedded SQLite databases with correct schema, transactions, WAL/locking, concurrency, FTS, backups, migrations and deployment semantics for local-first, desktop, mobile and lightweight server workloads.
+description: "Use when the task materially involves this skill's owned domain: Engineer embedded SQLite databases with correct schema, transactions, WAL/locking, concurrency, FTS, backups, migrations and deployment semantics for local-first, desktop, mobile and lightweight server workloads."
 ---
 
 # SQLite Engineering

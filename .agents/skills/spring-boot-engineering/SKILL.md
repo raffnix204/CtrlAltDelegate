@@ -1,6 +1,6 @@
 ---
 name: spring-boot-engineering
-description: Engineer Spring Boot services with explicit bean/configuration boundaries, MVC/WebFlux selection, validation, Spring Security filter/method authorization, transaction proxy semantics, JPA queries and production observability.
+description: "Use when the task materially involves this skill's owned domain: Engineer Spring Boot services with explicit bean/configuration boundaries, MVC/WebFlux selection, validation, Spring Security filter/method authorization, transaction proxy semantics, JPA queries and production observability."
 ---
 
 # Spring Boot Engineering

@@ -1,6 +1,6 @@
 ---
 name: natural-content-editing
-description: "Edit generated or existing user-facing prose so it is clear, specific, natural and register-appropriate while preserving claims, evidence, persona and product meaning; never optimize for detector evasion."
+description: "Use when the task materially involves this skill's owned domain: Edit generated or existing user-facing prose so it is clear, specific, natural and register-appropriate while preserving claims, evidence, persona and product meaning; never optimize for detector evasion."
 ---
 
 # Natural Content Editing

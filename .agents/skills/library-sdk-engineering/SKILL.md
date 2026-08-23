@@ -1,6 +1,6 @@
 ---
 name: library-sdk-engineering
-description: Design stable reusable libraries and SDKs with ergonomic APIs, compatibility discipline, versioning, generated/manual code boundaries, examples and multi-version verification.
+description: "Use when the task materially involves this skill's owned domain: Design stable reusable libraries and SDKs with ergonomic APIs, compatibility discipline, versioning, generated/manual code boundaries, examples and multi-version verification."
 ---
 
 # Library & SDK Engineering

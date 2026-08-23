@@ -1,6 +1,6 @@
 ---
 name: reverse-proxy-edge-engineering
-description: Configure reverse proxies, gateways and edge servers for routing, TLS, headers, compression, caching, upstream health, rate limits and safe zero-downtime changes.
+description: "Use when the task materially involves this skill's owned domain: Configure reverse proxies, gateways and edge servers for routing, TLS, headers, compression, caching, upstream health, rate limits and safe zero-downtime changes."
 ---
 
 # Reverse Proxy & Edge Engineering

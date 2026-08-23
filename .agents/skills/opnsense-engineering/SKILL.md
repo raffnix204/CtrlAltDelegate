@@ -1,6 +1,6 @@
 ---
 name: opnsense-engineering
-description: Safely automate and operate OPNsense firewalls through current official API/model surfaces with explicit privileges, configuration ownership, rollback, firewall/NAT/VPN/DNS validation and lockout protection.
+description: "Use when the task materially involves this skill's owned domain: Safely automate and operate OPNsense firewalls through current official API/model surfaces with explicit privileges, configuration ownership, rollback, firewall/NAT/VPN/DNS validation and lockout protection."
 ---
 
 # OPNsense Engineering

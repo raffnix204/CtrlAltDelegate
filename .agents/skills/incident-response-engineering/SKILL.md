@@ -1,6 +1,6 @@
 ---
 name: incident-response-engineering
-description: Prepare and execute evidence-driven incident response with detection, severity, containment, diagnosis, recovery, communication, post-incident learning and tested runbooks.
+description: "Use when the task materially involves this skill's owned domain: Prepare and execute evidence-driven incident response with detection, severity, containment, diagnosis, recovery, communication, post-incident learning and tested runbooks."
 ---
 
 # Incident Response & Runbook Engineering

@@ -1,6 +1,6 @@
 ---
 name: typescript-node-engineering
-description: Write and review production TypeScript/JavaScript server and tooling code with strong runtime validation, async/resource ownership, module/package boundaries, streams, workers and build compatibility.
+description: "Use when the task materially involves this skill's owned domain: Write and review production TypeScript/JavaScript server and tooling code with strong runtime validation, async/resource ownership, module/package boundaries, streams, workers and build compatibility."
 ---
 
 # TypeScript & Node.js Engineering

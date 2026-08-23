@@ -1,6 +1,6 @@
 ---
 name: payments-billing-engineering
-description: Engineer checkout, subscriptions, invoices, entitlements, refunds and payment-provider integrations with idempotency, webhook verification, ledger clarity and reconciliation.
+description: "Use when the task materially involves this skill's owned domain: Engineer checkout, subscriptions, invoices, entitlements, refunds and payment-provider integrations with idempotency, webhook verification, ledger clarity and reconciliation."
 ---
 
 # Payments & Billing Engineering

@@ -1,6 +1,6 @@
 ---
 name: mongodb-engineering
-description: Engineer MongoDB document models, indexes, aggregation/query plans, transactions/consistency, connection pools and Atlas/search capabilities from workload shape rather than relational habits.
+description: "Use when the task materially involves this skill's owned domain: Engineer MongoDB document models, indexes, aggregation/query plans, transactions/consistency, connection pools and Atlas/search capabilities from workload shape rather than relational habits."
 ---
 
 # MongoDB Engineering

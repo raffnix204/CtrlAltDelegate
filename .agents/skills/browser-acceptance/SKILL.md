@@ -1,6 +1,6 @@
 ---
 name: browser-acceptance
-description: Verify real user journeys against the integrated running application using resilient browser automation, visual evidence and runtime inspection.
+description: "Use when the task materially involves this skill's owned domain: Verify real user journeys against the integrated running application using resilient browser automation, visual evidence and runtime inspection."
 ---
 
 # Browser Acceptance & Visual Evidence

@@ -1,6 +1,6 @@
 ---
 name: realtime-communications-engineering
-description: Design WebSocket, Server-Sent Events, presence and bidirectional realtime features with connection lifecycle, backpressure, ordering, reconnection, fan-out and horizontal scaling correctness.
+description: "Use when the task materially involves this skill's owned domain: Design WebSocket, Server-Sent Events, presence and bidirectional realtime features with connection lifecycle, backpressure, ordering, reconnection, fan-out and horizontal scaling correctness."
 ---
 
 # Realtime Communications Engineering

@@ -1,6 +1,6 @@
 ---
 name: ci-cd-engineering
-description: Design fast, deterministic and secure build/test/release pipelines with correct caching, artifact flow, environment gates, credentials, deployment strategy and failure recovery.
+description: "Use when the task materially involves this skill's owned domain: Design fast, deterministic and secure build/test/release pipelines with correct caching, artifact flow, environment gates, credentials, deployment strategy and failure recovery."
 ---
 
 # CI/CD Engineering

@@ -1,4 +1,4 @@
-# Execution Snapshot & Controlled Transitions — V5.8.2
+# Execution Snapshot & Controlled Transitions — V5.9
 
 CtrlAltDelegate keeps normalized source-of-truth artifacts but exposes one generated execution view: `planning/execution/EXECUTION-SNAPSHOT.json`. `STATE.md` is a generated human-readable projection, not an independent manually maintained truth.
 

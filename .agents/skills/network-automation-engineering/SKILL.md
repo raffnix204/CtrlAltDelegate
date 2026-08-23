@@ -1,6 +1,6 @@
 ---
 name: network-automation-engineering
-description: Automate network-device discovery, configuration, validation and rollback using APIs, NETCONF/RESTCONF, SNMP, SSH or controller interfaces while protecting reachability and configuration integrity.
+description: "Use when the task materially involves this skill's owned domain: Automate network-device discovery, configuration, validation and rollback using APIs, NETCONF/RESTCONF, SNMP, SSH or controller interfaces while protecting reachability and configuration integrity."
 ---
 
 # Network Automation Engineering

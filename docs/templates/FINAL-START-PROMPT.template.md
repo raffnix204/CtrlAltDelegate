@@ -1,4 +1,4 @@
-# Final Coding-Agent Start Prompt — V5.8.2
+# Final Coding-Agent Start Prompt — V5.9
 
 Work from the root of this cloned repository. This prompt assumes an execution-ready planning handoff. Do not re-plan the project from scratch. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md` instead.
 

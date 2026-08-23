@@ -1,6 +1,6 @@
 ---
 name: multi-tenancy-engineering
-description: Design tenant isolation, identity, data partitioning, authorization, quotas, migrations, observability and operational workflows for shared SaaS systems.
+description: "Use when the task materially involves this skill's owned domain: Design tenant isolation, identity, data partitioning, authorization, quotas, migrations, observability and operational workflows for shared SaaS systems."
 ---
 
 # Multi-Tenancy Engineering

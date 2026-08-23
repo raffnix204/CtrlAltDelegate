@@ -1,6 +1,6 @@
 ---
 name: seo-strategy
-description: "Plan search discoverability before implementation: audience and query intent, page/route strategy, information architecture, internal linking, content opportunities, measurement and a prioritized SEO roadmap."
+description: "Use when the task materially involves this skill's owned domain: Plan search discoverability before implementation: audience and query intent, page/route strategy, information architecture, internal linking, content opportunities, measurement and a prioritized SEO roadmap."
 ---
 
 # SEO Strategy & Search Architecture

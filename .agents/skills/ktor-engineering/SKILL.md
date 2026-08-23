@@ -1,6 +1,6 @@
 ---
 name: ktor-engineering
-description: Engineer Ktor services with explicit plugin ordering, coroutine/structured-concurrency semantics, typed serialization, authentication, persistence and production server lifecycle.
+description: "Use when the task materially involves this skill's owned domain: Engineer Ktor services with explicit plugin ordering, coroutine/structured-concurrency semantics, typed serialization, authentication, persistence and production server lifecycle."
 ---
 
 # Ktor Engineering

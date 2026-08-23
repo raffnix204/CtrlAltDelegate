@@ -1,6 +1,6 @@
 ---
 name: fsharp-engineering
-description: Engineer idiomatic F# applications with domain modeling, discriminated unions, immutability, async/task interop, error modeling, .NET libraries and testable effect boundaries.
+description: "Use when the task materially involves this skill's owned domain: Engineer idiomatic F# applications with domain modeling, discriminated unions, immutability, async/task interop, error modeling, .NET libraries and testable effect boundaries."
 ---
 
 # F# Engineering

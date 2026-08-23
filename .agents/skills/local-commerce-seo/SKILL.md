@@ -1,6 +1,6 @@
 ---
 name: local-commerce-seo
-description: "Plan and verify location/service-area and commerce search surfaces using truthful business/product data, local entity consistency, product/category architecture, reviews/proof and current platform requirements."
+description: "Use when the task materially involves this skill's owned domain: Plan and verify location/service-area and commerce search surfaces using truthful business/product data, local entity consistency, product/category architecture, reviews/proof and current platform requirements."
 ---
 
 # Local & Commerce SEO

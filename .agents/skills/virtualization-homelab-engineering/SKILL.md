@@ -1,6 +1,6 @@
 ---
 name: virtualization-homelab-engineering
-description: Design and operate small-scale virtualization and self-hosted infrastructure with VM/container boundaries, storage, networking, backups, service placement and recoverable automation.
+description: "Use when the task materially involves this skill's owned domain: Design and operate small-scale virtualization and self-hosted infrastructure with VM/container boundaries, storage, networking, backups, service placement and recoverable automation."
 ---
 
 # Virtualization & Homelab Engineering

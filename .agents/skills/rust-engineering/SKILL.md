@@ -1,6 +1,6 @@
 ---
 name: rust-engineering
-description: Write and review production Rust with deliberate ownership, error types, traits, async concurrency, unsafe boundaries, Cargo features, testing and performance. Use when Rust is a primary project language.
+description: "Use when the task materially involves this skill's owned domain: Write and review production Rust with deliberate ownership, error types, traits, async concurrency, unsafe boundaries, Cargo features, testing and performance. Use when Rust is a primary project language."
 ---
 
 # Rust Production & Systems Engineering

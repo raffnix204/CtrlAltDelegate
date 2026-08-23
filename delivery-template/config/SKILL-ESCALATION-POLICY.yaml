@@ -1,4 +1,4 @@
-version: 5.8.2
+version: 5.9
 purpose: Allow runtime expertise expansion without abandoning hash-bound worker briefs
   or triggering unnecessary full replanning.
 state:

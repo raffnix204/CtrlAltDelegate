@@ -1,6 +1,6 @@
 ---
 name: android-architecture
-description: Design production Android application architecture with lifecycle-aware state, modular boundaries, persistence, background work, navigation and platform integration. Use for Android or Android-heavy Kotlin Multiplatform applications.
+description: "Use when the task materially involves this skill's owned domain: Design production Android application architecture with lifecycle-aware state, modular boundaries, persistence, background work, navigation and platform integration. Use for Android or Android-heavy Kotlin Multiplatform applications."
 ---
 
 # Android & Kotlin Mobile Architecture

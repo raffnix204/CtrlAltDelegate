@@ -55,12 +55,12 @@ def main():
         hot=pol['usage_tiers']['HOT']['min_weighted_events']; warm=pol['usage_tiers']['WARM']['min_weighted_events']
         all_skills=sorted(p.parent.name for p in (root/'.agents/skills').glob('*/SKILL.md'))
         for sid in all_skills: counts.setdefault(sid,{'events':{},'weighted_score':0})
-        state={'version':'5.8.2','skills':{}}
+        state={'version':'5.9','skills':{}}
         for sid,d in sorted(counts.items()):
             score=d['weighted_score']; tier='HOT' if score>=hot else ('WARM' if score>=warm else 'COLD')
             priority='P0' if sid in p0 else ('P1' if tier=='HOT' else ('P2' if tier=='WARM' else 'P3'))
             state['skills'][sid]={**d,'usage_tier':tier,'maintenance_priority':priority}
-        out={'version':'5.8.2','sources':sorted(set(sources)),'skills':state['skills']}
+        out={'version':'5.9','sources':sorted(set(sources)),'skills':state['skills']}
         (root/a.output).parent.mkdir(parents=True,exist_ok=True); (root/a.output).write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
         (root/a.state).write_text(yaml.safe_dump(state,sort_keys=False))
         print(f'SKILL_USAGE_AGGREGATION_PASS skills={len(state["skills"])} sources={len(set(sources))}')

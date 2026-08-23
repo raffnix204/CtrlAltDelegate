@@ -1,6 +1,6 @@
 ---
 name: machine-learning-engineering
-description: Build production ML systems with explicit data contracts, reproducible training, evaluation, model artifacts, serving, monitoring, drift handling and rollback. Use for classifiers, ranking, forecasting, recommenders, embeddings or other learned models.
+description: "Use when the task materially involves this skill's owned domain: Build production ML systems with explicit data contracts, reproducible training, evaluation, model artifacts, serving, monitoring, drift handling and rollback. Use for classifiers, ranking, forecasting, recommenders, embeddings or other learned models."
 ---
 
 # Production Machine Learning Engineering

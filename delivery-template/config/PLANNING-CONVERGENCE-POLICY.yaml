@@ -1,0 +1,22 @@
+version: '5.9'
+principle: Planning must demonstrably converge; repeated edits without issue reduction
+  require a strategy change.
+state: planning/execution/PLANNING-CONVERGENCE.json
+artifact_graph: planning/architecture/PLANNING-ARTIFACT-GRAPH.yaml
+progress_dimensions:
+- blocker_count
+- warning_count
+- uncovered_requirements
+- unresolved_decisions
+- unresolved_assumptions
+- missing_runtime_prerequisites
+plateau:
+  same_signature_limit: 2
+  action: PLANNING_STRATEGY_CHANGE
+decision_coverage:
+  required_before_execution: true
+  allowed:
+  - RESOLVED
+  - DEFERRED_WITH_REASON
+  - AUTOPILOT_OWNED
+deterministic_probe_first: true

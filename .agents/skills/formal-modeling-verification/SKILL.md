@@ -1,6 +1,6 @@
 ---
 name: formal-modeling-verification
-description: 'Model and verify high-risk state machines, concurrent/distributed protocols and transaction invariants when ordinary tests cannot efficiently cover the dangerous state space. Use conditionally, never as routine ceremony.'
+description: "Use when the task materially involves this skill's owned domain: Model and verify high-risk state machines, concurrent/distributed protocols and transaction invariants when ordinary tests cannot efficiently cover the dangerous state space. Use conditionally, never as routine ceremony."
 ---
 
 # Formal Modeling & Verification

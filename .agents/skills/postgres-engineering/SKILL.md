@@ -1,6 +1,6 @@
 ---
 name: postgres-engineering
-description: Engineer PostgreSQL schemas, queries, indexes, transactions, concurrency, row-level security and connection behavior using database evidence rather than ORM assumptions.
+description: "Use when the task materially involves this skill's owned domain: Engineer PostgreSQL schemas, queries, indexes, transactions, concurrency, row-level security and connection behavior using database evidence rather than ORM assumptions."
 ---
 
 # PostgreSQL Engineering

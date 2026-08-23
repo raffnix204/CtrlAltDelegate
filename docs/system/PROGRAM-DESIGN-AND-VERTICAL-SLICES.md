@@ -1,4 +1,4 @@
-# Program Design & Vertical Slice Contract — V5.8.2
+# Program Design & Vertical Slice Contract — V5.9
 
 ## Purpose
 
@@ -54,5 +54,5 @@ Whenever a product or NFR goal has a meaningful observable metric, record it bef
 
 Do not invent vanity metrics for requirements whose correctness is inherently categorical. The metric is backpressure for autonomous iteration, not a substitute for product judgment.
 
-## V5.8.2 Golden Journey gate
+## V5.9 Golden Journey gate
 For user-visible products, program design identifies one or more mandatory executable user journeys before broad implementation. The first meaningful vertical slice should prove a Golden Journey with the strongest currently automatable runtime surface. If final real proof requires later external/human validation, record that as deferred validation while continuing implementation; never substitute a mock for the final oracle.

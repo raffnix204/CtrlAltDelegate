@@ -1,6 +1,6 @@
 ---
 name: infrastructure-as-code-engineering
-description: Design and review declarative infrastructure ownership across Terraform, Pulumi, CloudFormation, Bicep and similar systems with explicit state, blast radius, drift, CI identity and recovery semantics.
+description: "Use when the task materially involves this skill's owned domain: Design and review declarative infrastructure ownership across Terraform, Pulumi, CloudFormation, Bicep and similar systems with explicit state, blast radius, drift, CI identity and recovery semantics."
 ---
 
 # Infrastructure as Code Engineering

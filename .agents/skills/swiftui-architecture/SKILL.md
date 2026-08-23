@@ -1,6 +1,6 @@
 ---
 name: swiftui-architecture
-description: Design Apple-platform apps that feel native, adapt to platform/window/accessibility contexts, and keep SwiftUI state/navigation/domain boundaries testable.
+description: "Use when the task materially involves this skill's owned domain: Design Apple-platform apps that feel native, adapt to platform/window/accessibility contexts, and keep SwiftUI state/navigation/domain boundaries testable."
 ---
 
 # Native Apple UX & SwiftUI Architecture

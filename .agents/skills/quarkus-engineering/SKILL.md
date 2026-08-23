@@ -1,6 +1,6 @@
 ---
 name: quarkus-engineering
-description: Engineer Quarkus services across CDI scopes, REST/persistence, imperative/reactive execution, build-time augmentation, native-image constraints, configuration and deployment verification.
+description: "Use when the task materially involves this skill's owned domain: Engineer Quarkus services across CDI scopes, REST/persistence, imperative/reactive execution, build-time augmentation, native-image constraints, configuration and deployment verification."
 ---
 
 # Quarkus Engineering

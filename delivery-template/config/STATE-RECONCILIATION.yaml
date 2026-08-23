@@ -1,0 +1,35 @@
+version: '5.9'
+pre_dispatch_required: true
+detect_before_repair: true
+phases:
+- name: integrity
+  stop_on_blocker: true
+  handlers:
+  - CONTROL_SURFACE_DRIFT
+  - STALE_REVISION
+- name: execution_ownership
+  stop_on_blocker: true
+  handlers:
+  - EXPIRED_CLAIM
+  - ORPHAN_ATTEMPT
+  - CLAIM_ATTEMPT_MISMATCH
+- name: semantic_state
+  stop_on_blocker: false
+  handlers:
+  - DONE_INVARIANT_VIOLATION
+  - BLOCKER_JOB_MISMATCH
+  - STALE_EVIDENCE
+  - PROVIDER_ATTESTATION_DRIFT
+- name: projection
+  stop_on_blocker: false
+  handlers:
+  - SNAPSHOT_DRIFT
+  - READINESS_DRIFT
+safe_repairs:
+  EXPIRED_CLAIM: release_after_lease_and_heartbeat_checks
+  ORPHAN_ATTEMPT: mark_interrupted_and_require_new_claim
+  DONE_INVARIANT_VIOLATION: demote_to_VERIFYING_or_IMPLEMENTED_UNVERIFIED
+  SNAPSHOT_DRIFT: regenerate
+  READINESS_DRIFT: regenerate
+unsafe_or_ambiguous: FAIL_CLOSED_WITH_RECONCILIATION_BLOCKER
+log: planning/execution/RECONCILIATION-LOG.jsonl

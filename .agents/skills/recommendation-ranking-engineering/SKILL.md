@@ -1,6 +1,6 @@
 ---
 name: recommendation-ranking-engineering
-description: Design candidate generation, eligibility filtering, scoring, reranking, selection, feedback and experimentation pipelines for feeds, recommendations and prioritization systems.
+description: "Use when the task materially involves this skill's owned domain: Design candidate generation, eligibility filtering, scoring, reranking, selection, feedback and experimentation pipelines for feeds, recommendations and prioritization systems."
 ---
 
 # Recommendation & Ranking Engineering

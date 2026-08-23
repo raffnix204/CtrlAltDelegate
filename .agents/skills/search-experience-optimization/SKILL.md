@@ -1,6 +1,6 @@
 ---
 name: search-experience-optimization
-description: "Align searchable pages with the user task and page type search results actually reward, combining search intent, UX, information architecture, content structure and conversion evidence."
+description: "Use when the task materially involves this skill's owned domain: Align searchable pages with the user task and page type search results actually reward, combining search intent, UX, information architecture, content structure and conversion evidence."
 ---
 
 # Search Experience Optimization

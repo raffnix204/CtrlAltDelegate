@@ -1,6 +1,6 @@
 ---
 name: content-copywriting
-description: Create differentiated, truthful, audience-specific website/product copy that communicates value clearly and supports user action without fabricated proof or manipulative tactics.
+description: "Use when the task materially involves this skill's owned domain: Create differentiated, truthful, audience-specific website/product copy that communicates value clearly and supports user action without fabricated proof or manipulative tactics."
 ---
 
 # Product & Marketing Copywriting

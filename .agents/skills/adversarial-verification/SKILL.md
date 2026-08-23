@@ -1,6 +1,6 @@
 ---
 name: adversarial-verification
-description: Independently attempt to refute material factual completion claims using fresh evidence while avoiding fake confidence from majority-voting subjective judgments.
+description: "Use when the task materially involves this skill's owned domain: Independently attempt to refute material factual completion claims using fresh evidence while avoiding fake confidence from majority-voting subjective judgments."
 ---
 
 # Adversarial Factual Verification

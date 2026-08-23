@@ -1,6 +1,6 @@
 ---
 name: unifi-network-engineering
-description: Safely automate and operate UniFi networks using current official Site Manager and local application APIs, with topology-aware change control, controller/version discovery and rollback-safe network validation.
+description: "Use when the task materially involves this skill's owned domain: Safely automate and operate UniFi networks using current official Site Manager and local application APIs, with topology-aware change control, controller/version discovery and rollback-safe network validation."
 ---
 
 # UniFi / Ubiquiti Network Engineering

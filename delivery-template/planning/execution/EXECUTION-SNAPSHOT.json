@@ -1,13 +1,18 @@
 {
-  "version": "5.8.2",
+  "version": "5.9",
   "generated": true,
-  "status": "INITIAL_TEMPLATE",
+  "status": "CURRENT",
   "candidate_sha": "",
   "git_head": "",
+  "control_revision": 1,
   "jobs": {
     "total": 0,
     "by_status": {},
     "derived_ready": []
+  },
+  "workers": {
+    "active_claims": 0,
+    "active_attempts": 0
   },
   "blockers": {
     "unresolved": 0,
@@ -40,5 +45,5 @@
   },
   "runtime_preflight": "NOT_RUN",
   "product_drift": "NOT_RUN",
-  "updated_at": null
+  "updated_at": "2026-08-23T11:13:00.154571+00:00"
 }

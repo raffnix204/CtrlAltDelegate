@@ -1,6 +1,6 @@
 ---
 name: seo-content
-description: Make public content crawlable, indexable, understandable and useful using current primary-source search guidance, while treating AI-search/GEO claims as evidence-sensitive rather than folklore.
+description: "Use when the task materially involves this skill's owned domain: Make public content crawlable, indexable, understandable and useful using current primary-source search guidance, while treating AI-search/GEO claims as evidence-sensitive rather than folklore."
 ---
 
 # Technical SEO & Search Discoverability

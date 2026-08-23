@@ -1,6 +1,6 @@
 ---
 name: angular-engineering
-description: Engineer Angular applications with standalone composition, dependency injection, signals/RxJS interoperability, typed forms, routing, SSR/hydration and predictable change-detection boundaries.
+description: "Use when the task materially involves this skill's owned domain: Engineer Angular applications with standalone composition, dependency injection, signals/RxJS interoperability, typed forms, routing, SSR/hydration and predictable change-detection boundaries."
 ---
 
 # Angular Engineering

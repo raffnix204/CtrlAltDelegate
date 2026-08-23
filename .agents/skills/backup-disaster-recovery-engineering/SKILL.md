@@ -1,6 +1,6 @@
 ---
 name: backup-disaster-recovery-engineering
-description: Design verified backups, restore paths, replication-independent recovery, retention, encryption and disaster exercises across databases, files, configuration and critical runtime state.
+description: "Use when the task materially involves this skill's owned domain: Design verified backups, restore paths, replication-independent recovery, retention, encryption and disaster exercises across databases, files, configuration and critical runtime state."
 ---
 
 # Backup & Disaster Recovery Engineering

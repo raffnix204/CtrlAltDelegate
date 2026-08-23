@@ -1,6 +1,6 @@
 ---
 name: ruby-engineering
-description: Write and review production Ruby/Rails systems with clear object boundaries, Active Record/query behavior, background jobs, transactions, concurrency, testing, gems and runtime performance.
+description: "Use when the task materially involves this skill's owned domain: Write and review production Ruby/Rails systems with clear object boundaries, Active Record/query behavior, background jobs, transactions, concurrency, testing, gems and runtime performance."
 ---
 
 # Ruby Production Engineering

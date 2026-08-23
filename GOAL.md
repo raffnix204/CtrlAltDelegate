@@ -1,4 +1,4 @@
-# GOAL — V5.8.2
+# GOAL — V5.9
 
 ## Project mode
 `AUTO`
@@ -63,7 +63,7 @@ Model policy: `USE_OPERATOR_OR_HARNESS_SELECTION_UNCHANGED`
 Capability activation: `INSTALL_IF_REQUIRED_THEN_RELOAD_OR_RESTART_REQUIRED`
 
 
-## V5.8.2 planning / state / execution flow
+## V5.9 planning / state / execution flow
 Planning root: `planning/` — persistent, versioned, never globally gitignored.
 Current state: `planning/execution/STATE.md` — update after meaningful execution boundaries.
 Program design: `LIGHTEST_SUFFICIENT_BEFORE_BROAD_SUBSTANTIVE_IMPLEMENTATION`
@@ -73,7 +73,7 @@ Failure closure: `DURABLE_MINIMUM_CONTROL_AFTER_ESCAPED_OR_REPEATED_FAILURE`
 Measurable outcomes: `USE_WHEN_HONEST_AND_DECISION_RELEVANT`
 
 
-V5.8.2 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
+V5.9 planning baseline includes `planning/discovery/` preference/constraint state; preserve resolved constraints during execution.
 
 
 ## Language / interaction
@@ -82,12 +82,12 @@ System/planning artifacts: `ENGLISH`
 Localized product content: `ONLY_WHEN_PROJECT_REQUIRES`
 
 
-## V5.8.2 control surfaces
+## V5.9 control surfaces
 Use the canonical loop registry/state, machine-readable job graph, surface policy, decision ledger, artifact-consistency gate and harness-conformance profile. For Custom-GPT ZIP handoffs, import to `./.ctrlaltdelegate/` under `LOCAL_PRIVATE` Git visibility before execution.
 
 
-## V5.8.2 skill-driven planning
+## V5.9 skill-driven planning
 
 Relevant specialist skills participate while planning decisions are made, not only after planning. Run an early capability scan during intake/discovery, consult the smallest complete planning skill set for the current phase, persist consultations in `planning/context/PLANNING-SKILL-STATE.yaml`, and refresh routing whenever scope, research or stack evidence changes. Use `config/PLANNING-SKILL-ROUTING.yaml` and `docs/system/SKILL-DRIVEN-PLANNING.md`. The final coding-agent skill pool continues from these decisions.
 
-V5.8.2 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.
+V5.9 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.

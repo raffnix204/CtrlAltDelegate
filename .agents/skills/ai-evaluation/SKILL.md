@@ -1,6 +1,6 @@
 ---
 name: ai-evaluation
-description: Evaluate AI/LLM/RAG/agent features with versioned datasets, capability and regression evals, deterministic/rule/model/human graders, repeated-run stability, cost/latency tracking, and failure analysis. Use only when product behavior materially depends on stochastic AI outputs.
+description: "Use when the task materially involves this skill's owned domain: Evaluate AI/LLM/RAG/agent features with versioned datasets, capability and regression evals, deterministic/rule/model/human graders, repeated-run stability, cost/latency tracking, and failure analysis. Use only when product behavior materially depends on stochastic AI outputs."
 ---
 
 # AI Evaluation Engineering

@@ -1,6 +1,6 @@
 ---
 name: repository-onboarding
-description: Build a reliable, token-efficient understanding of an existing repository before planning, auditing, debugging or changing it.
+description: "Use when the task materially involves this skill's owned domain: Build a reliable, token-efficient understanding of an existing repository before planning, auditing, debugging or changing it."
 ---
 
 # Repository Onboarding & Brownfield Mapping

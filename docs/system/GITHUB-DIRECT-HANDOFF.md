@@ -1,4 +1,4 @@
-# GitHub Direct Handoff Contract — V5.8.2
+# GitHub Direct Handoff Contract — V5.9
 
 ## Purpose
 
@@ -37,5 +37,5 @@ Do not overwrite product code or existing harness/project policy just because wr
 
 After publish, verify repository identity, branch, commit SHA and presence of mandatory handoff/state files. The final user-facing start prompt is executed from the cloned repository root and must not depend on the original planning chat.
 
-## V5.8.2 execution-profile publication
+## V5.9 execution-profile publication
 Direct GitHub handoff and ZIP handoff must publish the same `planning/execution/EXECUTION-PROFILE.yaml`. The coding agent therefore receives the right-sized execution/review/evidence/liveness policy immediately after clone; do not reconstruct a large-project DAG by default when the planner classified the project MICRO/SMALL.

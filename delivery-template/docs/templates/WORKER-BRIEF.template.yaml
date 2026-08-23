@@ -1,4 +1,4 @@
-version: 5.8.2
+version: 5.9
 brief_id: null
 run_nonce: null
 job:
@@ -27,3 +27,9 @@ skill_escalation:
   request_log: planning/execution/SKILL-REQUESTS.jsonl
   delta_dir: planning/execution/brief-deltas
   base_brief_immutable: true
+attempt:
+  attempt_id: null
+  worker_id: null
+  claim_token: null
+  base_sha: null
+  control_revision: null

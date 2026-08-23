@@ -1,6 +1,6 @@
 ---
 name: terraform-engineering
-description: Engineer Terraform configurations, modules, state-preserving refactors/imports, plans, tests and multi-environment composition using current Terraform/provider capabilities.
+description: "Use when the task materially involves this skill's owned domain: Engineer Terraform configurations, modules, state-preserving refactors/imports, plans, tests and multi-environment composition using current Terraform/provider capabilities."
 ---
 
 # Terraform Engineering

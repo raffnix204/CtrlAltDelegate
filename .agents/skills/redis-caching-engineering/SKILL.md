@@ -1,6 +1,6 @@
 ---
 name: redis-caching-engineering
-description: Engineer Redis-backed caching, coordination, rate limiting, sessions, streams and ephemeral state with explicit key design, invalidation, atomicity, eviction and failure behavior.
+description: "Use when the task materially involves this skill's owned domain: Engineer Redis-backed caching, coordination, rate limiting, sessions, streams and ephemeral state with explicit key design, invalidation, atomicity, eviction and failure behavior."
 ---
 
 # Redis & Caching Engineering

@@ -1,4 +1,4 @@
-# Usage-Aware Skill Maintenance — V5.8.2
+# Usage-Aware Skill Maintenance — V5.9
 
 ## Goal
 The 154-skill library remains fully available and structurally validated, but expensive maintenance effort is prioritized by observed project usage plus criticality/drift risk.
@@ -16,4 +16,4 @@ CtrlAltDelegate does not add telemetry. Project runs may append non-secret event
 `RUNTIME_INJECTED` and especially `ROUTING_MISS` receive extra weight because they reveal weaknesses in AOT routing. Usage affects maintenance scheduling only; it never suppresses a required skill at runtime.
 
 ## Optional SkillOpt campaign
-V5.8.2 may use Microsoft SkillOpt as an external offline optimizer for selected maintenance candidates. Usage decides where to spend optimization budget, not whether a skill remains available. SkillOpt writes only staged candidates; promotion requires CtrlAltDelegate structural QA, held-out behavior validation, no regression and risk-appropriate cross-harness evidence. Session harvesting is opt-in and is not required when abstract usage/routing events are sufficient.
+V5.9 may use Microsoft SkillOpt as an external offline optimizer for selected maintenance candidates. Usage decides where to spend optimization budget, not whether a skill remains available. SkillOpt writes only staged candidates; promotion requires CtrlAltDelegate structural QA, held-out behavior validation, no regression and risk-appropriate cross-harness evidence. Session harvesting is opt-in and is not required when abstract usage/routing events are sufficient.

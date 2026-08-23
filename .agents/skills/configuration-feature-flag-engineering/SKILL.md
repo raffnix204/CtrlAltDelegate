@@ -1,6 +1,6 @@
 ---
 name: configuration-feature-flag-engineering
-description: Design safe configuration, environment overrides, dynamic flags and rollout controls with schema validation, ownership, auditability, cleanup and fail-safe behavior.
+description: "Use when the task materially involves this skill's owned domain: Design safe configuration, environment overrides, dynamic flags and rollout controls with schema validation, ownership, auditability, cleanup and fail-safe behavior."
 ---
 
 # Configuration & Feature Flag Engineering

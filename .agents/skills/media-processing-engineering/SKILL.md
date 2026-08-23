@@ -1,6 +1,6 @@
 ---
 name: media-processing-engineering
-description: Engineer image, audio and video ingestion/transformation pipelines with codec/container awareness, streaming, thumbnails, metadata, resource bounds and untrusted-file safety.
+description: "Use when the task materially involves this skill's owned domain: Engineer image, audio and video ingestion/transformation pipelines with codec/container awareness, streaming, thumbnails, metadata, resource bounds and untrusted-file safety."
 ---
 
 # Media Processing Engineering

@@ -1,4 +1,4 @@
-# Domain Planning Profiles — V5.8.2
+# Domain Planning Profiles — V5.9
 
 ## Purpose
 
@@ -37,7 +37,7 @@ Profiles compose. For example, a SaaS may be `WEB_PRODUCT + BACKEND_SERVICE + DA
 Profiles never replace capability/risk routing. The registry is refreshed whenever new facts emerge.
 
 
-## V5.8.2 capability overlays
+## V5.9 capability overlays
 
 These overlays compose with the core project-type profiles and are **not capability ceilings**:
 

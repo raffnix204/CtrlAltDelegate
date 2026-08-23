@@ -1,6 +1,6 @@
 ---
 name: python-engineering
-description: Write and review idiomatic production Python with robust typing, packaging, async/concurrency, resource ownership, error handling, testing and runtime performance. Use for Python services, tools, data or automation code.
+description: "Use when the task materially involves this skill's owned domain: Write and review idiomatic production Python with robust typing, packaging, async/concurrency, resource ownership, error handling, testing and runtime performance. Use for Python services, tools, data or automation code."
 ---
 
 # Python Production Engineering

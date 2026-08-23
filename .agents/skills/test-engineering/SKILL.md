@@ -1,6 +1,6 @@
 ---
 name: test-engineering
-description: Design and implement risk-proportional test architecture across unit, integration, contract, E2E, property/fuzz, concurrency, visual, and regression layers. Use when deciding what tests a project/change needs or improving a test suite.
+description: "Use when the task materially involves this skill's owned domain: Design and implement risk-proportional test architecture across unit, integration, contract, E2E, property/fuzz, concurrency, visual, and regression layers. Use when deciding what tests a project/change needs or improving a test suite."
 ---
 
 # Test Engineering

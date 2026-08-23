@@ -1,6 +1,6 @@
 ---
 name: seo-audit-and-drift
-description: "Capture evidence-backed SEO baselines, run pre/post-deployment audits and detect regressions in status, indexability, metadata, canonicals, headings, schema, rendering and performance-critical search signals."
+description: "Use when the task materially involves this skill's owned domain: Capture evidence-backed SEO baselines, run pre/post-deployment audits and detect regressions in status, indexability, metadata, canonicals, headings, schema, rendering and performance-critical search signals."
 ---
 
 # SEO Audit & Drift Verification

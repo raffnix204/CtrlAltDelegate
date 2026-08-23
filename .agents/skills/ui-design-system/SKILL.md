@@ -1,6 +1,6 @@
 ---
 name: ui-design-system
-description: Create a distinctive, coherent, implementation-ready visual language that can support premium multi-page interfaces without drifting into generic AI aesthetics.
+description: "Use when the task materially involves this skill's owned domain: Create a distinctive, coherent, implementation-ready visual language that can support premium multi-page interfaces without drifting into generic AI aesthetics."
 ---
 
 # Premium UI Design System

@@ -1,4 +1,4 @@
-version: '5.8.2'
+version: '5.9'
 contract: docs/system/SKILL-DRIVEN-PLANNING.md
 policy:
   all_canonical_skills_registered: true

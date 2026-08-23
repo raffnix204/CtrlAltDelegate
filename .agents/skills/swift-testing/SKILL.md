@@ -1,6 +1,6 @@
 ---
 name: swift-testing
-description: Make Apple-native domain logic, concurrency and platform integrations testable through narrow dependency seams and layered tests without over-mocking SwiftUI internals.
+description: "Use when the task materially involves this skill's owned domain: Make Apple-native domain logic, concurrency and platform integrations testable through narrow dependency seams and layered tests without over-mocking SwiftUI internals."
 ---
 
 # Swift Testing & Dependency Isolation

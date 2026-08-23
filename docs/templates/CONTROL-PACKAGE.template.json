@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ctrlaltdelegate_version": "5.8.2",
+  "ctrlaltdelegate_version": "5.9",
   "delivery_id": "GENERATE_AT_EXPORT",
   "archive_name": "ctrlaltdelegate-delivery.zip",
   "top_level_directory": ".ctrlaltdelegate",

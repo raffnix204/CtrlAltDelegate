@@ -1,6 +1,6 @@
 ---
 name: messaging-broker-engineering
-description: Design queue, stream and pub/sub infrastructure with delivery semantics, ordering, partitioning, consumer groups, backpressure, schemas, retries and operational recovery.
+description: "Use when the task materially involves this skill's owned domain: Design queue, stream and pub/sub infrastructure with delivery semantics, ordering, partitioning, consumer groups, backpressure, schemas, retries and operational recovery."
 ---
 
 # Messaging & Broker Engineering

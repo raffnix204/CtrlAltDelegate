@@ -1,6 +1,6 @@
 ---
 name: verification-gate
-description: Determine readiness from fresh reproducible evidence with project-specific gates, preserving exact failures and refusing completion-by-assertion.
+description: "Use when the task materially involves this skill's owned domain: Determine readiness from fresh reproducible evidence with project-specific gates, preserving exact failures and refusing completion-by-assertion."
 ---
 
 # Evidence-Based Verification Gate

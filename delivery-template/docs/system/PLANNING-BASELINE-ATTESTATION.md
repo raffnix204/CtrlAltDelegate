@@ -1,4 +1,4 @@
-# Planning Baseline Attestation — V5.8.2
+# Planning Baseline Attestation — V5.9
 
 Before `EXECUTION_HANDOFF` or consequential autonomous execution, CtrlAltDelegate may attest the accepted planning baseline. The attestation records deterministic SHA-256 hashes for authoritative planning/control artifacts and the aggregate fingerprint in `planning/execution/PLANNING-BASELINE.json`.
 

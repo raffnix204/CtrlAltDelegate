@@ -1,6 +1,6 @@
 ---
 name: mcp-server-engineering
-description: Design, implement and verify Model Context Protocol servers with safe tools/resources/prompts, schemas, transports, permissions and operability. Use when building or maintaining an MCP server or exposing application capabilities to agents.
+description: "Use when the task materially involves this skill's owned domain: Design, implement and verify Model Context Protocol servers with safe tools/resources/prompts, schemas, transports, permissions and operability. Use when building or maintaining an MCP server or exposing application capabilities to agents."
 ---
 
 # MCP Server Engineering

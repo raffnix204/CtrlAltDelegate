@@ -1,6 +1,6 @@
 ---
 name: agent-application-engineering
-description: Design and debug production LLM/agent applications across prompts, tool routing, structured outputs, memory, retrieval, loops, evaluation, cost and wrapper layers. Use when the product itself contains an LLM or autonomous agent.
+description: "Use when the task materially involves this skill's owned domain: Design and debug production LLM/agent applications across prompts, tool routing, structured outputs, memory, retrieval, loops, evaluation, cost and wrapper layers. Use when the product itself contains an LLM or autonomous agent."
 ---
 
 # Agent & LLM Application Engineering

@@ -1,6 +1,6 @@
 ---
 name: backend-architecture
-description: Design maintainable backend service and module boundaries, application flows, transaction ownership, jobs, caches and integration seams. Use when planning or implementing non-trivial server-side application architecture.
+description: "Use when the task materially involves this skill's owned domain: Design maintainable backend service and module boundaries, application flows, transaction ownership, jobs, caches and integration seams. Use when planning or implementing non-trivial server-side application architecture."
 ---
 
 # Backend Architecture Engineering

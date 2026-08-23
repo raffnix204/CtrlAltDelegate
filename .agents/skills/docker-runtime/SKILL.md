@@ -1,6 +1,6 @@
 ---
 name: docker-runtime
-description: Create deterministic, secure and maintainable container builds/local runtime with correct secrets, health, persistence, networking and rebuild behavior.
+description: "Use when the task materially involves this skill's owned domain: Create deterministic, secure and maintainable container builds/local runtime with correct secrets, health, persistence, networking and rebuild behavior."
 ---
 
 # Docker Runtime Engineering

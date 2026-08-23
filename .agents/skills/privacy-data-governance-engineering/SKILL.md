@@ -1,6 +1,6 @@
 ---
 name: privacy-data-governance-engineering
-description: Engineer data minimization, classification, retention, consent, access/deletion/export and privacy-safe telemetry boundaries while routing jurisdiction-specific legal conclusions to current authoritative research.
+description: "Use when the task materially involves this skill's owned domain: Engineer data minimization, classification, retention, consent, access/deletion/export and privacy-safe telemetry boundaries while routing jurisdiction-specific legal conclusions to current authoritative research."
 ---
 
 # Privacy & Data Governance Engineering

@@ -1,4 +1,4 @@
-# CODING AGENT HANDOFF — V5.8.2
+# CODING AGENT HANDOFF — V5.9
 
 
 > **Entry semantics:** This document is the execution-ready handoff/resume surface. For a fresh standalone `NOT_STARTED` checkout, use root `START-HERE.md`; lifecycle mode detection will start collaborative discovery instead of assuming a completed plan.
@@ -65,15 +65,18 @@ Where requirements expose meaningful measurable outcomes, use them as backpressu
 Continue the conversation in the user's language unless explicitly requested otherwise. Keep CtrlAltDelegate-controlled planning, system, handoff and execution artifacts in English; preserve localized product content only where the project requires it.
 
 
-## V5.8.2 control surfaces
+## V5.9 control surfaces
 Use the canonical loop registry/state, machine-readable job graph, surface policy, decision ledger, artifact-consistency gate and harness-conformance profile. For Custom-GPT ZIP handoffs, import to `./.ctrlaltdelegate/` under `LOCAL_PRIVATE` Git visibility before execution.
 
 
-## V5.8.2 planning-skill and authoritative-content handoff
+## V5.9 planning-skill and authoritative-content handoff
 
 Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
 
 Files under `planning/content/pages/` with `status: approved` are authoritative product content. Preserve wording, factual claims, CTA intent, hierarchy and approved SEO metadata unless implementation proves a genuine conflict; route such conflicts through scoped change control instead of silently rewriting copy.
-## V5.8.2 blocker / deferred-validation contract
+## V5.9 blocker / deferred-validation contract
 Classify unavailable prerequisites by effect. A `VERIFICATION_BLOCKER` (human test, physical device, later credential, external validation window) blocks only the affected proof: research, implement the best evidence-backed path, record an assumption and deferred validation, then continue all dependency-ready work, including downstream jobs whose dependency gate is `IMPLEMENTATION`. Only a dependency explicitly gated `VERIFIED` waits for `DONE`. An `EXECUTION_BLOCKER` is reserved for a path that cannot proceed meaningfully or safely and is scoped to `JOB|SUBGRAPH|GLOBAL`; global stop is allowed only when no required ready work remains. Batch unavoidable external checks into a final validation wave and turn failures into repair jobs.
+## V5.9 execution-control invariant
+
+Do not edit controller-owned execution state directly. Before dispatch, reconcile state; claim the job with a lease; start a distinct attempt; heartbeat long-running work; require a schema-valid Worker Result; then settle through controller operations. Treat `DONE` as a derived, revalidated claim rather than worker authority. `IMPLEMENTED_UNVERIFIED` may release implementation-only dependencies, but never verified dependencies. Use `UNVERIFIABLE` when current evidence cannot prove a claim, attach required follow-up evidence, and continue all safe dependency-ready work. Repeated failure without objective work-product progress requires a strategy change. Where the active harness supports a blocking stop hook, use the progress-aware stop gate; otherwise report enforcement as advisory/observed rather than pretending it is enforced.
 

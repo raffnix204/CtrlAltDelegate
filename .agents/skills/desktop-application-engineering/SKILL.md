@@ -1,6 +1,6 @@
 ---
 name: desktop-application-engineering
-description: Engineer cross-platform or native desktop applications with window/process lifecycle, filesystem integration, updates, IPC, packaging, OS permissions and platform-specific UX.
+description: "Use when the task materially involves this skill's owned domain: Engineer cross-platform or native desktop applications with window/process lifecycle, filesystem integration, updates, IPC, packaging, OS permissions and platform-specific UX."
 ---
 
 # Desktop Application Engineering

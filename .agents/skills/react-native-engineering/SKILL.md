@@ -1,6 +1,6 @@
 ---
 name: react-native-engineering
-description: Build and review production React Native applications across JavaScript/native boundaries, app lifecycle, navigation/deep links, offline data, lists, New Architecture/native modules, performance and iOS/Android release behavior.
+description: "Use when the task materially involves this skill's owned domain: Build and review production React Native applications across JavaScript/native boundaries, app lifecycle, navigation/deep links, offline data, lists, New Architecture/native modules, performance and iOS/Android release behavior."
 ---
 
 # React Native Engineering

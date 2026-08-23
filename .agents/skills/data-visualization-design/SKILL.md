@@ -1,6 +1,6 @@
 ---
 name: data-visualization-design
-description: "Choose and design charts, tables and analytical views from the user question and data semantics, with truthful encoding, accessible alternatives, responsive behavior and performance-aware interaction."
+description: "Use when the task materially involves this skill's owned domain: Choose and design charts, tables and analytical views from the user question and data semantics, with truthful encoding, accessible alternatives, responsive behavior and performance-aware interaction."
 ---
 
 # Data Visualization Design

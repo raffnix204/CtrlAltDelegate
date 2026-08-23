@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CtrlAltDelegate Worker Result V5.9",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "attempt_id",
+    "worker_id",
+    "brief_sha256",
+    "base_sha",
+    "outcome",
+    "implementation_status",
+    "verification_status",
+    "skills_applied",
+    "changed_paths",
+    "evidence_ids",
+    "blockers",
+    "concerns"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.9"
+    },
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attempt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "worker_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brief_sha256": {
+      "type": "string",
+      "minLength": 16
+    },
+    "base_sha": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outcome": {
+      "enum": [
+        "IMPLEMENTED",
+        "NEEDS_VERIFICATION",
+        "BLOCKED",
+        "FAILED",
+        "CANCELLED"
+      ]
+    },
+    "implementation_status": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "NOT_STARTED"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "PASS",
+        "PENDING",
+        "PENDING_EXTERNAL",
+        "FAIL",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "skills_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "changed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "concerns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "report_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

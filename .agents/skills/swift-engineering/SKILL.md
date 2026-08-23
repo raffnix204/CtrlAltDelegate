@@ -1,6 +1,6 @@
 ---
 name: swift-engineering
-description: Write and review production Swift with value/reference ownership, structured concurrency, actors/Sendable, errors, protocols/generics, resource lifetime, packages and platform interoperability. Use for Swift beyond SwiftUI-only concerns.
+description: "Use when the task materially involves this skill's owned domain: Write and review production Swift with value/reference ownership, structured concurrency, actors/Sendable, errors, protocols/generics, resource lifetime, packages and platform interoperability. Use for Swift beyond SwiftUI-only concerns."
 ---
 
 # Swift Production Engineering

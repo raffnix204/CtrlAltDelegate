@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Find the real cause of a defect efficiently, prove it, implement the smallest correct repair and leave durable regression evidence.
+description: "Use when the task materially involves this skill's owned domain: Find the real cause of a defect efficiently, prove it, implement the smallest correct repair and leave durable regression evidence."
 ---
 
 # Systematic Debugging & Root-Cause Repair

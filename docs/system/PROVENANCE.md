@@ -21,8 +21,8 @@ All useful concepts are normalized into the system's own portable terminology an
 
 The user-supplied `garrytan/gstack` 1.67.0.0 archive was reviewed as a community workflow reference. The V5.6.4 deterministic handoff closure contract independently adapts the general ideas of stable artifact paths, persistent on-disk decision/review state and blocking pre-transition completeness checks. No gstack prompt body, scripts or runtime components are copied into CtrlAltDelegate.
 
-## V5.8.2 architecture research
+## V5.9 architecture research
 
-V5.8.2 reviewed ECC, Superpowers, planning-with-files, GitHub Spec Kit, OpenSpec, BMAD, Agent Skills for Context Engineering, Beads, LoopGate, sub-agents-skills, Open SWE, OpenHands, OpenCode, Oh My OpenAgent, OpenAI Codex, Ralph, Hermes Agent Self-Evolution and DeepSeek Harness. Durable ideas were independently normalized into closed-loop state, machine-readable job/dependency control, surface/enforcement policy, requirements/artifact consistency, harness capability negotiation, planning attestation, scoped change control, worker contracts and retrospective learning candidates. Upstream prompts, role systems and runtime dependencies are not vendored.
+V5.9 reviewed ECC, Superpowers, planning-with-files, GitHub Spec Kit, OpenSpec, BMAD, Agent Skills for Context Engineering, Beads, LoopGate, sub-agents-skills, Open SWE, OpenHands, OpenCode, Oh My OpenAgent, OpenAI Codex, Ralph, Hermes Agent Self-Evolution and DeepSeek Harness. Durable ideas were independently normalized into closed-loop state, machine-readable job/dependency control, surface/enforcement policy, requirements/artifact consistency, harness capability negotiation, planning attestation, scoped change control, worker contracts and retrospective learning candidates. Upstream prompts, role systems and runtime dependencies are not vendored.
 
 DeepSeek Harness was reviewed at public release line `0.1.0-rc.7` / commit `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca`. It is classified `FIRST_CLASS_PREVIEW` while its public API remains pre-stable; CtrlAltDelegate uses the canonical `.agents/skills` source and does not create a duplicate `.dsh/skills` library.

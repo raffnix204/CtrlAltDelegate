@@ -1,6 +1,6 @@
 ---
 name: vpn-overlay-network-engineering
-description: Design site-to-site, remote-access and overlay networking with routing, identity, key lifecycle, MTU, DNS, segmentation, HA and safe rollout across WireGuard/IPsec/managed overlays.
+description: "Use when the task materially involves this skill's owned domain: Design site-to-site, remote-access and overlay networking with routing, identity, key lifecycle, MTU, DNS, segmentation, HA and safe rollout across WireGuard/IPsec/managed overlays."
 ---
 
 # VPN & Overlay Network Engineering

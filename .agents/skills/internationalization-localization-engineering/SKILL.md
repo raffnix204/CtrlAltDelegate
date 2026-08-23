@@ -1,6 +1,6 @@
 ---
 name: internationalization-localization-engineering
-description: Engineer locale-aware UI, content, dates/numbers/currency, pluralization, bidirectional layout, translation workflows and localized routing without hardcoded language assumptions.
+description: "Use when the task materially involves this skill's owned domain: Engineer locale-aware UI, content, dates/numbers/currency, pluralization, bidirectional layout, translation workflows and localized routing without hardcoded language assumptions."
 ---
 
 # Internationalization & Localization Engineering

@@ -1,6 +1,6 @@
 ---
 name: reliability-observability
-description: 'Design failure handling and production diagnosability: timeouts, retries/idempotency, backpressure, degradation, health/readiness, structured logs, metrics, traces, SLOs, and incident evidence. Use for networked, asynchronous, critical, or production-operated systems.'
+description: "Use when the task materially involves this skill's owned domain: Design failure handling and production diagnosability: timeouts, retries/idempotency, backpressure, degradation, health/readiness, structured logs, metrics, traces, SLOs, and incident evidence. Use for networked, asynchronous, critical, or production-operated systems."
 ---
 
 # Reliability & Observability Engineering

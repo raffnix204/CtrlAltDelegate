@@ -1,6 +1,6 @@
 ---
 name: open-source-release-engineering
-description: Prepare private or internal software for safe public release with secret/PII sanitization, licensing, dependency attribution, documentation, packaging and public-repository governance.
+description: "Use when the task materially involves this skill's owned domain: Prepare private or internal software for safe public release with secret/PII sanitization, licensing, dependency attribution, documentation, packaging and public-repository governance."
 ---
 
 # Open Source Release Engineering

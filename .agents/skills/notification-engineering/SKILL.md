@@ -1,6 +1,6 @@
 ---
 name: notification-engineering
-description: Design multi-channel in-app, push, email and webhook notifications with preferences, fan-out, deduplication, rate limits, delivery state and product relevance.
+description: "Use when the task materially involves this skill's owned domain: Design multi-channel in-app, push, email and webhook notifications with preferences, fan-out, deduplication, rate limits, delivery state and product relevance."
 ---
 
 # Notification Engineering

@@ -1,6 +1,6 @@
 ---
 name: deployment-readiness
-description: Ensure build, environments, migrations, observability, rollback and operational ownership are sufficient for safe release without forcing enterprise infrastructure onto small projects.
+description: "Use when the task materially involves this skill's owned domain: Ensure build, environments, migrations, observability, rollback and operational ownership are sufficient for safe release without forcing enterprise infrastructure onto small projects."
 ---
 
 # Deployment & Operations Readiness

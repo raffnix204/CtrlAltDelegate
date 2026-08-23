@@ -1,0 +1,19 @@
+{
+  "schema_version": "5.9",
+  "job_id": "JOB-001",
+  "attempt_id": "ATT-JOB-001-001",
+  "worker_id": "worker-id",
+  "brief_sha256": "sha256...",
+  "base_sha": "git-sha-or-baseline",
+  "outcome": "IMPLEMENTED",
+  "implementation_status": "COMPLETE",
+  "verification_status": "PENDING",
+  "skills_applied": [],
+  "changed_paths": [],
+  "evidence_ids": [],
+  "blockers": [],
+  "concerns": [],
+  "summary": "",
+  "report_path": null,
+  "commit_sha": null
+}

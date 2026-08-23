@@ -1,30 +1,38 @@
-version: 5.8.2
+version: '5.9'
 principle: Missing proof should block completion, not dependency-independent implementation.
 classes:
   EXECUTION_BLOCKER:
-    meaning: Required input/capability/authority is genuinely necessary to continue the affected implementation path safely.
+    meaning: Required input/capability/authority is genuinely necessary to continue
+      the affected implementation path safely.
     default_scope: JOB
     may_stop_global_execution_only_when: no_dependency_ready_work_remains_and_all_remaining_required_paths_depend_on_execution_blockers
   VERIFICATION_BLOCKER:
-    meaning: Implementation can continue, but a required claim cannot yet receive final real-world proof.
+    meaning: Implementation can continue, but a required claim cannot yet receive
+      final real-world proof.
     blocks_implementation: false
     required_action: record_deferred_validation_and_continue_other_ready_work
-scope_values: [JOB, SUBGRAPH, GLOBAL]
+scope_values:
+- JOB
+- SUBGRAPH
+- GLOBAL
 continuation_rule:
   verification_blocker_never_global_stop: true
   local_execution_blocker_blocks_only_affected_dag: true
   continue_while_dependency_ready_jobs_exist: true
 human_interruption:
   ask_now_only_for:
-    - product_or_scope_authority_needed
-    - continuing_could_cause_data_loss
-    - continuing_would_weaken_security_or_privacy
-    - compliance_exception_required
-    - material_recurring_cost_or_vendor_commitment
-    - missing_credential_or_approval_is_required_for_meaningful_implementation_not_only_validation
+  - product_or_scope_authority_needed
+  - continuing_could_cause_data_loss
+  - continuing_would_weaken_security_or_privacy
+  - compliance_exception_required
+  - material_recurring_cost_or_vendor_commitment
+  - missing_credential_or_approval_is_required_for_meaningful_implementation_not_only_validation
   otherwise:
-    - research_current_authoritative_evidence
-    - implement_best_evidence_path
-    - record_assumption
-    - defer_only_the_unprovable_validation
-    - continue
+  - research_current_authoritative_evidence
+  - implement_best_evidence_path
+  - record_assumption
+  - defer_only_the_unprovable_validation
+  - continue
+non_blocking_interpretation:
+  RULING: choose among safe interpretations with rationale/cost-if-wrong
+  ASSUMPTION: best-evidence implementation with explicit later validation

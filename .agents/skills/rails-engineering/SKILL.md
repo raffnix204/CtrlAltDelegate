@@ -1,6 +1,6 @@
 ---
 name: rails-engineering
-description: Engineer Rails applications with explicit Active Record query/transaction behavior, durable database constraints, authorization, background jobs, callbacks, caching/Hotwire boundaries and production process semantics.
+description: "Use when the task materially involves this skill's owned domain: Engineer Rails applications with explicit Active Record query/transaction behavior, durable database constraints, authorization, background jobs, callbacks, caching/Hotwire boundaries and production process semantics."
 ---
 
 # Rails Engineering

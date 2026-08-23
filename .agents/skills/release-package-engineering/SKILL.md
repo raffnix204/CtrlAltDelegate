@@ -1,6 +1,6 @@
 ---
 name: release-package-engineering
-description: Design reproducible versioning, artifacts, changelogs, signing, provenance, publishing and rollback for applications, libraries, containers and multi-platform distributions.
+description: "Use when the task materially involves this skill's owned domain: Design reproducible versioning, artifacts, changelogs, signing, provenance, publishing and rollback for applications, libraries, containers and multi-platform distributions."
 ---
 
 # Release & Package Engineering

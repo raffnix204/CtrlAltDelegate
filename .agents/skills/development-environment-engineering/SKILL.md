@@ -1,6 +1,6 @@
 ---
 name: development-environment-engineering
-description: Create reproducible, low-friction development environments across language toolchains, native dependencies, services, containers or declarative environment managers without polluting user systems.
+description: "Use when the task materially involves this skill's owned domain: Create reproducible, low-friction development environments across language toolchains, native dependencies, services, containers or declarative environment managers without polluting user systems."
 ---
 
 # Development Environment Engineering

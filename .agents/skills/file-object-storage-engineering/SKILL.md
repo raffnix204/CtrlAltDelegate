@@ -1,6 +1,6 @@
 ---
 name: file-object-storage-engineering
-description: Design safe file uploads, object storage, CDN delivery, metadata, retention, lifecycle, resumability and authorization for user and system-generated blobs.
+description: "Use when the task materially involves this skill's owned domain: Design safe file uploads, object storage, CDN delivery, metadata, retention, lifecycle, resumability and authorization for user and system-generated blobs."
 ---
 
 # File & Object Storage Engineering

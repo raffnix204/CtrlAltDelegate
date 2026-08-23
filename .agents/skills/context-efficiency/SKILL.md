@@ -1,6 +1,6 @@
 ---
 name: context-efficiency
-description: Maximize useful reasoning per token by routing only relevant context, using progressive reads and persistent hot/cold state without compressing away evidence.
+description: "Use when the task materially involves this skill's owned domain: Maximize useful reasoning per token by routing only relevant context, using progressive reads and persistent hot/cold state without compressing away evidence."
 ---
 
 # Agent Context Efficiency

@@ -1,6 +1,6 @@
 ---
 name: website-modernization
-description: Turn an existing public website into a modern, high-quality replacement while preserving legitimate content value, search equity, brand intent and important URLs.
+description: "Use when the task materially involves this skill's owned domain: Turn an existing public website into a modern, high-quality replacement while preserving legitimate content value, search equity, brand intent and important URLs."
 ---
 
 # Website Modernization & Content Migration

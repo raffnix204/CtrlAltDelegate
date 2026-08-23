@@ -1,6 +1,6 @@
 ---
 name: technical-seo-engineering
-description: "Design and verify crawlability, indexability, rendering, canonicals, redirects, robots/sitemaps, performance-sensitive search delivery and deployment-safe technical SEO."
+description: "Use when the task materially involves this skill's owned domain: Design and verify crawlability, indexability, rendering, canonicals, redirects, robots/sitemaps, performance-sensitive search delivery and deployment-safe technical SEO."
 ---
 
 # Technical SEO Engineering

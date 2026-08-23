@@ -1,6 +1,6 @@
 ---
 name: openwrt-engineering
-description: Safely configure and automate OpenWrt devices using UCI, ubus/rpcd, netifd, firewall, wireless and service primitives with transactional rollback and device-version verification.
+description: "Use when the task materially involves this skill's owned domain: Safely configure and automate OpenWrt devices using UCI, ubus/rpcd, netifd, firewall, wireless and service primitives with transactional rollback and device-version verification."
 ---
 
 # OpenWrt Engineering

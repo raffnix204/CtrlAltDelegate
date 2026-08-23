@@ -1,4 +1,4 @@
-# Documentation Lifecycle — V5.8.2
+# Documentation Lifecycle — V5.9
 
 Documentation is versioned product behavior. The repository must never intentionally push code/config newer than its affected documentation.
 

@@ -1,12 +1,20 @@
 {
-  "version": "5.8.2",
+  "version": "5.9",
   "jobs": [],
-  "claims": {},
   "updated_at": null,
   "transition_policy": "config/PRODUCT-COMPLETION-POLICY.yaml",
   "dependency_policy": {
     "default_gate": "IMPLEMENTATION",
-    "implementation_satisfied_by": ["IMPLEMENTED_UNVERIFIED", "VERIFYING", "DONE"],
-    "verified_satisfied_by": ["DONE"]
-  }
+    "implementation_satisfied_by": [
+      "IMPLEMENTED_UNVERIFIED",
+      "VERIFYING",
+      "DONE"
+    ],
+    "verified_satisfied_by": [
+      "DONE"
+    ]
+  },
+  "state_revision": 0,
+  "attempt_state": "planning/execution/ATTEMPT-STATE.json",
+  "claims_state": "planning/execution/WORKER-CLAIMS.json"
 }

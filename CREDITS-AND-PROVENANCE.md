@@ -1,6 +1,6 @@
-# Provenance & Maintenance — V5.8.2
+# Provenance & Maintenance — V5.9
 
-Software Planning Lead / CtrlAltDelegate V5.8.2 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
+Software Planning Lead / CtrlAltDelegate V5.9 is an independently written first-party planning/autonomous-delivery methodology. External skills, repositories, documentation and standards are **research inputs**, not vendored runtime dependencies or text templates.
 
 ## Research families
 
@@ -45,7 +45,13 @@ V5.7 additionally reviewed ECC, Superpowers, planning-with-files, GitHub Spec Ki
 DeepSeek Harness was reviewed at `0.1.0-rc.7` / commit `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca` and is classified `FIRST_CLASS_PREVIEW` while upstream remains pre-stable.
 
 
-## V5.8.2 research
-V5.8.2 reviewed CRW/fastCRW, Obscura and Command Code as external architecture/tool/harness references. CtrlAltDelegate vendors none of their runtimes. It independently defines capability-based provider resolution, project-local safe bootstrap, web acquisition/browser role separation and Command Code conformance mapping. Technology catalog entries are candidates only; drift-prone facts are revalidated when selected.
+## V5.9 research
+V5.9 reviewed CRW/fastCRW, Obscura and Command Code as external architecture/tool/harness references. CtrlAltDelegate vendors none of their runtimes. It independently defines capability-based provider resolution, project-local safe bootstrap, web acquisition/browser role separation and Command Code conformance mapping. Technology catalog entries are candidates only; drift-prone facts are revalidated when selected.
 
-V5.8.2 also reviewed Microsoft SkillOpt (`microsoft/SkillOpt`, reviewed main commit `bdfdc30a8e17309c06cdbe8449f01bdecc120203`, MIT) as an **optional offline maintainer-side skill optimization reference**. CtrlAltDelegate does not require SkillOpt in normal project runtimes, does not enable transcript harvesting by default and never permits an optimizer to write/promote canonical skills directly. Useful mechanisms are staged candidate edits, held-out validation, no-regression gating and failure classification; canonical promotion remains subject to CtrlAltDelegate provenance, SHA, structural, behavior and risk-appropriate cross-harness gates.
+V5.9 also reviewed Microsoft SkillOpt (`microsoft/SkillOpt`, reviewed main commit `bdfdc30a8e17309c06cdbe8449f01bdecc120203`, MIT) as an **optional offline maintainer-side skill optimization reference**. CtrlAltDelegate does not require SkillOpt in normal project runtimes, does not enable transcript harvesting by default and never permits an optimizer to write/promote canonical skills directly. Useful mechanisms are staged candidate edits, held-out validation, no-regression gating and failure classification; canonical promotion remains subject to CtrlAltDelegate provenance, SHA, structural, behavior and risk-appropriate cross-harness gates.
+
+## V5.9 methodology review
+
+V5.9 conceptually adapts high-value mechanisms from the reviewed open-source projects: **GSD Pi** (reconciliation, recovery, attempt lifecycle), **Beads** (leases/readiness/optimistic concurrency), **ralphctl** (skeptical evaluator, verification attribution, plateau detection), **Superpowers** (rulings, tri-state review, skill-TDD/discovery), **planning-with-files** (progress-aware stop gating and attested context), **GSD Core** (planning convergence, decision coverage, deterministic probes), **gsd-spec-build-loop** (outcomes/exclusions and SHA-bound verdict identity), **LoopGate** (surface enforcement), **ralph-main** (typed agent results and control-effectiveness signals), **BMAD** (evidence-based retrospectives), **OpenSpec** (artifact DAG/coherence), **ralph-loop** (failure taxonomy/oracle-mutation concern), **ralph-claude-code** (circuit-breaker/permission concepts), and **spec-kit** (declarative enforcement semantics). CtrlAltDelegate implements these as native contracts/scripts; it does not vendor their implementations wholesale.
+
+**Microsoft SkillOpt** is treated separately as an optional offline optimization provider; no canonical skill is silently self-modified or promoted.

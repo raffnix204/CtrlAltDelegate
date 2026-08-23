@@ -1,6 +1,6 @@
 ---
 name: perl-engineering
-description: Maintain and modernize Perl systems with strict/warnings, modules, CPAN dependency discipline, references/context, regex safety, DBI, testing and secure process execution.
+description: "Use when the task materially involves this skill's owned domain: Maintain and modernize Perl systems with strict/warnings, modules, CPAN dependency discipline, references/context, regex safety, DBI, testing and secure process execution."
 ---
 
 # Perl Engineering

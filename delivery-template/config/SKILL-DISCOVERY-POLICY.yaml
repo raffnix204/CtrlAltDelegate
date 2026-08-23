@@ -1,0 +1,14 @@
+version: '5.9'
+principle: Skill metadata should optimize correct activation without duplicating the
+  skill workflow.
+description_style: ACTIVATION_TRIGGER_FIRST
+preferred_prefix: Use when
+workflow_summary_in_description: discouraged
+a_b_evaluation_required_for_bulk_semantic_rewrite: true
+metrics:
+- selection_recall
+- selection_precision
+- skill_body_read
+- behavioral_compliance
+- false_positive_activation
+skillopt_eligible: true

@@ -1,6 +1,6 @@
 ---
 name: security-review
-description: Perform risk-based secure-design and implementation review using current OWASP guidance, with testable findings around trust boundaries rather than generic checklists.
+description: "Use when the task materially involves this skill's owned domain: Perform risk-based secure-design and implementation review using current OWASP guidance, with testable findings around trust boundaries rather than generic checklists."
 ---
 
 # Application Security Review

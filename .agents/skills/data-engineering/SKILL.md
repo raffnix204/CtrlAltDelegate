@@ -1,6 +1,6 @@
 ---
 name: data-engineering
-description: Design reliable batch/stream data pipelines with contracts, lineage, quality checks, idempotency, partitioning, backfills, orchestration and reproducible transformations.
+description: "Use when the task materially involves this skill's owned domain: Design reliable batch/stream data pipelines with contracts, lineage, quality checks, idempotency, partitioning, backfills, orchestration and reproducible transformations."
 ---
 
 # Data Engineering

@@ -1,6 +1,6 @@
 ---
 name: cloudflare-platform-engineering
-description: Engineer Cloudflare Workers/Pages and platform services with runtime-correct async execution, request-safe state, bindings/secrets, Durable Objects/storage semantics, Wrangler configuration and edge observability.
+description: "Use when the task materially involves this skill's owned domain: Engineer Cloudflare Workers/Pages and platform services with runtime-correct async execution, request-safe state, bindings/secrets, Durable Objects/storage semantics, Wrangler configuration and edge observability."
 ---
 
 # Cloudflare Platform Engineering

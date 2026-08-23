@@ -1,6 +1,6 @@
 ---
 name: frontend-architecture
-description: Structure frontend modules, rendering boundaries, state, data access and error/loading behavior around product concepts while avoiding unnecessary global state and framework cargo cults.
+description: "Use when the task materially involves this skill's owned domain: Structure frontend modules, rendering boundaries, state, data access and error/loading behavior around product concepts while avoiding unnecessary global state and framework cargo cults."
 ---
 
 # Frontend Application Architecture

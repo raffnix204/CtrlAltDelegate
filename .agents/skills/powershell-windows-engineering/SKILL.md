@@ -1,6 +1,6 @@
 ---
 name: powershell-windows-engineering
-description: Build and automate reliable Windows tooling, services, packaging and administration with PowerShell while respecting execution policy, quoting, encoding, paths, privileges and cross-platform boundaries.
+description: "Use when the task materially involves this skill's owned domain: Build and automate reliable Windows tooling, services, packaging and administration with PowerShell while respecting execution policy, quoting, encoding, paths, privileges and cross-platform boundaries."
 ---
 
 # Windows & PowerShell Engineering

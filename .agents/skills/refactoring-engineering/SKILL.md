@@ -1,6 +1,6 @@
 ---
 name: refactoring-engineering
-description: Restructure existing code while preserving intended behavior through characterization, contract mapping, incremental reversible steps, dependency untangling, migration seams, and regression evidence. Use for refactors, legacy modernization, modularization, or architecture cleanup without primary product-behavior change.
+description: "Use when the task materially involves this skill's owned domain: Restructure existing code while preserving intended behavior through characterization, contract mapping, incremental reversible steps, dependency untangling, migration seams, and regression evidence. Use for refactors, legacy modernization, modularization, or architecture cleanup without primary product-behavior change."
 ---
 
 # Refactoring Engineering

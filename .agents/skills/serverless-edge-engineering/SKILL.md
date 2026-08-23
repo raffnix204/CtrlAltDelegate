@@ -1,6 +1,6 @@
 ---
 name: serverless-edge-engineering
-description: Design applications for function and edge runtimes with stateless execution, cold starts, concurrency, runtime limits, distributed state, observability and vendor portability trade-offs.
+description: "Use when the task materially involves this skill's owned domain: Design applications for function and edge runtimes with stateless execution, cold starts, concurrency, runtime limits, distributed state, observability and vendor portability trade-offs."
 ---
 
 # Serverless & Edge Runtime Engineering

@@ -1,6 +1,6 @@
 ---
 name: fastapi-engineering
-description: Engineer FastAPI services with typed transport contracts, Pydantic validation, dependency/resource lifecycles, async correctness, auth, middleware, OpenAPI and real ASGI process behavior.
+description: "Use when the task materially involves this skill's owned domain: Engineer FastAPI services with typed transport contracts, Pydantic validation, dependency/resource lifecycles, async correctness, auth, middleware, OpenAPI and real ASGI process behavior."
 ---
 
 # FastAPI Engineering

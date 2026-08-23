@@ -1,6 +1,6 @@
 ---
 name: technology-stack-selection
-description: Select languages, runtimes, frameworks, rendering models, databases and deployment targets from explicit project constraints and current evidence. Use for non-trivial greenfield stack decisions or justified brownfield replatforming decisions.
+description: "Use when the task materially involves this skill's owned domain: Select languages, runtimes, frameworks, rendering models, databases and deployment targets from explicit project constraints and current evidence. Use for non-trivial greenfield stack decisions or justified brownfield replatforming decisions."
 ---
 
 # Technology & Stack Selection Engineering

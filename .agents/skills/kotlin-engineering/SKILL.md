@@ -1,6 +1,6 @@
 ---
 name: kotlin-engineering
-description: Write and review production Kotlin with explicit nullability, sealed/domain modeling, coroutines/Flow, structured concurrency, JVM/KMP boundaries, Gradle tooling and testing. Use when Kotlin is a primary project language.
+description: "Use when the task materially involves this skill's owned domain: Write and review production Kotlin with explicit nullability, sealed/domain modeling, coroutines/Flow, structured concurrency, JVM/KMP boundaries, Gradle tooling and testing. Use when Kotlin is a primary project language."
 ---
 
 # Kotlin Production Engineering

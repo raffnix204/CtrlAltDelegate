@@ -1,6 +1,6 @@
 ---
 name: component-engineering
-description: Implement reusable, accessible and resilient UI components with explicit APIs, states and edge-case behavior without premature abstraction.
+description: "Use when the task materially involves this skill's owned domain: Implement reusable, accessible and resilient UI components with explicit APIs, states and edge-case behavior without premature abstraction."
 ---
 
 # Production Component Engineering

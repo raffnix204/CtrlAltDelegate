@@ -1,6 +1,6 @@
 ---
 name: harmonyos-arkts-engineering
-description: Engineer HarmonyOS/ArkTS applications with stage/component lifecycle, ArkUI state, permissions, data persistence, networking and platform packaging using current platform documentation.
+description: "Use when the task materially involves this skill's owned domain: Engineer HarmonyOS/ArkTS applications with stage/component lifecycle, ArkUI state, permissions, data persistence, networking and platform packaging using current platform documentation."
 ---
 
 # HarmonyOS & ArkTS Engineering

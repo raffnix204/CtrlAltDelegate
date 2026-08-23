@@ -1,4 +1,4 @@
-version: '5.8.2'
+version: '5.9'
 policy:
   new_skill_requires_mechanism_overlap_check: true
   semantic_overlap_requires_owner_or_explicit_specialization: true

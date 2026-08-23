@@ -1,6 +1,6 @@
 ---
 name: solution-minimization-engineering
-description: 'Choose the smallest complete solution that satisfies confirmed requirements without sacrificing correctness, security, reliability, accessibility, operability, tests or documentation. Use for substantive implementation/design and for fresh complexity review of completed diffs.'
+description: "Use when the task materially involves this skill's owned domain: Choose the smallest complete solution that satisfies confirmed requirements without sacrificing correctness, security, reliability, accessibility, operability, tests or documentation. Use for substantive implementation/design and for fresh complexity review of completed diffs."
 ---
 
 # Solution Minimization Engineering

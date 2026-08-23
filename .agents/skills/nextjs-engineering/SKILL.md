@@ -1,6 +1,6 @@
 ---
 name: nextjs-engineering
-description: Engineer Next.js App Router applications across React Server Components, server/client boundaries, route rendering, caching/revalidation, mutations, route handlers, metadata and deployment runtimes.
+description: "Use when the task materially involves this skill's owned domain: Engineer Next.js App Router applications across React Server Components, server/client boundaries, route rendering, caching/revalidation, mutations, route handlers, metadata and deployment runtimes."
 ---
 
 # Next.js Engineering

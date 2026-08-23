@@ -1,4 +1,4 @@
-version: 5.8.2
+version: '5.9'
 status: NOT_DEFINED
 product_type: null
 primary_users: []
@@ -9,3 +9,5 @@ ux_constraints:
   prohibited: []
 non_goals: []
 source_requirements: []
+negative_requirements: []
+exclusions: []

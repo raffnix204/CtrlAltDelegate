@@ -1,6 +1,6 @@
 ---
 name: database-operations
-description: Operate production databases safely across backup, restore, replication, pooling, maintenance, capacity, observability, failover and disaster recovery without conflating operations with schema design.
+description: "Use when the task materially involves this skill's owned domain: Operate production databases safely across backup, restore, replication, pooling, maintenance, capacity, observability, failover and disaster recovery without conflating operations with schema design."
 ---
 
 # Database Operations Engineering

@@ -1,6 +1,6 @@
 ---
 name: dependency-upgrade-engineering
-description: Plan and execute dependency, runtime and framework upgrades with compatibility research, incremental change, codemods/migrations, regression evidence and rollback awareness.
+description: "Use when the task materially involves this skill's owned domain: Plan and execute dependency, runtime and framework upgrades with compatibility research, incremental change, codemods/migrations, regression evidence and rollback awareness."
 ---
 
 # Dependency Upgrade Engineering

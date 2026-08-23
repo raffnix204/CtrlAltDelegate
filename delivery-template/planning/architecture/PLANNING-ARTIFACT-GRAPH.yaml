@@ -1,0 +1,61 @@
+version: '5.9'
+status: TEMPLATE
+principle: File existence never equals semantic completion.
+artifacts:
+- id: DISCOVERY
+  outputs:
+  - planning/discovery/DISCOVERY-STATE.md
+  - planning/discovery/TECHNICAL-PREFERENCES.yaml
+  requires: []
+  validator: semantic_or_explicit_ready
+- id: REQUIREMENTS
+  outputs:
+  - planning/REQUIREMENTS.md
+  requires:
+  - DISCOVERY
+  validator: requirements_quality
+- id: PRODUCT_CONTRACT
+  outputs:
+  - planning/product/PRODUCT-CONTRACT.yaml
+  requires:
+  - REQUIREMENTS
+  validator: product_contract_ready_or_not_applicable
+- id: RESEARCH
+  outputs:
+  - planning/research/RESEARCH-POLICY.yaml
+  requires:
+  - DISCOVERY
+  validator: research_state
+- id: STACK
+  outputs:
+  - planning/architecture/STACK-MANIFEST.yaml
+  requires:
+  - REQUIREMENTS
+  - RESEARCH
+  validator: stack_ready
+- id: PROGRAM_DESIGN
+  outputs:
+  - planning/architecture/PROGRAM-DESIGN.md
+  requires:
+  - STACK
+  validator: program_design_ready
+- id: ACCEPTANCE_ORACLES
+  outputs:
+  - planning/acceptance/USER-JOURNEY-ORACLES.yaml
+  requires:
+  - PRODUCT_CONTRACT
+  - PROGRAM_DESIGN
+  validator: journey_oracles_ready_or_not_applicable
+- id: JOB_GRAPH
+  outputs:
+  - planning/execution/JOB-GRAPH.json
+  requires:
+  - PROGRAM_DESIGN
+  - ACCEPTANCE_ORACLES
+  validator: job_graph_semantic
+- id: DELIVERY
+  outputs:
+  - planning/handoff/DELIVERY-MANIFEST.yaml
+  requires:
+  - JOB_GRAPH
+  validator: handoff_ready

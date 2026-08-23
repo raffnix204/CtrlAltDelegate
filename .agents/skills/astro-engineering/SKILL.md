@@ -1,6 +1,6 @@
 ---
 name: astro-engineering
-description: Engineer Astro content and hybrid applications with HTML-first rendering, selective islands, content schemas, static/server output decisions, SEO and adapter-aware deployment.
+description: "Use when the task materially involves this skill's owned domain: Engineer Astro content and hybrid applications with HTML-first rendering, selective islands, content schemas, static/server output decisions, SEO and adapter-aware deployment."
 ---
 
 # Astro Engineering

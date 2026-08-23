@@ -1,6 +1,6 @@
 ---
 name: auth-architecture
-description: Design identity, session, recovery and authorization boundaries using established protocols/provider capabilities without building unnecessary custom authentication.
+description: "Use when the task materially involves this skill's owned domain: Design identity, session, recovery and authorization boundaries using established protocols/provider capabilities without building unnecessary custom authentication."
 ---
 
 # Authentication & Authorization Architecture

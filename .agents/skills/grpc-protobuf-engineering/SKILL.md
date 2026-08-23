@@ -1,6 +1,6 @@
 ---
 name: grpc-protobuf-engineering
-description: Design Protobuf/gRPC contracts, services, streaming, deadlines, retries, compatibility and generated-code boundaries for polyglot service communication.
+description: "Use when the task materially involves this skill's owned domain: Design Protobuf/gRPC contracts, services, streaming, deadlines, retries, compatibility and generated-code boundaries for polyglot service communication."
 ---
 
 # gRPC & Protobuf Engineering

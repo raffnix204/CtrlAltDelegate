@@ -1,6 +1,6 @@
 ---
 name: build-system-engineering
-description: Design and debug deterministic build graphs, compilers, generators, native toolchains, caching and cross-platform build configuration for small projects through large monorepos.
+description: "Use when the task materially involves this skill's owned domain: Design and debug deterministic build graphs, compilers, generators, native toolchains, caching and cross-platform build configuration for small projects through large monorepos."
 ---
 
 # Build System Engineering

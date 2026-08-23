@@ -1,6 +1,6 @@
 ---
 name: distributed-systems-engineering
-description: Design reliable queues, events, distributed workflows, caches and service interactions with explicit consistency, delivery, ordering, idempotency and backpressure semantics. Use when state or work crosses process/service boundaries.
+description: "Use when the task materially involves this skill's owned domain: Design reliable queues, events, distributed workflows, caches and service interactions with explicit consistency, delivery, ordering, idempotency and backpressure semantics. Use when state or work crosses process/service boundaries."
 ---
 
 # Distributed Systems Engineering

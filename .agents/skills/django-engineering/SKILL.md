@@ -1,6 +1,6 @@
 ---
 name: django-engineering
-description: Engineer Django applications with explicit ORM/query behavior, durable database invariants, transaction boundaries, auth/CSRF, middleware, async/ASGI boundaries, background work and production deployment.
+description: "Use when the task materially involves this skill's owned domain: Engineer Django applications with explicit ORM/query behavior, durable database invariants, transaction boundaries, auth/CSRF, middleware, async/ASGI boundaries, background work and production deployment."
 ---
 
 # Django Engineering

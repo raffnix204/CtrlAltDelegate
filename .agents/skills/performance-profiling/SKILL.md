@@ -1,6 +1,6 @@
 ---
 name: performance-profiling
-description: Profile and optimize real performance bottlenecks across frontend, backend, database, runtime, memory, CPU, I/O, queues, network, and latency. Use when a system is slow, resource-heavy, scaling poorly, or needs evidence-based performance budgets.
+description: "Use when the task materially involves this skill's owned domain: Profile and optimize real performance bottlenecks across frontend, backend, database, runtime, memory, CPU, I/O, queues, network, and latency. Use when a system is slow, resource-heavy, scaling poorly, or needs evidence-based performance budgets."
 ---
 
 # Performance Profiling & Optimization

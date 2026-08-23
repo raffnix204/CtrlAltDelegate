@@ -1,6 +1,6 @@
 ---
 name: motion-design-engineering
-description: Design and implement motion that makes interfaces feel immediate, spatially coherent and high-quality without turning animation into decoration or latency.
+description: "Use when the task materially involves this skill's owned domain: Design and implement motion that makes interfaces feel immediate, spatially coherent and high-quality without turning animation into decoration or latency."
 ---
 
 # Motion Design Engineering

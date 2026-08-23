@@ -1,4 +1,4 @@
-# Context Freshness & Parallel Execution — V5.8.2
+# Context Freshness & Parallel Execution — V5.9
 
 ## Two independent goals
 1. Prevent context rot by reconstructing truth from durable state and using fresh isolated agents.
@@ -21,17 +21,17 @@ Default every independent job/review/research task to a fresh context. The orche
 Workers return structured status, skill IDs applied, decisions, changed paths, tests/evidence, docs impact, commit SHA/report path and blockers. Long logs/transcripts stay on disk. The parent reads them only when evidence or a failure requires it.
 
 
-## V5.8.2 Microtask batching
+## V5.9 Microtask batching
 Parallelism is not "one agent per checkbox". Batch small same-shape jobs when they share skill set, files are easy to isolate, and a separate context would add more dispatch/review overhead than reasoning value. Keep independent substantive jobs parallel. Split a batch immediately if one item develops different risk, failure or seam behavior.
 
 ## Run-scoped scratch
 Allocate a `RUN_ID` for long autonomous runs. Worker/reviewer scratch and bulky transient summaries live under ignored `planning/private/runs/<RUN_ID>/`; only compact decisions/evidence pointers are promoted to canonical STATE/ledger/convergence/evidence. New runs never trust old scratch.
 
 
-## V5.8.2 Bottleneck-aware WIP control
+## V5.9 Bottleneck-aware WIP control
 `MAXIMIZE SAFE PARALLELISM` is subordinate to end-to-end delivery flow. Track `current_bottleneck` in `PARALLELISM-STATE.yaml` when it is material. If independent writer throughput exceeds integration/test/review/deployment throughput, cap or batch writers rather than accumulating unverified work. Reassess after the bottleneck moves.
 
-## V5.8.2 dispatch-cost and liveness rule
+## V5.9 dispatch-cost and liveness rule
 Parallelism must also justify its own startup/context/integration overhead. MICRO/SMALL work may be faster and safer as one coherent worker/milestone even when theoretical fan-out exists. Parallelize only when expected end-to-end time saved exceeds dispatch/integration cost and downstream capacity can absorb results.
 
 Worker lifetime is progress-aware, not based on a universal wall-clock timeout. Use native provider updates/session persistence where available; checkpoint expensive long work under ignored `planning/private/runs/` only when useful. Quiet is not stalled until a health check fails to find meaningful progress. Resume from actual state after provider loss instead of replaying completed work.

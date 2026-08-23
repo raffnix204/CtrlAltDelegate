@@ -1,6 +1,6 @@
 ---
 name: android-testing
-description: Design reliable Android test strategy across JVM/unit, coroutine/Flow, persistence, Compose/UI and device/instrumentation layers. Use for Android feature testing, regression work or flaky mobile test diagnosis.
+description: "Use when the task materially involves this skill's owned domain: Design reliable Android test strategy across JVM/unit, coroutine/Flow, persistence, Compose/UI and device/instrumentation layers. Use for Android feature testing, regression work or flaky mobile test diagnosis."
 ---
 
 # Android Test Engineering

@@ -1,6 +1,6 @@
 ---
 name: database-design
-description: Create durable relational/document data models around domain invariants, ownership, lifecycle and access patterns with safe migrations and measured indexing.
+description: "Use when the task materially involves this skill's owned domain: Create durable relational/document data models around domain invariants, ownership, lifecycle and access patterns with safe migrations and measured indexing."
 ---
 
 # Database & Data Model Engineering

@@ -1,6 +1,6 @@
 ---
 name: pytorch-deep-learning-engineering
-description: Engineer PyTorch training and inference pipelines with reproducibility, data loading, devices/dtypes, optimization, checkpoints, distributed training, evaluation and deployment correctness.
+description: "Use when the task materially involves this skill's owned domain: Engineer PyTorch training and inference pipelines with reproducibility, data loading, devices/dtypes, optimization, checkpoints, distributed training, evaluation and deployment correctness."
 ---
 
 # PyTorch Deep Learning Engineering

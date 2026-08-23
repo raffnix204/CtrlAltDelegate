@@ -1,4 +1,4 @@
-# Capability Resolution & Safe Tool Bootstrap — V5.8.2
+# Capability Resolution & Safe Tool Bootstrap — V5.9
 
 ## Rule
 Resolve **required capabilities**, not preferred product names. Presence of a binary is not capability proof.

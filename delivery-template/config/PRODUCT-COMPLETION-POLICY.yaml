@@ -1,5 +1,6 @@
-version: 5.8.2
-principle: Structure, mocks and narrow tests may prove implementation progress; only requirement-appropriate real evidence may prove product completion.
+version: '5.9'
+principle: Structure, mocks and narrow tests may prove implementation progress; only
+  requirement-appropriate real evidence may prove product completion.
 evidence_types:
 - STATIC
 - UNIT
@@ -48,6 +49,11 @@ project_completion:
   - no_unresolved_global_execution_blocker
   - evidence_fresh_for_candidate_sha
   - documentation_current
+  - control_state_integrity_pass
+  - no_active_worker_claims
+  - no_running_attempts
+  - all_DONE_jobs_revalidated
+  - applicable_review_verdicts_not_UNVERIFIABLE
   validation_pending_state: VALIDATION_PENDING_EXTERNAL
   completed_state: COMPLETED
 product_drift:
@@ -75,3 +81,8 @@ dependency_gates:
   VERIFIED_satisfied_by:
   - DONE
   verification_blocker_does_not_block_implementation_dependencies: true
+control_plane:
+  mutation_integrity: scripts/validate_control_mutation.py
+  pre_dispatch_reconciliation: scripts/reconcile_execution_state.py
+  done_revalidation: true
+  worker_result_schema_required: true

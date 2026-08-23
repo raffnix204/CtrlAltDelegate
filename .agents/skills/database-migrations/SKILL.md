@@ -1,6 +1,6 @@
 ---
 name: database-migrations
-description: Plan and execute safe schema evolution, expand-contract rollouts, online backfills and compatibility across application versions. Use for production database migrations, large backfills or risky schema changes.
+description: "Use when the task materially involves this skill's owned domain: Plan and execute safe schema evolution, expand-contract rollouts, online backfills and compatibility across application versions. Use for production database migrations, large backfills or risky schema changes."
 ---
 
 # Database Migration & Schema Evolution

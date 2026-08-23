@@ -1,6 +1,6 @@
 ---
 name: c-systems-engineering
-description: Engineer safe C systems code with explicit ownership, lifetimes, allocation, bounds, error paths, portability, concurrency and build/toolchain diagnostics.
+description: "Use when the task materially involves this skill's owned domain: Engineer safe C systems code with explicit ownership, lifetimes, allocation, bounds, error paths, portability, concurrency and build/toolchain diagnostics."
 ---
 
 # C Systems Engineering

@@ -1,6 +1,6 @@
 ---
 name: cli-engineering
-description: Design robust command-line tools with predictable parsing, composable output, configuration precedence, exit codes, interactive/non-interactive modes and safe automation behavior.
+description: "Use when the task materially involves this skill's owned domain: Design robust command-line tools with predictable parsing, composable output, configuration precedence, exit codes, interactive/non-interactive modes and safe automation behavior."
 ---
 
 # CLI Engineering

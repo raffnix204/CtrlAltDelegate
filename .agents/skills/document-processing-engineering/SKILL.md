@@ -1,6 +1,6 @@
 ---
 name: document-processing-engineering
-description: Engineer PDF/Office/text ingestion, extraction, conversion and generation with fidelity checks, parser isolation, structure preservation, OCR fallback and provenance.
+description: "Use when the task materially involves this skill's owned domain: Engineer PDF/Office/text ingestion, extraction, conversion and generation with fidelity checks, parser isolation, structure preservation, OCR fallback and provenance."
 ---
 
 # Document Processing Engineering

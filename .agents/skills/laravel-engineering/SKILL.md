@@ -1,6 +1,6 @@
 ---
 name: laravel-engineering
-description: Engineer Laravel applications with explicit service/container boundaries, Eloquent query/transaction behavior, validation/authorization, queues/events, migrations and production worker/runtime semantics.
+description: "Use when the task materially involves this skill's owned domain: Engineer Laravel applications with explicit service/container boundaries, Eloquent query/transaction behavior, validation/authorization, queues/events, migrations and production worker/runtime semantics."
 ---
 
 # Laravel Engineering

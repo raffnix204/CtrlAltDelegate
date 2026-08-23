@@ -1,6 +1,6 @@
 ---
 name: ux-product-design
-description: Turn product requirements into clear information architecture, task flows, interaction models and resilient states before visual polish or implementation.
+description: "Use when the task materially involves this skill's owned domain: Turn product requirements into clear information architecture, task flows, interaction models and resilient states before visual polish or implementation."
 ---
 
 # Product UX & Interaction Design

@@ -1,6 +1,6 @@
 ---
 name: graphql-engineering
-description: Design and operate GraphQL schemas, operations and resolver execution with evolvable nullability, batching, pagination, authorization, cost controls and subscription/runtime semantics.
+description: "Use when the task materially involves this skill's owned domain: Design and operate GraphQL schemas, operations and resolver execution with evolvable nullability, batching, pagination, authorization, cost controls and subscription/runtime semantics."
 ---
 
 # GraphQL Engineering

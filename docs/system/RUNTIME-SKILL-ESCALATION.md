@@ -1,4 +1,4 @@
-# Runtime Skill Escalation — V5.8.2
+# Runtime Skill Escalation — V5.9
 
 ## Purpose
 A worker may discover a missing specialist after dispatch. This is not automatically a project change. Runtime escalation preserves the immutable, hash-bound base brief and adds the smallest auditable delta needed.

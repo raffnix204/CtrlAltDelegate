@@ -1,4 +1,4 @@
-# Project Profiles — V5.8.2
+# Project Profiles — V5.9
 
 Profiles seed routing; the actual stack and change risk refine it. `technology-stack-selection` is mandatory for non-trivial greenfield projects.
 
@@ -70,7 +70,7 @@ Repository onboarding + systematic debugging + matching stack/domain specialist 
 Repository onboarding + refactoring engineering + stack specialist + implementation/test/review/verification.
 
 ### Frontend/SEO/website modernization
-Retain V5.8.2 frontend/source-acquisition pipeline and add actual stack/backend specialists discovered in the repository.
+Retain V5.9 frontend/source-acquisition pipeline and add actual stack/backend specialists discovered in the repository.
 
 ## Language specialist routing
 

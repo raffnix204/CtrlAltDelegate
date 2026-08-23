@@ -1,6 +1,6 @@
 ---
 name: seo-content-strategy
-description: "Plan and review people-first search content using audience intent, original value, source discipline, authorship/transparency where appropriate, topical coverage and AI-search citation readiness without keyword folklore."
+description: "Use when the task materially involves this skill's owned domain: Plan and review people-first search content using audience intent, original value, source discipline, authorship/transparency where appropriate, topical coverage and AI-search citation readiness without keyword folklore."
 ---
 
 # SEO Content Strategy & E-E-A-T

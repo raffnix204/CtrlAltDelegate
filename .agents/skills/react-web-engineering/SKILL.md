@@ -1,6 +1,6 @@
 ---
 name: react-web-engineering
-description: Build and review production React applications with deliberate state ownership, pure rendering, effect discipline, server/client boundaries, forms, concurrency, accessibility and measured performance.
+description: "Use when the task materially involves this skill's owned domain: Build and review production React applications with deliberate state ownership, pure rendering, effect discipline, server/client boundaries, forms, concurrency, accessibility and measured performance."
 ---
 
 # React Web Engineering

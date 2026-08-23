@@ -1,6 +1,6 @@
 ---
 name: cpp-systems-engineering
-description: Write and review modern C++ with explicit ownership, RAII, lifetime/ABI safety, concurrency, undefined-behavior defenses, build systems, sanitizers and measured performance. Use when C++ is a primary project language.
+description: "Use when the task materially involves this skill's owned domain: Write and review modern C++ with explicit ownership, RAII, lifetime/ABI safety, concurrency, undefined-behavior defenses, build systems, sanitizers and measured performance. Use when C++ is a primary project language."
 ---
 
 # C++ Systems Engineering

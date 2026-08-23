@@ -1,0 +1,22 @@
+version: '5.9'
+log: planning/execution/CONTROL-INSIGHTS.jsonl
+local_only: true
+cloud_telemetry_required: false
+events:
+- GATE_TRIGGERED
+- FINDING_FOUND
+- FALSE_POSITIVE
+- REPAIR_REQUIRED
+- REPAIR_SUCCEEDED
+- RETRY
+- JIT_SKILL_INJECTED
+- RECONCILIATION_REPAIR
+- STOP_GATE_BLOCKED
+- RUNTIME_FAILURE
+- VERIFIER_DISAGREEMENT
+review_when:
+- minor_release
+- repeated_false_positive
+- mechanism_never_triggers
+- high_repair_cost
+principle: Control-plane complexity must earn its maintenance cost with evidence.

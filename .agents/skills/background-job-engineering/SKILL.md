@@ -1,6 +1,6 @@
 ---
 name: background-job-engineering
-description: Design reliable asynchronous jobs, schedulers and workers with idempotency, retries, leases, concurrency, dead-letter handling, progress and operational visibility.
+description: "Use when the task materially involves this skill's owned domain: Design reliable asynchronous jobs, schedulers and workers with idempotency, retries, leases, concurrency, dead-letter handling, progress and operational visibility."
 ---
 
 # Background Job & Worker Engineering

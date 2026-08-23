@@ -1,6 +1,6 @@
 ---
 name: browser-extension-engineering
-description: Build secure browser extensions across manifest permissions, content-script isolation, background/service-worker lifecycle, messaging, storage, CSP and store packaging.
+description: "Use when the task materially involves this skill's owned domain: Build secure browser extensions across manifest permissions, content-script isolation, background/service-worker lifecycle, messaging, storage, CSP and store packaging."
 ---
 
 # Browser Extension Engineering

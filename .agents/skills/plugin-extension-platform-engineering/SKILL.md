@@ -1,6 +1,6 @@
 ---
 name: plugin-extension-platform-engineering
-description: Design host/plugin architectures with stable extension points, capability boundaries, version negotiation, lifecycle, sandboxing, discovery and compatibility testing.
+description: "Use when the task materially involves this skill's owned domain: Design host/plugin architectures with stable extension points, capability boundaries, version negotiation, lifecycle, sandboxing, discovery and compatibility testing."
 ---
 
 # Plugin & Extension Platform Engineering

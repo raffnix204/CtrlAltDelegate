@@ -1,6 +1,6 @@
 ---
 name: dns-dhcp-engineering
-description: Design and operate DNS and DHCP services with authoritative/recursive boundaries, split-horizon, records, leases, reservations, dynamic updates, redundancy and safe migration.
+description: "Use when the task materially involves this skill's owned domain: Design and operate DNS and DHCP services with authoritative/recursive boundaries, split-horizon, records, leases, reservations, dynamic updates, redundancy and safe migration."
 ---
 
 # DNS & DHCP Engineering

@@ -1,4 +1,4 @@
-version: '5.8.2'
+version: '5.9'
 source_of_truth: planning/execution/JOB-GRAPH.json
 native_tasks: OPTIONAL_EXECUTION_MIRROR
 rules:

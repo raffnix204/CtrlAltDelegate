@@ -1,7 +1,7 @@
-# Collaborative Discovery & Preference/Constraint Contract — V5.8.2
+# Collaborative Discovery & Preference/Constraint Contract — V5.9
 
 ## Purpose
-V5.8.2 keeps autonomous planning while preventing expensive late architectural reversals. Discovery is **co-design**, not a questionnaire. The planner must actively clarify, suggest, challenge and research before freezing consequential technical decisions.
+V5.9 keeps autonomous planning while preventing expensive late architectural reversals. Discovery is **co-design**, not a questionnaire. The planner must actively clarify, suggest, challenge and research before freezing consequential technical decisions.
 
 ## Adaptive discovery
 Do not classify a person permanently as beginner or expert. Infer only how much detail is useful **for the current decision**. Functional/product understanding remains rigorous for everyone.

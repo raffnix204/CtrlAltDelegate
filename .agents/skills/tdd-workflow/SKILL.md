@@ -1,6 +1,6 @@
 ---
 name: tdd-workflow
-description: Use RED → GREEN → REFACTOR when test-first gives strong behavioral signal, especially for business logic, bugs, APIs, security, parsers and state transitions.
+description: "Use when the task materially involves this skill's owned domain: Use RED → GREEN → REFACTOR when test-first gives strong behavioral signal, especially for business logic, bugs, APIs, security, parsers and state transitions."
 ---
 
 # Pragmatic Test-Driven Workflow

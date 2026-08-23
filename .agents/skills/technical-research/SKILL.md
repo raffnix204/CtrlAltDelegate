@@ -1,6 +1,6 @@
 ---
 name: technical-research
-description: Perform autonomous, current, evidence-first technical research for architecture and implementation decisions, using the lightest sufficient path and converting findings into decisions, ADRs and routing updates without unnecessary user questions.
+description: "Use when the task materially involves this skill's owned domain: Perform autonomous, current, evidence-first technical research for architecture and implementation decisions, using the lightest sufficient path and converting findings into decisions, ADRs and routing updates without unnecessary user questions."
 ---
 
 # Technical Research & Evidence Engineering

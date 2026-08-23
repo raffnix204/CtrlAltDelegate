@@ -1,6 +1,6 @@
 ---
 name: kubernetes-operations
-description: Design, review and debug production Kubernetes workloads, probes, resources, RBAC, configuration, autoscaling, rollout and runtime failures. Use when Kubernetes is an actual deployment target.
+description: "Use when the task materially involves this skill's owned domain: Design, review and debug production Kubernetes workloads, probes, resources, RBAC, configuration, autoscaling, rollout and runtime failures. Use when Kubernetes is an actual deployment target."
 ---
 
 # Kubernetes Workload & Operations Engineering

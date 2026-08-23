@@ -1,6 +1,6 @@
 ---
 name: responsive-design
-description: Make layouts and interactions adapt intentionally across container sizes, viewports, input modes, zoom/text scaling and content extremes.
+description: "Use when the task materially involves this skill's owned domain: Make layouts and interactions adapt intentionally across container sizes, viewports, input modes, zoom/text scaling and content extremes."
 ---
 
 # Adaptive Responsive Design

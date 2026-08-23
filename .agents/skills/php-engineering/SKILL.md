@@ -1,6 +1,6 @@
 ---
 name: php-engineering
-description: Write and review production PHP applications and services with strong typing where useful, Composer/package hygiene, request/job lifecycles, framework boundaries, data access, testing and security.
+description: "Use when the task materially involves this skill's owned domain: Write and review production PHP applications and services with strong typing where useful, Composer/package hygiene, request/job lifecycles, framework boundaries, data access, testing and security."
 ---
 
 # PHP Production Engineering

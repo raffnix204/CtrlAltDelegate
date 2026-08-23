@@ -1,6 +1,6 @@
 ---
 name: api-contracts
-description: Design stable, evolvable APIs/events/webhooks with explicit schemas, errors, authorization, idempotency, pagination, compatibility and consumer impact.
+description: "Use when the task materially involves this skill's owned domain: Design stable, evolvable APIs/events/webhooks with explicit schemas, errors, authorization, idempotency, pagination, compatibility and consumer impact."
 ---
 
 # API & Integration Contract Engineering

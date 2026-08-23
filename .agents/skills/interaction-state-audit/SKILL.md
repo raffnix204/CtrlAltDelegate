@@ -1,6 +1,6 @@
 ---
 name: interaction-state-audit
-description: Trace complex interactive flows end-to-end to detect race conditions, stale state, double actions, contradictory effects and broken refresh/navigation outcomes.
+description: "Use when the task materially involves this skill's owned domain: Trace complex interactive flows end-to-end to detect race conditions, stale state, double actions, contradictory effects and broken refresh/navigation outcomes."
 ---
 
 # Interaction State & Concurrency Audit

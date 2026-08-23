@@ -1,4 +1,4 @@
-# Repository Layout & Persistent State Contract — V5.8.2
+# Repository Layout & Persistent State Contract — V5.9
 
 ## Core invariant
 

@@ -1,6 +1,6 @@
 ---
 name: sqlite-vector-search-engineering
-description: Build local-first semantic and hybrid retrieval on SQLite using current supported vector extensions, embedding lifecycle, metadata filtering, FTS/vector fusion and measurable retrieval quality.
+description: "Use when the task materially involves this skill's owned domain: Build local-first semantic and hybrid retrieval on SQLite using current supported vector extensions, embedding lifecycle, metadata filtering, FTS/vector fusion and measurable retrieval quality."
 ---
 
 # SQLite Vector Search Engineering

@@ -1,6 +1,6 @@
 ---
 name: implementation-engineering
-description: 'Write and modify production code with senior engineering discipline: fit existing architecture, explicit boundaries, failure-aware behavior, maintainable structure, safe side effects, and self-review. Use for substantive implementation or refactoring work.'
+description: "Use when the task materially involves this skill's owned domain: Write and modify production code with senior engineering discipline: fit existing architecture, explicit boundaries, failure-aware behavior, maintainable structure, safe side effects, and self-review. Use for substantive implementation or refactoring work."
 ---
 
 # Production Implementation Engineering

@@ -26,7 +26,7 @@ def main():
         for c in ['web.scrape','web.map','web.crawl','web.extract']: caps[c]={'provider':'crw','status':'DETECTED_NOT_SMOKE_TESTED'}
     if 'obscura' in tools:
         for c in ['browser.javascript','browser.dom','browser.interaction','browser.screenshot','browser.pdf','browser.mcp']: caps[c]={'provider':'obscura','status':'DETECTED_NOT_SMOKE_TESTED'}
-    state={'version':'5.8.2','status':'INVENTORIED','tools':tools,'capabilities':caps,'note':'Detection is not capability proof; run verify_tool_capability.py for required capabilities.'}
+    state={'version':'5.9','status':'INVENTORIED','tools':tools,'capabilities':caps,'note':'Detection is not capability proof; run verify_tool_capability.py for required capabilities.'}
     if a.write:
         p=R/'planning/execution/CAPABILITY-STATE.json'; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(state,indent=2)+'\n')
     print(json.dumps(state,indent=2) if a.json or True else state)

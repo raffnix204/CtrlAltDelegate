@@ -1,6 +1,6 @@
 ---
 name: web-data-acquisition-engineering
-description: Design respectful, reliable web search/scrape/map/crawl/extract pipelines with provider abstraction, URL frontiers, canonicalization, rendering escalation, rate limits, provenance and incremental refresh.
+description: "Use when the task materially involves this skill's owned domain: Design respectful, reliable web search/scrape/map/crawl/extract pipelines with provider abstraction, URL frontiers, canonicalization, rendering escalation, rate limits, provenance and incremental refresh."
 ---
 
 # Web Data Acquisition Engineering

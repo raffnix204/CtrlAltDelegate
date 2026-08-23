@@ -1,6 +1,6 @@
 ---
 name: structured-data-seo
-description: "Plan, generate and verify truthful structured data and entity relationships for public pages using current Schema.org and search-platform support, without fabricating rich-result facts."
+description: "Use when the task materially involves this skill's owned domain: Plan, generate and verify truthful structured data and entity relationships for public pages using current Schema.org and search-platform support, without fabricating rich-result facts."
 ---
 
 # Structured Data & Entity SEO

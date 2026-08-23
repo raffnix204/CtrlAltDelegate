@@ -1,6 +1,6 @@
 ---
 name: mysql-mariadb-engineering
-description: Engineer MySQL/MariaDB schemas, indexes, transactions, query plans and replication-aware application patterns while verifying engine/version-specific semantics.
+description: "Use when the task materially involves this skill's owned domain: Engineer MySQL/MariaDB schemas, indexes, transactions, query plans and replication-aware application patterns while verifying engine/version-specific semantics."
 ---
 
 # MySQL & MariaDB Engineering

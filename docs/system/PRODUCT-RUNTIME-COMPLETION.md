@@ -1,4 +1,4 @@
-# Product Runtime Completion Contract — V5.8.2
+# Product Runtime Completion Contract — V5.9
 
 ## Core rule
 

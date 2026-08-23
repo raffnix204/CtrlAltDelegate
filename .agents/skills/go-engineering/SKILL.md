@@ -1,6 +1,6 @@
 ---
 name: go-engineering
-description: Write and review idiomatic Go with explicit context propagation, concurrency ownership, errors, interfaces, resource lifecycles, testing, race safety and profiling. Use when Go is a primary project language.
+description: "Use when the task materially involves this skill's owned domain: Write and review idiomatic Go with explicit context propagation, concurrency ownership, errors, interfaces, resource lifecycles, testing, race safety and profiling. Use when Go is a primary project language."
 ---
 
 # Go Production Engineering

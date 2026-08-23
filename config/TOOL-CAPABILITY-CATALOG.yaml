@@ -1,4 +1,4 @@
-version: 5.8.2
+version: 5.9
 policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities
   before installation.
 providers:

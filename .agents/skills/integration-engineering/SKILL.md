@@ -1,6 +1,6 @@
 ---
 name: integration-engineering
-description: Build reliable third-party API, SDK, webhook and provider integrations that match repository patterns and handle auth, pagination, limits, retries and contract drift. Use when adding or hardening external service integrations.
+description: "Use when the task materially involves this skill's owned domain: Build reliable third-party API, SDK, webhook and provider integrations that match repository patterns and handle auth, pagination, limits, retries and contract drift. Use when adding or hardening external service integrations."
 ---
 
 # External Integration & Connector Engineering

@@ -1,6 +1,6 @@
 ---
 name: nestjs-engineering
-description: Engineer NestJS backends with explicit module/provider boundaries, DI scopes, pipes/guards/interceptors, stable error contracts, transaction ownership and lifecycle-aware testing.
+description: "Use when the task materially involves this skill's owned domain: Engineer NestJS backends with explicit module/provider boundaries, DI scopes, pipes/guards/interceptors, stable error contracts, transaction ownership and lifecycle-aware testing."
 ---
 
 # NestJS Engineering

@@ -1,6 +1,6 @@
 ---
 name: analytics-database-engineering
-description: Design analytical/OLAP data stores and queries for large scans, aggregations, columnar storage, partitioning, materialized views and high-throughput ingestion.
+description: "Use when the task materially involves this skill's owned domain: Design analytical/OLAP data stores and queries for large scans, aggregations, columnar storage, partitioning, materialized views and high-throughput ingestion."
 ---
 
 # Analytics Database Engineering

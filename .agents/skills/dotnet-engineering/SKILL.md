@@ -1,6 +1,6 @@
 ---
 name: dotnet-engineering
-description: Write and review production C#/.NET with async/cancellation, DI/lifetimes, resource disposal, nullable types, LINQ/data access, background services, testing and runtime performance.
+description: "Use when the task materially involves this skill's owned domain: Write and review production C#/.NET with async/cancellation, DI/lifetimes, resource disposal, nullable types, LINQ/data access, background services, testing and runtime performance."
 ---
 
 # .NET & C# Production Engineering

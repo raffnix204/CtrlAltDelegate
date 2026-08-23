@@ -1,6 +1,6 @@
 ---
 name: accessibility-audit
-description: Design and independently verify inclusive interfaces using current platform guidance and WCAG 2.2 AA as the default web target unless project requirements specify otherwise.
+description: "Use when the task materially involves this skill's owned domain: Design and independently verify inclusive interfaces using current platform guidance and WCAG 2.2 AA as the default web target unless project requirements specify otherwise."
 ---
 
 # Accessibility Engineering & Audit

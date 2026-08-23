@@ -1,5 +1,5 @@
-library: software-planning-lead-v5.8.2
-version: '5.8.2'
+library: software-planning-lead-v5.9
+version: '5.9'
 library_count: 154
 policy:
   project_export: copy_selected_skill_directories_only

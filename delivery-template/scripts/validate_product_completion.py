@@ -2,9 +2,13 @@
 from pathlib import Path
 import json,sys,yaml,subprocess
 R=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(R/'scripts'))
+import control_state as cs
 def jl(rel): return json.loads((R/rel).read_text(encoding='utf-8'))
 def main():
     errors=[]; pending=[]
+    drift_errors=cs.verify_seal()
+    if drift_errors: errors.extend('control mutation integrity: '+x for x in drift_errors)
     q=subprocess.run([sys.executable,str(R/'scripts/quality_gate.py'),'--validate','--json'],cwd=R,text=True,capture_output=True)
     try:qj=json.loads(q.stdout)
     except Exception:qj={}
@@ -60,6 +64,14 @@ def main():
             if not fresh_pass(eid): errors.append(f'provider {pid}: invalid/stale evidence {eid}')
     if contract.get('status') not in {'READY','APPROVED','NOT_APPLICABLE'}: errors.append('product contract not READY/APPROVED/N/A')
     if contract.get('status')!='NOT_APPLICABLE':
+        for nr in contract.get('negative_requirements') or []:
+            if not isinstance(nr,dict) or not nr.get('id'):
+                errors.append('negative requirement missing structured id/status'); continue
+            if nr.get('status') not in {'PASS','SATISFIED'}: errors.append(f"negative requirement {nr.get('id')}: not satisfied")
+            ids=nr.get('evidence_ids') or []
+            if nr.get('evidence_required',True) and not ids: errors.append(f"negative requirement {nr.get('id')}: evidence missing")
+            for eid in ids:
+                if not fresh_pass(eid): errors.append(f"negative requirement {nr.get('id')}: invalid/stale evidence {eid}")
         if drift.get('status')!='PASS': errors.append('product drift review not PASS')
         if candidate and drift.get('candidate_sha')!=candidate: errors.append('product drift review stale')
         if not (drift.get('reviewer') or {}).get('independent'): errors.append('product drift reviewer not independent')
@@ -81,9 +93,15 @@ def main():
     for x in g.get('jobs') or []:
         if not isinstance(x,dict) or not x.get('required',True): continue
         jid=x.get('id'); st=x.get('status')
-        if st=='DONE': continue
+        if st=='DONE':
+            rv=subprocess.run([sys.executable,str(R/'scripts/transition_job.py'),jid,'DONE','--revalidate-only'],cwd=R,text=True,capture_output=True)
+            if rv.returncode!=0: errors.append(f'job {jid}: DONE invariant revalidation failed: '+rv.stdout.strip().replace('\n',' | '))
+            continue
         if st in {'IMPLEMENTED_UNVERIFIED','VERIFYING'} and (jid in deferred_jobs or jid in verification_job): pending.append(f'job {jid}')
         else: errors.append(f'job {jid}: {st}')
+    claims=jl('planning/execution/WORKER-CLAIMS.json'); attempts=jl('planning/execution/ATTEMPT-STATE.json')
+    if any(isinstance(x,dict) and x.get('status')=='ACTIVE' for x in (claims.get('claims') or {}).values()): errors.append('active worker claims remain')
+    if any(isinstance(x,dict) and x.get('status')=='RUNNING' for x in (attempts.get('attempts') or {}).values()): errors.append('active job attempts remain')
     if q.returncode==3:
         if pending: pending.extend('quality gate: '+x for x in qj.get('pending',[]) or [])
         else: errors.append('quality gate pending without declared external/deferred validation')

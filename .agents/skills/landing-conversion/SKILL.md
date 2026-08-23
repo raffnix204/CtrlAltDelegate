@@ -1,6 +1,6 @@
 ---
 name: landing-conversion
-description: Design high-quality conversion surfaces around audience intent, persuasive evidence and low-friction action without fake urgency, formulaic layouts or ungrounded A/B-test claims.
+description: "Use when the task materially involves this skill's owned domain: Design high-quality conversion surfaces around audience intent, persuasive evidence and low-friction action without fake urgency, formulaic layouts or ungrounded A/B-test claims."
 ---
 
 # Landing Page Conversion Design

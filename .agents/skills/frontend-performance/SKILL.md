@@ -1,6 +1,6 @@
 ---
 name: frontend-performance
-description: Measure and improve real user-perceived web performance using project-specific budgets, Core Web Vitals and causal profiling rather than score chasing.
+description: "Use when the task materially involves this skill's owned domain: Measure and improve real user-perceived web performance using project-specific budgets, Core Web Vitals and causal profiling rather than score chasing."
 ---
 
 # Frontend Performance Engineering

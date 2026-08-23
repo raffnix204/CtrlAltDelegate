@@ -1,6 +1,6 @@
 ---
 name: network-infrastructure-engineering
-description: Design and safely change routing, switching, VLAN, firewall, wireless, DNS, DHCP, NAT, VPN and segmentation architectures with explicit reachability, failure-domain and rollback reasoning.
+description: "Use when the task materially involves this skill's owned domain: Design and safely change routing, switching, VLAN, firewall, wireless, DNS, DHCP, NAT, VPN and segmentation architectures with explicit reachability, failure-domain and rollback reasoning."
 ---
 
 # Network Infrastructure Engineering

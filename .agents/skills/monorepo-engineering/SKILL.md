@@ -1,6 +1,6 @@
 ---
 name: monorepo-engineering
-description: Design and operate multi-package repositories with clear ownership, dependency boundaries, task graphs, affected execution, shared tooling, release strategy and cache correctness.
+description: "Use when the task materially involves this skill's owned domain: Design and operate multi-package repositories with clear ownership, dependency boundaries, task graphs, affected execution, shared tooling, release strategy and cache correctness."
 ---
 
 # Monorepo Engineering

@@ -1,6 +1,6 @@
 ---
 name: vue-nuxt-engineering
-description: Engineer Vue/Nuxt applications with deliberate Composition API reactivity, composable ownership, SSR/hydration, server endpoints, async data/cache semantics and deployment-aware plugins/modules.
+description: "Use when the task materially involves this skill's owned domain: Engineer Vue/Nuxt applications with deliberate Composition API reactivity, composable ownership, SSR/hydration, server endpoints, async data/cache semantics and deployment-aware plugins/modules."
 ---
 
 # Vue & Nuxt Engineering

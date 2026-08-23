@@ -1,4 +1,4 @@
-version: 5.8.2
+version: '5.9'
 policy:
   blind_retry: forbidden
   progress_required_for_same_strategy: true
@@ -8,6 +8,11 @@ policy:
   assurance_failure_invalidates_only_affected_evidence: true
   verification_blocker_is_not_execution_blocker: true
   completion_transition_fail_closed: true
+  state_mutation_via_controller: true
+  pre_dispatch_reconciliation: true
+  job_attempt_separate_from_job: true
+  objective_progress_signature: true
+  tri_state_review: true
 loops:
   DISCOVERY_LOOP:
     trigger:
@@ -155,3 +160,50 @@ loops:
     escalate_when:
     - validation_failure_creates_repair_job
     - execution_assumption_invalidated
+  PLANNING_CONVERGENCE_LOOP:
+    trigger:
+    - planning_artifact_changed
+    - planning_review_finding
+    continue_when:
+    - issue_signature_improves
+    success_when:
+    - decision_coverage_complete
+    - planning_artifact_dag_ready
+    no_progress_action: change_planning_strategy
+    escalate_when:
+    - same_issue_signature_plateaus
+  STATE_RECONCILIATION_LOOP:
+    trigger:
+    - pre_dispatch
+    - restart
+    - context_boundary
+    - control_drift
+    continue_when:
+    - safe_repairs_remaining
+    success_when:
+    - authority_and_projections_consistent
+    escalate_when:
+    - ambiguous_authority_conflict
+    - protected_surface_drift
+  ATTEMPT_LIFECYCLE_LOOP:
+    trigger:
+    - job_claimed
+    continue_when:
+    - lease_valid
+    - worker_heartbeat_fresh
+    success_when:
+    - structured_worker_result_settled
+    escalate_when:
+    - lease_expired
+    - attempt_orphaned
+    - worker_result_invalid
+  REVIEW_VERDICT_LOOP:
+    trigger:
+    - verification_required
+    continue_when:
+    - unverifiable_followup_available
+    success_when:
+    - PASS
+    terminal_fail:
+    - FAIL
+    unverifiable: must_create_followup_evidence_not_pass

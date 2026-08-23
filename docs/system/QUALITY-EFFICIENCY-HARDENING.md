@@ -1,6 +1,6 @@
-# Quality & Efficiency Hardening — V5.8.2
+# Quality & Efficiency Hardening — V5.9
 
-V5.8.2 preserves lean/convergent/falsifiable quality controls and adds earlier Program Design, vertical-slice evidence, failure closure and bottleneck-aware flow. It does not add a second orchestrator.
+V5.9 preserves lean/convergent/falsifiable quality controls and adds earlier Program Design, vertical-slice evidence, failure closure and bottleneck-aware flow. It does not add a second orchestrator.
 
 ## Lean solution lifecycle
 `UNDERSTAND → PROGRAM_DESIGN_GATE (when material) → SOLUTION_MINIMIZATION_GATE → FIRST VERTICAL SLICE → VERIFY/RESTEER → IMPLEMENT → TEST → FRESH COMPLEXITY REVIEW (when material) → NORMAL QUALITY GATES`
@@ -39,5 +39,5 @@ Where a product/NFR requirement has an honest observable metric, define baseline
 ## Collaborative discovery efficiency
 Front-load only high-impact ambiguity. Small rounds of questions plus proactive suggestions are cheaper than late architecture rewrites. `AUTO` is an explicit resolved state, so beginner users are never forced to understand technologies they do not know. Deep technical discussion is spent only where the user wants control or the decision materially affects architecture/risk.
 
-## V5.8.2 right-sized ceremony
+## V5.9 right-sized ceremony
 Quality gates are invariant; ceremony is elastic. MICRO/SMALL work may batch requirement evidence into honest milestone evidence, use one coherent development branch and final fresh review, and avoid process-only commits. STANDARD/HIGH_RISK gets deeper independent review/evidence according to risk. Optimize time to validated user value, not artifact/agent/commit count.

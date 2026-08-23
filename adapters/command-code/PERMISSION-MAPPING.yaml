@@ -1,4 +1,4 @@
-version: '5.8.2'
+version: '5.9'
 principle: INSTRUCTIONS != ENFORCEMENT
 ctrlaltdelegate_to_command_code:
   LOCKED: DENY unless owning workflow

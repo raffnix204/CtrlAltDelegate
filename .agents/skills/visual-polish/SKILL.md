@@ -1,6 +1,6 @@
 ---
 name: visual-polish
-description: Perform a disciplined final visual-design review that raises perceived quality without inventing a new design language or masking UX problems with decoration.
+description: "Use when the task materially involves this skill's owned domain: Perform a disciplined final visual-design review that raises perceived quality without inventing a new design language or masking UX problems with decoration."
 ---
 
 # Premium Visual Polish

@@ -1,4 +1,4 @@
-# Scoped Change Control and Retrospective — V5.8.2
+# Scoped Change Control and Retrospective — V5.9
 
 When implementation evidence or new user input materially changes the plan, decide whether it is the same intent or a new change.
 

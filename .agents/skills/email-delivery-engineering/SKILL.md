@@ -1,6 +1,6 @@
 ---
 name: email-delivery-engineering
-description: Engineer transactional and product email with provider abstraction, templates, queues, deliverability, domain authentication, bounce/complaint handling, idempotency and environment-safe testing.
+description: "Use when the task materially involves this skill's owned domain: Engineer transactional and product email with provider abstraction, templates, queues, deliverability, domain authentication, bounce/complaint handling, idempotency and environment-safe testing."
 ---
 
 # Email Delivery Engineering

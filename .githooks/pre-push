@@ -1,5 +1,6 @@
 #!/bin/sh
 set -eu
+python3 scripts/validate_control_mutation.py --staged
 tmp="$(mktemp)"
 trap 'rm -f "$tmp"' EXIT
 cat > "$tmp"

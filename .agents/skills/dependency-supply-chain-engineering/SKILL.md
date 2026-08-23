@@ -1,6 +1,6 @@
 ---
 name: dependency-supply-chain-engineering
-description: Control third-party dependency provenance, licensing, integrity, lockfiles, build inputs, package publication and compromise blast radius across the software supply chain.
+description: "Use when the task materially involves this skill's owned domain: Control third-party dependency provenance, licensing, integrity, lockfiles, build inputs, package publication and compromise blast radius across the software supply chain."
 ---
 
 # Dependency & Software Supply Chain Engineering

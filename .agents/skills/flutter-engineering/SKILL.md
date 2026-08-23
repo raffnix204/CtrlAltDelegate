@@ -1,6 +1,6 @@
 ---
 name: flutter-engineering
-description: Build production Flutter/Dart applications with explicit widget/state lifecycle, async/isolate boundaries, navigation/restoration, platform integration, persistence, rendering performance and cross-platform release quality.
+description: "Use when the task materially involves this skill's owned domain: Build production Flutter/Dart applications with explicit widget/state lifecycle, async/isolate boundaries, navigation/restoration, platform integration, persistence, rendering performance and cross-platform release quality."
 ---
 
 # Flutter Engineering

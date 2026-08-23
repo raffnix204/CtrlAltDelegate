@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Perform high-signal, evidence-based code review that finds real correctness, security, data, contract, concurrency and maintainability defects without drowning the project in stylistic noise.
+description: "Use when the task materially involves this skill's owned domain: Perform high-signal, evidence-based code review that finds real correctness, security, data, contract, concurrency and maintainability defects without drowning the project in stylistic noise."
 ---
 
 # Precision Code Review

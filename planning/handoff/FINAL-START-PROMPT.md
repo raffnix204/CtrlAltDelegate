@@ -1,4 +1,4 @@
-# Coding-Agent Start Prompt — CtrlAltDelegate V5.8.2 ZIP Handoff
+# Coding-Agent Start Prompt — CtrlAltDelegate V5.9 ZIP Handoff
 
 Work from the actual target project/repository root. A completed CtrlAltDelegate planning handoff is provided as `./ctrlaltdelegate-delivery.zip`.
 
@@ -29,13 +29,17 @@ After import read, in order:
 8. `./.ctrlaltdelegate/planning/product/PRODUCT-CONTRACT.yaml`, `planning/acceptance/USER-JOURNEY-ORACLES.yaml`, `PRODUCT-RUNTIME-PREFLIGHT.json` and `PRODUCT-DRIFT-REVIEW.json`;
 9. only additional requirements, architecture, research, ADRs, evidence and routed skills required for the next action.
 
-Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.8.2 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
+Require the handoff to be `READY`, `EXECUTION_HANDOFF`, with zero unresolved blocking decisions, an `ATTESTED` planning baseline, and the expected V5.9 control root. If the archive/control package is missing or inconsistent, stop with `BLOCKED_DELIVERY_INCOMPLETE` and name the exact problem instead of guessing another planning directory.
 
-Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.8.2 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and the fail-closed product completion gate. Verification-only blockers must be deferred while dependency-ready work continues. Use `transition_job.py` for job `DONE`, `build_execution_snapshot.py --write-state-md` for current execution view, and `validate_product_completion.py` before `COMPLETED`. Ask the user immediately only for a true contract-defined execution/authority hard stop; batch human/device/external validation when possible.
+Treat the resolved planning baseline as authoritative unless actual repository/runtime evidence materially contradicts it. Do not restart broad discovery. Use the V5.9 loop/job/surface/harness contracts, negotiate actual harness capabilities, load only job-relevant skills, and implement in `PROJECT_ROOT` through verification, documentation, safe Git/GitHub integration and the fail-closed product completion gate. Verification-only blockers must be deferred while dependency-ready work continues. Use `transition_job.py` for job `DONE`, `build_execution_snapshot.py --write-state-md` for current execution view, and `validate_product_completion.py` before `COMPLETED`. Ask the user immediately only for a true contract-defined execution/authority hard stop; batch human/device/external validation when possible.
 
 
-## V5.8.2 planning-skill and authoritative-content handoff
+## V5.9 planning-skill and authoritative-content handoff
 
 Read `planning/context/PLANNING-SKILL-STATE.yaml` before execution. Treat recorded planning decisions as the result of the listed specialist decision surfaces, not as generic prose. Load the same canonical selected skills for implementation/review when their jobs remain relevant.
 
 Files under `planning/content/pages/` with `status: approved` are authoritative product content. Preserve wording, factual claims, CTA intent, hierarchy and approved SEO metadata unless implementation proves a genuine conflict; route such conflicts through scoped change control instead of silently rewriting copy.
+## V5.9 execution-control invariant
+
+Do not edit controller-owned execution state directly. Before dispatch, reconcile state; claim the job with a lease; start a distinct attempt; heartbeat long-running work; require a schema-valid Worker Result; then settle through controller operations. Treat `DONE` as a derived, revalidated claim rather than worker authority. `IMPLEMENTED_UNVERIFIED` may release implementation-only dependencies, but never verified dependencies. Use `UNVERIFIABLE` when current evidence cannot prove a claim, attach required follow-up evidence, and continue all safe dependency-ready work. Repeated failure without objective work-product progress requires a strategy change. Where the active harness supports a blocking stop hook, use the progress-aware stop gate; otherwise report enforcement as advisory/observed rather than pretending it is enforced.
+

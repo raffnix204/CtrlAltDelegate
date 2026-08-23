@@ -1,6 +1,6 @@
 ---
 name: llm-application-engineering
-description: Build non-agentic and agentic LLM features with structured outputs, provider/model abstraction, context construction, caching, batching, cost/latency controls, deterministic fallbacks and safe failure handling.
+description: "Use when the task materially involves this skill's owned domain: Build non-agentic and agentic LLM features with structured outputs, provider/model abstraction, context construction, caching, batching, cost/latency controls, deterministic fallbacks and safe failure handling."
 ---
 
 # LLM Application Engineering

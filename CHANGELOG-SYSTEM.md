@@ -1,3 +1,7 @@
+# V5.9 — Execution Control Plane
+
+See `CHANGELOG-V5.9.md`. Major themes: revisioned state mutation, claims/leases/attempts, reconciliation/recovery, objective progress, tri-state verification, planning convergence, stop/surface enforcement and trigger-first skill discovery. Canonical skill count remains 154.
+
 # CtrlAltDelegate V5.8.2 — Product Runtime Completion Hardening
 
 <!-- VERIFIED-RELEASE-CLAIMS: release/RELEASE-CLAIMS.yaml -->

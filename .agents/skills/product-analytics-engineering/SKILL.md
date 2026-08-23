@@ -1,6 +1,6 @@
 ---
 name: product-analytics-engineering
-description: Design trustworthy product telemetry, event schemas, funnels, experiments and metric definitions with privacy, identity, deduplication and data-quality controls.
+description: "Use when the task materially involves this skill's owned domain: Design trustworthy product telemetry, event schemas, funnels, experiments and metric definitions with privacy, identity, deduplication and data-quality controls."
 ---
 
 # Product Analytics Engineering

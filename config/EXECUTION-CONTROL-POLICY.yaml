@@ -1,0 +1,50 @@
+version: '5.9'
+principle: Jobs are durable work units; attempts are leased executions. Worker claims
+  are never state authority.
+state_revision:
+  enabled: true
+  compare_and_set_required: true
+  stale_revision_result: STALE_STATE_RECONCILE
+  control_state: planning/execution/CONTROL-STATE.json
+  mutation_log: planning/execution/CONTROL-MUTATION-LOG.jsonl
+claim:
+  one_active_claim_per_job: true
+  default_lease_seconds: 900
+  heartbeat_extension_seconds: 900
+  reclaim_requires:
+  - lease_expired
+  - reconciliation_completed
+  - no_fresh_heartbeat
+  claim_does_not_equal_attempt: true
+attempt:
+  event_log: planning/execution/JOB-ATTEMPTS.jsonl
+  projection: planning/execution/ATTEMPT-STATE.json
+  required_start_fields:
+  - job_id
+  - attempt_id
+  - worker_id
+  - claim_token
+  - brief_sha256
+  - base_sha
+  settlement_requires_structured_worker_result: true
+  worker_result_is_claim_not_proof: true
+worker_result:
+  schema: docs/schemas/WORKER-RESULT.schema.json
+  validator: scripts/validate_worker_result.py
+  allowed_outcomes:
+  - IMPLEMENTED
+  - NEEDS_VERIFICATION
+  - BLOCKED
+  - FAILED
+  - CANCELLED
+completion:
+  done_must_be_revalidated: true
+  direct_status_authority: forbidden
+  controller: scripts/transition_job.py
+pre_dispatch:
+  reconcile_required: true
+  controller: scripts/reconcile_execution_state.py
+stop_gate:
+  block_stop_when_ready_work_and_progress: true
+  stall_routes_to_recovery: true
+  unsupported_harness: ADVISORY

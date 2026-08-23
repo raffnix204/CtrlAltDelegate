@@ -1,6 +1,6 @@
 ---
 name: threat-modeling-engineering
-description: Build an evidence-based threat model from assets, actors, trust boundaries, entry points, abuse cases and security invariants, then convert material threats into design requirements and verification.
+description: "Use when the task materially involves this skill's owned domain: Build an evidence-based threat model from assets, actors, trust boundaries, entry points, abuse cases and security invariants, then convert material threats into design requirements and verification."
 ---
 
 # Threat Modeling Engineering

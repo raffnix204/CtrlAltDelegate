@@ -1,4 +1,4 @@
-# SkillOpt Offline Skill Lab — V5.8.2
+# SkillOpt Offline Skill Lab — V5.9
 
 Microsoft SkillOpt is an optional maintainer-side optimization provider, not a normal project runtime dependency and never a self-modifying authority.
 
