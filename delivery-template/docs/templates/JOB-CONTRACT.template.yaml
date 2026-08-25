@@ -1,0 +1,54 @@
+job_id: JOB-000
+type: IMPLEMENTATION
+objective: ''
+requirements: []
+planning_revision: ''
+baseline_sha: ''
+read_first:
+- path: ''
+  anchor: ''
+  reason: ''
+reuse:
+  required_patterns: []
+  existing_components: []
+scope:
+  allowed: []
+  protected: []
+  forbidden: []
+model_routing:
+  minimum_class: EFFICIENT
+  requested_class: EFFICIENT
+  reasoning_effort: high
+  promotion_triggers: []
+  independent_reviewer_class: BALANCED
+  rationale: ''
+  allowed_classes:
+  - EFFICIENT
+  - BALANCED
+  - FRONTIER
+contracts:
+  consumes: []
+  produces: []
+behavior:
+  required: []
+  forbidden: []
+  invariants: []
+  failure_semantics: []
+  edge_cases: []
+decision_rights:
+  must_follow: []
+  may_decide: []
+  must_escalate: []
+skills:
+  required: []
+  references: []
+  research_need: NONE
+acceptance_gates: []
+verification:
+  positive: []
+  negative: []
+  regression: []
+  manual: []
+evidence_required: []
+dependencies: []
+integration_nodes: []

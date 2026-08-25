@@ -4,11 +4,11 @@
 
 # CtrlAltDelegate
 
-## V5.9: fail-closed execution control
+## V5.9.2: frontier lead, efficient workers, independent review
 
-V5.9 adds a real execution control plane around the existing planning and product-completion contracts: revisioned state mutations, worker claims/leases/heartbeats, distinct job attempts, pre-dispatch reconciliation, structured worker results, objective progress and regression attribution, planning convergence, tri-state review (`PASS` / `FAIL` / `UNVERIFIABLE`), protected-surface enforcement and progress-aware stop gates. A worker cannot make a job complete merely by writing `DONE`; completion is revalidated from current evidence.
+V5.9.2 retains the V5.9.1 feasibility/planning-compiler/reverification hardening and adds hierarchical capability-class model routing: a FRONTIER main orchestrator remains spawn-only, bounded coding defaults to EFFICIENT workers, complex work/review promotes to BALANCED, and critical review/debug escalation uses a fresh FRONTIER agent. Strategic research drift still triggers scoped replanning instead of silent plan deviation.
 
-The 154-skill library remains intact. Skill descriptions are now activation-trigger-first for better native harness discovery; deeper semantic rewrites remain evidence-gated. SkillOpt stays optional and offline.
+The canonical library remains exactly 154 skills. V5.9.2 adds no new skills; it makes existing job contracts cheaper to execute through `FRONTIER | BALANCED | EFFICIENT` routing. For OpenAI GPT-5.6 the reference mapping is Sol / Terra / Luna at `high`, and Sol is never requested above `high`.
 
 ### Plan deeply. Delegate precisely. Verify everything.
 
@@ -24,7 +24,7 @@ The 154-skill library remains intact. Skill descriptions are now activation-trig
 
 ---
 
-## V5.9 runtime completion hardening
+## V5.9.2 planning and runtime completion hardening
 
 CtrlAltDelegate now distinguishes **implementation progress from product completion**. Mandatory user journeys and live integrations can require real runtime/provider/browser/native evidence; mocks and scaffolds remain useful feedback but cannot close those claims. Verification-only blockers are deferred while dependency-ready implementation continues. An upstream job can remain `IMPLEMENTED_UNVERIFIED` and still unblock normal implementation dependencies; final `DONE/COMPLETED` still waits for real proof. This lets the coding agent build as far as safely possible before asking for human/device/credential validation.
 
@@ -40,13 +40,15 @@ IDEA / EXISTING PROJECT
         ↓
 CTRLALTDELEGATE CUSTOM GPT
         ↓
-DISCOVERY + CURRENT RESEARCH
+DISCOVERY + RECURRING RESEARCH
         ↓
-REQUIREMENTS + CAPABILITIES
+REQUIREMENTS + CRITICAL FEASIBILITY GATE
         ↓
 STACK + ARCHITECTURE + PROGRAM DESIGN
         ↓
-EXECUTION DAG + VERIFICATION PLAN
+PLANNING COMPILER + PLAN CHECKER
+        ↓
+ZERO-CONTEXT JOB CONTRACTS + VERIFICATION GATES
         ↓
 ctrlaltdelegate-delivery.zip
         ↓
@@ -211,6 +213,20 @@ V5.9 adds a deterministic runtime skill-escalation ladder. A worker that discove
 
 Skill maintenance is also usage-aware: all 154 skills keep structural QA and remain selectable, while expensive research/behavior campaigns can focus on frequently used or safety-critical skills using explicit local/export history. CtrlAltDelegate adds no network telemetry for this.
 
+## Hierarchical model routing
+
+The preferred execution topology is **frontier lead + cheaper fresh workers + independent reviewers**:
+
+```text
+FRONTIER ORCHESTRATOR
+  → EFFICIENT default coding workers
+  → BALANCED complex workers / semantic reviewers
+  → FRONTIER critical fresh reviewer / final debugger escalation
+  → parent re-verification → integrate → next wave
+```
+
+The orchestrator normally does not write product code when suitable delegation exists. A worker cannot promote itself; routing changes create a fresh attempt and preserve failure evidence. The main orchestrator can reject/adjudicate work but cannot satisfy independent-review gates. See `docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md`.
+
 ## Supported coding-agent harnesses
 
 CtrlAltDelegate keeps one canonical methodology and `.agents/skills` library while adapting to the capabilities of the active harness.
@@ -224,7 +240,7 @@ CtrlAltDelegate keeps one canonical methodology and `.agents/skills` library whi
 | **Claude Code** | `COMPATIBLE` with `CLAUDE.md` and thin skill adapters |
 | **OpenCode** | `COMPATIBLE` with capability detection |
 
-CtrlAltDelegate does **not** hard-code model routing. Harness/model/provider choice remains outside the core engineering contract; the system specifies the capabilities, authority, isolation and evidence a worker must provide.
+V5.9.2 routes abstract model classes rather than blindly using one model everywhere. `FRONTIER` owns orchestration/critical judgment, `BALANCED` owns complex implementation/semantic review, and `EFFICIENT` is the default bounded implementation/research/validation worker. Harnesses resolve the classes when per-subagent model selection exists; otherwise they inherit the active model while preserving role separation. The OpenAI GPT-5.6 reference mapping is Sol / Terra / Luna, all at `high`, with a hard methodology ceiling that Sol is never requested above `high`.
 
 ---
 
@@ -233,8 +249,9 @@ CtrlAltDelegate does **not** hard-code model routing. Harness/model/provider cho
 The GitHub-native package can run the complete lifecycle directly in a coding-agent repository:
 
 ```text
-DISCOVERY → RESEARCH → STACK → ARCHITECTURE → PROGRAM DESIGN
-→ JOB GRAPH → IMPLEMENTATION → VERIFICATION → GIT/GITHUB → COMPLETED
+DISCOVERY → RESEARCH/FEASIBILITY → STACK → ARCHITECTURE → PROGRAM DESIGN
+→ PLANNING COMPILER → PLAN CHECKER → JOB/INTEGRATION GRAPH
+→ IMPLEMENTATION → PARENT REVERIFY → VERIFICATION → GIT/GITHUB → COMPLETED
 ```
 
 It includes `AGENTS.md`, `CLAUDE.md`, canonical `.agents/skills`, planning templates/state, harness contracts, validation scripts and release infrastructure.

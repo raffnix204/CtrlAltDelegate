@@ -36,8 +36,11 @@ def main():
         cur='V'+release_version
         bad=re.search(rf'(?i){re.escape(cur)}[^\n]{{0,180}}adds?\s+(?:\*\*)?\d+[^\n]{{0,100}}skills?',at)
         if bad and not added: err.append('skill coverage audit claims current-release skill additions contradicted by delta')
+    # V5.9.x+ baseline schema uses observed_public_main_sha; fall back to the
+    # legacy base_git_sha for older releases so the same git-diff gate keeps running.
+    b=base.get('base_git_sha') or base.get('observed_public_main_sha') or base.get('base_main_sha_observed')
     if a.git or (R/'.git').exists():
-        b=base['base_git_sha']; cp=subprocess.run(['git','diff','--name-status',b+'..HEAD'],cwd=R,text=True,capture_output=True)
+        cp=subprocess.run(['git','diff','--name-status',b+'..HEAD'],cwd=R,text=True,capture_output=True)
         if cp.returncode: err.append('git diff failed: '+cp.stderr.strip())
         else:
             statuses={line.split('\t',1)[1]:line.split('\t',1)[0] for line in cp.stdout.splitlines() if '\t' in line}

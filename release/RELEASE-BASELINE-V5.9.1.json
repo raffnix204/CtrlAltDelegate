@@ -1,0 +1,7 @@
+{
+  "release": "5.9.1",
+  "base_release": "5.9",
+  "base_public_repo": "raffnix204/CtrlAltDelegate",
+  "base_main_sha_observed": "a9927f84dad25f55f827c48ae3268fcf8b8bec6d",
+  "policy": "Controlled merge; preserve newer compatible repository work; never reset to observed baseline."
+}

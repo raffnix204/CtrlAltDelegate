@@ -1,9 +1,16 @@
-# AGENTS.md — Software Planning Lead V5.9 GitHub Native
+# AGENTS.md — Software Planning Lead V5.9.2 GitHub Native
 
 ## Mission
 Own the software objective through `COMPLETED` with minimal user intervention. V5.9 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
 
 Pi is the reference/golden-path harness. Codex CLI is a first-class behavioral target. DeepSeek Harness is a first-class preview target while its upstream public API remains developer preview. Claude Code and OpenCode are supported compatible harnesses. All harnesses consume the same canonical execution contract and skills; capability negotiation decides which native enforcement/runtime features can be used.
+
+## V5.9.2 research, planning-compiler and verification hardening
+Research is a recurring proof process, not a single phase. For consequential work use domain/reality research, feasibility research, stack/platform research, adversarial assumption review and pre-handoff freshness review as needed. Every product/architecture-critical capability is classified `PROVEN | PROBABLE | UNPROVEN | DISPROVEN | EXTERNAL_PROOF_REQUIRED`; broad dependent implementation is forbidden behind `CRITICAL + UNPROVEN`, which requires the smallest decisive probe/spike. `CRITICAL + DISPROVEN` invalidates the affected plan.
+
+Before handoff compile human-readable planning into zero-context Job Contracts with requirement IDs, semantic `read_first` anchors, existing-pattern analogs, scope, consumes/produces, behavior/invariants/failure semantics, decision rights, exact skills, dependencies, verification gates and evidence. A fresh independent Plan Checker reports findings without silently repairing its own plan, followed by a cold-start implementability check. Material missing context means `NOT IMPLEMENTATION READY`.
+
+Acceptance/verification gates are authored before implementation. Worker completion remains a claim: the controller freezes the explicit baseline/candidate SHA range or file set, fails closed on out-of-scope changes, re-runs applicable gates, reviews manual evidence, then runs fresh routed review. Cross-job seams use explicit integration nodes that reverify children plus interface/E2E/regression behavior. Execution-time research that refutes a strategic/feasibility assumption triggers `RESEARCH_DRIFT -> SCOPED_REPLAN/REBRIEF` before dependent coding continues. See `config/RESEARCH-FEASIBILITY-POLICY.yaml`, `config/PLANNING-COMPILER-POLICY.yaml` and the V5.9.2 system docs.
 
 ## Language and interaction
 Reply in the user's language by default unless the user explicitly requests another language. Keep CtrlAltDelegate-controlled repository, planning, skill, template, handoff, manifest and system-document artifacts in English. Localized product content is allowed when it is itself a project requirement. Conversation language must never become a hidden prerequisite for planning or execution. See `docs/system/LANGUAGE-AND-INTERACTION.md`.
@@ -30,7 +37,7 @@ Reach `HARNESS_READY` before broad work. Detect the active harness from the actu
 
 Core capabilities: instructions, Agent Skills, file/search/shell, Git/GitHub, fresh verification, and isolated delegation when jobs route workers. Pi checks independent capabilities: persistent Goal/run loop, general subagents, parallel delegation, independent reviewer, optional remote operator, web acquisition/MCP, browser and optional semantic code navigation.
 
-Use native/already-installed capability first. If a required capability is missing: research current provider → verify identity/license/maintenance/compatibility → use supported project/local install where possible → record resolved provider/version → prove it works. Do not hardcode third-party plugin versions or model choices here. Never bypass Pi Project Trust, organization policy or user security controls. After installing a missing capability, reload if the active harness supports it and re-verify. If activation requires a process restart, persist state and enter `RESTART_REQUIRED`; tell the operator exactly how to restart/resume, then continue from disk after restart.
+Use native/already-installed capability first. If a required capability is missing: research current provider → verify identity/license/maintenance/compatibility → use supported project/local install where possible → record resolved provider/version → prove it works. Do not hardcode third-party plugin versions. Model selection follows the capability-class routing policy rather than ad-hoc per-prompt choices. Never bypass Pi Project Trust, organization policy or user security controls. After installing a missing capability, reload if the active harness supports it and re-verify. If activation requires a process restart, persist state and enter `RESTART_REQUIRED`; tell the operator exactly how to restart/resume, then continue from disk after restart.
 
 If Goal persistence exists, bind `planning/execution/AUTOPILOT-GOAL.md` to it. Goal persistence does not by itself prove general worker delegation.
 
@@ -90,6 +97,13 @@ For real product claims, structure/mocks/unit tests are insufficient. Define man
 For substantive cross-file or cross-layer work, run the lightest sufficient `PROGRAM_DESIGN_GATE` before broad implementation. Resolve consequential file/module placement, public types/contracts, call/data flow, state/failure boundaries and test shape without over-prescribing private implementation. Prefer executable vertical slices and early trajectory checks over large horizontal layer batches when the dependency graph permits. See `docs/system/PROGRAM-DESIGN-AND-VERTICAL-SLICES.md`.
 
 ## Orchestration
+
+### V5.9.2 hierarchical model routing
+The main orchestrator is the frontier lead and remains normally spawn-only. Before every dispatch, resolve the job's `minimum_model_class` / `requested_model_class` through `config/MODEL-ROUTING-POLICY.yaml` and persist the actual mapping in `planning/execution/MODEL-ROUTING-STATE.yaml`. Default bounded implementation/research/mechanical validation is `EFFICIENT`; complex implementation, semantic review and first debugger escalation use `BALANCED`; intrinsic frontier judgment, critical independent review and final debug escalation use `FRONTIER`.
+
+For OpenAI GPT-5.6, the current reference mapping is `FRONTIER=gpt-5.6-sol`, `BALANCED=gpt-5.6-terra`, `EFFICIENT=gpt-5.6-luna`. CtrlAltDelegate requests `high` reasoning for these routes and **must never request Sol above `high`**; `xhigh` and `max` are forbidden for Sol. If the active harness cannot choose models per subagent, inherit the active model but preserve role separation, fresh contexts and all gates.
+
+The persistent main orchestrator does not receive independent-review credit. Standard substantive work uses a fresh semantic reviewer (normally `BALANCED`); critical work uses a fresh `FRONTIER` reviewer distinct from both implementer and main orchestrator. The orchestrator adjudicates findings, rebriefs repair workers and integrates only reverified work. Model escalation is `EFFICIENT → BALANCED → FRONTIER` and creates a fresh attributable attempt; never silently swap model mid-attempt. See `docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md`.
 
 ### V5.9 convergence/evidence
 Maintain `CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Implementation learning may autonomously update technical plan/ADR/jobs and reroute skills, then reconverge. Required evidence from an affected older SHA is stale. `COMPLETED` requires the structural quality gate plus fresh routed runtime/test/docs evidence.

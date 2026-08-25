@@ -1,0 +1,22 @@
+{
+  "name": "CtrlAltDelegate",
+  "version": "5.9.2",
+  "release_type": "orchestration_model_routing_patch",
+  "base_release": "5.9.1",
+  "base_public_repo": "raffnix204/CtrlAltDelegate",
+  "base_main_sha_observed": "a9927f84dad25f55f827c48ae3268fcf8b8bec6d",
+  "generated_at": "2026-08-25",
+  "canonical_skill_count": 154,
+  "claude_adapter_count": 154,
+  "custom_gpt_knowledge_count": 20,
+  "changes": [
+    "hierarchical frontier orchestrator",
+    "capability-class model routing",
+    "Luna high default coding workers",
+    "Terra high complex workers and semantic review",
+    "Sol high frontier ceiling",
+    "independent fresh reviewers",
+    "model escalation with fresh attempts",
+    "routing metrics"
+  ]
+}

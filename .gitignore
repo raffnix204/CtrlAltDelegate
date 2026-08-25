@@ -29,3 +29,7 @@ coverage/
 
 # GitHub-native local capability/tool runtime
 /.ctrlaltdelegate-runtime/
+
+# Python bytecode (local validators/control-state imports)
+__pycache__/
+*.pyc

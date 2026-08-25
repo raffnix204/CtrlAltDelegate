@@ -20,3 +20,9 @@ decision_coverage:
   - DEFERRED_WITH_REASON
   - AUTOPILOT_OWNED
 deterministic_probe_first: true
+handoff_gates:
+  planning_compiler: config/PLANNING-COMPILER-POLICY.yaml
+  independent_plan_checker: true
+  cold_start_implementability: true
+  blocking_result: NOT_IMPLEMENTATION_READY
+patch_release: 5.9.1

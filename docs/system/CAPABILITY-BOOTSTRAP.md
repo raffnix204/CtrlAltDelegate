@@ -1,6 +1,6 @@
 # Capability Bootstrap — V5.9
 
-Pi is the reference harness, but V5.9 is capability-driven and model-neutral. Never infer capability from a package name alone and never prescribe an LLM/model.
+Pi is the reference harness. V5.9.2 is capability-driven and can request abstract model classes without assuming Pi exposes per-subagent model selection. Never infer capability from a package name alone.
 
 ## Required execution capabilities
 Inventory actual session/tool surfaces for instructions, Agent Skills, Git/GitHub, Goal/persistent continuation when used, isolated fresh subagents, parallel delegation when independent ready jobs exist, independent review, file/search/shell, and project-dependent web/browser/network/runtime capabilities.

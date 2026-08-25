@@ -1,0 +1,7 @@
+version: 5.9.1
+artifacts:
+- target_path: ''
+  analog_path: ''
+  analog_anchor: ''
+  reuse_obligations: []
+  do_not_invent: []

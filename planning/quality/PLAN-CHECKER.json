@@ -1,0 +1,13 @@
+{
+  "version": "5.9.1",
+  "verdict": "BLOCKED",
+  "findings": [],
+  "coverage": {
+    "requirements": 0,
+    "claims": 0,
+    "interfaces": 0,
+    "jobs": 0,
+    "gates": 0
+  },
+  "checked_revision": ""
+}

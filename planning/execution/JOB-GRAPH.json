@@ -14,5 +14,15 @@
       "DONE"
     ]
   },
-  "state_revision": 0
+  "state_revision": 0,
+  "node_types": [
+    "JOB",
+    "INTEGRATION_GATE"
+  ],
+  "integration_policy": {
+    "reverify_children": true,
+    "verify_interfaces": true,
+    "verify_end_to_end": true,
+    "verify_regressions": true
+  }
 }

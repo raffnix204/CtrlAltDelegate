@@ -1,0 +1,14 @@
+version: 5.9.2
+status: UNRESOLVED
+policy: config/MODEL-ROUTING-POLICY.yaml
+harness: null
+provider: null
+per_subagent_model_selection: UNKNOWN
+resolved_classes:
+  FRONTIER: null
+  BALANCED: null
+  EFFICIENT: null
+frontier_reasoning_effort_ceiling: high
+jobs: {}
+attempt_metrics: []
+notes: []

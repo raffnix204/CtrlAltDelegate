@@ -207,3 +207,64 @@ loops:
     terminal_fail:
     - FAIL
     unverifiable: must_create_followup_evidence_not_pass
+  FEASIBILITY_RESEARCH_LOOP:
+    trigger:
+    - critical_capability_unknown
+    - architecture_feasibility_claim
+    continue_when:
+    - decision_changing_evidence_gap
+    success_when:
+    - critical_claim_proven_or_explicitly_external
+    escalate_when:
+    - critical_claim_disproven
+    - decisive_spike_required
+  PLAN_CHECKER_LOOP:
+    trigger:
+    - planning_compiled
+    continue_when:
+    - blocking_plan_finding_exists
+    success_when:
+    - independent_plan_checker_pass
+    - cold_start_implementability_pass
+    no_progress_action: change_planning_strategy
+  PARENT_REVERIFY_LOOP:
+    trigger:
+    - worker_returns_completion_claim
+    continue_when:
+    - applicable_gate_unreverified
+    - manual_evidence_unreviewed
+    success_when:
+    - fresh_parent_reverification_pass
+    escalate_when:
+    - scope_violation
+    - verification_failure
+    - stale_candidate
+  INTEGRATION_GATE_LOOP:
+    trigger:
+    - integration_node_children_complete
+    continue_when:
+    - seam_or_contract_unverified
+    success_when:
+    - children_reverified
+    - interface_e2e_regression_pass
+  RESEARCH_DRIFT_LOOP:
+    trigger:
+    - execution_research_changes_assumption
+    continue_when:
+    - impact_classification_pending
+    success_when:
+    - local_detail_updated
+    - job_rebriefed
+    - scoped_replan_completed
+    escalate_when:
+    - critical_feasibility_refuted
+    - authority_boundary_changed
+  QUALITY_SATURATION_LOOP:
+    trigger:
+    - substantive_implementation_complete
+    continue_when:
+    - material_defect_found
+    success_when:
+    - expert_reread_and_defect_hunt_dry
+    no_progress_action: fresh_debugger_or_strategy_change
+patch_release: 5.9.1

@@ -14,3 +14,6 @@ A worker may request missing canonical expertise at a safe boundary. Route the r
 
 ## V5.9 completion claims
 Workers may report implementation complete while verification remains pending, but must not label a job `DONE` themselves. Reports distinguish `implementation_status`, `verification_status`, evidence types, assumptions and blocker class. The orchestrator applies controlled transition gates and continues independent jobs when verification-only prerequisites are missing.
+
+## V5.9.2 zero-context contract and parent re-verification
+A substantive worker should be able to act from its compiled Job Contract without reconstructing planning chat. Include `read_first` semantic anchors, reuse analogs, exact scope, interfaces, behavior/failure/edge cases, decision rights, gates and evidence. Before `DONE`, freeze an explicit baseline/candidate review target, reject out-of-scope changes, and have the parent/controller re-run runnable gates and review manual evidence. Worker self-check is not parent verification.

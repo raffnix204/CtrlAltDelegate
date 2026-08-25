@@ -428,3 +428,8 @@ After `STACK_READY`, reach `SKILLSET_READY`. Use project profile + STACK-MANIFES
 Planning should resolve expensive-to-reverse structure before broad agent coding without turning into implementation-by-proxy. For substantive cross-layer work capture reuse points, likely modules/files, public contracts, main call/data flow, state/failure invariants, test shape and the first executable vertical slice. Keep local/private implementation choices open.
 
 Where a meaningful measurable outcome exists, capture its baseline/target/measurement as part of acceptance.
+
+## V5.9.2 recurring research and feasibility
+Research is not a single lifecycle box. Use the smallest needed combination of: R0 domain/reality, R1 feasibility, R2 stack/platform, R3 adversarial assumption review, and R4 pre-handoff freshness. Track material claims in `planning/research/RESEARCH-CLAIMS.yaml` and critical capabilities in `FEASIBILITY-LEDGER.yaml`. A critical unproven capability requires decisive proof/spike before broad dependent implementation; disproven critical capability invalidates affected downstream planning. See `RESEARCH-FEASIBILITY-AND-DRIFT.md`.
+
+Before handoff compile the plan and run an independent Plan Checker plus cold-start implementability check. Planning text is not implementation-ready merely because it is internally plausible.

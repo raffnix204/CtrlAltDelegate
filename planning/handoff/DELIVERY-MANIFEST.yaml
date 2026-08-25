@@ -114,6 +114,9 @@ required_files:
 - scripts/validate_planning_artifact_graph.py
 - scripts/validate_skill_discovery.py
 - scripts/validate_v59_control_plane.py
+- config/MODEL-ROUTING-POLICY.yaml
+- docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md
+- planning/execution/MODEL-ROUTING-STATE.yaml
 canonical_skills_root: .agents/skills
 skill_export_policy: COPY_PROJECT_SELECTED_DIRECTORIES_ONLY_INCLUDING_REFERENCES
 discovery_contract:
@@ -159,3 +162,14 @@ control_plane_contract:
   - FAIL
   - UNVERIFIABLE
   stop_gate: CAPABILITY_NEGOTIATED
+model_routing_contract:
+  policy: config/MODEL-ROUTING-POLICY.yaml
+  state: planning/execution/MODEL-ROUTING-STATE.yaml
+  classes:
+  - FRONTIER
+  - BALANCED
+  - EFFICIENT
+  main_orchestrator: FRONTIER_SPAWN_ONLY
+  default_implementation: EFFICIENT
+  sol_effort_ceiling: high
+  independent_review: FRESH_AGENT_REQUIRED

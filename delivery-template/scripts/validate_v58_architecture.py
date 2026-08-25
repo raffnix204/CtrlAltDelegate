@@ -31,7 +31,7 @@ read=(R/'README.md').read_text()
 for token in ['Custom GPT','does not consume tokens, credits, or API budget from the later coding-agent account','Command Code','CRW / fastCRW','Obscura','Playwright','Capability-driven technology selection']:
     if token not in read:e.append(f'README missing {token}')
 hand=(R/'release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md').read_text()
-for token in ['software-planning-lead-v5.9-github-native.zip','raffnix204/CtrlAltDelegate','commit','push']:
+for token in ['software-planning-lead-v5.9.2-github-native.zip','raffnix204/CtrlAltDelegate','commit','push']:
     if token not in hand:e.append(f'release handoff missing {token}')
 for rel in ['scripts/detect_tool_capabilities.py','scripts/resolve_capability_provider.py','scripts/bootstrap_tool.py','scripts/verify_tool_capability.py','adapters/command-code/HARNESS-CAPABILITIES.yaml']:
     if not (R/rel).is_file():e.append(f'missing {rel}')

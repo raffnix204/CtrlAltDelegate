@@ -8,6 +8,12 @@
 Use `IMPLEMENTATION` by default so downstream construction can continue after an upstream job reaches `IMPLEMENTED_UNVERIFIED`. Use `VERIFIED` only when consuming the dependency before real verification would be unsafe or meaningless.
 
 
+## Read First / Semantic Anchors
+List exact path + symbol/section + reason. Avoid fragile line-number-only references.
+
+## Reuse / Pattern Analogs
+Name existing components/patterns the worker should reuse; explicitly list unnecessary invention to avoid.
+
 ## Consumes
 
 ## Produces
@@ -24,6 +30,14 @@ Project profile: `MICRO | SMALL | STANDARD | HIGH_RISK`. Job size: `MICRO | BOUN
 
 ## Required Worker Capabilities
 List only capabilities this job actually needs (for example write/shell/Git/web/browser/runtime/device). Dispatch only after capability match is verified.
+
+## Model Routing
+- Minimum Model Class: `EFFICIENT | BALANCED | FRONTIER`
+- Requested Model Class: `EFFICIENT | BALANCED | FRONTIER`
+- Reasoning Effort: `high` (CtrlAltDelegate-selected GPT-5.6 routes; Sol must never exceed `high`)
+- Promotion Triggers: concrete failure/complexity signals
+- Independent Reviewer Class: `BALANCED | FRONTIER` as risk requires
+- Routing Rationale: why the selected class is sufficient without weakening assurance
 
 ## Change Triggers
 
@@ -58,6 +72,9 @@ For each material test/evidence item, state the production defect/risk it can fa
 ## Failure-Mode Closure
 `NOT_TRIGGERED` initially. If this job resolves an escaped defect/incident/repeated failure, record the smallest durable recurrence protection added or why no additional protection is justified.
 
+## Verification Gates
+Author observable gates before implementation: runnable `CHECK` + decisive expected result, or manual evidence with owner.
+
 ## Validation Commands
 
 ## Runtime Impact
@@ -66,6 +83,12 @@ For each material test/evidence item, state the production defect/risk it can fa
 
 ## Worker Liveness / Recovery
 For long-running/expensive work, state the progress signal and checkpoint strategy. Elapsed wall-clock time alone is not stall evidence. On provider loss, reconcile Git/files/checkpoint and resume the next safe step instead of restarting completed work.
+
+## Decision Rights
+`MUST_FOLLOW | MAY_DECIDE | MUST_ESCALATE` for this job.
+
+## Review Target / Parent Reverification
+Explicit baseline SHA + candidate SHA/range or exact file set. `HEAD~1` guessing is forbidden. Parent reruns applicable gates before `DONE`.
 
 ## Handoff / Worker Return
 

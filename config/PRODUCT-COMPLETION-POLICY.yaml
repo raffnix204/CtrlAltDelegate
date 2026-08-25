@@ -34,6 +34,9 @@ job_transition:
   - required_provider_attestations_reach_required_level
   - no_unresolved_execution_blocker_for_job
   - candidate_sha_fresh
+  - parent_reverification_pass
+  - required_integration_gates_pass
+  - scope_compliance_pass
   direct_manual_done_edit: forbidden
   implementation_complete_state: IMPLEMENTED_UNVERIFIED
   implementation_complete_does_not_mean_done: true
@@ -54,6 +57,8 @@ project_completion:
   - no_running_attempts
   - all_DONE_jobs_revalidated
   - applicable_review_verdicts_not_UNVERIFIABLE
+  - planning_handoff_gates_pass
+  - required_integration_nodes_pass
   validation_pending_state: VALIDATION_PENDING_EXTERNAL
   completed_state: COMPLETED
 product_drift:
@@ -86,3 +91,4 @@ control_plane:
   pre_dispatch_reconciliation: scripts/reconcile_execution_state.py
   done_revalidation: true
   worker_result_schema_required: true
+patch_release: 5.9.1

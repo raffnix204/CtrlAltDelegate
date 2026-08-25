@@ -3,17 +3,20 @@ policy:
   same_behavioral_contract: true
   use_native_capabilities_when_available: true
   unsupported_required_capability: FAIL_LOUD_OR_REROUTE
-  model_routing: false
+  model_routing: CAPABILITY_CLASS_ADAPTIVE
   capability_attestation_cache: true
   attestation_cache_miss_is_not_capability_proof: true
   enforcement_truthfulness: declare ENFORCED only after runtime capability attestation;
     otherwise OBSERVED or ADVISORY
+  model_routing_policy: config/MODEL-ROUTING-POLICY.yaml
+  per_subagent_model_selection: detect
 harnesses:
   pi:
     support: REFERENCE
     instructions: native_or_adapter
     canonical_skills: .agents/skills
     blocking_stop_hook: detect
+    per_subagent_model_selection: detect
   codex:
     support: FIRST_CLASS
     instructions: AGENTS.md
@@ -24,6 +27,7 @@ harnesses:
     subagents: detect
     hooks: detect
     blocking_stop_hook: false
+    per_subagent_model_selection: detect
   deepseek-harness:
     support: FIRST_CLASS_PREVIEW
     upstream_status: developer_preview
@@ -57,12 +61,14 @@ harnesses:
     hooks: native_and_bridges
     compaction: optional_native
     blocking_stop_hook: false
+    per_subagent_model_selection: detect
   claude-code:
     support: COMPATIBLE
     instructions: CLAUDE.md_and_project_rules
     canonical_skills: .agents/skills_with_adapter
     hooks: detect
     blocking_stop_hook: detect
+    per_subagent_model_selection: detect
   opencode:
     support: COMPATIBLE
     instructions: detect
@@ -70,6 +76,7 @@ harnesses:
     sessions: detect
     plan_build_permissions: detect
     blocking_stop_hook: false
+    per_subagent_model_selection: detect
   command-code:
     support: FIRST_CLASS_PREVIEW
     binary: cmd
@@ -87,9 +94,10 @@ harnesses:
     - permission_enforcement
     - worktrees
     task_source_of_truth: planning/execution/JOB-GRAPH.json
-    model_routing: HARNESS_OWNED
+    model_routing: DETECT_AND_MAP_CLASSES
     promotion: runtime_conformance_required
     blocking_stop_hook: false
+    per_subagent_model_selection: detect
 attestation:
   template: docs/templates/HARNESS-ATTESTATION.template.json
   bindings:

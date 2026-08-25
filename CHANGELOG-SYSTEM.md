@@ -1,5 +1,12 @@
 # V5.9 — Execution Control Plane
 
+## V5.9.2 — 2026-08-25
+- Release QA now passes claim tokens as explicit CLI option values so leading `-` cannot create argparse ambiguity.
+- Added hierarchical capability-class model routing: frontier spawn-only orchestrator, efficient default workers, balanced complex workers/reviewers, frontier critical review/debug escalation.
+- Added explicit OpenAI GPT-5.6 Sol/Terra/Luna reference mapping at high reasoning with a hard Sol ceiling of high.
+- Made independent reviewer credit separate from orchestrator adjudication and persisted routing/attempt metrics for evaluation.
+- Preserved the 154-skill library and all V5.9.1 research/feasibility/planning-compiler/parent-reverification controls.
+
 See `CHANGELOG-V5.9.md`. Major themes: revisioned state mutation, claims/leases/attempts, reconciliation/recovery, objective progress, tri-state verification, planning convergence, stop/surface enforcement and trigger-first skill discovery. Canonical skill count remains 154.
 
 # CtrlAltDelegate V5.8.2 — Product Runtime Completion Hardening

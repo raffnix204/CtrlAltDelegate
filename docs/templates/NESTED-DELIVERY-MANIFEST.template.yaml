@@ -149,6 +149,9 @@ required_files:
 - scripts/validate_planning_artifact_graph.py
 - scripts/validate_skill_discovery.py
 - scripts/validate_v59_control_plane.py
+- config/MODEL-ROUTING-POLICY.yaml
+- docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md
+- planning/execution/MODEL-ROUTING-STATE.yaml
 control_plane_contract:
   mutation_firewall: scripts/validate_control_mutation.py
   claim: scripts/claim_job.py
@@ -157,3 +160,10 @@ control_plane_contract:
   settle: scripts/settle_job_attempt.py
   reconcile: scripts/reconcile_execution_state.py
   worker_result_schema: docs/schemas/WORKER-RESULT.schema.json
+model_routing_contract:
+  classes:
+  - FRONTIER
+  - BALANCED
+  - EFFICIENT
+  sol_effort_ceiling: high
+  independent_review: fresh_agent

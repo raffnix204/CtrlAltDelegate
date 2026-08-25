@@ -33,7 +33,7 @@ python3 scripts/harness_preflight.py
 The first two must pass for an intact release checkout. `harness_preflight.py` additionally reports local harness/tool availability.
 
 ## Pi / Codex / Claude Code / OpenCode
-Pi is the reference harness; Codex CLI is an equal first-class behavioral target. Claude Code and OpenCode use the same canonical contracts when required capabilities are available. No model routing is required.
+Pi is the reference harness; Codex CLI is an equal first-class behavioral target. Claude Code and OpenCode use the same canonical contracts when required capabilities are available. Per-subagent model routing is used when supported; otherwise the same role/context contract runs on the active inherited model.
 
 ## Git guards
 After repository initialization/import run `python3 scripts/install_git_guards.py`. Preserve/integrate existing custom hooks and reach `GIT_GUARDS_READY` before implementation commits.

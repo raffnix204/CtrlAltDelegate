@@ -1,0 +1,13 @@
+version: 5.9.1
+capabilities:
+- id: CAP-001
+  statement: ''
+  criticality: CRITICAL
+  status: UNPROVEN
+  dependent_requirements: []
+  dependent_jobs: []
+  proof:
+    type: DOCS|REPO|API_PROBE|RUNTIME_PROBE|BROWSER_PROBE|SPIKE
+    evidence: []
+  fallback: ''
+  decision: ''

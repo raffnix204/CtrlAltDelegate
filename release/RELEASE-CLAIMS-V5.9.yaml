@@ -1,0 +1,59 @@
+version: '5.9'
+base_release: 5.8.2
+claims:
+- id: skill-count
+  type: SKILL_COUNT
+  before: 154
+  after: 154
+- id: new-skills
+  type: ADDED_SKILLS
+  skills: []
+- id: execution-control-plane
+  type: ADDED_PATHS
+  paths:
+  - config/EXECUTION-CONTROL-POLICY.yaml
+  - planning/execution/CONTROL-STATE.json
+  - planning/execution/WORKER-CLAIMS.json
+  - planning/execution/ATTEMPT-STATE.json
+  - scripts/claim_job.py
+  - scripts/start_job_attempt.py
+  - scripts/settle_job_attempt.py
+- id: reconciliation-recovery
+  type: ADDED_PATHS
+  paths:
+  - config/STATE-RECONCILIATION.yaml
+  - planning/execution/RECOVERY-ACTIONS.jsonl
+  - planning/execution/RECONCILIATION-LOG.jsonl
+  - scripts/reconcile_execution_state.py
+  - scripts/record_recovery_action.py
+- id: planning-convergence
+  type: ADDED_PATHS
+  paths:
+  - config/PLANNING-CONVERGENCE-POLICY.yaml
+  - planning/architecture/PLANNING-ARTIFACT-GRAPH.yaml
+  - planning/execution/PLANNING-CONVERGENCE.json
+  - scripts/validate_planning_convergence.py
+- id: review-verdicts
+  type: ADDED_PATHS
+  paths:
+  - config/REVIEW-VERDICT-POLICY.yaml
+  - planning/execution/REVIEW-VERDICTS.json
+  - scripts/record_review_verdict.py
+- id: worker-result-contract
+  type: ADDED_PATHS
+  paths:
+  - docs/schemas/WORKER-RESULT.schema.json
+  - docs/templates/WORKER-RESULT.template.json
+  - scripts/validate_worker_result.py
+- id: skill-discovery
+  type: ADDED_PATHS
+  paths:
+  - config/SKILL-DISCOVERY-POLICY.yaml
+  - scripts/validate_skill_discovery.py
+  - docs/system/SKILL-DISCOVERY-AND-OPTIMIZATION.md
+- id: control-effectiveness
+  type: ADDED_PATHS
+  paths:
+  - config/CONTROL-EFFECTIVENESS-POLICY.yaml
+  - planning/execution/CONTROL-INSIGHTS.jsonl
+  - scripts/record_control_insight.py

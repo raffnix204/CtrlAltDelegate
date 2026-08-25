@@ -1,0 +1,12 @@
+version: 5.9.1
+required_standard_artifacts:
+- RESEARCH-CLAIMS.yaml
+- FEASIBILITY-LEDGER.yaml
+- PLANNING-IR.json
+- JOB-GRAPH.json
+- job-contracts
+- PLAN-CHECKER.json
+- COLD-START-IMPLEMENTABILITY.json
+- CONTRACT-COVERAGE.json
+plan_checker: independent_read_only_findings
+cold_start: zero_context_required

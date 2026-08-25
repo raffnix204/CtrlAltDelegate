@@ -16,5 +16,15 @@
   },
   "state_revision": 0,
   "attempt_state": "planning/execution/ATTEMPT-STATE.json",
-  "claims_state": "planning/execution/WORKER-CLAIMS.json"
+  "claims_state": "planning/execution/WORKER-CLAIMS.json",
+  "node_types": [
+    "JOB",
+    "INTEGRATION_GATE"
+  ],
+  "integration_policy": {
+    "reverify_children": true,
+    "verify_interfaces": true,
+    "verify_end_to_end": true,
+    "verify_regressions": true
+  }
 }

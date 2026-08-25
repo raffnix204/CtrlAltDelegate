@@ -12,3 +12,11 @@ verdict_identity_fields:
 - verifier_profile
 stale_on_candidate_sha_change: true
 state: planning/execution/REVIEW-VERDICTS.json
+review_target:
+  explicit_candidate_identity_required: true
+  accepted:
+  - baseline_candidate_sha_range
+  - explicit_file_set
+  missing: BLOCKED
+parent_reverify_before_pass: true
+patch_release: 5.9.1

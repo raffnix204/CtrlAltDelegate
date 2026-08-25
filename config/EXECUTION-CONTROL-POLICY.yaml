@@ -48,3 +48,22 @@ stop_gate:
   block_stop_when_ready_work_and_progress: true
   stall_routes_to_recovery: true
   unsupported_harness: ADVISORY
+review_target:
+  explicit_baseline_candidate_or_file_set_required: true
+  guess_head_minus_one: false
+scope_enforcement:
+  actual_changes_must_be_subset_of_allowed_scope: true
+  violation: FAIL_CLOSED
+parent_reverification:
+  required_before_done: true
+  rerun_runnable_gates: true
+  manual_evidence_review: true
+patch_release: 5.9.2
+model_routing:
+  policy: config/MODEL-ROUTING-POLICY.yaml
+  state: planning/execution/MODEL-ROUTING-STATE.yaml
+  main_orchestrator_spawn_only: true
+  standard_implementation_class: EFFICIENT
+  independent_review_required: true
+  main_orchestrator_independent_review_credit: false
+  frontier_reasoning_effort_ceiling: high

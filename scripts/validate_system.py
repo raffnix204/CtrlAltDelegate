@@ -138,8 +138,29 @@ for p in R.rglob('*'):
     try:t=p.read_text(encoding='utf-8')
     except: continue
     if legacy_re.search(t): errors.append(f'{p.relative_to(R)}: legacy version remnant')
-    if re.search(r'(?i)capability-class model routing|model_routing:\s*true',t): errors.append(f'{p.relative_to(R)}: prohibited model-routing policy')
 
+
+# V5.9.2 HIERARCHICAL_MODEL_ROUTING_GATE
+try:
+    mr=yaml.safe_load((R/'config/MODEL-ROUTING-POLICY.yaml').read_text(encoding='utf-8'))
+    if str(mr.get('patch_release'))!='5.9.2': errors.append('MODEL-ROUTING-POLICY patch release mismatch')
+    if (mr.get('roles') or {}).get('main_orchestrator',{}).get('class')!='FRONTIER': errors.append('main orchestrator must route FRONTIER')
+    if (mr.get('roles') or {}).get('standard_implementation_worker',{}).get('class')!='EFFICIENT': errors.append('standard implementation worker must default EFFICIENT')
+    om=mr.get('openai_mapping') or {}
+    if (om.get('FRONTIER') or {}).get('model')!='gpt-5.6-sol': errors.append('OpenAI FRONTIER mapping must be gpt-5.6-sol')
+    if (om.get('BALANCED') or {}).get('model')!='gpt-5.6-terra': errors.append('OpenAI BALANCED mapping must be gpt-5.6-terra')
+    if (om.get('EFFICIENT') or {}).get('model')!='gpt-5.6-luna': errors.append('OpenAI EFFICIENT mapping must be gpt-5.6-luna')
+    fr=om.get('FRONTIER') or {}
+    if fr.get('reasoning_effort_ceiling')!='high': errors.append('Sol reasoning ceiling must be high')
+    if not {'xhigh','max'}.issubset(set(fr.get('forbidden_efforts') or [])): errors.append('Sol xhigh/max must be explicitly forbidden')
+    if (mr.get('review_independence') or {}).get('orchestrator_role')!='ADJUDICATE_INTEGRATE_REBRIEF': errors.append('main orchestrator must not satisfy independent review')
+except Exception as e: errors.append(f'MODEL-ROUTING-POLICY parse: {e}')
+for rel in ['docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md','planning/execution/MODEL-ROUTING-STATE.yaml']:
+    if not (R/rel).exists(): errors.append(f'missing V5.9.2 model-routing surface {rel}')
+try:
+    mrs=yaml.safe_load((R/'planning/execution/MODEL-ROUTING-STATE.yaml').read_text(encoding='utf-8'))
+    if str(mrs.get('version'))!='5.9.2' or mrs.get('frontier_reasoning_effort_ceiling')!='high': errors.append('MODEL-ROUTING-STATE invalid baseline')
+except Exception as e: errors.append(f'MODEL-ROUTING-STATE parse: {e}')
 
 # V5.9 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
 forbidden_prereq = re.compile(r'(?i)custom\s*-?gpt\s+(?:should|must|needs?\s+to)\s+(?:already\s+)?(?:have\s+)?completed')
@@ -210,9 +231,8 @@ surface=(R/'config/SURFACE-POLICY.yaml').read_text(encoding='utf-8')
 for tok in ['LOCKED','EDITABLE','APPEND_ONLY','HUMAN_CONTROLLED','instructions_are_not_enforcement']:
     if tok not in surface: errors.append(f'surface policy missing {tok}')
 harness=(R/'config/HARNESS-CONFORMANCE.yaml').read_text(encoding='utf-8')
-for tok in ['deepseek-harness','command-code','FIRST_CLASS_PREVIEW','.agents/skills','duplicate_dsh_skill_copy: false','model_routing: false','imported_control_skills']:
+for tok in ['deepseek-harness','command-code','FIRST_CLASS_PREVIEW','.agents/skills','duplicate_dsh_skill_copy: false','CAPABILITY_CLASS_ADAPTIVE','imported_control_skills']:
     if tok not in harness: errors.append(f'harness conformance missing {tok}')
-if re.search(r'(?im)^\s*model_routing:\s*true\s*$',harness): errors.append('harness conformance must not enable model routing')
 start_tpl=(R/'docs/templates/NESTED-CODING-AGENT-START-PROMPT.template.md').read_text(encoding='utf-8')
 for token in ['ctrlaltdelegate-delivery.zip','./.ctrlaltdelegate','/.ctrlaltdelegate/','LOCAL_PRIVATE','BLOCKED_DELIVERY_INCOMPLETE','ZIP members']:
     if token not in start_tpl: errors.append(f'V5.9 ZIP start prompt template missing {token}')

@@ -1,0 +1,32 @@
+version: 5.9.1
+base_release: '5.9'
+claims:
+- id: skill-count
+  type: SKILL_COUNT
+  before: 154
+  after: 154
+- id: new-skills
+  type: ADDED_SKILLS
+  skills: []
+- id: research-feasibility
+  type: ADDED_PATHS
+  paths:
+  - config/RESEARCH-FEASIBILITY-POLICY.yaml
+  - docs/system/RESEARCH-FEASIBILITY-AND-DRIFT.md
+  - planning/research/FEASIBILITY-LEDGER.yaml
+  - planning/research/RESEARCH-CLAIMS.yaml
+- id: planning-compiler
+  type: ADDED_PATHS
+  paths:
+  - config/PLANNING-COMPILER-POLICY.yaml
+  - docs/system/PLANNING-COMPILER-AND-PLAN-CHECKER.md
+  - planning/execution/PLANNING-IR.json
+  - planning/quality/PLAN-CHECKER.json
+  - planning/quality/COLD-START-IMPLEMENTABILITY.json
+- id: verification-hardening
+  type: ADDED_PATHS
+  paths:
+  - docs/system/EXECUTION-GATES-AND-PARENT-REVERIFY.md
+  - docs/system/INTEGRATION-SEAMS-AND-SCOPE.md
+  - scripts/check_execution_gates.py
+  - scripts/reverify_job.py

@@ -1,0 +1,144 @@
+version: '5.9'
+patch_release: '5.9.2'
+mode: CAPABILITY_CLASS_ADAPTIVE
+principles:
+  deterministic_control_plane_is_authority: true
+  main_orchestrator_is_spawn_only_when_delegation_available: true
+  main_orchestrator_does_not_satisfy_independent_review: true
+  worker_model_is_selected_per_job_before_dispatch: true
+  model_change_requires_new_attempt_or_rebrief: true
+  routing_is_advisory_when_harness_cannot_select_per_subagent_model: true
+  correctness_and_assurance_floor_never_downroute_for_cost: true
+classes:
+  FRONTIER:
+    purpose:
+    - orchestration_and_integration_judgment
+    - architecture_sensitive_decisions
+    - critical_review
+    - final_debug_escalation
+    default_reasoning_effort: high
+    maximum_reasoning_effort: high
+  BALANCED:
+    purpose:
+    - complex_cross_file_implementation
+    - semantic_code_review
+    - integration_and_debugging
+    default_reasoning_effort: high
+    maximum_reasoning_effort: high
+  EFFICIENT:
+    purpose:
+    - bounded_implementation
+    - targeted_research
+    - mechanical_validation
+    - routine_documentation_and_git_operations
+    default_reasoning_effort: high
+    maximum_reasoning_effort: high
+roles:
+  main_orchestrator:
+    class: FRONTIER
+    reasoning_effort: high
+    product_code_write: FORBIDDEN_WHEN_SUITABLE_DELEGATION_EXISTS
+    independent_review_credit: FORBIDDEN
+  standard_implementation_worker:
+    class: EFFICIENT
+    reasoning_effort: high
+    fresh_context: true
+  complex_implementation_worker:
+    class: BALANCED
+    reasoning_effort: high
+    fresh_context: true
+  critical_implementation_worker:
+    class: FRONTIER
+    reasoning_effort: high
+    fresh_context: true
+    use_only_when: JOB_REQUIRES_FRONTIER_JUDGMENT_OR_PRIOR_ESCALATION_FAILED
+  research_worker:
+    class: EFFICIENT
+    reasoning_effort: high
+    fresh_context: true
+  mechanical_validator:
+    class: EFFICIENT
+    reasoning_effort: high
+    fresh_context: true
+  semantic_reviewer:
+    class: BALANCED
+    reasoning_effort: high
+    fresh_context: true
+    must_be_independent_of_implementer: true
+  critical_reviewer:
+    class: FRONTIER
+    reasoning_effort: high
+    fresh_context: true
+    must_be_independent_of_main_orchestrator_and_implementer: true
+  debugger:
+    initial_class: BALANCED
+    escalation_class: FRONTIER
+    reasoning_effort: high
+    fresh_context: true
+routing:
+  default_implementation_class: EFFICIENT
+  promote_to_balanced_when:
+  - job_contract_requires_material_cross_layer_reasoning
+  - integration_or_public_contract_complexity_is_high
+  - standard_worker_returns_failed_or_scope_safe_repair_does_not_converge
+  - planner_marks_balanced_minimum
+  promote_to_frontier_when:
+  - unresolved_architecture_judgment_is_intrinsic_to_the_job
+  - critical_security_or_irreversible_data_risk_requires_frontier_judgment
+  - balanced_debugger_or_worker_fails_to_make_objective_progress
+  - planner_marks_frontier_minimum_with_reason
+  never_downroute_when:
+  - assurance_profile_is_critical_and_frontier_review_is_required
+  - current_attempt_already_started
+  - downrouting_would_violate_job_minimum_class
+escalation_ladder:
+- EFFICIENT
+- BALANCED
+- FRONTIER
+escalation_contract:
+  preserve_job_objective_and_acceptance: true
+  attach_failure_evidence: true
+  create_fresh_attempt: true
+  do_not_silently_change_architecture: true
+review_independence:
+  standard: IMPLEMENTER_NE_REVIEWER
+  critical: IMPLEMENTER_NE_REVIEWER_AND_REVIEWER_NE_MAIN_ORCHESTRATOR
+  orchestrator_role: ADJUDICATE_INTEGRATE_REBRIEF
+openai_mapping:
+  observed: '2026-08-25'
+  source: https://developers.openai.com/api/docs/guides/latest-model
+  FRONTIER:
+    model: gpt-5.6-sol
+    reasoning_effort: high
+    reasoning_effort_ceiling: high
+    forbidden_efforts:
+    - xhigh
+    - max
+  BALANCED:
+    model: gpt-5.6-terra
+    reasoning_effort: high
+    reasoning_effort_ceiling: high
+  EFFICIENT:
+    model: gpt-5.6-luna
+    reasoning_effort: high
+    reasoning_effort_ceiling: high
+other_provider_mapping:
+  strategy: RESOLVE_CURRENT_EQUIVALENT_FROM_ACTIVE_HARNESS
+  persist_resolution: planning/execution/MODEL-ROUTING-STATE.yaml
+  do_not_guess_unsupported_model_ids: true
+fallback:
+  per_subagent_model_selection_unavailable: INHERIT_ACTIVE_MODEL_BUT_PRESERVE_ROLE_AND_CONTEXT_SEPARATION
+  frontier_model_unavailable: USE_HIGHEST_VERIFIED_AVAILABLE_CLASS_AND_RECORD_DEGRADATION
+metrics:
+  record_per_attempt:
+  - requested_model_class
+  - resolved_model
+  - reasoning_effort
+  - first_pass_acceptance
+  - repair_rounds
+  - scope_violations
+  - review_findings
+  - tokens_if_available
+  - cost_if_available
+  - wall_clock_if_available
+  - escalation_reason

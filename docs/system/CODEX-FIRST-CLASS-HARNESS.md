@@ -26,7 +26,7 @@ Do not claim Codex CLI itself has a specific fixed native agent fan-out capabili
 Respect the active Codex sandbox and approval policy. Do not disable protections merely to reach autonomy. If a required safe operation cannot proceed under policy, use the standard hard-stop/fallback mechanism.
 
 ## Model neutrality
-Do not choose or route models. Use the operator/harness-selected model unchanged. Record it only as runtime evidence when useful for reproducibility/evals.
+Route capability classes through `config/MODEL-ROUTING-POLICY.yaml` when per-subagent selection is supported. Otherwise inherit the active model. Record requested class, resolved model and effort when useful for reproducibility/evals.
 
 ## Compatibility QA
 V5.9 release QA verifies that every canonical skill is exposed through the shared `.agents/skills` surface and that no Pi-only operational instruction is required for Codex execution. Project-specific adapters may be added only when the current Codex capability contract requires them.

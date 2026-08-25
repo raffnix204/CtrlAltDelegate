@@ -36,12 +36,12 @@ if not errors:
   # Claim exclusivity + attempt lifecycle.
   c1=run(T,T/'scripts/claim_job.py','J1','--worker','W1','--skip-reconcile',expect={0}); token=json.loads(c1.stdout)['claim_token'] if c1.returncode==0 else 'bad'
   run(T,T/'scripts/claim_job.py','J1','--worker','W2','--skip-reconcile',expect={4})
-  a1=run(T,T/'scripts/start_job_attempt.py','J1','--worker','W1','--claim-token',token,'--brief-sha256','b'*64,'--base-sha','BASE',expect={0}); aid=json.loads(a1.stdout)['attempt_id'] if a1.returncode==0 else 'bad'
-  run(T,T/'scripts/heartbeat_job.py','J1','--worker','W1','--claim-token',token,expect={0})
+  a1=run(T,T/'scripts/start_job_attempt.py','J1','--worker','W1',f'--claim-token={token}','--brief-sha256','b'*64,'--base-sha','BASE',expect={0}); aid=json.loads(a1.stdout)['attempt_id'] if a1.returncode==0 else 'bad'
+  run(T,T/'scripts/heartbeat_job.py','J1','--worker','W1',f'--claim-token={token}',expect={0})
   result={'schema_version':'5.9','job_id':'J1','attempt_id':aid,'worker_id':'W1','brief_sha256':'b'*64,'base_sha':'BASE','outcome':'IMPLEMENTED','implementation_status':'COMPLETE','verification_status':'PENDING_EXTERNAL','skills_applied':[],'changed_paths':['src/x'],'evidence_ids':[],'blockers':[],'concerns':[]}
   rp=T/'worker-result.json'; rp.write_text(json.dumps(result)); run(T,T/'scripts/validate_worker_result.py',rp,expect={0})
   # No evidence => settlement is allowed as a result claim, but DONE is not.
-  run(T,T/'scripts/settle_job_attempt.py',rp,'--claim-token',token,expect={0}); run(T,T/'scripts/transition_job.py','J1','DONE','--revalidate-only',expect={2})
+  run(T,T/'scripts/settle_job_attempt.py',rp,f'--claim-token={token}',expect={0}); run(T,T/'scripts/transition_job.py','J1','DONE','--revalidate-only',expect={2})
   run(T,T/'scripts/refresh_job_readiness.py','--write',expect={0})
   g=json.loads((T/'planning/execution/JOB-GRAPH.json').read_text()); j2=next(x for x in g['jobs'] if x['id']=='J2')
   if j2.get('status')!='READY': errors.append('IMPLEMENTED_UNVERIFIED did not release IMPLEMENTATION dependency')

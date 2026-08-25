@@ -1,4 +1,4 @@
-version: 5.9
+version: 5.9.2
 brief_id: null
 run_nonce: null
 job:
@@ -10,6 +10,14 @@ job:
   prohibited_scope: []
   required_skill_ids: []
   required_capabilities: []
+  read_first: []
+  reuse_patterns: []
+  consumes: []
+  produces: []
+  decision_rights:
+    must_follow: []
+    may_decide: []
+    must_escalate: []
 authority_pointers:
 - path: planning/PROJECT.md
   sha256: null
@@ -33,3 +41,21 @@ attempt:
   claim_token: null
   base_sha: null
   control_revision: null
+verification_gates: []
+review_target:
+  baseline_sha: null
+  candidate_sha: null
+  file_set: []
+parent_reverification_required: true
+model_routing:
+  minimum_class: EFFICIENT
+  requested_class: EFFICIENT
+  resolved_model: null
+  reasoning_effort: high
+  attempt_model_locked: true
+  promotion_triggers: []
+  independent_reviewer_class: BALANCED
+  allowed_classes:
+  - EFFICIENT
+  - BALANCED
+  - FRONTIER

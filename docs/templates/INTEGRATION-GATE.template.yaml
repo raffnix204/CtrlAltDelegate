@@ -1,0 +1,9 @@
+node_id: INT-000
+type: INTEGRATION_GATE
+children: []
+seams: []
+checks:
+  child_reverification: []
+  interface_compatibility: []
+  end_to_end: []
+  regression: []

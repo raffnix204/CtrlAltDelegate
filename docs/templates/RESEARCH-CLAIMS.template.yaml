@@ -1,0 +1,12 @@
+version: 5.9.1
+claims:
+- id: CLAIM-001
+  statement: ''
+  criticality: ''
+  status: OPEN
+  sources: []
+  observed_at: ''
+  confidence: ''
+  project_impact: ''
+  falsification_method: ''
+  downstream: []
