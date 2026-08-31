@@ -4,11 +4,11 @@
 
 # CtrlAltDelegate
 
-## V5.9.2: frontier lead, efficient workers, independent review
+## V5.9.3: Oh My Pi first-class + Graphify code intelligence
 
-V5.9.2 retains the V5.9.1 feasibility/planning-compiler/reverification hardening and adds hierarchical capability-class model routing: a FRONTIER main orchestrator remains spawn-only, bounded coding defaults to EFFICIENT workers, complex work/review promotes to BALANCED, and critical review/debug escalation uses a fresh FRONTIER agent. Strategic research drift still triggers scoped replanning instead of silent plan deviation.
+V5.9.3 retains the V5.9.2 feasibility, planning-compiler, parent-reverification and capability-class model-routing control plane, adds **Oh My Pi** as a first-class Pi-derived harness, and adds **Graphify** as the preferred persistent code-intelligence provider for non-trivial codebases when approved/available. Strategic research drift still triggers scoped replanning instead of silent plan deviation.
 
-The canonical library remains exactly 154 skills. V5.9.2 adds no new skills; it makes existing job contracts cheaper to execute through `FRONTIER | BALANCED | EFFICIENT` routing. For OpenAI GPT-5.6 the reference mapping is Sol / Terra / Luna at `high`, and Sol is never requested above `high`.
+The canonical library remains exactly 154 skills. V5.9.3 adds no canonical skills: OMP is a harness adapter and Graphify remains an external provider. OpenAI GPT-5.6 routing stays Sol / Terra / Luna at `high`, and Sol is never requested above `high`.
 
 ### Plan deeply. Delegate precisely. Verify everything.
 
@@ -24,7 +24,7 @@ The canonical library remains exactly 154 skills. V5.9.2 adds no new skills; it 
 
 ---
 
-## V5.9.2 planning and runtime completion hardening
+## V5.9.3 harness and code-intelligence hardening
 
 CtrlAltDelegate now distinguishes **implementation progress from product completion**. Mandatory user journeys and live integrations can require real runtime/provider/browser/native evidence; mocks and scaffolds remain useful feedback but cannot close those claims. Verification-only blockers are deferred while dependency-ready implementation continues. An upstream job can remain `IMPLEMENTED_UNVERIFIED` and still unblock normal implementation dependencies; final `DONE/COMPLETED` still waits for real proof. This lets the coding agent build as far as safely possible before asking for human/device/credential validation.
 
@@ -182,6 +182,10 @@ V5.9 includes provider-neutral tooling policies and first-class candidate mappin
 
 Equivalent capabilities already supplied by the active harness or project are reused instead of installing duplicates. Safe automatic installs stay project-local, avoid `sudo` and global configuration, record source/version/license/hash evidence, and fail closed when credentials, paid services, system-wide changes or security-policy exceptions are required.
 
+### Graphify code intelligence
+
+Every project now runs a code-intelligence preflight. For non-trivial codebases, **Graphify** is the preferred persistent code-graph provider when available: query/path/explain first, then targeted source/LSP reads. Graphify is navigation/context compression, never acceptance proof. If it is missing, CtrlAltDelegate asks once whether to install it in the user's host tool scope for future projects, keep it project-local, or never use it on that host. Host installation is never silent and never uses `sudo`. Generated `graphify-out/` stays local/ignored by default.
+
 ---
 
 ## Engineering safeguards
@@ -236,11 +240,13 @@ CtrlAltDelegate keeps one canonical methodology and `.agents/skills` library whi
 | **OpenAI Codex CLI** | `FIRST_CLASS` |
 | **Command Code** | `FIRST_CLASS_PREVIEW` — `.agents/skills`, AGENTS.md, subagents, headless/resume, tasks, MCP, hooks, permissions and worktrees are mapped; promotion requires the runtime conformance lane |
 | **DeepSeek Harness** | `FIRST_CLASS_PREVIEW` while its upstream interface remains pre-stable |
+| **Oh My Pi** | `FIRST_CLASS` — inherits Pi methodology and uses native `task` batching, structured results, per-worker model routing and isolated worktrees |
 | **Pi** | `REFERENCE` harness |
 | **Claude Code** | `COMPATIBLE` with `CLAUDE.md` and thin skill adapters |
 | **OpenCode** | `COMPATIBLE` with capability detection |
 
-V5.9.2 routes abstract model classes rather than blindly using one model everywhere. `FRONTIER` owns orchestration/critical judgment, `BALANCED` owns complex implementation/semantic review, and `EFFICIENT` is the default bounded implementation/research/validation worker. Harnesses resolve the classes when per-subagent model selection exists; otherwise they inherit the active model while preserving role separation. The OpenAI GPT-5.6 reference mapping is Sol / Terra / Luna, all at `high`, with a hard methodology ceiling that Sol is never requested above `high`.
+V5.9.3 retains capability-class model routing rather than blindly using one model everywhere. `FRONTIER` owns orchestration/critical judgment, `BALANCED` owns complex implementation/semantic review, and `EFFICIENT` is the default bounded implementation/research/validation worker. Harnesses resolve the classes when per-subagent model selection exists; otherwise they inherit the active model while preserving role separation. The OpenAI GPT-5.6 reference mapping is Sol / Terra / Luna, all at `high`, with a hard methodology ceiling that Sol is never requested above `high`.
+For Oh My Pi specifically, FRONTIER/Sol must use an explicit `:high` selector; OMP generic `effort: hi` is forbidden for Sol because OMP maps it to the highest supported effort, which can exceed `high`.
 
 ---
 

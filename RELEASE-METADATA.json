@@ -1,22 +1,21 @@
 {
   "name": "CtrlAltDelegate",
-  "version": "5.9.2",
-  "release_type": "orchestration_model_routing_patch",
-  "base_release": "5.9.1",
+  "version": "5.9.3",
+  "release_type": "omp_graphify_integration_patch",
+  "base_release": "5.9.2",
   "base_public_repo": "raffnix204/CtrlAltDelegate",
-  "base_main_sha_observed": "a9927f84dad25f55f827c48ae3268fcf8b8bec6d",
-  "generated_at": "2026-08-25",
+  "base_main_sha_observed": "4e44a3a54a8d7be64dad5ef02a26316db373cee5",
+  "generated_at": "2026-08-30",
   "canonical_skill_count": 154,
   "claude_adapter_count": 154,
   "custom_gpt_knowledge_count": 20,
   "changes": [
-    "hierarchical frontier orchestrator",
-    "capability-class model routing",
-    "Luna high default coding workers",
-    "Terra high complex workers and semantic review",
-    "Sol high frontier ceiling",
-    "independent fresh reviewers",
-    "model escalation with fresh attempts",
-    "routing metrics"
+    "Oh My Pi first-class harness",
+    "OMP task/worktree/structured-result mapping",
+    "explicit Sol high selector safety for OMP",
+    "Graphify code-intelligence preflight",
+    "Graphify one-time host install consent",
+    "Graphify query-first navigation and watch/update",
+    "navigation-not-proof verification boundary"
   ]
 }

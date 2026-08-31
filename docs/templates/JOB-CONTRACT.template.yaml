@@ -43,6 +43,12 @@ skills:
   required: []
   references: []
   research_need: NONE
+code_intelligence:
+  mode: AUTO
+  provider_preference: graphify
+  graph_state: planning/execution/CODE-INTELLIGENCE-STATE.yaml
+  graph_queries: []
+  source_confirmation_required: true
 acceptance_gates: []
 verification:
   positive: []

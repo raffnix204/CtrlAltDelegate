@@ -6,7 +6,7 @@ required=['README.md','AGENTS.md','CHANGELOG-V5.9.2.md','RELEASE-METADATA.json',
 e=[f'missing {p}' for p in required if not (R/p).exists()]
 if (R/'RELEASE-METADATA.json').exists():
  m=json.loads((R/'RELEASE-METADATA.json').read_text());
- if m.get('version')!='5.9.2': e.append('metadata version mismatch')
+ if m.get('version') not in {'5.9.2','5.9.3'}: e.append('metadata version mismatch')
 if len(list((R/'.agents/skills').glob('*/SKILL.md')))!=154: e.append('skill count mismatch')
 if len(list((R/'.claude/skills').glob('*/SKILL.md')))!=154: e.append('claude adapter count mismatch')
 if e:

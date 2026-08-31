@@ -18,7 +18,10 @@ Do not manually rename the ZIP or control root. Do not commit the ZIP or `.ctrla
 Relevant specialist skills participate while planning decisions are made, not only after planning. Run an early capability scan during intake/discovery, consult the smallest complete planning skill set for the current phase, persist consultations in `planning/context/PLANNING-SKILL-STATE.yaml`, and refresh routing whenever scope, research or stack evidence changes. Use `config/PLANNING-SKILL-ROUTING.yaml` and `docs/system/SKILL-DRIVEN-PLANNING.md`. The final coding-agent skill pool continues from these decisions.
 
 
-## V5.9 additions
+## V5.9.3 additions
+
+- Oh My Pi (`omp`) is a first-class Pi-derived harness with native task batching, structured worker results, isolated worktrees and model routing.
+- Run code-intelligence preflight early; when Graphify is ready, query the graph before broad source traversal. If Graphify is missing, ask once before any host-wide install.
 Before architecture freeze resolve `planning/architecture/TECHNOLOGY-EVALUATION.yaml`. Before jobs requiring external acquisition/browser/tooling, inventory `CAPABILITY-STATE.json`; bootstrap only the missing verified capability.
 
 V5.9 runtime skill escalation: if a worker discovers missing expertise, use `config/SKILL-ESCALATION-POLICY.yaml`; L0/L1 do not imply full replanning, while semantic changes escalate to rebrief/change control.

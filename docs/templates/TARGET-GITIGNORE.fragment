@@ -3,3 +3,6 @@
 /.ctrlaltdelegate/
 /.ctrlaltdelegate.importing-*/
 /.ctrlaltdelegate.incoming-*/
+
+# Graphify local code-intelligence cache
+/graphify-out/

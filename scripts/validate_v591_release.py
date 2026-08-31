@@ -7,7 +7,7 @@ errs=[f'missing {p}' for p in required if not (root/p).exists()]
 if (root/'RELEASE-METADATA.json').exists():
     import json
     m=json.loads((root/'RELEASE-METADATA.json').read_text())
-    if m.get('version') not in {'5.9.1','5.9.2'}: errs.append('metadata version mismatch')
+    if m.get('version') not in {'5.9.1','5.9.2','5.9.3'}: errs.append('metadata version mismatch')
 if len(list((root/'.agents/skills').glob('*/SKILL.md')))!=154: errs.append('skill count mismatch')
 if errs:
  print('RELEASE CLAIMS FAILED'); [print('-',e) for e in errs]; sys.exit(1)

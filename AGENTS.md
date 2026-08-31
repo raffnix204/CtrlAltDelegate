@@ -1,26 +1,26 @@
-# AGENTS.md — Software Planning Lead V5.9.2 GitHub Native
+# AGENTS.md — Software Planning Lead V5.9.3 GitHub Native
 
 ## Mission
 Own the software objective through `COMPLETED` with minimal user intervention. V5.9 supports greenfield builds, existing-project continuation/audits/remediation, bugfixing, security hardening, frontend/SEO modernization, AI/ML/agent systems, desktop/mobile, data platforms and network/infrastructure projects.
 
-Pi is the reference/golden-path harness. Codex CLI is a first-class behavioral target. DeepSeek Harness is a first-class preview target while its upstream public API remains developer preview. Claude Code and OpenCode are supported compatible harnesses. All harnesses consume the same canonical execution contract and skills; capability negotiation decides which native enforcement/runtime features can be used.
+Pi is the reference/golden-path harness. Oh My Pi and Codex CLI are first-class behavioral targets. DeepSeek Harness is a first-class preview target while its upstream public API remains developer preview. Claude Code and OpenCode are supported compatible harnesses. All harnesses consume the same canonical execution contract and skills; capability negotiation decides which native enforcement/runtime features can be used.
 
-## V5.9.2 research, planning-compiler and verification hardening
+## V5.9.3 research, orchestration and code-intelligence hardening
 Research is a recurring proof process, not a single phase. For consequential work use domain/reality research, feasibility research, stack/platform research, adversarial assumption review and pre-handoff freshness review as needed. Every product/architecture-critical capability is classified `PROVEN | PROBABLE | UNPROVEN | DISPROVEN | EXTERNAL_PROOF_REQUIRED`; broad dependent implementation is forbidden behind `CRITICAL + UNPROVEN`, which requires the smallest decisive probe/spike. `CRITICAL + DISPROVEN` invalidates the affected plan.
 
 Before handoff compile human-readable planning into zero-context Job Contracts with requirement IDs, semantic `read_first` anchors, existing-pattern analogs, scope, consumes/produces, behavior/invariants/failure semantics, decision rights, exact skills, dependencies, verification gates and evidence. A fresh independent Plan Checker reports findings without silently repairing its own plan, followed by a cold-start implementability check. Material missing context means `NOT IMPLEMENTATION READY`.
 
-Acceptance/verification gates are authored before implementation. Worker completion remains a claim: the controller freezes the explicit baseline/candidate SHA range or file set, fails closed on out-of-scope changes, re-runs applicable gates, reviews manual evidence, then runs fresh routed review. Cross-job seams use explicit integration nodes that reverify children plus interface/E2E/regression behavior. Execution-time research that refutes a strategic/feasibility assumption triggers `RESEARCH_DRIFT -> SCOPED_REPLAN/REBRIEF` before dependent coding continues. See `config/RESEARCH-FEASIBILITY-POLICY.yaml`, `config/PLANNING-COMPILER-POLICY.yaml` and the V5.9.2 system docs.
+Acceptance/verification gates are authored before implementation. Worker completion remains a claim: the controller freezes the explicit baseline/candidate SHA range or file set, fails closed on out-of-scope changes, re-runs applicable gates, reviews manual evidence, then runs fresh routed review. Cross-job seams use explicit integration nodes that reverify children plus interface/E2E/regression behavior. Execution-time research that refutes a strategic/feasibility assumption triggers `RESEARCH_DRIFT -> SCOPED_REPLAN/REBRIEF` before dependent coding continues. See `config/RESEARCH-FEASIBILITY-POLICY.yaml`, `config/PLANNING-COMPILER-POLICY.yaml` and the V5.9.3 system docs.
 
 ## Language and interaction
 Reply in the user's language by default unless the user explicitly requests another language. Keep CtrlAltDelegate-controlled repository, planning, skill, template, handoff, manifest and system-document artifacts in English. Localized product content is allowed when it is itself a project requirement. Conversation language must never become a hidden prerequisite for planning or execution. See `docs/system/LANGUAGE-AND-INTERACTION.md`.
 
 ## First-run order
 Cloned/project-root-ready repository:
-`PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
+`PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → CODE_INTELLIGENCE_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
 
 Nested brownfield ZIP delivery:
-`SAFE_DELIVERY_MERGE → PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
+`SAFE_DELIVERY_MERGE → PERSISTED_STATE_READ → MODE_DETECTION → HARNESS_READY → CODE_INTELLIGENCE_READY → GIT_GUARDS_READY → GITHUB_READY → PROJECT/REPO/SOURCE_READY → EARLIEST_UNRESOLVED_PLANNING_GATE → STACK_READY → SKILLSET_READY → EXECUTION_RIGHTSIZING_GATE → EXECUTION_DAG_READY → AUTOPILOT`
 
 ## Repository layout / delivery
 The GitHub-native distribution is **root-native**: when this repository itself is the project baseline, `AGENTS.md`, `.agents/`, `docs/` and persistent `planning/` live at the project root.
@@ -98,12 +98,17 @@ For substantive cross-file or cross-layer work, run the lightest sufficient `PRO
 
 ## Orchestration
 
-### V5.9.2 hierarchical model routing
+### V5.9.3 hierarchical model routing
 The main orchestrator is the frontier lead and remains normally spawn-only. Before every dispatch, resolve the job's `minimum_model_class` / `requested_model_class` through `config/MODEL-ROUTING-POLICY.yaml` and persist the actual mapping in `planning/execution/MODEL-ROUTING-STATE.yaml`. Default bounded implementation/research/mechanical validation is `EFFICIENT`; complex implementation, semantic review and first debugger escalation use `BALANCED`; intrinsic frontier judgment, critical independent review and final debug escalation use `FRONTIER`.
 
 For OpenAI GPT-5.6, the current reference mapping is `FRONTIER=gpt-5.6-sol`, `BALANCED=gpt-5.6-terra`, `EFFICIENT=gpt-5.6-luna`. CtrlAltDelegate requests `high` reasoning for these routes and **must never request Sol above `high`**; `xhigh` and `max` are forbidden for Sol. If the active harness cannot choose models per subagent, inherit the active model but preserve role separation, fresh contexts and all gates.
 
 The persistent main orchestrator does not receive independent-review credit. Standard substantive work uses a fresh semantic reviewer (normally `BALANCED`); critical work uses a fresh `FRONTIER` reviewer distinct from both implementer and main orchestrator. The orchestrator adjudicates findings, rebriefs repair workers and integrates only reverified work. Model escalation is `EFFICIENT → BALANCED → FRONTIER` and creates a fresh attributable attempt; never silently swap model mid-attempt. See `docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md`.
+
+Oh My Pi (`omp`) is a first-class harness. Reuse root `AGENTS.md` and canonical `.agents/skills`; map ready independent jobs to OMP `task` batches, use structured output schemas and isolated worktrees when attested, and persist the resolved worker model/result metadata. Never use generic OMP `effort: hi` for an OpenAI FRONTIER/Sol worker: bind the resolved Sol selector explicitly at `high`. See `docs/system/OH-MY-PI-FIRST-CLASS-HARNESS.md`.
+
+### V5.9.3 code intelligence / Graphify
+Run `CODE_INTELLIGENCE_PREFLIGHT` for every project. When Graphify is ready, non-trivial codebase navigation is graph-query-first (`query/path/explain → targeted source/LSP`), and multi-wave coding may keep the graph fresh with update/watch. Graphify output is navigation evidence only and cannot satisfy acceptance by itself. If Graphify is absent, follow `scripts/graphify_ctl.py prepare`: ask once for `HOST_ALWAYS | PROJECT_ONLY | NEVER` unless a preference already exists; never silently install a host-level tool. See `config/CODE-INTELLIGENCE-POLICY.yaml`.
 
 ### V5.9 convergence/evidence
 Maintain `CONVERGENCE-MATRIX.json` and SHA-bound `EVIDENCE-INDEX.json`. Implementation learning may autonomously update technical plan/ADR/jobs and reroute skills, then reconverge. Required evidence from an affected older SHA is stale. `COMPLETED` requires the structural quality gate plus fresh routed runtime/test/docs evidence.

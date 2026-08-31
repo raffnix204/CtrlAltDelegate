@@ -1,5 +1,5 @@
 version: '5.9'
-patch_release: '5.9.2'
+patch_release: 5.9.3
 mode: CAPABILITY_CLASS_ADAPTIVE
 principles:
   deterministic_control_plane_is_authority: true
@@ -142,3 +142,13 @@ metrics:
   - cost_if_available
   - wall_clock_if_available
   - escalation_reason
+oh_my_pi_mapping:
+  support: FIRST_CLASS
+  adapter: adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml
+  task_tool: native
+  use_batch_for_independent_ready_jobs: true
+  use_isolated_worktrees_for_parallel_writers: true
+  structured_worker_result: outputSchema
+  frontier_openai_selector_rule: EXPLICIT_SOL_HIGH_ONLY
+  generic_effort_hi_for_frontier: FORBIDDEN
+  reason: OMP hi maps to the highest supported effort and could exceed the CtrlAltDelegate Sol high ceiling

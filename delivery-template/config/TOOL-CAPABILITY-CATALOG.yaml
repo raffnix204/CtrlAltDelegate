@@ -1,6 +1,5 @@
-version: 5.9
-policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities
-  before installation.
+version: 5.9.3
+policy: Resolve capabilities, not product names. Reuse verified equivalent capabilities before installation.
 providers:
   harness_native:
     priority: HIGHEST_WHEN_VERIFIED
@@ -30,8 +29,7 @@ providers:
     auto_install: true
     install_scope: .ctrlaltdelegate/tools
     notes:
-    - Search/render capabilities vary by deployment and must be probed, not inferred
-      from binary presence.
+    - Search/render capabilities vary by deployment and must be probed, not inferred from binary presence.
     - Keep as an external executable/service; do not vendor AGPL engine into CtrlAltDelegate.
   obscura:
     source:
@@ -55,8 +53,7 @@ providers:
     install_scope: .ctrlaltdelegate/tools
     notes:
     - Independent renderer is not the sole production browser-acceptance oracle.
-    - Prefer MCP stdio/loopback; never auto-bind unauthenticated browser control to
-      0.0.0.0.
+    - Prefer MCP stdio/loopback; never auto-bind unauthenticated browser control to 0.0.0.0.
   playwright_mcp:
     source:
       type: npm
@@ -74,8 +71,8 @@ providers:
     auto_install: true
     install_scope: .ctrlaltdelegate/tools/node
     notes:
-    - Real browser acceptance remains preferred for production UI/browser claims.
-      Browser binary download may be large; install only when required.
+    - Real browser acceptance remains preferred for production UI/browser claims. Browser binary download may be large; install
+      only when required.
   firecrawl_existing:
     source:
       type: external_or_self_hosted
@@ -124,7 +121,32 @@ providers:
     install_scope: maintainer_workspace_only
     notes:
     - Never a normal project runtime dependency.
-    - Canonical skill edits are candidate-only until CtrlAltDelegate validation/promotion
-      gates pass.
-    - Session harvesting is explicit opt-in because transcript-derived content may
-      leave the machine with real backends.
+    - Canonical skill edits are candidate-only until CtrlAltDelegate validation/promotion gates pass.
+    - Session harvesting is explicit opt-in because transcript-derived content may leave the machine with real backends.
+  graphify:
+    source:
+      type: pypi_and_github
+      package: graphifyy
+      repository: Graphify-Labs/graphify
+      verified_version: 0.9.53
+    license: Apache-2.0
+    self_hostable: true
+    roles:
+    - CODE_INTELLIGENCE
+    - CODE_GRAPH
+    - CONTEXT_COMPRESSION
+    capabilities:
+    - code.graph.build
+    - code.graph.query
+    - code.graph.path
+    - code.graph.explain
+    - code.graph.incremental_update
+    - code.graph.watch
+    auto_install: false
+    install_scope: user_host_with_explicit_consent_or_project_local
+    registration: generic Agent Skills (~/.agents/skills) for host scope
+    notes:
+    - Code AST extraction is local and does not require an LLM; semantic extraction for non-code media is optional and separately
+      governed.
+    - Use graph results for navigation/context reduction only; source/tests/runtime remain verification authority.
+    - When graphify-out/graph.json is current, query/path/explain before broad grep/read traversal.

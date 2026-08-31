@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parents[1]; errors=[]
 for rel in ['config/PLANNING-SKILL-ROUTING.yaml','config/LOOP-CONTRACTS.yaml','config/SURFACE-POLICY.yaml','config/HARNESS-CONFORMANCE.yaml','config/CONTROL-VISIBILITY.yaml','config/ASSURANCE-PROFILES.yaml','config/TECHNOLOGY-CAPABILITY-CATALOG.yaml','config/TECHNOLOGY-SELECTION-POLICY.yaml','config/TOOL-CAPABILITY-CATALOG.yaml','config/TOOL-SELECTION-POLICY.yaml']:
     try:
         d=yaml.safe_load((R/rel).read_text(encoding='utf-8')) or {}
-        if str(d.get('version'))!='5.9': errors.append(f'{rel}: version')
+        if str(d.get('version')) not in {'5.9','5.9.3'}: errors.append(f'{rel}: version')
     except Exception as e: errors.append(f'{rel}: {e}')
 for rel in ['planning/execution/LOOP-STATE.json','planning/execution/JOB-GRAPH.json']:
     try:

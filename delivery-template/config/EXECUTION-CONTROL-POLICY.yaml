@@ -1,6 +1,5 @@
 version: '5.9'
-principle: Jobs are durable work units; attempts are leased executions. Worker claims
-  are never state authority.
+principle: Jobs are durable work units; attempts are leased executions. Worker claims are never state authority.
 state_revision:
   enabled: true
   compare_and_set_required: true
@@ -58,7 +57,7 @@ parent_reverification:
   required_before_done: true
   rerun_runnable_gates: true
   manual_evidence_review: true
-patch_release: 5.9.2
+patch_release: 5.9.3
 model_routing:
   policy: config/MODEL-ROUTING-POLICY.yaml
   state: planning/execution/MODEL-ROUTING-STATE.yaml

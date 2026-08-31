@@ -1,8 +1,8 @@
-# Model Routing & Hierarchical Orchestration — V5.9.2
+# Model Routing & Hierarchical Orchestration — V5.9.3
 
 ## Purpose
 
-V5.9.2 turns the existing spawn-only orchestrator into an explicit hierarchical execution model: a frontier lead owns the objective and control plane, while bounded implementation/research/validation work is delegated to cheaper fresh-context workers whenever the active harness can select a model per subagent.
+V5.9.3 retains and extends the existing spawn-only orchestrator into an explicit hierarchical execution model: a frontier lead owns the objective and control plane, while bounded implementation/research/validation work is delegated to cheaper fresh-context workers whenever the active harness can select a model per subagent.
 
 The deterministic CtrlAltDelegate state machine remains authority. Model quality is a routing resource, not a substitute for job contracts, evidence, scopes, verification or controller-owned state.
 
@@ -46,6 +46,10 @@ As researched on 2026-08-25 from current OpenAI model guidance:
 **CtrlAltDelegate must never request Sol above `high`.** `xhigh` and `max` are explicitly forbidden for Sol even if the API/harness supports them. This is a methodology ceiling, not a statement about model capability.
 
 For another provider/harness, resolve current equivalents at runtime. Never guess a model ID. If per-subagent model choice is unsupported, inherit the active model while preserving separate roles, fresh contexts, independent review and all control-plane gates.
+
+### Oh My Pi mapping
+
+Oh My Pi is first-class. Its `task` runtime supports per-subagent model resolution, but generic `effort: hi` means "highest supported" and can resolve above `high`. Therefore OpenAI FRONTIER dispatches must bind the resolved Sol selector explicitly at `:high`; generic `hi` is forbidden for Sol. EFFICIENT/BALANCED routes may use the OMP role/selector system as long as the actual resolved model and effort are persisted. See `adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml`.
 
 ## Default coding route
 

@@ -1,4 +1,4 @@
-version: 5.9
+version: 5.9.3
 resolution_ladder:
 - NATIVE_VERIFIED
 - EXISTING_PROJECT_VERIFIED
@@ -32,6 +32,10 @@ install_rules:
   - 127.0.0.1
   bind_all_interfaces: false
   private_network_access: DENY_UNLESS_PROJECT_REQUIRES_AND_POLICY_ALLOWS
+  host_user_scope_exception:
+    graphify: ALLOWED_ONLY_AFTER_EXPLICIT_PERSISTED_USER_CONSENT
+    no_sudo_admin: true
+    no_global_config_overwrite: true
 provider_preferences:
   web.search:
   - existing_verified
@@ -66,6 +70,14 @@ provider_preferences:
   skill.optimization.offline:
   - existing_verified
   - skillopt
+  code.intelligence:
+  - existing_verified_graph_or_semantic_navigation
+  - graphify
+  - verified_lsp
+  - targeted_search_read_trace
+  code.graph:
+  - graphify
+  - existing_verified_equivalent
 escalate_to_user_only_for:
 - credentials_or_account
 - paid_service_or_material_recurring_cost
@@ -73,3 +85,12 @@ escalate_to_user_only_for:
 - global_user_config_change_without_safe_project_scope
 - security_or_compliance_exception
 - license_or_business_commitment_requiring_user_authority
+- first_host_wide_graphify_install_preference
+graphify_bootstrap:
+  policy: config/CODE-INTELLIGENCE-POLICY.yaml
+  controller: scripts/graphify_ctl.py
+  ask_once_when_missing: true
+  choices:
+  - HOST_ALWAYS
+  - PROJECT_ONLY
+  - NEVER

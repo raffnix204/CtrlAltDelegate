@@ -1,6 +1,6 @@
 {
-  "release": "5.9.2",
-  "base_release": "5.9.1",
+  "release": "5.9.3",
+  "base_release": "5.9.2",
   "files": [
     {
       "path": ".agents/skills/CATALOG.yaml",
@@ -14,8 +14,8 @@
     },
     {
       "path": ".agents/skills/SOURCE-RESEARCH-MATRIX.yaml",
-      "sha256": "91fcdd278496838f12eccc1ff1331b9c409f27b663ba7cca934cd3981e248aef",
-      "size": 16756
+      "sha256": "369dc7c9b8e45dd431a3e5ae8ee366a51b92f050213ba0891d9d81880b7f45ff",
+      "size": 18030
     },
     {
       "path": ".agents/skills/accessibility-audit/SKILL.md",
@@ -2304,8 +2304,13 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "535bc11e0e6749e92ecac9b100fbe05a715ff4a284f3ef83d227f8c24c4a538e",
-      "size": 663
+      "sha256": "d7f1b08c89f27974b159291b1890edf48c32f17c8ac9132b81d7f8fe76d19d15",
+      "size": 720
+    },
+    {
+      "path": ".omp/RULES.md",
+      "sha256": "601a6986955d56fa2b2f86f2b169ef9c0b09ee8be95286595724d19a4aaed941",
+      "size": 616
     },
     {
       "path": ".pi/prompts/autopilot.md",
@@ -2314,13 +2319,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "0104376766f464fe5d66ce1c5bde2a64ffc304379712927a8f1ef2f6e1f5b619",
-      "size": 26441
+      "sha256": "99c37a563a02bb5b0ec3f89dcb56a0ff4a99ad73281d65e90dd015b5025f0e67",
+      "size": 27564
     },
     {
       "path": "CHANGELOG-SYSTEM.md",
-      "sha256": "d9f4961da4da2d23b846600c715ec6599f263e00c4a27b4762431f5c8ce94744",
-      "size": 19961
+      "sha256": "825873c4c3c3442f5d2467d9204e581b8e01cd94955a7e52903312cf33a890cd",
+      "size": 20723
     },
     {
       "path": "CHANGELOG-V5.7.1.md",
@@ -2358,6 +2363,11 @@
       "size": 2961
     },
     {
+      "path": "CHANGELOG-V5.9.3.md",
+      "sha256": "933ffaa3588df8b195ccab67e35f38ac63b528744cec1d7ef0b5fe377ab66770",
+      "size": 4279
+    },
+    {
       "path": "CHANGELOG-V5.9.md",
       "sha256": "9a41d108535ad2f92063df8b461f4a9f6d52858fcc28bb0487678abc726341fd",
       "size": 2757
@@ -2384,28 +2394,28 @@
     },
     {
       "path": "README.md",
-      "sha256": "e006bed22ce707308f1903e73e5749b3b03059723fc88e4ca5d48379a0dfab06",
-      "size": 17452
+      "sha256": "904c3e737a70f820c5e6be1aeb71a88011e8aef3d7bbae7691eb9dab3c0fcc28",
+      "size": 18355
     },
     {
       "path": "RELEASE-MANAGED-PATHS.txt",
-      "sha256": "21caf83c1a22bdc701d41e0ac9a164c2e1fcda6decd0e336792db95e5d3c1821",
-      "size": 4075
+      "sha256": "7918946626e097824bca53dcd63f7899372c59ddb5c9a3bd36996f6aa80ffe1e",
+      "size": 6300
     },
     {
       "path": "RELEASE-METADATA.json",
-      "sha256": "4ac88292240ea2ad7eac1a66fac70bd56e51745ef34b98a65fca6077086f02ea",
-      "size": 719
+      "sha256": "e4f8ddecc91e17386d31c72237ddc7016727ba4694357f9e36f1606b8a5a2ac2",
+      "size": 739
     },
     {
       "path": "START-HERE.md",
-      "sha256": "75fcfc75d358c98094af81ec6f850a55e3a36d0cbf257894dd611d0cb172776e",
-      "size": 2986
+      "sha256": "434f19d39fdf1c0008e251dcbeb652178ca206f14c4b7d208b51d66444a6a844",
+      "size": 3311
     },
     {
       "path": "adapters/command-code/HARNESS-CAPABILITIES.yaml",
-      "sha256": "7948fe26deb40ae7dd804a556f0305a0a6db193bd76284a9b297f574d8fb123d",
-      "size": 312
+      "sha256": "0375db03d56edee95dea5f7a307e6f43910d51677b429d3ea5cdb95af50d9855",
+      "size": 319
     },
     {
       "path": "adapters/command-code/PERMISSION-MAPPING.yaml",
@@ -2423,6 +2433,26 @@
       "size": 400
     },
     {
+      "path": "adapters/oh-my-pi/HARNESS-CAPABILITIES.yaml",
+      "sha256": "fe9550e780c80acfd7865fa4a8d500b6586f9e593b1e49d9aac3f63a85b12f18",
+      "size": 1209
+    },
+    {
+      "path": "adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml",
+      "sha256": "8ebf5f523c7c139aff3a21f3ebfd6466f79fc9e31047b28847f1429cb28a0dd0",
+      "size": 1282
+    },
+    {
+      "path": "adapters/oh-my-pi/README.md",
+      "sha256": "23223299e33e1756d97b5ae322ada4b58f5e6564f76acde84c61877d80263170",
+      "size": 1436
+    },
+    {
+      "path": "adapters/oh-my-pi/TASK-MAPPING.yaml",
+      "sha256": "ee527e694611093ddb4e9cc2b74dadcb9932713f784eab9ba2b046b6ff3eb09d",
+      "size": 1051
+    },
+    {
       "path": "assets/branding/README.md",
       "sha256": "220ebb1d7e93188c33b05964def95083c7ef300f9a8ee43a2f6335465cbc4dbc",
       "size": 249
@@ -2436,6 +2466,11 @@
       "path": "config/BLOCKER-POLICY.yaml",
       "sha256": "bfd41692d08cc5b67dccb5e363ca71f7eca24b0e3d67ac9f7dc9d1f3b5ed0d8a",
       "size": 1574
+    },
+    {
+      "path": "config/CODE-INTELLIGENCE-POLICY.yaml",
+      "sha256": "c49f3692ebbf2e591282a9cc6371e03e6937bb9744d8a58d8b5f1b1f31bbdd04",
+      "size": 2194
     },
     {
       "path": "config/CONTROL-EFFECTIVENESS-POLICY.yaml",
@@ -2454,13 +2489,13 @@
     },
     {
       "path": "config/EXECUTION-CONTROL-POLICY.yaml",
-      "sha256": "a9ffa804e16def9ad7744afc2359358de8601f955ec4d0a2649fdcee247e26c0",
-      "size": 2108
+      "sha256": "6c7b55384173948fc6e61259ab3442fdabaea6f9e188231b706837581e1f5bea",
+      "size": 2106
     },
     {
       "path": "config/HARNESS-CONFORMANCE.yaml",
-      "sha256": "ebb1b70c5166e3853eecf31159c14a8ba4fe0b652c64a87dd29c9074774ca7fa",
-      "size": 3198
+      "sha256": "a918d84b6a4b22a41b58c570e3dfc4faf98fa624745f4766e56bd0d9a288f09f",
+      "size": 3767
     },
     {
       "path": "config/LOOP-CONTRACTS.yaml",
@@ -2469,13 +2504,13 @@
     },
     {
       "path": "config/MODEL-ROUTING-POLICY.yaml",
-      "sha256": "44fc5e1e7114372b305e076bdac5fb6142139cacac362a3020f24f7c53ab7fe9",
-      "size": 4621
+      "sha256": "b0419fd946c02fb476b900b49fcc313b83bacd76473b42978ae8682186e35d01",
+      "size": 5082
     },
     {
       "path": "config/PLANNING-COMPILER-POLICY.yaml",
-      "sha256": "84250c86128e7abe6852d618ae8b2d3dff36c4b05d89c36ff3339c94a3cbd656",
-      "size": 304
+      "sha256": "4baf163d164173b2e02bf8568c3ef5f4c16f57987846ec6cd8627e042a203990",
+      "size": 463
     },
     {
       "path": "config/PLANNING-CONVERGENCE-POLICY.yaml",
@@ -2554,13 +2589,18 @@
     },
     {
       "path": "config/TOOL-CAPABILITY-CATALOG.yaml",
-      "sha256": "378128f93ded4d29620bddfa5af8a07da5668b1693f1e8cb188c0ac14b158ac6",
-      "size": 3497
+      "sha256": "2c87ee67a43e80f82c9d0c8eafcd81182895a0c707a4b4e243be959ae002a336",
+      "size": 4455
     },
     {
       "path": "config/TOOL-SELECTION-POLICY.yaml",
-      "sha256": "a309ec1257e601848455298ff278a85befbef4a3cef664336ed9868e64a5d165",
-      "size": 1856
+      "sha256": "24633154e4f22c9ba833a06cb63be31380803edf3efb8a80b8300d1eb21b49c2",
+      "size": 2441
+    },
+    {
+      "path": "delivery-template/.omp/RULES.md",
+      "sha256": "601a6986955d56fa2b2f86f2b169ef9c0b09ee8be95286595724d19a4aaed941",
+      "size": 616
     },
     {
       "path": "delivery-template/README-REPO-ROOT-READY.md",
@@ -2569,8 +2609,8 @@
     },
     {
       "path": "delivery-template/adapters/command-code/HARNESS-CAPABILITIES.yaml",
-      "sha256": "7948fe26deb40ae7dd804a556f0305a0a6db193bd76284a9b297f574d8fb123d",
-      "size": 312
+      "sha256": "0375db03d56edee95dea5f7a307e6f43910d51677b429d3ea5cdb95af50d9855",
+      "size": 319
     },
     {
       "path": "delivery-template/adapters/command-code/PERMISSION-MAPPING.yaml",
@@ -2588,6 +2628,26 @@
       "size": 400
     },
     {
+      "path": "delivery-template/adapters/oh-my-pi/HARNESS-CAPABILITIES.yaml",
+      "sha256": "fe9550e780c80acfd7865fa4a8d500b6586f9e593b1e49d9aac3f63a85b12f18",
+      "size": 1209
+    },
+    {
+      "path": "delivery-template/adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml",
+      "sha256": "8ebf5f523c7c139aff3a21f3ebfd6466f79fc9e31047b28847f1429cb28a0dd0",
+      "size": 1282
+    },
+    {
+      "path": "delivery-template/adapters/oh-my-pi/README.md",
+      "sha256": "23223299e33e1756d97b5ae322ada4b58f5e6564f76acde84c61877d80263170",
+      "size": 1436
+    },
+    {
+      "path": "delivery-template/adapters/oh-my-pi/TASK-MAPPING.yaml",
+      "sha256": "ee527e694611093ddb4e9cc2b74dadcb9932713f784eab9ba2b046b6ff3eb09d",
+      "size": 1051
+    },
+    {
       "path": "delivery-template/config/ASSURANCE-PROFILES.yaml",
       "sha256": "b71027182767a491e43341a05e75e1750c7776ad89c0a42625920dbe0ddd38cd",
       "size": 1343
@@ -2596,6 +2656,11 @@
       "path": "delivery-template/config/BLOCKER-POLICY.yaml",
       "sha256": "bfd41692d08cc5b67dccb5e363ca71f7eca24b0e3d67ac9f7dc9d1f3b5ed0d8a",
       "size": 1574
+    },
+    {
+      "path": "delivery-template/config/CODE-INTELLIGENCE-POLICY.yaml",
+      "sha256": "c49f3692ebbf2e591282a9cc6371e03e6937bb9744d8a58d8b5f1b1f31bbdd04",
+      "size": 2194
     },
     {
       "path": "delivery-template/config/CONTROL-EFFECTIVENESS-POLICY.yaml",
@@ -2609,13 +2674,13 @@
     },
     {
       "path": "delivery-template/config/EXECUTION-CONTROL-POLICY.yaml",
-      "sha256": "a9ffa804e16def9ad7744afc2359358de8601f955ec4d0a2649fdcee247e26c0",
-      "size": 2108
+      "sha256": "6c7b55384173948fc6e61259ab3442fdabaea6f9e188231b706837581e1f5bea",
+      "size": 2106
     },
     {
       "path": "delivery-template/config/HARNESS-CONFORMANCE.yaml",
-      "sha256": "ebb1b70c5166e3853eecf31159c14a8ba4fe0b652c64a87dd29c9074774ca7fa",
-      "size": 3198
+      "sha256": "a918d84b6a4b22a41b58c570e3dfc4faf98fa624745f4766e56bd0d9a288f09f",
+      "size": 3767
     },
     {
       "path": "delivery-template/config/LOOP-CONTRACTS.yaml",
@@ -2624,8 +2689,8 @@
     },
     {
       "path": "delivery-template/config/MODEL-ROUTING-POLICY.yaml",
-      "sha256": "44fc5e1e7114372b305e076bdac5fb6142139cacac362a3020f24f7c53ab7fe9",
-      "size": 4621
+      "sha256": "b0419fd946c02fb476b900b49fcc313b83bacd76473b42978ae8682186e35d01",
+      "size": 5082
     },
     {
       "path": "delivery-template/config/PLANNING-CONVERGENCE-POLICY.yaml",
@@ -2694,13 +2759,13 @@
     },
     {
       "path": "delivery-template/config/TOOL-CAPABILITY-CATALOG.yaml",
-      "sha256": "378128f93ded4d29620bddfa5af8a07da5668b1693f1e8cb188c0ac14b158ac6",
-      "size": 3497
+      "sha256": "2c87ee67a43e80f82c9d0c8eafcd81182895a0c707a4b4e243be959ae002a336",
+      "size": 4455
     },
     {
       "path": "delivery-template/config/TOOL-SELECTION-POLICY.yaml",
-      "sha256": "a309ec1257e601848455298ff278a85befbef4a3cef664336ed9868e64a5d165",
-      "size": 1856
+      "sha256": "24633154e4f22c9ba833a06cb63be31380803edf3efb8a80b8300d1eb21b49c2",
+      "size": 2441
     },
     {
       "path": "delivery-template/docs/schemas/WORKER-RESULT.schema.json",
@@ -2723,14 +2788,19 @@
       "size": 1880
     },
     {
+      "path": "delivery-template/docs/system/CAPABILITY-BOOTSTRAP.md",
+      "sha256": "7fe9c2f84c666276a23330a9ee8cd246e9a465a42c1cb70cc8d9912bf2241cc3",
+      "size": 4465
+    },
+    {
       "path": "delivery-template/docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md",
       "sha256": "bba6f92c58a058516a711b3917d3b706ed7921cd76637e5c4f2800b8ff0b9f01",
       "size": 2896
     },
     {
       "path": "delivery-template/docs/system/CAPABILITY-RESOLUTION-AND-TOOL-BOOTSTRAP.md",
-      "sha256": "fb8dbc13b0a9389065666510694a217b10249f279c2e4502b1f8f5e2016f7190",
-      "size": 2279
+      "sha256": "084494b768ea543290fbf10b4941f968e03fae2fd4290814e459aedf45a8c1b9",
+      "size": 2669
     },
     {
       "path": "delivery-template/docs/system/CHANGE-CONTROL-AND-RETROSPECTIVE.md",
@@ -2738,9 +2808,14 @@
       "size": 1145
     },
     {
+      "path": "delivery-template/docs/system/CODE-INTELLIGENCE-AND-GRAPHIFY.md",
+      "sha256": "ebf400d6b7f9be50ac2e2a481a1702de04e74557a8e97547f166b806951df8da",
+      "size": 3679
+    },
+    {
       "path": "delivery-template/docs/system/COMMAND-CODE-FIRST-CLASS-PREVIEW.md",
-      "sha256": "f2f47c6145f9dfe75685d65b5ab24fb3b5065cccc9b7111cd6b3a08b442b218f",
-      "size": 2027
+      "sha256": "985218c4323ba9419c831b6ed2e607a08fe426174f6043eff68b64d87c346f67",
+      "size": 2133
     },
     {
       "path": "delivery-template/docs/system/CONTROL-EFFECTIVENESS-AND-HARNESS-AUDIT.md",
@@ -2779,8 +2854,8 @@
     },
     {
       "path": "delivery-template/docs/system/HARNESS-COMPATIBILITY.md",
-      "sha256": "bcd49054f7e71fabf452ac0e46ae90e291ebad2419ca5992cbc1eadc2fdd816a",
-      "size": 1164
+      "sha256": "935d80af9ea2435508f6664b0e70d1507aaf49347b99a55bfc743766d27c3d2a",
+      "size": 1405
     },
     {
       "path": "delivery-template/docs/system/HARNESS-CONFORMANCE.md",
@@ -2804,8 +2879,8 @@
     },
     {
       "path": "delivery-template/docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md",
-      "sha256": "3a6303ae41e7aa558ff7b25da9858afc7c7496caad62ab35a56e2ae4427d13d4",
-      "size": 6847
+      "sha256": "ae18701ac46313221e4e6424716e0bb6ffc5bea8f80c6b3a32cc69fb0bbb84b6",
+      "size": 7358
     },
     {
       "path": "delivery-template/docs/system/MODEL-VISIBLE-RECONSTRUCTABILITY.md",
@@ -2818,9 +2893,19 @@
       "size": 1217
     },
     {
+      "path": "delivery-template/docs/system/OH-MY-PI-FIRST-CLASS-HARNESS.md",
+      "sha256": "0be17829db821ae8916b83098c2ade402efebca0ed305784ce752846c647a695",
+      "size": 3527
+    },
+    {
       "path": "delivery-template/docs/system/PLANNING-BASELINE-ATTESTATION.md",
       "sha256": "2c0881ad9594c9b36fe4587578d29f893bc275380b76b67cd393ae3188a6c199",
       "size": 895
+    },
+    {
+      "path": "delivery-template/docs/system/PLANNING-COMPILER-AND-PLAN-CHECKER.md",
+      "sha256": "974d8828470a8545713d0f5153e517faefa33c417d9a9dd20c09746ca58bd2e1",
+      "size": 838
     },
     {
       "path": "delivery-template/docs/system/PLANNING-CONVERGENCE-AND-ARTIFACT-DAG.md",
@@ -2908,14 +2993,19 @@
       "size": 63
     },
     {
+      "path": "delivery-template/docs/templates/CODE-INTELLIGENCE-STATE.template.yaml",
+      "sha256": "5d31e732024c32c5b02f224143d561ec3ba8082bf36a846dac993475b4ed1ef4",
+      "size": 271
+    },
+    {
       "path": "delivery-template/docs/templates/EXECUTION-PLAN.template.md",
       "sha256": "9c1866041dcdee3e8566cc0deb0017db26468bfad1806534e1c465d9fdde761b",
       "size": 2686
     },
     {
       "path": "delivery-template/docs/templates/JOB-CONTRACT.template.yaml",
-      "sha256": "d2a223a9b28f0fb72375cd15e68070e462e35c21c6bcf97f4278743ae7e5f86b",
-      "size": 931
+      "sha256": "f50cda836a75d854280b165190a22954517e8519a681cda8c0de2928dddd0adb",
+      "size": 1115
     },
     {
       "path": "delivery-template/docs/templates/JOB-GRAPH.template.json",
@@ -2979,8 +3069,8 @@
     },
     {
       "path": "delivery-template/docs/templates/WORKER-BRIEF.template.yaml",
-      "sha256": "c42fbcd78fc74dca85d1461ca59e138ea040c68544819e45ffe681ed5dcbc36c",
-      "size": 1342
+      "sha256": "fa8220340cf690b7a88c1b9e18838c78fa093758972400cf2d85d52e46230124",
+      "size": 1558
     },
     {
       "path": "delivery-template/docs/templates/WORKER-RESULT.template.json",
@@ -3094,8 +3184,8 @@
     },
     {
       "path": "delivery-template/planning/execution/AUTOPILOT-GOAL.md",
-      "sha256": "a1b01d6e947e40dd49eaf71d3f16baaaa4ab74c7e3e9ff0ba9b2d56c139b882d",
-      "size": 10608
+      "sha256": "ac1cd47ae56ab6197cb439cb5121bbde18d70af6c3c7b578b53e78307a2de367",
+      "size": 10636
     },
     {
       "path": "delivery-template/planning/execution/BLOCKERS.json",
@@ -3106,6 +3196,11 @@
       "path": "delivery-template/planning/execution/CAPABILITY-STATE.json",
       "sha256": "c98db2f42ac7d6cb3664e794dfa6548859cb66a4d8ba924cbe50973d3bef8f3c",
       "size": 130
+    },
+    {
+      "path": "delivery-template/planning/execution/CODE-INTELLIGENCE-STATE.yaml",
+      "sha256": "5d31e732024c32c5b02f224143d561ec3ba8082bf36a846dac993475b4ed1ef4",
+      "size": 271
     },
     {
       "path": "delivery-template/planning/execution/CONTROL-EVENTS.jsonl",
@@ -3179,7 +3274,7 @@
     },
     {
       "path": "delivery-template/planning/execution/MODEL-ROUTING-STATE.yaml",
-      "sha256": "828108e2db617eda7e4de5a128d7624c641428604fda3e7c71d0309260be9bb7",
+      "sha256": "16f5bf5f221389103572aed2920d03ae00aa2a3d0add66f2c30e225d22af1584",
       "size": 291
     },
     {
@@ -3368,9 +3463,14 @@
       "size": 1285
     },
     {
+      "path": "delivery-template/scripts/graphify_ctl.py",
+      "sha256": "952c4d8abfcfa4457a8775b6cfe3ac7c7f6b9bcb1e44f7c259c7584d3498dd40",
+      "size": 8088
+    },
+    {
       "path": "delivery-template/scripts/harness_preflight.py",
-      "sha256": "70d20bb32f18e881af2b2e4344262d4d2c4c4af76600c80da9f697e67b017387",
-      "size": 1509
+      "sha256": "d1aad140178cd3aa881ff30cb8df5f185afe13e3cd2d1447314bad0094ddd8f9",
+      "size": 2357
     },
     {
       "path": "delivery-template/scripts/heartbeat_job.py",
@@ -3494,8 +3594,8 @@
     },
     {
       "path": "delivery-template/scripts/validate_control_plane.py",
-      "sha256": "351213e1f8d720e8093d428273b5151815e46576c255ca91f4b3fc0d2d6bd6e7",
-      "size": 1831
+      "sha256": "da7b918d5acb5f7102fef2c4bd5271ee6f64d855c25a9ed42ad2a2205c6dcf6b",
+      "size": 1847
     },
     {
       "path": "delivery-template/scripts/validate_decision_coverage.py",
@@ -3539,8 +3639,8 @@
     },
     {
       "path": "delivery-template/scripts/validate_system.py",
-      "sha256": "ae9b3cd12bd5a18581d2e773cffc258fd1ddedf43242394aeccf8b5b6ec8ed69",
-      "size": 30846
+      "sha256": "4dac6b0aeff511e8ac1758ddcc4142c072345fbc1ad5f5a85b0fa8a27b09af78",
+      "size": 32698
     },
     {
       "path": "delivery-template/scripts/validate_v582_completion.py",
@@ -3549,8 +3649,8 @@
     },
     {
       "path": "delivery-template/scripts/validate_v58_architecture.py",
-      "sha256": "f212b41af680b43639e73d73250b9848cc8f7c740dc51f3cc01ec7c410b88b71",
-      "size": 3275
+      "sha256": "f0b24525932727c31155f6bcb532ed36008b1414e24b49777fe375b4530f183f",
+      "size": 3291
     },
     {
       "path": "delivery-template/scripts/validate_v592_model_routing.py",
@@ -3559,8 +3659,13 @@
     },
     {
       "path": "delivery-template/scripts/validate_v592_release.py",
-      "sha256": "67dd5f067b35e5f768b3c2f8d7018a6b69be53f14d86730d33ee2437bfcb019a",
-      "size": 798
+      "sha256": "54cd82584e17807d407dfbf75e421af579d9e8eef45a1a7c1751aab4636e23e6",
+      "size": 814
+    },
+    {
+      "path": "delivery-template/scripts/validate_v593_integration.py",
+      "sha256": "c1bd67e219f55d49c103fb2fe52bd372e60443da746430ab0165dddcd9e7a43d",
+      "size": 4367
     },
     {
       "path": "delivery-template/scripts/validate_v59_control_plane.py",
@@ -3584,8 +3689,8 @@
     },
     {
       "path": "docs/SETUP.md",
-      "sha256": "dbb43c75995703e78ba67989eae044426bf64d969f6ab32b8fd7cbf955874f60",
-      "size": 2574
+      "sha256": "a13e6109d363c4a4d2df46e1df6e89aef7a56e4a0a2a824a9e19f3ee57e15410",
+      "size": 2977
     },
     {
       "path": "docs/schemas/WORKER-RESULT.schema.json",
@@ -3619,8 +3724,8 @@
     },
     {
       "path": "docs/system/CAPABILITY-BOOTSTRAP.md",
-      "sha256": "27c78f937a7d574c0508100b8675fe4110581a0f5169e44ae62dffad0847826f",
-      "size": 4086
+      "sha256": "7fe9c2f84c666276a23330a9ee8cd246e9a465a42c1cb70cc8d9912bf2241cc3",
+      "size": 4465
     },
     {
       "path": "docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md",
@@ -3629,13 +3734,18 @@
     },
     {
       "path": "docs/system/CAPABILITY-RESOLUTION-AND-TOOL-BOOTSTRAP.md",
-      "sha256": "fb8dbc13b0a9389065666510694a217b10249f279c2e4502b1f8f5e2016f7190",
-      "size": 2279
+      "sha256": "084494b768ea543290fbf10b4941f968e03fae2fd4290814e459aedf45a8c1b9",
+      "size": 2669
     },
     {
       "path": "docs/system/CHANGE-CONTROL-AND-RETROSPECTIVE.md",
       "sha256": "2e0f880aaea190abfacbb1c812b82b9aa6acca3cec6cab3aed8b098936e4e5c9",
       "size": 1145
+    },
+    {
+      "path": "docs/system/CODE-INTELLIGENCE-AND-GRAPHIFY.md",
+      "sha256": "ebf400d6b7f9be50ac2e2a481a1702de04e74557a8e97547f166b806951df8da",
+      "size": 3679
     },
     {
       "path": "docs/system/CODEX-FIRST-CLASS-HARNESS.md",
@@ -3649,8 +3759,8 @@
     },
     {
       "path": "docs/system/COMMAND-CODE-FIRST-CLASS-PREVIEW.md",
-      "sha256": "f2f47c6145f9dfe75685d65b5ab24fb3b5065cccc9b7111cd6b3a08b442b218f",
-      "size": 2027
+      "sha256": "985218c4323ba9419c831b6ed2e607a08fe426174f6043eff68b64d87c346f67",
+      "size": 2133
     },
     {
       "path": "docs/system/CONTEXT-AND-PARALLELISM.md",
@@ -3744,8 +3854,8 @@
     },
     {
       "path": "docs/system/HARNESS-COMPATIBILITY.md",
-      "sha256": "bcd49054f7e71fabf452ac0e46ae90e291ebad2419ca5992cbc1eadc2fdd816a",
-      "size": 1164
+      "sha256": "935d80af9ea2435508f6664b0e70d1507aaf49347b99a55bfc743766d27c3d2a",
+      "size": 1405
     },
     {
       "path": "docs/system/HARNESS-CONFORMANCE.md",
@@ -3784,8 +3894,8 @@
     },
     {
       "path": "docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md",
-      "sha256": "3a6303ae41e7aa558ff7b25da9858afc7c7496caad62ab35a56e2ae4427d13d4",
-      "size": 6847
+      "sha256": "ae18701ac46313221e4e6424716e0bb6ffc5bea8f80c6b3a32cc69fb0bbb84b6",
+      "size": 7358
     },
     {
       "path": "docs/system/MODEL-VISIBLE-RECONSTRUCTABILITY.md",
@@ -3798,9 +3908,14 @@
       "size": 1217
     },
     {
+      "path": "docs/system/OH-MY-PI-FIRST-CLASS-HARNESS.md",
+      "sha256": "0be17829db821ae8916b83098c2ade402efebca0ed305784ce752846c647a695",
+      "size": 3527
+    },
+    {
       "path": "docs/system/PI-REFERENCE-HARNESS.md",
-      "sha256": "baabe70b52f389415fb05afd7e815dc7421253de3f520e0773c2b1c20fc2118b",
-      "size": 3430
+      "sha256": "c3bc573d3b954832ea514294a2eff0aaa50be48aa72447f366416facaed416fb",
+      "size": 3738
     },
     {
       "path": "docs/system/PLANNING-AND-RESEARCH.md",
@@ -3814,8 +3929,8 @@
     },
     {
       "path": "docs/system/PLANNING-COMPILER-AND-PLAN-CHECKER.md",
-      "sha256": "ff1964854012c36b820d5030cbc8fc645a57d1b19b95aea4263797bf6475fd3a",
-      "size": 399
+      "sha256": "974d8828470a8545713d0f5153e517faefa33c417d9a9dd20c09746ca58bd2e1",
+      "size": 838
     },
     {
       "path": "docs/system/PLANNING-CONVERGENCE-AND-ARTIFACT-DAG.md",
@@ -3984,8 +4099,8 @@
     },
     {
       "path": "docs/templates/AUTOPILOT-GOAL.template.md",
-      "sha256": "c68a9351a094b3b3fc3685dabe5960af6eb78498fb3cd4ee14371ac14e1443fc",
-      "size": 7995
+      "sha256": "438d0e089c07aa1bd04faea64c7a168992b22f63459bd646286093d613f24b76",
+      "size": 8023
     },
     {
       "path": "docs/templates/BLOCKERS.template.json",
@@ -3996,6 +4111,11 @@
       "path": "docs/templates/CHANGE.template.yaml",
       "sha256": "a280312aa110857c7f443832caaa788901e9d282b6b8482c0a2013a43ffbe558",
       "size": 189
+    },
+    {
+      "path": "docs/templates/CODE-INTELLIGENCE-STATE.template.yaml",
+      "sha256": "5d31e732024c32c5b02f224143d561ec3ba8082bf36a846dac993475b4ed1ef4",
+      "size": 271
     },
     {
       "path": "docs/templates/CODING-AGENT-HANDOFF.template.md",
@@ -4104,8 +4224,8 @@
     },
     {
       "path": "docs/templates/JOB-CONTRACT.template.yaml",
-      "sha256": "d2a223a9b28f0fb72375cd15e68070e462e35c21c6bcf97f4278743ae7e5f86b",
-      "size": 931
+      "sha256": "f50cda836a75d854280b165190a22954517e8519a681cda8c0de2928dddd0adb",
+      "size": 1115
     },
     {
       "path": "docs/templates/JOB-GRAPH.template.json",
@@ -4229,8 +4349,8 @@
     },
     {
       "path": "docs/templates/TARGET-GITIGNORE.fragment",
-      "sha256": "b32e9eb89219270536c42b95c5b396d33946817711651b8ce34869d43cd4f967",
-      "size": 148
+      "sha256": "99bf2ad7f9249c5b9eb2c93f31261c97fd906aaec2e14bc27f127d596510275a",
+      "size": 205
     },
     {
       "path": "docs/templates/TECHNOLOGY-CANDIDATE-EVALUATION.template.yaml",
@@ -4269,8 +4389,8 @@
     },
     {
       "path": "docs/templates/WORKER-BRIEF.template.yaml",
-      "sha256": "c42fbcd78fc74dca85d1461ca59e138ea040c68544819e45ffe681ed5dcbc36c",
-      "size": 1342
+      "sha256": "fa8220340cf690b7a88c1b9e18838c78fa093758972400cf2d85d52e46230124",
+      "size": 1558
     },
     {
       "path": "docs/templates/WORKER-CONTRACT.template.yaml",
@@ -4279,7 +4399,7 @@
     },
     {
       "path": "docs/templates/WORKER-RESULT.schema.json",
-      "sha256": "3a7364f186064f35448e94632fcfe9219a690b27c2c27731a361b574f84ccbfe",
+      "sha256": "5104d2c5786dc79af220a123f7c9ccfb13c856d48c207adc655bb9e7393789c1",
       "size": 1067
     },
     {
@@ -4424,8 +4544,8 @@
     },
     {
       "path": "planning/execution/AUTOPILOT-GOAL.md",
-      "sha256": "a1b01d6e947e40dd49eaf71d3f16baaaa4ab74c7e3e9ff0ba9b2d56c139b882d",
-      "size": 10608
+      "sha256": "ac1cd47ae56ab6197cb439cb5121bbde18d70af6c3c7b578b53e78307a2de367",
+      "size": 10636
     },
     {
       "path": "planning/execution/BLOCKERS.json",
@@ -4438,14 +4558,19 @@
       "size": 130
     },
     {
+      "path": "planning/execution/CODE-INTELLIGENCE-STATE.yaml",
+      "sha256": "5d31e732024c32c5b02f224143d561ec3ba8082bf36a846dac993475b4ed1ef4",
+      "size": 271
+    },
+    {
       "path": "planning/execution/CONTEXT-STATE.yaml",
       "sha256": "3ab55bc8a7928efce657a78ed0003ccc9f1f05cd58419a9215f14a31bc05867f",
       "size": 489
     },
     {
       "path": "planning/execution/CONTROL-EVENTS.jsonl",
-      "sha256": "aa13c99b13cd99218d5468b0a0da57212de87dc597acf4fd9cef8970693056d0",
-      "size": 209
+      "sha256": "a3fe386d4c79765ce49b9e4d3714a4567564a9305c341975f539ca1120aff6c8",
+      "size": 428
     },
     {
       "path": "planning/execution/CONTROL-INSIGHTS.jsonl",
@@ -4454,12 +4579,12 @@
     },
     {
       "path": "planning/execution/CONTROL-MUTATION-LOG.jsonl",
-      "sha256": "ee5aade2cadc5f01b21cdb1620e9dc08d84c668995104beec2375be506724291",
-      "size": 645
+      "sha256": "a99d403320ed150e4ab2451397cfe5ee08e8f2007cce94340f9ff9aa9b1e39cc",
+      "size": 1352
     },
     {
       "path": "planning/execution/CONTROL-STATE.json",
-      "sha256": "adcb4ae082fe06620c9e5a76269378daeb26e837531a4cb60d6a92ded049230f",
+      "sha256": "f44d4b19e6c994641e162b232f3b9b4e4de3bfefb366ba79e897451c6da49bf3",
       "size": 1197
     },
     {
@@ -4484,8 +4609,8 @@
     },
     {
       "path": "planning/execution/DOCUMENTATION-STATE.yaml",
-      "sha256": "f9a3485d0a913905bbbf5704981bf59057a6e6fbf93f0409be2e236a2495c3eb",
-      "size": 320
+      "sha256": "ad4f2bd8b365fb019961d0ae94adfc75ad192bc1e1620ff5a632b32cef8c1ac0",
+      "size": 5205
     },
     {
       "path": "planning/execution/EVIDENCE-INDEX.json",
@@ -4539,7 +4664,7 @@
     },
     {
       "path": "planning/execution/MODEL-ROUTING-STATE.yaml",
-      "sha256": "828108e2db617eda7e4de5a128d7624c641428604fda3e7c71d0309260be9bb7",
+      "sha256": "16f5bf5f221389103572aed2920d03ae00aa2a3d0add66f2c30e225d22af1584",
       "size": 291
     },
     {
@@ -4808,13 +4933,18 @@
       "size": 236
     },
     {
+      "path": "release/RELEASE-BASELINE-V5.9.3.json",
+      "sha256": "2f53763800af147f7e6ea67a04ab65e00ce5b70cc860d537f7f3abeb34cfe357",
+      "size": 236
+    },
+    {
       "path": "release/RELEASE-BASELINE-V5.9.json",
       "sha256": "70836f844836516fbf0fbb450f0424cca38d99c1874964a426e024c1397079fa",
       "size": 415
     },
     {
       "path": "release/RELEASE-BASELINE.json",
-      "sha256": "739410b78a7bdea30fdad1ab814aed991f40306cb644b2388cae9a5dacecf6f0",
+      "sha256": "2f53763800af147f7e6ea67a04ab65e00ce5b70cc860d537f7f3abeb34cfe357",
       "size": 236
     },
     {
@@ -4828,19 +4958,29 @@
       "size": 805
     },
     {
+      "path": "release/RELEASE-CLAIMS-V5.9.3.yaml",
+      "sha256": "7b61e7ef7fed17c2de21777aeeefbcc4bdb4e04064140690a9645d483301d045",
+      "size": 1296
+    },
+    {
       "path": "release/RELEASE-CLAIMS-V5.9.yaml",
       "sha256": "bd96f424194c0f8db487a5522e96806493dafb5bd3e167960945fd8d156fb7c3",
       "size": 1719
     },
     {
       "path": "release/RELEASE-CLAIMS.yaml",
-      "sha256": "ae653569c2900fd19d4c20e9c9d65e358f591894c2a748ea3a458531463d1798",
-      "size": 805
+      "sha256": "7b61e7ef7fed17c2de21777aeeefbcc4bdb4e04064140690a9645d483301d045",
+      "size": 1296
     },
     {
       "path": "release/RELEASE-DELTA-V5.9.2.json",
       "sha256": "978b0ce95382bf9572fc4ba8f1a91bb212bd05785484617e3ea251d8214b1d65",
       "size": 2692
+    },
+    {
+      "path": "release/RELEASE-DELTA-V5.9.3.json",
+      "sha256": "03cd7b2b64d14499c30e51b59275287eed109391a2e8bd6162d256449c631677",
+      "size": 4560
     },
     {
       "path": "release/RELEASE-DELTA-V5.9.json",
@@ -4849,8 +4989,8 @@
     },
     {
       "path": "release/RELEASE-DELTA.json",
-      "sha256": "978b0ce95382bf9572fc4ba8f1a91bb212bd05785484617e3ea251d8214b1d65",
-      "size": 2692
+      "sha256": "03cd7b2b64d14499c30e51b59275287eed109391a2e8bd6162d256449c631677",
+      "size": 4560
     },
     {
       "path": "release/UPDATE-PUBLIC-GITHUB-REPO-V5.9.1.md",
@@ -4863,9 +5003,14 @@
       "size": 5549
     },
     {
+      "path": "release/UPDATE-PUBLIC-GITHUB-REPO-V5.9.3.md",
+      "sha256": "fa53f2569fb5a6c222e86c3b6d693ba77fcbb3b03d5eb0d6364397f1d64326d1",
+      "size": 7377
+    },
+    {
       "path": "release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md",
-      "sha256": "5eb1cf4ae6c14d378f4a2a614cb6993c9462d0559542d3d871a4844f40789f9b",
-      "size": 5549
+      "sha256": "fa53f2569fb5a6c222e86c3b6d693ba77fcbb3b03d5eb0d6364397f1d64326d1",
+      "size": 7377
     },
     {
       "path": "scripts/aggregate_skill_usage.py",
@@ -4928,9 +5073,14 @@
       "size": 1288
     },
     {
+      "path": "scripts/graphify_ctl.py",
+      "sha256": "952c4d8abfcfa4457a8775b6cfe3ac7c7f6b9bcb1e44f7c259c7584d3498dd40",
+      "size": 8088
+    },
+    {
       "path": "scripts/harness_preflight.py",
-      "sha256": "70d20bb32f18e881af2b2e4344262d4d2c4c4af76600c80da9f697e67b017387",
-      "size": 1509
+      "sha256": "d1aad140178cd3aa881ff30cb8df5f185afe13e3cd2d1447314bad0094ddd8f9",
+      "size": 2357
     },
     {
       "path": "scripts/heartbeat_job.py",
@@ -5074,8 +5224,8 @@
     },
     {
       "path": "scripts/validate_control_plane.py",
-      "sha256": "351213e1f8d720e8093d428273b5151815e46576c255ca91f4b3fc0d2d6bd6e7",
-      "size": 1831
+      "sha256": "da7b918d5acb5f7102fef2c4bd5271ee6f64d855c25a9ed42ad2a2205c6dcf6b",
+      "size": 1847
     },
     {
       "path": "scripts/validate_decision_coverage.py",
@@ -5114,8 +5264,8 @@
     },
     {
       "path": "scripts/validate_release_claims.py",
-      "sha256": "636d719385be3945a291c526e34cf92d66de81fe3bff79ba006ab8047f58b249",
-      "size": 4307
+      "sha256": "f51d6fe3223df2bbd7dabb2187263789046d1963b4d128b356e4ceafe01ea910",
+      "size": 4556
     },
     {
       "path": "scripts/validate_skill_discovery.py",
@@ -5129,8 +5279,8 @@
     },
     {
       "path": "scripts/validate_system.py",
-      "sha256": "ae9b3cd12bd5a18581d2e773cffc258fd1ddedf43242394aeccf8b5b6ec8ed69",
-      "size": 30846
+      "sha256": "4dac6b0aeff511e8ac1758ddcc4142c072345fbc1ad5f5a85b0fa8a27b09af78",
+      "size": 32698
     },
     {
       "path": "scripts/validate_v581_hardening.py",
@@ -5144,13 +5294,13 @@
     },
     {
       "path": "scripts/validate_v58_architecture.py",
-      "sha256": "f212b41af680b43639e73d73250b9848cc8f7c740dc51f3cc01ec7c410b88b71",
-      "size": 3275
+      "sha256": "f0b24525932727c31155f6bcb532ed36008b1414e24b49777fe375b4530f183f",
+      "size": 3291
     },
     {
       "path": "scripts/validate_v591_release.py",
-      "sha256": "c4cb7d6b05b3079d526c3307e6696ba8d6b02ce86e4670a8429a835280bfd835",
-      "size": 733
+      "sha256": "278f30c5e6e0cb9610309993fd05cce83762ad1e2d159c8f0c6d904f766e7fd0",
+      "size": 741
     },
     {
       "path": "scripts/validate_v592_model_routing.py",
@@ -5159,8 +5309,13 @@
     },
     {
       "path": "scripts/validate_v592_release.py",
-      "sha256": "67dd5f067b35e5f768b3c2f8d7018a6b69be53f14d86730d33ee2437bfcb019a",
-      "size": 798
+      "sha256": "54cd82584e17807d407dfbf75e421af579d9e8eef45a1a7c1751aab4636e23e6",
+      "size": 814
+    },
+    {
+      "path": "scripts/validate_v593_integration.py",
+      "sha256": "c1bd67e219f55d49c103fb2fe52bd372e60443da746430ab0165dddcd9e7a43d",
+      "size": 4367
     },
     {
       "path": "scripts/validate_v59_control_plane.py",

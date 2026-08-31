@@ -1,4 +1,4 @@
-version: 5.9.2
+version: 5.9.3
 status: UNRESOLVED
 policy: config/MODEL-ROUTING-POLICY.yaml
 harness: null

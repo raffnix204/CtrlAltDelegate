@@ -1,0 +1,31 @@
+version: '5.9.3'
+harness: oh-my-pi
+policy: Resolve CtrlAltDelegate capability classes through OMP model roles/selectors without weakening the job minimum class.
+openai_reference:
+  FRONTIER:
+    preferred_model: gpt-5.6-sol
+    selector_suffix: high
+    forbidden_generic_effort: hi
+    forbidden_reasoning:
+    - xhigh
+    - max
+    note: OMP task effort=hi maps to the highest level supported by the resolved model, so FRONTIER must use an explicit :high selector instead.
+  BALANCED:
+    preferred_model: gpt-5.6-terra
+    selector_suffix: high
+  EFFICIENT:
+    preferred_model: gpt-5.6-luna
+    selector_suffix: high
+role_mapping:
+  main_orchestrator: FRONTIER
+  plan: FRONTIER
+  task: EFFICIENT
+  complex_worker: BALANCED
+  advisor: BALANCED
+  critical_reviewer: FRONTIER
+runtime_rules:
+- Resolve the exact provider/model id from OMP's current model catalog before dispatch; never invent unavailable ids.
+- FRONTIER OpenAI dispatch must bind Sol explicitly at high and must not rely on generic task effort=hi.
+- EFFICIENT -> BALANCED -> FRONTIER escalation creates a fresh attributable attempt.
+- The persistent main orchestrator never satisfies independent review.
+- If OMP cannot resolve a requested class, follow the generic CtrlAltDelegate fallback and record degradation.

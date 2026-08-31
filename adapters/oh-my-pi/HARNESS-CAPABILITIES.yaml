@@ -1,0 +1,42 @@
+version: '5.9.3'
+harness: oh-my-pi
+binary: omp
+support: FIRST_CLASS
+inherits_methodology_from: pi
+instruction_discovery:
+  root_agents_md: true
+  agent_dirs:
+  - .agent
+  - .agents
+  canonical_skill_root: .agents/skills
+  native_omp_context_optional: true
+subagents:
+  task_tool: native
+  batch: true
+  async_background: true
+  structured_output_schema: true
+  isolated_worktrees: true
+  persistent_agent_registry: true
+  parent_owned_todo: true
+  typed_results: true
+model_routing:
+  supported: true
+  source: task_agent_model_overrides_or_agent_frontmatter
+  ctrlaltdelegate_policy: config/MODEL-ROUTING-POLICY.yaml
+  frontier_effort_rule: EXPLICIT_MODEL_SELECTOR_HIGH_ONLY
+  generic_hi_for_frontier: FORBIDDEN
+review:
+  advisor_available: true
+  advisor_is_supplemental: true
+  independent_review_requires_fresh_agent: true
+  native_review_command_may_be_used_when_scope_and_target_are_explicit: true
+isolation:
+  default_for_parallel_writers: true
+  exact_branch_or_patch_metadata_required: true
+capability_attestation:
+  required_before_use:
+  - task
+  - per_subagent_model_selection
+  - isolated_worktrees
+  - structured_output_schema
+  degrade_if_missing: PRESERVE_CTRLALTDELEGATE_CONTRACT_AND_REROUTE

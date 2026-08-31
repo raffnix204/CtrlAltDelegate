@@ -1,4 +1,4 @@
-version: 5.9.1
+version: 5.9.3
 required_standard_artifacts:
 - RESEARCH-CLAIMS.yaml
 - FEASIBILITY-LEDGER.yaml
@@ -8,5 +8,10 @@ required_standard_artifacts:
 - PLAN-CHECKER.json
 - COLD-START-IMPLEMENTABILITY.json
 - CONTRACT-COVERAGE.json
+- CODE-INTELLIGENCE-STATE.yaml
 plan_checker: independent_read_only_findings
 cold_start: zero_context_required
+code_intelligence:
+  preflight_required: true
+  graph_queries_compiled_when_material: true
+  source_confirmation_required: true

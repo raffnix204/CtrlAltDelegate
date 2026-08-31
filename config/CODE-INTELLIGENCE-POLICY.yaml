@@ -1,0 +1,63 @@
+version: '5.9.3'
+mode: GRAPH_QUERY_FIRST_WHEN_READY
+principles:
+  code_intelligence_is_navigation_not_proof: true
+  real_source_tests_runtime_remain_acceptance_authority: true
+  all_projects_run_code_intelligence_preflight: true
+  nontrivial_code_projects_prefer_graphify: true
+  micro_or_no_supported_code_may_skip_with_reason: true
+  existing_verified_equivalent_may_satisfy_navigation_capability: true
+providers:
+  graphify:
+    repository: Graphify-Labs/graphify
+    package: graphifyy
+    verified_version: 0.9.53
+    license: Apache-2.0
+    install_preference: HOST_USER_SCOPE_WITH_EXPLICIT_ONCE_PER_HOST_CONSENT
+    host_registration: graphify agents install
+    project_registration: OPTIONAL
+    code_extraction: LOCAL_TREE_SITTER_NO_LLM
+    semantic_media_extraction: OPTIONAL_MODEL_BACKEND
+    query_first_when_graph_exists: true
+    graph_dir: graphify-out
+    generated_artifacts_git_policy: LOCAL_TRANSIENT_IGNORE_BY_DEFAULT
+    watch:
+      code_only_updates_no_llm: true
+      debounce_supported: true
+  fallback:
+    order:
+    - verified_harness_native_code_graph_or_semantic_navigation
+    - verified_lsp
+    - targeted_search_read_trace
+lifecycle:
+- CODE_INTELLIGENCE_PREFLIGHT
+- HOST_CONSENT_RESOLUTION
+- PROVIDER_INSTALL_OR_REUSE
+- GRAPH_BUILD_OR_REFRESH
+- GRAPH_READY
+- QUERY_FIRST_NAVIGATION
+- SOURCE_LEVEL_CONFIRMATION
+- WATCH_OR_INCREMENTAL_REFRESH_WHEN_BENEFICIAL
+host_consent:
+  states:
+  - ASK
+  - HOST_ALWAYS
+  - PROJECT_ONLY
+  - NEVER
+  persist_outside_project_only_after_user_choice: true
+  no_sudo: true
+  no_admin: true
+  no_global_overwrite: true
+  no_silent_host_install: true
+usage:
+  brownfield_onboarding: REQUIRED_WHEN_GRAPHIFY_READY
+  architecture_trace: REQUIRED_WHEN_GRAPHIFY_READY
+  cross_file_change_impact: REQUIRED_WHEN_GRAPHIFY_READY
+  worker_read_first_resolution: PREFERRED_WHEN_GRAPHIFY_READY
+  debugging_dependency_trace: PREFERRED_WHEN_GRAPHIFY_READY
+  tiny_single_file_change: OPTIONAL
+verification:
+  graph_edges_are_navigation_hints: true
+  extracted_edges_have_higher_navigation_confidence_than_inferred: true
+  inferred_or_ambiguous_edges_require_source_confirmation: true
+  graphify_output_cannot_satisfy_acceptance_oracle_alone: true

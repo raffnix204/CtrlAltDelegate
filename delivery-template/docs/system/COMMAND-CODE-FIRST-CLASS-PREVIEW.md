@@ -12,7 +12,7 @@ CtrlAltDelegate `JOB-GRAPH.json`, surface policy, requirements, evidence and pla
 Where supported, translate CtrlAltDelegate protected surfaces and worker authority into native `ALLOW/ASK/DENY`/hook enforcement. `INSTRUCTIONS != ENFORCEMENT`: a prompt prohibition is not equivalent to a native permission boundary.
 
 ## Caching/model economics
-The core methodology does not route or pin models. Command Code may exploit its own model/provider/cache behavior, but CtrlAltDelegate only specifies worker capability/assurance requirements. Pricing, model availability and cache rules are drift-prone and must not be hardcoded into the release.
+The core methodology uses provider-neutral capability-class model routing when the harness supports per-role or per-worker selection. Command Code may exploit its own model/provider/cache behavior through that contract; concrete provider/model availability and pricing remain drift-prone and must be resolved at runtime. The OpenAI reference mapping preserves the hard Sol reasoning ceiling of `high`.
 
 ## Conformance
 The lane verifies: instructions, `.agents/skills`, headless structured output, session resume, scoped file/shell/Git access, deny enforcement, subagent isolation/parallelism, task mapping, MCP registration, hooks, worktree behavior and CtrlAltDelegate handoff/resume. Missing optional features reduce the effective capability attestation; missing required job capability triggers reroute/fail-loud.

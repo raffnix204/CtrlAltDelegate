@@ -140,10 +140,10 @@ for p in R.rglob('*'):
     if legacy_re.search(t): errors.append(f'{p.relative_to(R)}: legacy version remnant')
 
 
-# V5.9.2 HIERARCHICAL_MODEL_ROUTING_GATE
+# V5.9.3 HIERARCHICAL_MODEL_ROUTING_GATE
 try:
     mr=yaml.safe_load((R/'config/MODEL-ROUTING-POLICY.yaml').read_text(encoding='utf-8'))
-    if str(mr.get('patch_release'))!='5.9.2': errors.append('MODEL-ROUTING-POLICY patch release mismatch')
+    if str(mr.get('patch_release'))!='5.9.3': errors.append('MODEL-ROUTING-POLICY patch release mismatch')
     if (mr.get('roles') or {}).get('main_orchestrator',{}).get('class')!='FRONTIER': errors.append('main orchestrator must route FRONTIER')
     if (mr.get('roles') or {}).get('standard_implementation_worker',{}).get('class')!='EFFICIENT': errors.append('standard implementation worker must default EFFICIENT')
     om=mr.get('openai_mapping') or {}
@@ -156,10 +156,10 @@ try:
     if (mr.get('review_independence') or {}).get('orchestrator_role')!='ADJUDICATE_INTEGRATE_REBRIEF': errors.append('main orchestrator must not satisfy independent review')
 except Exception as e: errors.append(f'MODEL-ROUTING-POLICY parse: {e}')
 for rel in ['docs/system/MODEL-ROUTING-AND-HIERARCHICAL-ORCHESTRATION.md','planning/execution/MODEL-ROUTING-STATE.yaml']:
-    if not (R/rel).exists(): errors.append(f'missing V5.9.2 model-routing surface {rel}')
+    if not (R/rel).exists(): errors.append(f'missing V5.9.3 model-routing surface {rel}')
 try:
     mrs=yaml.safe_load((R/'planning/execution/MODEL-ROUTING-STATE.yaml').read_text(encoding='utf-8'))
-    if str(mrs.get('version'))!='5.9.2' or mrs.get('frontier_reasoning_effort_ceiling')!='high': errors.append('MODEL-ROUTING-STATE invalid baseline')
+    if str(mrs.get('version'))!='5.9.3' or mrs.get('frontier_reasoning_effort_ceiling')!='high': errors.append('MODEL-ROUTING-STATE invalid baseline')
 except Exception as e: errors.append(f'MODEL-ROUTING-STATE parse: {e}')
 
 # V5.9 FULL_LIFECYCLE_ENTRY_GATE: GitHub Native must be standalone and must not require Custom GPT planning.
@@ -192,6 +192,38 @@ for rel, tokens in {
 # Complete release distribution, not a documentation-only snapshot.
 for rel in ['.agents/skills/CATALOG.yaml','.claude/skills','.pi','.githooks','evals/skills/scenarios.yaml','docs/system/CAPABILITY-DRIVEN-TECHNOLOGY-SELECTION.md','config/TECHNOLOGY-CAPABILITY-CATALOG.yaml','config/TECHNOLOGY-SELECTION-POLICY.yaml','docs/system/CAPABILITY-RESOLUTION-AND-TOOL-BOOTSTRAP.md','config/TOOL-CAPABILITY-CATALOG.yaml','config/TOOL-SELECTION-POLICY.yaml','planning/architecture/TECHNOLOGY-EVALUATION.yaml','planning/execution/CAPABILITY-STATE.json','planning/execution/TOOL-LOCK.json','docs/system/COMMAND-CODE-FIRST-CLASS-PREVIEW.md','adapters/command-code/HARNESS-CAPABILITIES.yaml','scripts/detect_tool_capabilities.py','scripts/resolve_capability_provider.py','scripts/bootstrap_tool.py','scripts/verify_tool_capability.py','release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md','README.md','config/SKILL-ESCALATION-POLICY.yaml','planning/execution/SKILL-REQUESTS.jsonl','planning/execution/SKILL-USAGE-EVENTS.jsonl','docs/system/RUNTIME-SKILL-ESCALATION.md','scripts/resolve_skill_request.py','config/SKILL-MAINTENANCE-POLICY.yaml','scripts/aggregate_skill_usage.py','docs/system/USAGE-AWARE-SKILL-MAINTENANCE.md','release/RELEASE-BASELINE.json','release/RELEASE-DELTA.json','release/RELEASE-CLAIMS.yaml','scripts/validate_release_claims.py']:
     if not (R/rel).exists(): errors.append(f'incomplete GitHub-native distribution: missing {rel}')
+
+
+# V5.9.3 OH_MY_PI_AND_GRAPHIFY_GATE
+for rel in [
+    'docs/system/OH-MY-PI-FIRST-CLASS-HARNESS.md',
+    'adapters/oh-my-pi/HARNESS-CAPABILITIES.yaml',
+    'adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml',
+    'adapters/oh-my-pi/TASK-MAPPING.yaml',
+    '.omp/RULES.md',
+    'config/CODE-INTELLIGENCE-POLICY.yaml',
+    'docs/system/CODE-INTELLIGENCE-AND-GRAPHIFY.md',
+    'planning/execution/CODE-INTELLIGENCE-STATE.yaml',
+    'scripts/graphify_ctl.py',
+]:
+    if not (R/rel).exists(): errors.append(f'missing V5.9.3 integration surface {rel}')
+try:
+    hc=yaml.safe_load((R/'config/HARNESS-CONFORMANCE.yaml').read_text(encoding='utf-8'))
+    omp=(hc.get('harnesses') or {}).get('oh-my-pi') or {}
+    if omp.get('support')!='FIRST_CLASS': errors.append('Oh My Pi must be FIRST_CLASS')
+    if omp.get('canonical_skills')!='.agents/skills': errors.append('Oh My Pi must reuse canonical .agents/skills')
+except Exception as e: errors.append(f'Oh My Pi harness parse: {e}')
+try:
+    ci=yaml.safe_load((R/'config/CODE-INTELLIGENCE-POLICY.yaml').read_text(encoding='utf-8'))
+    gp=(ci.get('providers') or {}).get('graphify') or {}
+    if gp.get('verified_version')!='0.9.53': errors.append('Graphify verified baseline mismatch')
+    if gp.get('install_preference')!='HOST_USER_SCOPE_WITH_EXPLICIT_ONCE_PER_HOST_CONSENT': errors.append('Graphify host consent rule missing')
+    if not (ci.get('principles') or {}).get('code_intelligence_is_navigation_not_proof'): errors.append('Graphify navigation-not-proof invariant missing')
+except Exception as e: errors.append(f'CODE-INTELLIGENCE-POLICY parse: {e}')
+try:
+    ompmap=(mr.get('oh_my_pi_mapping') or {})
+    if ompmap.get('generic_effort_hi_for_frontier')!='FORBIDDEN': errors.append('OMP generic hi must be forbidden for FRONTIER/Sol')
+except Exception as e: errors.append(f'OMP model mapping check: {e}')
 
 # INTERNATIONALIZATION_GATE: canonical shipped system text must remain English while conversation can adapt to the user.
 german_chars=re.compile('[\\u00e4\\u00f6\\u00fc\\u00c4\\u00d6\\u00dc\\u00df]')

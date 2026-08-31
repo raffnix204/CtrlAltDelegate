@@ -464,3 +464,31 @@ skill_optimization_research_v5_8_2:
   - session-derived offline optimization as explicit opt-in only
   - skill-defect versus execution-lapse failure classification
   adaptation: SkillOpt is optional external maintainer tooling; canonical CtrlAltDelegate skills remain SHA-bound, review/eval gated and never self-promote.
+
+harness_and_code_intelligence_research_v5_9_3:
+  reviewed_at: '2026-08-30'
+  policy: External projects remain providers/reference implementations; CtrlAltDelegate adapts capabilities without vendoring their runtime.
+  repositories:
+  - name: Oh My Pi
+    url: https://github.com/can1357/oh-my-pi
+    observed_package_version: 18.0.11
+    used_for:
+    - first-class Pi-derived harness mapping
+    - native task batch/async subagents
+    - per-subagent model roles and overrides
+    - structured output schemas and typed task results
+    - isolated worktree execution
+    - advisor/review and LSP/DAP capability awareness
+    caveat: OMP task effort=hi maps to the highest supported effort; CtrlAltDelegate FRONTIER/Sol must bind explicit high instead.
+  - name: Graphify
+    url: https://github.com/Graphify-Labs/graphify
+    observed_package: graphifyy
+    observed_version: 0.9.53
+    license: Apache-2.0
+    used_for:
+    - persistent local code knowledge graph
+    - query/path/explain before broad source reads
+    - tree-sitter structural extraction without LLM for code
+    - incremental/watch refresh during execution waves
+    - generic Agent Skills and Pi integration
+    caveat: Graph edges are navigation/context evidence, never a standalone acceptance oracle.

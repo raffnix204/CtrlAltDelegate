@@ -14,4 +14,4 @@ detect:
 - hooks
 - permission_enforcement
 - worktrees
-model_routing: HARNESS_OWNED_NOT_CTRLALTDELEGATE
+model_routing: CAPABILITY_CLASS_ADAPTIVE_WHEN_SUPPORTED

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "CtrlAltDelegate Worker Result V5.9.2",
+  "title": "CtrlAltDelegate Worker Result V5.9.3",
   "type": "object",
   "required": [
     "job_id",

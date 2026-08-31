@@ -1,3 +1,12 @@
+# System Changelog
+
+## V5.9.3 — 2026-08-30
+- Added Oh My Pi as a first-class Pi-derived harness with native task batching, structured worker results, per-worker model routing and isolated-worktree mapping.
+- Added OMP-specific Sol safety: generic `effort: hi` is forbidden for FRONTIER/Sol; explicit `:high` is required.
+- Added Graphify as the preferred external code-intelligence provider with universal preflight, query-first navigation, optional watch/update and strict navigation-not-proof semantics.
+- Added one-time host consent (`HOST_ALWAYS | PROJECT_ONLY | NEVER`) before any Graphify user-scope installation.
+- Kept the canonical library at 154 skills and retained V5.9.2 model-routing, feasibility, parent-reverification and convergence controls.
+
 # V5.9 — Execution Control Plane
 
 ## V5.9.2 — 2026-08-25

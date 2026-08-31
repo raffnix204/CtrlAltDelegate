@@ -10,7 +10,7 @@ def j(rel):
     except Exception as x:e.append(f'{rel}: {x}'); return {}
 for rel in ['config/TECHNOLOGY-CAPABILITY-CATALOG.yaml','config/TECHNOLOGY-SELECTION-POLICY.yaml','config/TOOL-CAPABILITY-CATALOG.yaml','config/TOOL-SELECTION-POLICY.yaml','config/HARNESS-CONFORMANCE.yaml']:
     d=y(rel)
-    if str(d.get('version'))!='5.9': e.append(f'{rel}: version')
+    if str(d.get('version')) not in {'5.9','5.9.3'}: e.append(f'{rel}: version')
 tc=y('config/TECHNOLOGY-CAPABILITY-CATALOG.yaml'); caps=tc.get('capabilities') or {}
 for need in ['backend_platform','api_contract','api_gateway_management','identity_iam','analytics_olap','time_series_metrics','event_streaming','durable_workflow','realtime_collaboration','mobile','desktop','commerce','iot_device_telemetry','ai_model_serving','deployment']:
     if need not in caps or len((caps.get(need) or {}).get('candidates',[]))<1:e.append(f'technology capability missing {need}')
@@ -31,7 +31,7 @@ read=(R/'README.md').read_text()
 for token in ['Custom GPT','does not consume tokens, credits, or API budget from the later coding-agent account','Command Code','CRW / fastCRW','Obscura','Playwright','Capability-driven technology selection']:
     if token not in read:e.append(f'README missing {token}')
 hand=(R/'release-handoff/UPDATE-PUBLIC-GITHUB-REPO.md').read_text()
-for token in ['software-planning-lead-v5.9.2-github-native.zip','raffnix204/CtrlAltDelegate','commit','push']:
+for token in ['software-planning-lead-v5.9.3-github-native.zip','raffnix204/CtrlAltDelegate','commit','push']:
     if token not in hand:e.append(f'release handoff missing {token}')
 for rel in ['scripts/detect_tool_capabilities.py','scripts/resolve_capability_provider.py','scripts/bootstrap_tool.py','scripts/verify_tool_capability.py','adapters/command-code/HARNESS-CAPABILITIES.yaml']:
     if not (R/rel).is_file():e.append(f'missing {rel}')

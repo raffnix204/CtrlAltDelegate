@@ -1,4 +1,4 @@
-# V5.9 Setup
+# V5.9.3 Setup
 
 ## GitHub-native direct use — full lifecycle
 The GitHub Native Edition is standalone. Clone/fork the complete distribution, open repository root in a compatible coding agent, and use the prompt in `START-HERE.md`. No Custom GPT is required.
@@ -32,8 +32,10 @@ python3 scripts/harness_preflight.py
 
 The first two must pass for an intact release checkout. `harness_preflight.py` additionally reports local harness/tool availability.
 
-## Pi / Codex / Claude Code / OpenCode
-Pi is the reference harness; Codex CLI is an equal first-class behavioral target. Claude Code and OpenCode use the same canonical contracts when required capabilities are available. Per-subagent model routing is used when supported; otherwise the same role/context contract runs on the active inherited model.
+## Oh My Pi / Pi / Codex / Claude Code / OpenCode
+Oh My Pi is first-class and reuses Pi methodology while using OMP-native `task`, structured results, model roles and worktree isolation when attested. Pi remains the reference harness; Codex CLI is an equal first-class behavioral target. Claude Code and OpenCode use the same canonical contracts when required capabilities are available. Per-subagent model routing is used when supported; otherwise the same role/context contract runs on the active inherited model.
+
+For Graphify, run `python3 scripts/graphify_ctl.py prepare`. If it returns `ASK_USER`, record one of `HOST_ALWAYS | PROJECT_ONLY | NEVER`; host installation requires explicit consent and uses `uv tool`/`pipx`, never sudo/system pip.
 
 ## Git guards
 After repository initialization/import run `python3 scripts/install_git_guards.py`. Preserve/integrate existing custom hooks and reach `GIT_GUARDS_READY` before implementation commits.

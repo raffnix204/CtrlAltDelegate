@@ -1,4 +1,4 @@
-version: '5.9'
+version: 5.9.3
 policy:
   same_behavioral_contract: true
   use_native_capabilities_when_available: true
@@ -98,6 +98,20 @@ harnesses:
     promotion: runtime_conformance_required
     blocking_stop_hook: false
     per_subagent_model_selection: detect
+  oh-my-pi:
+    support: FIRST_CLASS
+    inherits_methodology_from: pi
+    binary: omp
+    instructions: AGENTS.md_plus_optional_.omp_RULES
+    canonical_skills: .agents/skills
+    task_subagents: native_batch_async
+    structured_worker_results: native_outputSchema
+    isolated_worktrees: native_detect
+    advisor: supplemental_not_independent_review_credit
+    per_subagent_model_selection: true
+    model_routing_adapter: adapters/oh-my-pi/MODEL-ROUTING-MAPPING.yaml
+    frontier_effort_rule: EXPLICIT_HIGH_SELECTOR_NEVER_GENERIC_HI
+    blocking_stop_hook: detect
 attestation:
   template: docs/templates/HARNESS-ATTESTATION.template.json
   bindings:

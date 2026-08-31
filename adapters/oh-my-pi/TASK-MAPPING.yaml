@@ -1,0 +1,20 @@
+version: '5.9.3'
+harness: oh-my-pi
+canonical_source: planning/execution/JOB-GRAPH.json
+mapping:
+  ready_jobs: task.tasks
+  shared_context: task.context
+  job_worker_brief: task.tasks[].task
+  worker_role: task.tasks[].agent
+  structured_result_contract: task.tasks[].outputSchema
+  structured_result_mode: task.tasks[].schemaMode
+  isolated_writer: task.tasks[].isolated
+  model_class: task.agentModelOverrides_or_agent_frontmatter
+  attempt_effort: task.tasks[].effort_when_safe
+rules:
+- Batch only behaviorally independent ready jobs with disjoint write ownership.
+- Use isolated worktrees for concurrent writers when available.
+- Do not pass generic effort=hi to a Sol FRONTIER worker; resolve the explicit high selector.
+- Worker completion is scheduler/session completion only; CtrlAltDelegate parent re-verification still decides acceptance.
+- Persist resolved model, output artifact, patch/branch metadata, token/cost data when OMP exposes them.
+- OMP child recursion is disabled unless the Job Contract explicitly delegates fan-out authority.

@@ -1,4 +1,4 @@
-version: 5.9.2
+version: 5.9.3
 brief_id: null
 run_nonce: null
 job:
@@ -35,6 +35,13 @@ skill_escalation:
   request_log: planning/execution/SKILL-REQUESTS.jsonl
   delta_dir: planning/execution/brief-deltas
   base_brief_immutable: true
+code_intelligence:
+  mode: AUTO
+  provider_preference: graphify
+  state_path: planning/execution/CODE-INTELLIGENCE-STATE.yaml
+  query_first_when_ready: true
+  planned_queries: []
+  source_confirmation_required: true
 attempt:
   attempt_id: null
   worker_id: null
